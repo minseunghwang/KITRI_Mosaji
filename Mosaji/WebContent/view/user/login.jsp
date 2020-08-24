@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -42,7 +42,7 @@
 						</div>
 						<div class="col-md-6">
 							<input type="text" id="u_id" name="u_id"
-								placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä">
+								placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 						</div>
 					</div>
 					<div class="offset-md-3 col-md-6">
@@ -51,14 +51,14 @@
 						</div>
 						<div class="col-md-6">
 							<input type="password" id="u_pw" name="u_pw"
-								placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä">
+								placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”">
 						</div>
 					</div>
 					<br>
 					<br>
 					<div class="offset-md-3 col-md-6">
-						<input type="submit" value="·Î±×ÀÎ"> <input type="button"
-							value="È¸¿ø°¡ÀÔ" onclick="register()">
+						<input type="submit" value="ë¡œê·¸ì¸"> <input type="button"
+							value="íšŒì›ê°€ì…" onclick="register()">
 					</div>
 				</form>
 			</div>

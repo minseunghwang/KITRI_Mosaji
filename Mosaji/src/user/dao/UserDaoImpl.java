@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(1, u_id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				u = new User(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6), rs.getInt(7));
+				u = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),  rs.getString(6), rs.getInt(7));
 				
 			} 
 		}catch (Exception e) {
@@ -49,19 +49,21 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void insert(User u) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_user VALUES(mosaji_user_seq.nextval, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO mosaji_user VALUES(mosaji_user_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 		
 		PreparedStatement pstmt = null;
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, u.getU_no());
-			pstmt.setString(2, u.getU_id());
-			pstmt.setString(3, u.getU_pw());
-			pstmt.setString(4, u.getU_name());
+			
+			pstmt.setString(1, u.getU_id());
+			pstmt.setString(2, u.getU_pw());
+			pstmt.setString(3, u.getU_name());
+			pstmt.setInt(4, u.getU_age());
 			pstmt.setString(5, u.getU_gender());
-			pstmt.setInt(6, u.getU_age());
+			pstmt.setInt(6, u.getU_like_item());
+			pstmt.setString(7, u.getU_skintype());
 			
 			pstmt.executeUpdate();
 		}catch(SQLException e) {

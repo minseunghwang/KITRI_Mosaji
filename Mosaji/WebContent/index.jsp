@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
@@ -17,36 +17,36 @@
 <div id="wrapper">
 	<div id="staff" class="container">
 		<div class="title">
-			<h2>´ç½ÅÀÇ °í¹ÎÀ» ÇØ°áÇØÁÖ´Â ¹¹»çÁö!</h2>
-			<span> ¿¬·É´ë, ¼ºº°, ÃëÇâ¿¡ ¸Â´Â ¼±¹°À» ÃßÃµ¹ÞÀ¸¼¼¿ä!</span> </div>
+			<h2>ë‹¹ì‹ ì˜ ê³ ë¯¼ì„ í•´ê²°í•´ì£¼ëŠ” ë­ì‚¬ì§€!</h2>
+			<span> ì—°ë ¹ëŒ€, ì„±ë³„, ì·¨í–¥ì— ë§žëŠ” ì„ ë¬¼ì„ ì¶”ì²œë°›ìœ¼ì„¸ìš”!</span> </div>
 		<div class="boxA"><img src="${pageContext.request.contextPath }/resources/images/pic01.jpg" width="300" height="450" alt="" /></div>
 		<div class="boxB"><img src="${pageContext.request.contextPath }/resources/images/pic02.jpg" width="300" height="450" alt="" /></div>
 		<div class="boxC"><img src="${pageContext.request.contextPath }/resources/images/pic03.jpg" width="300" height="450" alt="" /></div>
 	</div>
 	<div id="page" class="container">
 		<div class="boxA">
-			<h2>¹Ú½ºA<br />
-				<span>Á¦¸ñA</span></h2>
-			<p>³»¿ëA</p>
+			<h2>ë°•ìŠ¤A<br />
+				<span>ì œëª©A</span></h2>
+			<p>ë‚´ìš©A</p>
 			<ul class="style4">
-				<li class="first"><a href="#">¸µÅ©1</a></li>
-				<li><a href="#">¸µÅ©2</a></li>
-				<li><a href="#">¸µÅ©3</a></li>
+				<li class="first"><a href="#">ë§í¬1</a></li>
+				<li><a href="#">ë§í¬2</a></li>
+				<li><a href="#">ë§í¬3</a></li>
 			</ul>
 		</div>
 		<div class="boxB">
-			<h2>¹Ú½ºB<br />
-				<span> Á¦¸ñB</span></h2>
+			<h2>ë°•ìŠ¤B<br />
+				<span> ì œëª©B</span></h2>
 			<ul class="style3">
 				<li class="first">
 					<p class="date"><a href="#">Dec<b>30</b></a></p>
-					<h3>Á¦¸ñB</h3>
-					<p><a href="#">¸µÅ©1</a></p>
+					<h3>ì œëª©B</h3>
+					<p><a href="#">ë§í¬1</a></p>
 				</li>
 				<li>
 					<p class="date"><a href="#">Dec<b>28</b></a></p>
-					<h3>³»¿ëB</h3>
-					<p><a href="#">¸µÅ©2</a></p>
+					<h3>ë‚´ìš©B</h3>
+					<p><a href="#">ë§í¬2</a></p>
 				</li>
 			</ul>
 		</div>

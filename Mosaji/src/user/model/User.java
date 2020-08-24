@@ -8,8 +8,28 @@ public class User {
 	private String u_name;
 	private int u_age;
 	private String u_gender;
+	private String u_skintype;
 	private int u_like_item;
-	public User(String u_id, int u_no, String u_pw, String u_name, int u_age, String u_gender, int u_like_item) {
+	
+	
+	
+	
+	
+	public User(String u_id, String u_pw, String u_name, int u_age, String u_gender, String u_skintype, int u_like_item) {
+		super();
+		this.u_id = u_id;
+		this.u_pw = u_pw;
+		this.u_name = u_name;
+		this.u_age = u_age;
+		this.u_gender = u_gender;
+		this.u_skintype = u_skintype;
+		this.u_like_item = u_like_item;
+	}
+	
+	
+	
+	public User(String u_id, int u_no, String u_pw, String u_name, int u_age, String u_gender, String u_skintype,
+			int u_like_item) {
 		super();
 		this.u_id = u_id;
 		this.u_no = u_no;
@@ -17,8 +37,12 @@ public class User {
 		this.u_name = u_name;
 		this.u_age = u_age;
 		this.u_gender = u_gender;
+		this.u_skintype = u_skintype;
 		this.u_like_item = u_like_item;
 	}
+
+
+
 	public String getU_id() {
 		return u_id;
 	}
@@ -54,6 +78,15 @@ public class User {
 	}
 	public void setU_gender(String u_gender) {
 		this.u_gender = u_gender;
+	}
+
+	
+	
+	public String getU_skintype() {
+		return u_skintype;
+	}
+	public void setU_skintype(String u_skintype) {
+		this.u_skintype = u_skintype;
 	}
 	public int getU_like_item() {
 		return u_like_item;

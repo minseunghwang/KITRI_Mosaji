@@ -17,6 +17,42 @@
 <link href="resources/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
+<script type="text/javascript">
+   var selectBox = document.getElementById("selectBox");
+   var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+   alert(selectedValue);
+
+   function check_input() {
+      // 사용자가 입력한 데이터를 추출한다.
+      var user_name = $("#u_name").val()
+      var user_id = $("#u_id").val()
+      var user_pw = $("#u_id").val()
+      var user_age = $("#u_age").val()
+
+      if (user_id.length == 0) {
+         alert('아이디를 입력해 주세요')
+         $("#user_id").focus()
+         return false
+      }
+      if (user_pw.length == 0) {
+         alert('비밀번호를 입력해 주세요')
+         $("#user_pw").focus()
+         return false
+      }
+      if (user_name.length == 0) {
+         alert("이름을 입력해 주세요")
+         $("#user_name").focus()
+         return false
+      }
+      if (user_age.length == 0) {
+         alert('나이를 입력해 주세요')
+         $("#user_age").focus()
+         return false
+      }
+
+      return True
+   }
+</script>
 
 </head>
 <body>
@@ -29,7 +65,7 @@
          <div class="col-lg-1"></div>
          <!-- /.col-lg-3 -->
 
-         <div class="col-lg-9" style="text-align: center";>
+         <div class="col-lg-9" style="text-align: center;">
             <div id="carouselExampleIndicators" class="carousel slide my-4"
                data-ride="carousel" style="text-align: -webkit-center;">
 
@@ -72,7 +108,7 @@
                      </div>
 
                      
-                     <!-- 
+                     
                      <div>
                         <select id="selectBox" name="u_skintype" id="u_skintype"
                            style="margin-bottom: 15px; width:100%;">
@@ -85,7 +121,7 @@
                            
                         </select>
                      </div>
-					 -->
+					 <input type="hidden" id="u_like_item" name="u_like_item" value="0">
                      <input type="submit" class="btn btn-secondary form-control"
                         value="회원가입">
                   </form>
