@@ -8,7 +8,7 @@ body
 {
 	margin: 0px;
 	padding: 0px;
-	background: #CC0000;
+	background: #FFBFAB;
 	font-family: 'Jua', sans-serif;
 	font-size: 12pt;
 	font-weight: 300;
@@ -330,18 +330,18 @@ ul.contact li a.icon-rss:before
 
 #menu li a, #menu li span
 {
-	padding: 1em 1.5em;
+	padding: 20em 1.2em;
 	letter-spacing: 1px;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 0.90em;
+	font-size: 1.10em;
 	font-weight: 600;
 	color: #FFF;
 }
 
 #menu li:hover a, #menu li.active a, #menu li.active span
 {
-	background: #CC0000;
+	background: #625772;
 	border-radius: 5px;
 }
 
