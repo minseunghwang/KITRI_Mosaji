@@ -8,20 +8,20 @@
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-<link href="resources/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="${pageContext.request.contextPath }resources/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="${pageContext.request.contextPath }resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 
-<%@ include file="common/header.jsp"%>
+<%@ include file="view/common/header.jsp"%>
 <div id="wrapper">
 	<div id="staff" class="container">
 		<div class="title">
 			<h2>당신의 고민을 해결해주는 뭐사지!</h2>
 			<span> 연령대, 성별, 취향에 맞는 선물을 추천받으세요!</span> </div>
-		<div class="boxA"><img src="resources/images/pic01.jpg" width="300" height="450" alt="" /></div>
-		<div class="boxB"><img src="resources/images/pic02.jpg" width="300" height="450" alt="" /></div>
-		<div class="boxC"><img src="resources/images/pic03.jpg" width="300" height="450" alt="" /></div>
+		<div class="boxA"><img src="${pageContext.request.contextPath }/resources/images/pic01.jpg" width="300" height="450" alt="" /></div>
+		<div class="boxB"><img src="${pageContext.request.contextPath }/resources/images/pic02.jpg" width="300" height="450" alt="" /></div>
+		<div class="boxC"><img src="${pageContext.request.contextPath }/resources/images/pic03.jpg" width="300" height="450" alt="" /></div>
 	</div>
 	<div id="page" class="container">
 		<div class="boxA">
@@ -71,6 +71,6 @@
 </div>
 
 
-<%@ include file="common/footer.jsp"%>
+<%@ include file="view/common/footer.jsp"%>
 </body>
 </html>

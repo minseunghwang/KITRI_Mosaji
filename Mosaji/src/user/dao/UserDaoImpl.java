@@ -45,4 +45,35 @@ public class UserDaoImpl implements UserDao{
 		}
 		return u;
 	}
+
+	@Override
+	public void insert(User u) {
+		Connection conn = null;
+		String sql = "INSERT INTO mosaji_user VALUES(mosaji_user_seq.nextval, ?, ?, ?, ?, ?)";
+		
+		PreparedStatement pstmt = null;
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, u.getU_no());
+			pstmt.setString(2, u.getU_id());
+			pstmt.setString(3, u.getU_pw());
+			pstmt.setString(4, u.getU_name());
+			pstmt.setString(5, u.getU_gender());
+			pstmt.setInt(6, u.getU_age());
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }

@@ -16,5 +16,10 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return userdao.select(u_id);
 	}
+	@Override
+	public void join(User u) {
+		userdao.insert(u);
+		
+	}
 	
 }
