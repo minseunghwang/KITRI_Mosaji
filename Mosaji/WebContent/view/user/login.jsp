@@ -30,40 +30,41 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<section>
-		<div class="contrainer">
-			<div class="offset-md-3 col-md-6">
-				<form name="f"
-					action="${pageContext.request.contextPath }/LoginController"
-					method="post">
-					<div class="offset-md-3 col-md-6">
-						<div class="col-md-6">
-							<label for="u_id">I D </label>
-						</div>
-						<div class="col-md-6">
-							<input type="text" id="u_id" name="u_id"
-								placeholder="아이디를 입력해주세요">
-						</div>
+	
+	<!--  긁어옴 -->
+	<div class="container">
+		<div class="row" style="position: relative; top: 100px;">
+			<div class="col-lg-1"></div>
+			<!-- /.col-lg-3 -->
+
+			<div class="col-lg-9" style="text-align: center";>
+
+				<div id="carouselExampleIndicators" class="carousel slide my-4"
+					data-ride="carousel" style="text-align: -webkit-center;">
+					<img src="${pageContext.request.contextPath }/resources/images/logo_5.png" style="width: 20%; height: 20%;">
+					<div class="card-body col-lg-5">
+						<form method="post" action="${pageContext.request.contextPath }/LoginController">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="아이디"
+									name="u_id" maxlength="20">
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" placeholder="비밀번호"
+									name="u_pw" maxlength="20">
+							</div>
+							<input type="submit" class="btn btn-secondary form-control"
+								value="로그인" style="margin-top: 10px";>
+						</form>
+						<form method="post" action="register.jsp">
+							<input type="submit" class="btn btn-secondary form-control"
+								value="회원가입" style="margin-top: 10px";>
+						</form>
 					</div>
-					<div class="offset-md-3 col-md-6">
-						<div class="col-md-6">
-							<label for="u_pw">PW</label>
-						</div>
-						<div class="col-md-6">
-							<input type="password" id="u_pw" name="u_pw"
-								placeholder="비밀번호를 입력해주세요">
-						</div>
-					</div>
-					<br>
-					<br>
-					<div class="offset-md-3 col-md-6">
-						<input type="submit" value="로그인"> <input type="button"
-							value="회원가입" onclick="register()">
-					</div>
-				</form>
+
+				</div>
 			</div>
-		</div>
-	</section>
+
+
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

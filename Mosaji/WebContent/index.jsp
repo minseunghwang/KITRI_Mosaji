@@ -19,9 +19,9 @@
 		<div class="title">
 			<h2>당신의 고민을 해결해주는 뭐사지!</h2>
 			<span> 연령대, 성별, 취향에 맞는 선물을 추천받으세요!</span> </div>
-		<div class="boxA"><img src="${pageContext.request.contextPath }/resources/images/pic01.jpg" width="300" height="450" alt="" /></div>
-		<div class="boxB"><img src="${pageContext.request.contextPath }/resources/images/pic02.jpg" width="300" height="450" alt="" /></div>
-		<div class="boxC"><img src="${pageContext.request.contextPath }/resources/images/pic03.jpg" width="300" height="450" alt="" /></div>
+		<div class="boxA"><img src="${pageContext.request.contextPath }/resources/images/lip_1.png" width="100%" height="100%" alt="" /></div>
+		<div class="boxB"><img src="${pageContext.request.contextPath }/resources/images/lip_2.png" width="100%" height="100%" alt="" /></div>
+		<div class="boxC"><img src="${pageContext.request.contextPath }/resources/images/lip_3.png" width="100%" height="100%" alt="" /></div>
 	</div>
 	<div id="page" class="container">
 		<div class="boxA">
