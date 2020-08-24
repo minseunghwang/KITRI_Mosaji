@@ -1,11 +1,19 @@
 package user.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+import user.model.User;
+import user.service.UserService;
+import user.service.UserServiceImpl;
 
 /**
  * Servlet implementation class LoginController
@@ -27,7 +35,34 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=EUC-KR");
+		response.setCharacterEncoding("euc-kr");
+		String path = "/view/user/login.jsp";
+		
+		UserService userservice = new UserServiceImpl();
+		
+		HttpSession session = request.getSession();
+		
+		String u_id = request.getParameter("u_id");
+		String u_pw = request.getParameter("u_pw");
+		
+		User u = userservice.getUser(u_id);
+		if(u != null && u_pw.equals(u.getU_pw())) {
+			session.setAttribute("u_id", u_id);
+			System.out.println("성공 u_id = " + u_id);
+			path = "view/index.html";
+		}else {
+			System.out.println("실패");
+			System.out.println("실패 u_id = " + u_id);
+			System.out.println("실패 u_pw = " + u_pw);
+			path = "view/index.html";
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher(path);
+		if(rd != null) {
+			rd.forward(request, response);
+		}
 	}
 
 	/**
