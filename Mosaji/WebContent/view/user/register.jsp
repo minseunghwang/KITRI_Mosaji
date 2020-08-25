@@ -77,7 +77,7 @@
 
 
                   <form method="post" action="${pageContext.request.contextPath }/JoinController"
-                     onsubmit="return check_input()">
+                     onsubmit="return check_input();">
                      <div class="form-group">
                         <input type="text" class="form-control"
                            placeholder="아이디 : 3~12자 영문 소문자" id="u_id" name="u_id"

@@ -38,9 +38,11 @@ public class LoginController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
-		String path = "/view/user/login.jsp";
+		
 		
 		UserService userservice = new UserServiceImpl();
+		
+		boolean flag = false;
 		
 		HttpSession session = request.getSession();
 		
@@ -51,10 +53,12 @@ public class LoginController extends HttpServlet {
 		if(u != null && u_pw.equals(u.getU_pw())) {
 			session.setAttribute("u_id", u_id);
 			System.out.println("�꽦怨� u_id = " + u_id);
-			path = "/index.jsp";
+			flag = true;
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher(path);
+		session.setAttribute("flag", flag);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		if(rd != null) {
 			rd.forward(request, response);
 		}

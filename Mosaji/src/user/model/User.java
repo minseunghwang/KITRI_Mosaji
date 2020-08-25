@@ -94,11 +94,17 @@ public class User {
 	public void setU_like_item(int u_like_item) {
 		this.u_like_item = u_like_item;
 	}
+
+
+
 	@Override
 	public String toString() {
 		return "User [u_id=" + u_id + ", u_no=" + u_no + ", u_pw=" + u_pw + ", u_name=" + u_name + ", u_age=" + u_age
-				+ ", u_gender=" + u_gender + ", u_like_item=" + u_like_item + "]";
+				+ ", u_gender=" + u_gender + ", u_skintype=" + u_skintype + ", u_like_item=" + u_like_item + "]";
 	}
+	
+	
+	
 	
 	
 	
