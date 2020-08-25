@@ -82,7 +82,7 @@
 				        <select  class="custom-select" id="i_category1">
                            <option value="">뷰티 카테고리</option>
                            <option value="face">페이스 메이크업</option>
-                           <option value="skincare">스킨케어</option>
+                          <option value="skincare">스킨케어</option>
                            <option value="lip">립메이크업</option>
                         </select>
                      </div>
