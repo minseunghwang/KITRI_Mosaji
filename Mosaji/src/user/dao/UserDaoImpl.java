@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(1, u_id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				u = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),  rs.getString(6), rs.getInt(7));
+				u = new User(rs.getString("u_id"), rs.getInt("u_no"), rs.getString("u_pw"), rs.getString("u_name"), rs.getInt("u_age"), rs.getString("u_gender"),  rs.getString("u_skintype"), rs.getInt("u_like_item"));
 				
 			} 
 		}catch (Exception e) {
@@ -78,4 +78,5 @@ public class UserDaoImpl implements UserDao{
 		}
 		
 	}
+	
 }

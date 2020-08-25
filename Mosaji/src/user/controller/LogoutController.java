@@ -10,22 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-import user.model.User;
-import user.service.UserService;
-import user.service.UserServiceImpl;
-
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class LogoutController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/LogoutController")
+public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public LogoutController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,44 +29,23 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("euc-kr");
+		response.setContentType("text/html; charset=EUC-KR");
+		response.setCharacterEncoding("euc-kr");
 		
+		HttpSession session = request.getSession(false);
 		
-		UserService userservice = new UserServiceImpl();
-		
-		boolean flag = false;
-		
-		HttpSession session = request.getSession();
-		
-		String u_id = request.getParameter("u_id");
-		String u_pw = request.getParameter("u_pw");
-		
-		User u = userservice.getUser(u_id);
-		if(u != null && u_pw.equals(u.getU_pw())) {
-			session.setAttribute("u_id", u_id);
-			System.out.println("�꽦怨� u_id = " + u_id);
-			flag = true;
-			System.out.println("세션 담긴" + u_id);
-		}
-		
-		session.setAttribute("flag", flag);
+		session.invalidate();
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request, response);
-		
-//		response.sendRedirect("/Mosaji/MainController");
-		
-		System.out.println("세션이 있나 " + u_id);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
