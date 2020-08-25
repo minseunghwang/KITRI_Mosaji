@@ -1,6 +1,7 @@
-package user.controller;
+package wishlist.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,22 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import user.model.User;
 import user.service.UserService;
 import user.service.UserServiceImpl;
+import wishlist.model.Wishlist;
+import wishlist.service.WishlistService;
+import wishlist.service.WishlistServiceImpl;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class WishlistController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/WishlistController")
+public class WishlistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public WishlistController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,44 +37,41 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
-		
+		WishlistService wishlistservice = new WishlistServiceImpl();
 		UserService userservice = new UserServiceImpl();
 		
-		boolean flag = false;
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
+		System.out.println(session + "session");
 		
-		String u_id = request.getParameter("u_id");
-		String u_pw = request.getParameter("u_pw");
+		
+		String u_id = (String) session.getAttribute("u_id");
+		System.out.println("u_id = " + u_id);
 		
 		User u = userservice.getUser(u_id);
-		if(u != null && u_pw.equals(u.getU_pw())) {
-			session.setAttribute("u_id", u_id);
-			System.out.println("�꽦怨� u_id = " + u_id);
-			flag = true;
-			System.out.println("세션 담긴" + u_id);
-		}
 		
-		session.setAttribute("flag", flag);
+		request.setAttribute("u", u);
+		System.out.println(" u  ==" +  u);
+		ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) wishlistservice.getAll();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+		request.setAttribute("wishlist", wishlist);
+		
+		System.out.println("wishlist = " + wishlist);
+		RequestDispatcher rd = request.getRequestDispatcher("/view/user/wishlist.jsp");
 		rd.forward(request, response);
 		
-//		response.sendRedirect("/Mosaji/MainController");
-		
-		System.out.println("세션이 있나 " + u_id);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
