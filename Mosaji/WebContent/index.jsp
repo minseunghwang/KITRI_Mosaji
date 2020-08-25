@@ -5,70 +5,117 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
 <link href="${pageContext.request.contextPath }resources/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="${pageContext.request.contextPath }resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-<body>
+
+
+
+
+<script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+
+            $('#i_category1').change(function() {
+
+                var face = ["파운데이션","컨실러","베이스","BB크림"];
+
+                var skincare = ["스킨","로션","에센스","크림"];
+
+                var changeItem;
+
+                if (this.value == "face") {
+
+                    changeItem = face;
+
+                } else if (this.value == "skincare") {
+
+                    changeItem = skincare;
+
+                }
+
+                $('#i_category2').empty();
+
+                for (var count = 0; count < changeItem.length; count++) {
+
+                    var option = $("<option>" + changeItem[count] + "</option>");
+
+                    $('#i_category2').append(option);
+
+
+
+                }
+
+            });
+
+        });
+
+
+
+    </script>
+
+<body style="background:white;">
 
 <%@ include file="view/common/header.jsp"%>
-<div id="wrapper">
+
+<div id="wrapper" style="background:#FFBFAB;">
 	<div id="staff" class="container">
 		<div class="title">
-			<h2>당신의 고민을 해결해주는 뭐사지!</h2>
-			<span> 연령대, 성별, 취향에 맞는 선물을 추천받으세요!</span> </div>
-		<div class="boxA"><img src="${pageContext.request.contextPath }/resources/images/lip_1.png" width="100%" height="100%" alt="" /></div>
-		<div class="boxB"><img src="${pageContext.request.contextPath }/resources/images/lip_2.png" width="100%" height="100%" alt="" /></div>
-		<div class="boxC"><img src="${pageContext.request.contextPath }/resources/images/lip_3.png" width="100%" height="100%" alt="" /></div>
-	</div>
+			<h2 style="color:#625772">당신의 고민을 해결해주는, 뭐사지 !</h2>
+			<span style="font-size:20px; color:#7F7F7F;"> 연령대, 성별, 피부타입에 따라 추천받아보세요  </span> </div>
+			
+							
+       
+                
+                <form method="post" action="${pageContext.request.contextPath }/#">
+				  <div class="row" style="margin-top:50px; auto;">
+				    <div class="col">
+				        <select  class="custom-select" id="i_category1">
+                           <option value="">뷰티 카테고리</option>
+                           <option value="face">페이스 메이크업</option>
+                           <option value="skincare">스킨케어</option>
+                           <option value="lip">립메이크업</option>
+                        </select>
+                     </div>
+                        
+                    <div class="col">
+                    <select  class="custom-select" id="i_category2">
+	                   		<option value = ""></option>                  
+                    </select>
+				    </div>
+				    <div class="col">
+				     <button type="submit" class="btn btn-secondary" style="width:50%;">화장품 검색</button>
+				    </div>
+				  </div>
+				</form>
+				    
+</div>					
+</div>		
+
+
 	<div id="page" class="container">
-		<div class="boxA">
-			<h2>박스A<br />
-				<span>제목A</span></h2>
-			<p>내용A</p>
-			<ul class="style4">
-				<li class="first"><a href="#">링크1</a></li>
-				<li><a href="#">링크2</a></li>
-				<li><a href="#">링크3</a></li>
-			</ul>
-		</div>
-		<div class="boxB">
-			<h2>박스B<br />
-				<span> 제목B</span></h2>
-			<ul class="style3">
-				<li class="first">
-					<p class="date"><a href="#">Dec<b>30</b></a></p>
-					<h3>제목B</h3>
-					<p><a href="#">링크1</a></p>
-				</li>
-				<li>
-					<p class="date"><a href="#">Dec<b>28</b></a></p>
-					<h3>내용B</h3>
-					<p><a href="#">링크2</a></p>
-				</li>
-			</ul>
-		</div>
-		<div class="boxC">
-			<h2>Etiam posuere<br />
-				<span>augue sit amet</span></h2>
-			<ul class="style4">
-				<li class="first"><a href="#">Consectetuer adipiscing elit</a></li>
-				<li><a href="#">Metus aliquam pellentesque</a></li>
-				<li><a href="#">Suspendisse iaculis mauris</a></li>
-				<li><a href="#">Urnanet non molestie semper</a></li>
-				<li><a href="#">Suspendisse iaculis mauris</a></li>
-			</ul>
-		</div>
+	 <div class="row" style="margin:0; auto;">
+	<div class="col"><img src="${pageContext.request.contextPath }/resources/images/lip_1.png" width="100%" height="100%" alt="" /></div>
+	<div class="col"><img src="${pageContext.request.contextPath }/resources/images/lip_2.png" width="100%" height="100%" alt="" /></div>
+	<div class="col"><img src="${pageContext.request.contextPath }/resources/images/lip_3.png" width="100%" height="100%" alt="" /></div>
 	</div>
-	<div id="welcome" class="container">
-		<div class="title">
-			<h2>Welcome to our website</h2>
-		</div>
-		<p>This is <strong>RedMarket</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
 	</div>
-</div>
+
+
+
+
+
+
+	
 
 
 <%@ include file="view/common/footer.jsp"%>

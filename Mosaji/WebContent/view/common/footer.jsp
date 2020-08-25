@@ -12,7 +12,7 @@
 <link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-<div id="copyright" style="background-color: #FFBFAB" class="container">
+<div id="copyright" style="background-color: #FFBFAB" >
 	<p >&copy; Copyright ⓒ All rights reserved. 2020 kitri | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
 </div>
 </body>
