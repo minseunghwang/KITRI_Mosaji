@@ -51,12 +51,7 @@ public class LoginController extends HttpServlet {
 		if(u != null && u_pw.equals(u.getU_pw())) {
 			session.setAttribute("u_id", u_id);
 			System.out.println("성공 u_id = " + u_id);
-			path = "view/index.html";
-		}else {
-			System.out.println("실패");
-			System.out.println("실패 u_id = " + u_id);
-			System.out.println("실패 u_pw = " + u_pw);
-			path = "view/index.html";
+			path = "/index.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(path);

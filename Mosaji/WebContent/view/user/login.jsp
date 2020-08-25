@@ -18,9 +18,9 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap"
 	rel="stylesheet">
-<link href="resources/default.css" rel="stylesheet" type="text/css"
+<link href="<%=request.getContextPath()%>/resources/default.css" rel="stylesheet" type="text/css"
 	media="all" />
-<link href="resources/fonts.css" rel="stylesheet" type="text/css"
+<link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css"
 	media="all" />
 <script type="text/javascript">
 	function register() {
@@ -41,7 +41,7 @@
 
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
-					<img src="${pageContext.request.contextPath }/resources/images/logo_5.png" style="width: 20%; height: 20%;">
+					<img src="<%=request.getContextPath()%>/resources/images/logo_5.png" style="width: 20%; height: 20%;">
 					<div class="card-body col-lg-5">
 						<form method="post" action="${pageContext.request.contextPath }/LoginController">
 							<div class="form-group">

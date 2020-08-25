@@ -9,15 +9,15 @@
 <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-<link href="${pagecontext.request.contextPath }/resources/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="${pagecontext.request.contextPath }/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<%=request.getContextPath()%>/resources/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
 
 <div id="header-wrapper" style="background-color: #FFBFAB; border-top:#FFBFAB;">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1 style="background-color: #FFBFAB"><a href="${pageContext.request.contextPath }/index.jsp"><img src="${pagecontext.request.contextPath }resources/images/logo_5.png" width="40%" height="40%" ></a></h1>
+			<h1 style="background-color: #FFBFAB"><a href="<%=request.getContextPath()%>/index.jsp"><img src="<%=request.getContextPath()%>/resources/images/logo_5.png" width="40%" height="40%" ></a></h1>
 		</div>
 		<div id="menu">
 			<ul>
