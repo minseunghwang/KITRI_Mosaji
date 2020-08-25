@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +43,8 @@
 						style="background-color: #FFBFAB; color: #625772" title="">메이크업</a></li>
 					<li class="active"><a href="#" accesskey="4"
 						style="background-color: #FFBFAB; color: #625772" title="">바디케어</a></li>
-					<c:if test="${empty sessionScope.session }">
+					
+					<c:if test="${empty sessionScope.flag }">
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/view/user/login.jsp"
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
@@ -53,14 +54,15 @@
 							href="${pageContext.request.contextPath }/view/user/register.jsp"
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
-					<c:if test="${!empty sessionScope.session }">
+					<c:if test="${not empty sessionScope.flag }">
+					
 						<li class="active"><a
-							href="${pageContext.request.contextPath }/view/user/login.jsp"
+							href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
 							title="">로그아웃</a></li>
 						<li class="active"><a
 							style="background-color: #FFBFAB; color: #625772"
-							href="${pageContext.request.contextPath }/view/user/register.jsp"
+							href="${pageContext.request.contextPath }/WishlistController"
 							accesskey="5" title="">내 찜목록</a></li>
 					</c:if>
 				</ul>
