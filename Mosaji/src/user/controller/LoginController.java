@@ -35,9 +35,9 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("euc-kr");
-		response.setContentType("text/html; charset=EUC-KR");
-		response.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("utf-8");
 		String path = "/view/user/login.jsp";
 		
 		UserService userservice = new UserServiceImpl();
@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 		User u = userservice.getUser(u_id);
 		if(u != null && u_pw.equals(u.getU_pw())) {
 			session.setAttribute("u_id", u_id);
-			System.out.println("성공 u_id = " + u_id);
+			System.out.println("�꽦怨� u_id = " + u_id);
 			path = "/index.jsp";
 		}
 		
