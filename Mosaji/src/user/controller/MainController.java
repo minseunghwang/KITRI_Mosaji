@@ -45,6 +45,7 @@ public class MainController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 
 		String u_id = (String) session.getAttribute("u_id");
+		String u_name = (String) session.getAttribute("u_name");
 
 		System.out.println("u_id = ==============" +u_id);
 		User u = userservice.getUser(u_id);

@@ -78,5 +78,59 @@ public class UserDaoImpl implements UserDao{
 		}
 		
 	}
+
+	@Override
+	public void delete(String u_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "DELETE mosaji_user WHERE u_id=?";
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public void update(User u) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql ="UPDATE mosaji_user SET u_pw = ?, u_name = ?, u_age = ?, u_gender = ? , u_skintype = ? WHERE u_id =?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, u.getU_pw());
+			pstmt.setString(2, u.getU_name());
+			pstmt.setInt(3, u.getU_age());
+			pstmt.setString(4, u.getU_gender());
+			pstmt.setString(5, u.getU_skintype());
+			pstmt.setString(6, u.getU_id());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
 }
