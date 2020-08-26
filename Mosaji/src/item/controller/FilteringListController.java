@@ -3,6 +3,7 @@ package item.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,13 +42,11 @@ public class FilteringListController extends HttpServlet {
 		String[] age = request.getParameterValues("age_arr[]");
 		String[] skintype =request.getParameterValues("stype_arr[]");
 		
-		ArrayList<Item> data = service.AfterFilter(gender, age, skintype);
-		
-		for(Item a:data) {
-			System.out.println(a);
-		}
-		
-		
+		ArrayList<Item> item = service.AfterFilter(gender, age, skintype);
+
+		request.setAttribute("item", item);
+		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

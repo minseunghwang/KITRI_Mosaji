@@ -100,6 +100,25 @@
 	        },
 	        success: function(result){
 				var arr2 = $.parseJSON(result);
+				var html;
+				$(".itemList").empty();
+	        	for(i=0;i<arr2.length;i++){
+	        		html = "<div class='boxA'>";
+	        		html += "<div class='i_element i_img'><img src='arr2[i].i_img' style='width:100px;height:100px;'></div>";
+	        		html += "<div class='i_element i_name' num='"+arr2[i].i_no+"'><h3 style='width:100px'>"+arr2[i].i_name+"</h3></div>";
+	        		html += "<div class='i_element i_volume'>"+arr2[i].i_volume+"</div>";
+	        		html += "<div class='i_element i_category1'>"+arr2[i].i_category1+"</div>";
+	        		html += "<div class='i_element i_category2'>"+arr2[i].i_category2+"</div>";
+	        		html += "<div class='i_element i_content'>"+arr2[i].i_content+"</div>";
+	        		html += "<div class='i_element i_brand'>"+arr2[i].i_brand+"</div>";
+	        		html += "<div class='i_element i_gender'>"+arr2[i].i_gender+"</div>";
+	        		html += "<div class='i_element i_age'>"+arr2[i].i_age+"</div>";
+	        		html += "<div class='i_element i_skintype'>"+arr2[i].i_skintype+"</div>";
+	        		html += "<div class='i_element i_price'>"+arr2[i].i_price+"</div>";
+	        		html += "<div class='i_element i_star'>"+arr2[i].i_star+"</div>";
+	        		html += "</div>";
+	        		$(".itemList").append(html);
+	        	}
 			}
 		});
 		
@@ -154,7 +173,15 @@
 				$("#f_skintype_total").prop("checked",false);
 			}
 		});
-
+		
+		$("#f_reset_btn").click(function(){
+			$("input:checkbox[name='f_age']").prop("checked",false);
+			$("input:checkbox[name='f_stype']").prop("checked",false);
+			$("input:radio[name='genderRadio']").prop("checked",false);
+			$("#f_skintype_total").prop("checked",true);
+			$("#f_age_total").prop("checked",true);
+			$("input:radio[name='genderRadio']").filter("[value='1']").prop("checked",true);
+		})
 	});
 	
 	
@@ -174,7 +201,7 @@
 						<i class="icon-sprite icon-filter filter-header__text-icon"
 							data-v-2c3efac9></i> <span data-v-2c3efac9>필터</span>
 						</h1>
-						<button class="filter-reset-btn">초기화</button>
+						<button class="filter-reset-btn" id="f_reset_btn">초기화</button>
 					</div>
 					<section class="filter-body">
 						<fieldset class="fieldset">

@@ -58,37 +58,83 @@ public class DaoImpl implements Dao{
 			gen.add("여");
 		}
 		
-		System.out.println(gen);
-		System.out.println(gen.size() + " gender :" + gender);
-		
-		System.out.print(age.length + " age : ");
-		for(int i=0; i<age.length; i++) {
-			System.out.print(age[i]+",");
-		}
-		System.out.println();
-		
-		System.out.print(skintype.length + " skintype : ");
-		for(int i=0; i<skintype.length; i++) {
-			System.out.print(skintype[i]+",");
-		}
+//		System.out.println(gen);
+//		System.out.println(gen.size() + " gender :" + gender);
+//		
+//		System.out.print(age.length + " age : ");
+//		for(int i=0; i<age.length; i++) {
+//			System.out.print(age[i]+",");
+//		}
+//		System.out.println();
+//		
+//		System.out.print(skintype.length + " skintype : ");
+//		for(int i=0; i<skintype.length; i++) {
+//			System.out.print(skintype[i]+",");
+//		}
 		
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
-		String sql = "select * from mosaji_item where i_gender in ?";
+		int index = 1;
+		String sql = "select * from mosaji_item where ";
 		try {
+			sql += "i_gender in (";
+			for(int i=0; i<gen.size(); i++) {
+				sql += "?,";
+			}
+			sql = sql.substring(0, sql.length()-1);
+			sql += ") ";
+			
+			sql += "and i_skintype in (";
+			for(int i=0; i<skintype.length; i++) {
+				sql += "?,";
+			}
+			sql = sql.substring(0, sql.length()-1);
+			sql += ") ";
+			
+			sql += "and i_age in (";
+			for(int i=0; i<age.length; i++) {
+				sql += "?,";
+			}
+			sql = sql.substring(0, sql.length()-1);
+			sql += ") ";
+
+//			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setArray(1, (Array) gen);
+			
+			for(int i=0; i<gen.size(); i++) {
+				pstmt.setString(index,gen.get(i));
+				index++;
+			}
+			
+			for(int i=0; i<skintype.length; i++) {
+				pstmt.setString(index,skintype[i]);
+				index++;
+			}
+			
+			for(int i=0; i<age.length; i++) {
+				pstmt.setString(index,age[i]);
+				index++;
+			}
+			
+			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13)));
 			}
 		}
 		catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
 		return data;
 	}
 
