@@ -57,6 +57,55 @@
 		$(".filter").html(html);
 	}
 	
+	function check_data(){
+		
+		var gval = $(':radio[name="genderRadio"]:checked').val();
+		
+		if(($('input:checkbox[name="f_age"]').is(":checked") == false) && ($("#f_age_total").is(":checked") == false)){
+			alert("연령대를 선택하쇼");
+			return false;
+		}
+		
+		if(($('input:checkbox[name="f_stype"]').is(":checked") == false) && ($("#f_skintype_total").is(":checked")) == false){
+			alert("피부타입을 선택하쇼");
+			return false;
+		}
+		
+		var age_arr = new Array();
+		if ($('input:checkbox[name="f_age"]:checked').length == 0){
+			age_arr = ["10", "20", "30", "40"];
+		} else{
+			var f_age = $('input:checkbox[name="f_age"]:checked').each(function(){
+				age_arr.push($(this).val());
+			});
+		}
+		
+		var stype_arr = new Array();
+		if($('input:checkbox[name="f_stype"]:checked').length == 0){
+			stype_arr = ["건성", "지성", "중성", "복합성", "민감성"];
+		} else{
+			var f_stype = $('input:checkbox[name="f_stype"]:checked').each(function(){
+				stype_arr.push($(this).val());
+			});
+		}
+		
+		$.ajax({
+	        url: '${pageContext.request.contextPath }/FilteringListController',
+	        type: 'POST',
+	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+	        data: {
+	        	gval : gval,
+	        	age_arr : age_arr,
+	        	stype_arr : stype_arr
+	        },
+	        success: function(result){
+				var arr2 = $.parseJSON(result);
+			}
+		});
+		
+		return true;
+	}
+	
 
 	$(document).ready(function(){
 		$.ajax({
@@ -86,34 +135,24 @@
 	    });
 		
 		
-		$("#filter_submit").click(function(){
-			var gval = $(':radio[name="genderRadio"]:checked').val();
-			
-			var age_arr = new Array();
-			$('input:checkbox[name="f_age"]:checked').length
-			var f_age = $('input:checkbox[name="f_age"]:checked').each(function(){
-				age_arr.push($(this).val());
-			})
-			
-			var stype_arr = new Array();
-			$('input:checkbox[name="f_stype"]:checked').length
-			var f_stype = $('input:checkbox[name="f_stype"]:checked').each(function(){
-				stype_arr.push($(this).val());
-			})
-			
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/FilteringListController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	gval : gval,
-		        	age_arr : age_arr,
-		        	stype_arr : stype_arr
-		        },
-		        success: function(result){
-					var arr2 = $.parseJSON(result);
-				}
-			});
+		$("#f_age_total").click(function(){
+			$("input:checkbox[name='f_age']").prop("checked",false);
+		});
+		
+		$('input:checkbox[name="f_age"]').click(function(){
+			if($("#f_age_total").is(":checked")){
+				$("#f_age_total").prop("checked",false);
+			}
+		});
+		
+		$("#f_skintype_total").click(function(){
+			$("input:checkbox[name='f_stype']").prop("checked",false);
+		});
+		
+		$('input:checkbox[name="f_stype"]').click(function(){
+			if($("#f_skintype_total").is(":checked")){
+				$("#f_skintype_total").prop("checked",false);
+			}
 		});
 
 	});
@@ -161,7 +200,7 @@
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
-										class="fieldset__item-input" data-v-7e828efe value="0" name="f_age" checked="checked">전체 <!---->
+										class="fieldset__item-input" data-v-7e828efe value="0" checked="checked" id="f_age_total">전체 <!---->
 										<!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
@@ -169,22 +208,16 @@
 										<!----> <!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="21" name="f_age">20대
-										초반 <!----> <!----></label></li>
+										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="20" name="f_age">20대
+										<!----> <!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="29" name="f_age">20대
-										후반 <!----> <!----></label></li>
+										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="30" name="f_age">30대
+										<!----> <!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="31" name="f_age">30대
-										초반 <!----> <!----></label></li>
-								<li class="fieldset__list-item late30" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="39" name="f_age">30대
-										후반 <i class="icon icon-sprite icon-late30-gray"
-										data-v-7e828efe></i> <i
-										class="icon icon-sprite icon-late30-red" data-v-7e828efe></i></label></li>
+										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="40" name="f_age">40대 이상
+										<!----> <!----></label></li>
 							</ul>
 						</fieldset>
 
@@ -195,7 +228,7 @@
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
-										class="fieldset__item-input" data-v-7e828efe value="전체" name="f_stype" checked="checked">전체 <!---->
+										class="fieldset__item-input" data-v-7e828efe value="전체" checked="checked" id="f_skintype_total">전체 <!---->
 										<!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
@@ -220,7 +253,7 @@
 							</ul>
 						</fieldset>
 					</section>
-					<button style="margin-top:8px" id="filter_submit">필터 적용</button>
+					<button style="margin-top:8px" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</fieldset>
 			</div>
 			
