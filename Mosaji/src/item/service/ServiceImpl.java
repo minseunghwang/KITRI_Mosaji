@@ -24,4 +24,10 @@ public class ServiceImpl implements Service{
 		return dao.selectAfter_filter(gender, age, skintype);
 	}
 
+	@Override
+	public Item detail(int i_no) {
+		// TODO Auto-generated method stub
+		return dao.detail(i_no);
+	}
+
 }

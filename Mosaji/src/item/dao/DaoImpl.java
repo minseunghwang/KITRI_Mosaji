@@ -52,10 +52,10 @@ public class DaoImpl implements Dao{
 		
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
-			gen.add("남");
+			gen.add("�궓");
 		}
 		if(gender == 2 || gender == 1) {
-			gen.add("여");
+			gen.add("�뿬");
 		}
 		
 //		System.out.println(gen);
@@ -137,6 +137,39 @@ public class DaoImpl implements Dao{
 		}
 		return data;
 	}
+
+	@Override
+	public Item detail(int i_no) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Item i = null;
+		String sql = "SELECT * FROM mosaji_item WHERE i_no = ?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, i_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				i = new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13));
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return i;
+	}
+
 
 
 }

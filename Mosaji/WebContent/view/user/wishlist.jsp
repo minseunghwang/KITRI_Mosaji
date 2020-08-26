@@ -120,10 +120,10 @@
 							<tr>
 								
 								<th>${wishlist.rownum }</th>
-								<th><a href="/ItemListController?i_no=${wishlist.i_no }">${wishlist.i_no }</a></th>
-								<th><a href="/ItemListController?i_no=${wishlist.i_no }">${wishlist.i_name }</a></th>
-								<th><a href="/ItemListController?i_no=${wishlist.i_no }">${wishlist.i_content }</a></th>
-								<th><a href="/ItemListController?i_no=${wishlist.i_no }"><img src="${wishlist.i_img }"></a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_no }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_name }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_content }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"><img src="${wishlist.i_img }"></a></th>
 								
 							</tr>
 
