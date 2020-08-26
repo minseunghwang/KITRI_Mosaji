@@ -8,5 +8,9 @@ public interface UserDao {
 	
 	void insert(User u);
 	
+	void delete(String u_id);
+	
+	void update(User u);
+	
 	
 }

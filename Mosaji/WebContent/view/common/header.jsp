@@ -22,7 +22,7 @@
 	rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-
+	<input type="hidden" value="${sessionScope.u_name }">
 	<div id="header-wrapper"
 		style="background-color: #FFBFAB; border-top: #FFBFAB;">
 		<div id="header" class="container">

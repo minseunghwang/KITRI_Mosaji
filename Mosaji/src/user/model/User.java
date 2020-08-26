@@ -15,6 +15,20 @@ public class User {
 	
 	
 	
+	
+	
+	public User(String u_id, String u_pw, String u_name, int u_age, String u_gender, String u_skintype) {
+		super();
+		this.u_id = u_id;
+		this.u_pw = u_pw;
+		this.u_name = u_name;
+		this.u_age = u_age;
+		this.u_gender = u_gender;
+		this.u_skintype = u_skintype;
+	}
+
+
+
 	public User(String u_id, String u_pw, String u_name, int u_age, String u_gender, String u_skintype, int u_like_item) {
 		super();
 		this.u_id = u_id;

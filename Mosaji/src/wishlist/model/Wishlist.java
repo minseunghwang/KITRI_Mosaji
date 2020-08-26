@@ -6,6 +6,7 @@ public class Wishlist {
 	private String u_id;
 	private int i_no;
 	
+	
 	public Wishlist(int w_no,  String u_id, int i_no) {
 		super();
 		this.w_no = w_no;

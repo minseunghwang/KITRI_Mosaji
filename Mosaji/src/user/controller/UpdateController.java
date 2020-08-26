@@ -1,7 +1,6 @@
-package wishlist.controller;
+package user.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,21 +13,18 @@ import javax.servlet.http.HttpSession;
 import user.model.User;
 import user.service.UserService;
 import user.service.UserServiceImpl;
-import wishlist.model.Wishlist1;
-import wishlist.service.WishlistService;
-import wishlist.service.WishlistServiceImpl;
 
 /**
- * Servlet implementation class WishlistController
+ * Servlet implementation class UpdateController
  */
-@WebServlet("/WishlistController")
-public class WishlistController extends HttpServlet {
+@WebServlet("/UpdateController")
+public class UpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WishlistController() {
+    public UpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,43 +33,32 @@ public class WishlistController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
-		WishlistService wishlistservice = new WishlistServiceImpl();
 		UserService userservice = new UserServiceImpl();
 		
-		
 		HttpSession session = request.getSession(false);
-		System.out.println(session + "session");
-		
-		
 		String u_id = (String) session.getAttribute("u_id");
+		String u_pw = request.getParameter("u_pw");
+		String u_name = request.getParameter("u_name");
+		int u_age = Integer.parseInt(request.getParameter("u_age"));
+		String u_gender = request.getParameter("u_gender");
+		String u_skintype = request.getParameter("u_skintype");
+		
+		User u = new User(u_id, u_pw, u_name, u_age, u_gender, u_skintype);
 		
 		
-		User u = userservice.getUser(u_id);
-		System.out.println("u_id " + u_id);
+		userservice.update(u);
 		
 		request.setAttribute("u", u);
-		System.out.println(" u  ==" +  u);
-//		ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) wishlistservice.getAll();
-//		
-//		request.setAttribute("wishlist", wishlist);
 		
-//		ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) wishlistservice.getId(u_id);
-//		request.setAttribute("wishlist", wishlist);
-		
-//		ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) wishlistservice.getItem(u_id);
-//		request.setAttribute("wishlist", wishlist);
-		
-		ArrayList<Wishlist1> wishlist = (ArrayList<Wishlist1>) wishlistservice.getItem1(u_id);
-		request.setAttribute("wishlist", wishlist);
-		System.out.println("wishlist = " + wishlist);
-		RequestDispatcher rd = request.getRequestDispatcher("/view/user/wishlist.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Mosaji/WishlistController");
 		rd.forward(request, response);
 		
+			
 	}
 
 	/**
