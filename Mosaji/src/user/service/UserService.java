@@ -7,4 +7,5 @@ public interface UserService {
 	void join(User u);
 	void delete(String u_id);
 	void update(User u);
+	
 }

@@ -12,23 +12,14 @@
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script type="text/javascript">
-	function urlClipCopy() {
-		var f = document.clipboard.url;
-		f.value = document.location.href;
-		f.select();
-		therange = f.createTextRange();
-		therange.execCommand("Copy");
-		alert("클립보드로 URL이 복사되었습니다.");
-	}
-</script>
+
 <script type="text/javascript">
 	function goDelete() {
-		location.href ="/Mosaji/DeleteController";
+		location.href = "/Mosaji/DeleteController";
 		alert('탈퇴가 완료되었습니다.');
-	}	
+	}
 	function goUpdate() {
-		location.href ="/Mosaji/UpdateController";
+		location.href = "/Mosaji/UpdateGetController";
 	}
 </script>
 
@@ -64,8 +55,11 @@
 
 					</tbody>
 				</table>
-			<button type="button" class="btn btn-secondary" onclick="goDelete()" value="탈퇴">회원탈퇴</button>
-			<button type="button" class="btn btn-secondary" onclick="goUpdate()" value="수정">정보수정</button>			</div>
+				<button type="button" class="btn btn-secondary" onclick="goDelete()"
+					value="탈퇴">회원탈퇴</button>
+				<button type="button" class="btn btn-secondary" onclick="goUpdate()"
+					value="수정">정보수정</button>
+			</div>
 		</div>
 	</c:if>
 	<c:if test="${empty sessionScope.flag }">
@@ -107,33 +101,37 @@
 		<h3 style="text-align: center; margin-top: 10%;">찜 목록</h3>
 		<div class="row">
 			<div class="offset-md-3 col-md-6">
-				<c:forEach var="wishlist" items="${wishlist }">
-					<table class="table">
-						<thead>
+
+				<table class="table">
+					<thead>
+						<tr>
+
+							<th scope="col">번호</th>
+							<th scope="col">상품 번호</th>
+							<th scope="col">상품 이름</th>
+							<th scope="col">상품 설명</th>
+							<th scope="col">상품 이미지</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<c:forEach var="wishlist" items="${wishlist }">
+
 							<tr>
 								
-								<th scope="col">번호</th>
-								<th scope="col">상품 번호</th>
-								<th scope="col">상품 이름</th>
-								<th scope="col">상품 설명</th>
-								<th scope="col">상품 이미지</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
 								<th>${wishlist.rownum }</th>
-								<th>${wishlist.i_no }</th>
-								<th>${wishlist.i_name }</th>
-								<th>${wishlist.i_content }</th>
-								<th>${wishlist.i_img }</th>
+								<th><a href="/ItemListController?i_no=${wishlist.i_no }">${wishlist.i_no }</a></th>
+								<th><a href="/ItemListController?i_no=${wishlist.i_no }">${wishlist.i_name }</a></th>
+								<th><a href="/ItemListController?i_no=${wishlist.i_no }">${wishlist.i_content }</a></th>
+								<th><a href="/ItemListController?i_no=${wishlist.i_no }"><img src="${wishlist.i_img }"></a></th>
 								
-
-
 							</tr>
-						</tbody>
-					</table>
-				</c:forEach>
-				
+
+						</c:forEach>
+					</tbody>
+				</table>
+
+
 			</div>
 
 		</div>

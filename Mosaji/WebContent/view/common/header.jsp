@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +20,7 @@
 	rel="stylesheet" type="text/css" media="all" />
 <link href="<%=request.getContextPath()%>/resources/fonts.css"
 	rel="stylesheet" type="text/css" media="all" />
+
 </head>
 <body>
 	<input type="hidden" value="${sessionScope.u_name }">
@@ -43,7 +44,7 @@
 						style="background-color: #FFBFAB; color: #625772" title="">메이크업</a></li>
 					<li class="active"><a href="#" accesskey="4"
 						style="background-color: #FFBFAB; color: #625772" title="">바디케어</a></li>
-					
+
 					<c:if test="${empty sessionScope.flag }">
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/view/user/login.jsp"
@@ -55,7 +56,7 @@
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
 					<c:if test="${not empty sessionScope.flag }">
-					
+
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
