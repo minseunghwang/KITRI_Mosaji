@@ -138,4 +138,34 @@ public class WishlistDaoImpl implements WishlistDao{
 		return wishlist;
 	}
 
+	@Override
+	public void insert(Wishlist1 wishlist1) {
+		Connection conn = null;
+		String sql = "INSERT INTO mosaji_wishlist VALUES(mosaji_wishlist_seq.nextval, ?, ?)";
+		
+		PreparedStatement pstmt = null;
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, wishlist1.getU_id());
+			pstmt.setInt(2, wishlist1.getI_no());
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
+	
+	
+
 }

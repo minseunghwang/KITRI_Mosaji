@@ -27,8 +27,17 @@ public class Wishlist1 {
 		this.i_content = i_content;
 		this.i_img = i_img;
 	}
+	
+	
 
 	
+
+	public Wishlist1(int i_no, String u_id) {
+		super();
+		this.i_no = i_no;
+		this.u_id = u_id;
+	}
+
 
 	public int getRownum() {
 		return rownum;
