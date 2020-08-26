@@ -28,5 +28,10 @@ public class ServiceImpl implements Service{
 	public ArrayList<Item> getRank(String category2, String i_star) {
 		return dao.selectRank_product(category2, i_star);
 	}
+	
+	public Item detail(int i_no) {
+		// TODO Auto-generated method stub
+		return dao.detail(i_no);
+	}
 
 }
