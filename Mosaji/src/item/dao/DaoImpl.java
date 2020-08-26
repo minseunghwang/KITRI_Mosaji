@@ -52,10 +52,10 @@ public class DaoImpl implements Dao{
 		
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
-			gen.add("�궓");
+			gen.add("남");
 		}
 		if(gender == 2 || gender == 1) {
-			gen.add("�뿬");
+			gen.add("여");
 		}
 		
 //		System.out.println(gen);
