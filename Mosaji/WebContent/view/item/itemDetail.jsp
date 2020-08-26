@@ -41,64 +41,64 @@
 								<h1 data-v-7c039372="" class="product-main-info__product_name">
 									<span data-v-7c039372=""
 										class="product-main-info__product_name__text"> <!---->
-										${i.i_name } </span>
-										</h1>
-										<div data-v-7c039372="" class="sns-links">
-											<a data-v-7c039372="" class="sns-links__button link-pop-up"><span
-												data-v-7c039372=""
-												class="sns-links__button__icon icon-sprite btn-share"></span></a>
-										</div>
-										<div data-v-7c039372=""
-											class="product-main-info__data_wrapper">
-											<div data-v-7c039372=""
-												class="product-main-info__volume_price">
-												${i.i_volume } / <span data-v-7c039372=""
-													class="product-main-info__volume_price--bold">${i.i_price }</span>원
-											</div>
-											<div data-v-7c039372=""
-												class="product-main-info__ratings ratings">
+										<%-- 										${i.i_name } </span> --%>
+										<!-- 										</h1> -->
+										<!-- 										<div data-v-7c039372="" class="sns-links"> -->
+										<!-- 											<a data-v-7c039372="" class="sns-links__button link-pop-up"><span -->
+										<!-- 												data-v-7c039372="" -->
+										<!-- 												class="sns-links__button__icon icon-sprite btn-share"></span></a> -->
+										<!-- 										</div> -->
+										<!-- 										<div data-v-7c039372="" -->
+										<!-- 											class="product-main-info__data_wrapper"> -->
+										<!-- 											<div data-v-7c039372="" -->
+										<!-- 												class="product-main-info__volume_price"> -->
+										<%-- 												${i.i_volume } / <span data-v-7c039372="" --%>
+										<%-- 													class="product-main-info__volume_price--bold">${i.i_price }</span>원 --%>
+										<!-- 											</div> -->
+										<!-- 											<div data-v-7c039372="" -->
+										<!-- 												class="product-main-info__ratings ratings"> -->
 
-												<div data-v-7c039372="" class="ratings__heart_graph">
-													<ul data-v-4385e41e="" data-v-7c039372="">
-														<li data-v-4385e41e=""><article data-v-14354dc6=""
-																data-v-4385e41e="" class="heart-comp">
-																<div data-v-14354dc6="" class="wrap"
-																	style="width: 100%;">
-																	<div data-v-14354dc6="" class="graphic"></div>
-																</div>
-															</article></li>
-														<li data-v-4385e41e=""><article data-v-14354dc6=""
-																data-v-4385e41e="" class="heart-comp">
-																<div data-v-14354dc6="" class="wrap"
-																	style="width: 100%;">
-																	<div data-v-14354dc6="" class="graphic"></div>
-																</div>
-															</article></li>
-														<li data-v-4385e41e=""><article data-v-14354dc6=""
-																data-v-4385e41e="" class="heart-comp">
-																<div data-v-14354dc6="" class="wrap"
-																	style="width: 100%;">
-																	<div data-v-14354dc6="" class="graphic"></div>
-																</div>
-															</article></li>
-														<li data-v-4385e41e=""><article data-v-14354dc6=""
-																data-v-4385e41e="" class="heart-comp">
-																<div data-v-14354dc6="" class="wrap"
-																	style="width: 100%;">
-																	<div data-v-14354dc6="" class="graphic"></div>
-																</div>
-															</article></li>
-														<li data-v-4385e41e=""><article data-v-14354dc6=""
-																data-v-4385e41e="" class="heart-comp">
-																<div data-v-14354dc6="" class="wrap" style="width: 32%;">
-																	<div data-v-14354dc6="" class="graphic"></div>
-																</div>
-															</article></li>
-													</ul>
-												</div>
+										<!-- 												<div data-v-7c039372="" class="ratings__heart_graph"> -->
+										<!-- 													<ul data-v-4385e41e="" data-v-7c039372=""> -->
+										<!-- 														<li data-v-4385e41e=""><article data-v-14354dc6="" -->
+										<!-- 																data-v-4385e41e="" class="heart-comp"> -->
+										<!-- 																<div data-v-14354dc6="" class="wrap" -->
+										<!-- 																	style="width: 100%;"> -->
+										<!-- 																	<div data-v-14354dc6="" class="graphic"></div> -->
+										<!-- 																</div> -->
+										<!-- 															</article></li> -->
+										<!-- 														<li data-v-4385e41e=""><article data-v-14354dc6="" -->
+										<!-- 																data-v-4385e41e="" class="heart-comp"> -->
+										<!-- 																<div data-v-14354dc6="" class="wrap" -->
+										<!-- 																	style="width: 100%;"> -->
+										<!-- 																	<div data-v-14354dc6="" class="graphic"></div> -->
+										<!-- 																</div> -->
+										<!-- 															</article></li> -->
+										<!-- 														<li data-v-4385e41e=""><article data-v-14354dc6="" -->
+										<!-- 																data-v-4385e41e="" class="heart-comp"> -->
+										<!-- 																<div data-v-14354dc6="" class="wrap" -->
+										<!-- 																	style="width: 100%;"> -->
+										<!-- 																	<div data-v-14354dc6="" class="graphic"></div> -->
+										<!-- 																</div> -->
+										<!-- 															</article></li> -->
+										<!-- 														<li data-v-4385e41e=""><article data-v-14354dc6="" -->
+										<!-- 																data-v-4385e41e="" class="heart-comp"> -->
+										<!-- 																<div data-v-14354dc6="" class="wrap" -->
+										<!-- 																	style="width: 100%;"> -->
+										<!-- 																	<div data-v-14354dc6="" class="graphic"></div> -->
+										<!-- 																</div> -->
+										<!-- 															</article></li> -->
+										<!-- 														<li data-v-4385e41e=""><article data-v-14354dc6="" -->
+										<!-- 																data-v-4385e41e="" class="heart-comp"> -->
+										<!-- 																<div data-v-14354dc6="" class="wrap" style="width: 32%;"> -->
+										<!-- 																	<div data-v-14354dc6="" class="graphic"></div> -->
+										<!-- 																</div> -->
+										<!-- 															</article></li> -->
+										<!-- 													</ul> -->
+										<!-- 												</div> -->
 
-											</div>
-										</div>
+										<!-- 											</div> -->
+										<!-- 										</div> -->
 										<div data-v-7c039372=""
 											class="product-main-info__brand_wrapper brand_info">
 											<figure data-v-7c039372="" class="brand_info__logo">
@@ -118,21 +118,22 @@
 													</div>
 												</div>
 											</figure>
-											<span data-v-7c039372="" class="brand_info__brand-name">${i.i_brand }</span>
+											<%-- 											<span data-v-7c039372="" class="brand_info__brand-name">${i.i_brand }</span> --%>
 
-
-											<button type="button" class="btn btn-outline-secondary"
-												onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
-												쇼핑연결</button>
-											<button type="button" class="btn btn-outline-secondary"
-												onclick="https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
-												명으로 검색하기</button>
 											<form
 												action="${pageContext.request.contextPath }/AddWishlistController">
 												<input type="hidden" name="i_no" id="i_no"
 													value="${i.i_no }"> <input
-													class="btn btn-outline-secondary" type="submit" value="찜하기">
+													class="btn btn-outline-danger" type="submit" value="찜하기"
+													onclick="alert('찜 완료');">
 											</form>
+											<button type="button" class="btn btn-outline-secondary"
+												onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
+												쇼핑연결</button>
+											<button type="button" class="btn btn-outline-info"
+												onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
+												명으로 검색하기</button>
+
 
 										</div>
 					</section>
@@ -169,6 +170,38 @@
 						<!-- 								<button data-v-3b7c2262="" class="info__mobile-button"></button> -->
 						<table data-v-3b7c2262="" class="info__table">
 							<tbody data-v-3b7c2262="">
+								<tr data-v-3b7c2262="" class="info__description-box info__tr">
+									<th data-v-3b7c2262="" class="info__th"><span
+										data-v-3b7c2262="" class="title">상품 이름</span></th>
+									<td data-v-3b7c2262="" class="info__td"><div
+											data-v-3b7c2262="" class="info__description">
+											${i.i_name }</div></td>
+								</tr>
+								<tr></tr>
+								<tr data-v-3b7c2262="" class="info__description-box info__tr">
+									<th data-v-3b7c2262="" class="info__th"><span
+										data-v-3b7c2262="" class="title">브랜드 명</span></th>
+									<td data-v-3b7c2262="" class="info__td"><div
+											data-v-3b7c2262="" class="info__description">
+											${i.i_brand }</div></td>
+								</tr>
+								<tr></tr>
+								<tr data-v-3b7c2262="" class="info__description-box info__tr">
+									<th data-v-3b7c2262="" class="info__th"><span
+										data-v-3b7c2262="" class="title">상품 용량</span></th>
+									<td data-v-3b7c2262="" class="info__td"><div
+											data-v-3b7c2262="" class="info__description">
+											${i.i_volume }</div></td>
+								</tr>
+								<tr></tr>
+								<tr data-v-3b7c2262="" class="info__description-box info__tr">
+									<th data-v-3b7c2262="" class="info__th"><span
+										data-v-3b7c2262="" class="title">상품 가격</span></th>
+									<td data-v-3b7c2262="" class="info__td"><div
+											data-v-3b7c2262="" class="info__description">
+											${i.i_price }</div></td>
+								</tr>
+								<tr></tr>
 								<tr data-v-3b7c2262="" class="info__category-list info__tr">
 									<th data-v-3b7c2262="" class="info__th"><span
 										data-v-3b7c2262="" class="title">카테고리</span></th>
@@ -176,7 +209,7 @@
 											data-v-3b7c2262="" class="info__category-wrap">
 											<p data-v-3b7c2262="" class="info__categories">
 												<span data-v-3b7c2262="" class="info__category"> <br>
-												<br>${i.i_category1 }
+													<br>${i.i_category1 }
 												</span>
 											</p>
 
@@ -189,7 +222,7 @@
 
 										</div></td>
 								</tr>
-
+								<tr></tr>
 								<tr data-v-3b7c2262="" class="info__description-box info__tr">
 									<th data-v-3b7c2262="" class="info__th"><span
 										data-v-3b7c2262="" class="title">설명</span></th>
@@ -210,11 +243,7 @@
 		</div>
 	</div>
 	</div>
-	<form
-		action="${pageContext.request.contextPath }/AddWishlistController">
-		<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-		<input class="btn btn-outline-secondary" type="submit" value="찜하기" >
-	</form>
+
 
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
