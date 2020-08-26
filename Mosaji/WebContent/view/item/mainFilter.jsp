@@ -14,10 +14,18 @@
 	padding: 10px;
 }
 
-.itemList {
+.rankdiv{
+    text-align: right;
+}
+
+.itemList, .rankdiv{
 	float: left;
 	width: 65%;
 	padding: 10px;
+}
+
+#orderby{
+	margin-right : 50px;
 }
 
 .i_element{
@@ -181,7 +189,47 @@
 			$("#f_skintype_total").prop("checked",true);
 			$("#f_age_total").prop("checked",true);
 			$("input:radio[name='genderRadio']").filter("[value='1']").prop("checked",true);
+		});
+		
+		var category2 = $(this).val();
+		$("#category2").change(function(){
+			category2 = $(this).val();
 		})
+		$("#orderby").change(function(){
+			var orderby = $(this).val();
+			$.ajax({
+		        url: '${pageContext.request.contextPath }/RankedController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data: {
+		        	category2 : category2,
+		        	orderby : orderby
+		        },
+		        success: function(result){
+		        	arr = $.parseJSON(result);
+		        	var html;
+		        	$(".itemList").empty();
+		        	for(i=0;i<arr.length;i++){
+		        		html = "<div class='boxA'>";
+		        		html += "<div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div>";
+		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'><h3 style='width:100px'>"+arr[i].i_name+"</h3></div>";
+		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+"</div>";
+		        		html += "<div class='i_element i_category1'>"+arr[i].i_category1+"</div>";
+		        		html += "<div class='i_element i_category2'>"+arr[i].i_category2+"</div>";
+		        		html += "<div class='i_element i_content'>"+arr[i].i_content+"</div>";
+		        		html += "<div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
+		        		html += "<div class='i_element i_gender'>"+arr[i].i_gender+"</div>";
+		        		html += "<div class='i_element i_age'>"+arr[i].i_age+"</div>";
+		        		html += "<div class='i_element i_skintype'>"+arr[i].i_skintype+"</div>";
+		        		html += "<div class='i_element i_price'>"+arr[i].i_price+"</div>";
+		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
+		        		html += "</div>";
+		        		$(".itemList").append(html);
+		        	}
+		        }
+		    });
+		})
+		
 	});
 	
 	
@@ -283,8 +331,35 @@
 					<button style="margin-top:8px" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</fieldset>
 			</div>
-			
-			<div class="itemList">
+			<div name="div1">
+				<div class="rankdiv" name="rankdiv1">
+					<select name="category2" id="category2">
+						<option disabled>====메이크업====</option>
+						<option value="페이스메이크업" checked>페이스메이크업 </option>
+						<option value="아이메이크업">아이메이크업 </option>
+						<option value="립메이크업">립메이크업</option>
+						<option disabled>====스킨케어====</option>
+						<option value="스킨">스킨 </option>
+						<option value="로션">로션</option>
+						<option value="크림">크림</option>
+						<option disabled>====클렌징====</option>
+						<option value="페이스클렌저">페이스클렌저</option>
+						<option value="샴푸">샴푸</option>
+						<option value="린스">린스</option>
+						<option disabled>====바디케어====</option>
+						<option value="바디로션">바디로션</option>
+						<option value="바디워시">바디워시</option>
+						<option value="핸드크림">핸드크림</option>						
+					</select>
+					<select name="orderby" id="orderby">
+						<option value="desc">평점 높은순</option>
+						<option value="asc">평점 낮은순</option>
+						<option value="desc">가격 높은순</option>
+						<option value="asc">가격 낮은순</option>
+					</select>
+				</div>
+				<div class="itemList">
+				</div>
 			</div>
 		</div>
 		
