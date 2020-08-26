@@ -139,22 +139,22 @@ public class DaoImpl implements Dao{
 	}
 
 	@Override
-	public ArrayList<Item> selectRank_product(String category2, String i_star) {
+	public ArrayList<Item> selectRank_product(String category2, String v1, String v2) {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
-		String sql = "select * from mosaji_item where category2 = ? order by ?";
+		String sql = "select * from mosaji_item where i_category2 = ? order by";
+		sql += " "+v1;
+		sql += " "+v2;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, category2);
-			pstmt.setString(2, i_star);
-			System.out.println(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13)));
 			}
-
+			System.out.println(data);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

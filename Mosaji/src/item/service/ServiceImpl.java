@@ -25,8 +25,8 @@ public class ServiceImpl implements Service{
 	}
 
 	@Override
-	public ArrayList<Item> getRank(String category2, String i_star) {
-		return dao.selectRank_product(category2, i_star);
+	public ArrayList<Item> getRank(String category2, String v1, String v2) {
+		return dao.selectRank_product(category2, v1, v2);
 	}
 	
 	public Item detail(int i_no) {

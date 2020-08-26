@@ -1,12 +1,16 @@
 package item.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import item.model.Item;
 import item.service.Service;
 import item.service.ServiceImpl;
 
@@ -34,12 +38,12 @@ public class RankedController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		String category2 = request.getParameter("category2");
-		String orderby = request.getParameter("orderby");
-		System.out.println(category2);
-		System.out.println(orderby);
+		String[] orderby = request.getParameter("orderby").split(":");
 		Service service = new ServiceImpl();
-		service.getRank(category2, orderby);
-
+		ArrayList<Item> item = service.getRank(category2, orderby[0], orderby[1]);
+		request.setAttribute("item", item);
+		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

@@ -334,28 +334,38 @@
 			<div name="div1">
 				<div class="rankdiv" name="rankdiv1">
 					<select name="category2" id="category2">
-						<option disabled>====메이크업====</option>
-						<option value="페이스메이크업" checked>페이스메이크업 </option>
-						<option value="아이메이크업">아이메이크업 </option>
-						<option value="립메이크업">립메이크업</option>
+						<option disabled>====페이스메이크업====</option>
+						<option value="피니시파우더" checked>피니시파우더 </option>
+						<option value="파운데이션">파운데이션 </option>
+						<option value="컨실러">컨실러</option>
+						<option disabled>====아이메이크업====</option>
+						<option value="마스카라">마스카라 </option>
+						<option value="섀도우">섀도우</option>
+						<option disabled>====립메이크업====</option>
+						<option value="틴트">틴트 </option>
+						<option value="립스틱">립스틱</option>
 						<option disabled>====스킨케어====</option>
-						<option value="스킨">스킨 </option>
-						<option value="로션">로션</option>
+						<option value="스킨/토너">스킨/토너</option>
+						<option value="로션/에센스">로션/에센스</option>
 						<option value="크림">크림</option>
-						<option disabled>====클렌징====</option>
-						<option value="페이스클렌저">페이스클렌저</option>
-						<option value="샴푸">샴푸</option>
-						<option value="린스">린스</option>
-						<option disabled>====바디케어====</option>
-						<option value="바디로션">바디로션</option>
-						<option value="바디워시">바디워시</option>
-						<option value="핸드크림">핸드크림</option>						
+						<option disabled>====페이셜클렌저====</option>
+						<option value="클렌징폼">클렌징폼</option>
+						<option value="비누">비누</option>
+						<option disabled>====메이크업클렌저====</option>
+						<option value="클렌징워터">클렌징워터</option>
+						<option value="클렌징오일">핸드크림</option>
+						<option disabled>====바디워시====</option>
+						<option value="샤워젤">샤워젤</option>
+						<option value="천연비누">천연비누</option>
+						<option disabled>====바디로션====</option>
+						<option value="바디오일">바디오일</option>
+						<option value="바디로션">바디로션</option>						
 					</select>
 					<select name="orderby" id="orderby">
-						<option value="desc">평점 높은순</option>
-						<option value="asc">평점 낮은순</option>
-						<option value="desc">가격 높은순</option>
-						<option value="asc">가격 낮은순</option>
+						<option value="i_star:desc">평점 높은순</option>
+						<option value="i_star:asc">평점 낮은순</option>
+						<option value="i_price:desc">가격 높은순</option>
+						<option value="i_price:asc">가격 낮은순</option>
 					</select>
 				</div>
 				<div class="itemList">
