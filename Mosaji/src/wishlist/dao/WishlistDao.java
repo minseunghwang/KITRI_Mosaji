@@ -12,4 +12,6 @@ public interface WishlistDao {
 	
 	ArrayList<Wishlist> selectItem(String u_id);
 	ArrayList<Wishlist1> selectItem1(String u_id);
+	
+	void insert(Wishlist1 wishlist1);
 }

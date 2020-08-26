@@ -47,4 +47,12 @@ private WishlistDao wishlistdao;
 		return wishlistdao.selectItem1(u_id);
 	}
 
+
+
+	@Override
+	public void insert(Wishlist1 wishlist1) {
+		wishlistdao.insert(wishlist1);
+		
+	}
+
 }

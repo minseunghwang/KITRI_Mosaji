@@ -13,4 +13,7 @@ public interface WishlistService {
 	
 	ArrayList<Wishlist> getItem(String u_id);
 	ArrayList<Wishlist1> getItem1(String u_id);
+	
+	void insert(Wishlist1 wishlist1);
+	
 }
