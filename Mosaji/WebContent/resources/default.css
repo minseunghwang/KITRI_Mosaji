@@ -269,9 +269,9 @@ ul.contact li a.icon-rss:before
 
 	#header-wrapper
 {
-	background: url(images/banner.jpg) no-repeat center;
+
 	background-size: cover;
-	border-top: 10px solid #CC0000;
+
 }
 
 #header
@@ -294,14 +294,12 @@ ul.contact li a.icon-rss:before
 	top: 0;
 	left: 0;
 	padding: 1em 1em;
-	background: #CC0000;
 	border-radius: 0px 0px 5px 5px;
 }
 
 #logo a
 {
 	text-decoration: none;
-	color: #FFF;
 }
 
 /*********************************************************************************/
