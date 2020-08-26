@@ -138,5 +138,36 @@ public class DaoImpl implements Dao{
 		return data;
 	}
 
+	@Override
+	public ArrayList<Item> selectRank_product(String category2, String i_star) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Item> data = new ArrayList<Item>();
+		String sql = "select * from mosaji_item where category2 = ? order by ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, category2);
+			pstmt.setString(2, i_star);
+			System.out.println(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13)));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return data;
+	}
+
 
 }
