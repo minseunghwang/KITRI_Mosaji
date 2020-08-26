@@ -71,6 +71,7 @@
                 for (var count = 0; count < changeItem.length; count++) {
 
                     var option = $("<option>" + changeItem[count] + "</option>");
+                   
 
                     $('#i_category2').append(option);
 
@@ -80,6 +81,7 @@
 
         });
 
+       
     </script>
 
 
@@ -97,7 +99,7 @@
 							
        
                 <div style="margin-bottom:50px;">
-                <form method="post" action="${pageContext.request.contextPath }/FilteringController">
+                <form method="post" action="${pageContext.request.contextPath }/SelectController">
 				  <div class="row" >
 				    <div class="col">
 				        <select  class="custom-select" id="i_category1">
@@ -115,7 +117,7 @@
                     </select>
 				    </div>
 				    <div class="col">
-				     <button type="submit" class="btn btn-secondary" style="width:50%;">랭킹 순위보기</button>
+				     <button type="submit" class="btn btn-secondary" onclick="select()" style="width:50%;">랭킹 순위보기</button>
 				    </div>
 				  </div>
 				</form>
@@ -130,6 +132,9 @@
 				    
 </div>					
 </div>		
+
+
+
 
 
 	<div id="page" class="container">

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,13 @@
 <title>Insert title here</title>
 
 
+
+
+
+<link href="<%=request.getContextPath()%>/resources/default.css"
+	rel="stylesheet" type="text/css" media="all" />
+<link href="<%=request.getContextPath()%>/resources/fonts.css"
+	rel="stylesheet" type="text/css" media="all" />
 
 
 </head>
@@ -26,6 +33,10 @@
 			</div>
 			<div id="menu">
 				<ul>
+
+
+
+
 					<c:if test="${empty sessionScope.flag }">
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/view/user/login.jsp"
@@ -36,9 +47,12 @@
 							href="${pageContext.request.contextPath }/view/user/register.jsp"
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
+
 					
+
 					<c:if test="${not empty sessionScope.flag }">
-					<li class="active"><a
+
+						<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
 							title="">로그아웃</a></li>

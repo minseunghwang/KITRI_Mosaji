@@ -12,7 +12,10 @@
 	crossorigin="anonymous">
 <script type="text/javascript">
 	function register() {
+		console.log('회원가입 쪽갈겅미');
+		alert('회원가입 페이지출력');
 		location.href = "register.jsp";
+		
 	}
 </script>
 </head>

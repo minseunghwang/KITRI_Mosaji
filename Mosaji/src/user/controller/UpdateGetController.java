@@ -15,16 +15,16 @@ import user.service.UserService;
 import user.service.UserServiceImpl;
 
 /**
- * Servlet implementation class UpdateController
+ * Servlet implementation class UpdateGetController
  */
-@WebServlet("/UpdateController")
-public class UpdateController extends HttpServlet {
+@WebServlet("/UpdateGetController")
+public class UpdateGetController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateController() {
+    public UpdateGetController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,31 +34,31 @@ public class UpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html; charset=UTF-8");
-		response.setCharacterEncoding("utf-8");
-		
-		UserService userservice = new UserServiceImpl();
-		
-		HttpSession session = request.getSession(false);
-		String u_id = (String) session.getAttribute("u_id");
-		String u_pw = request.getParameter("u_pw");
-		String u_name = request.getParameter("u_name");
-		int u_age = Integer.parseInt(request.getParameter("u_age"));
-		String u_gender = request.getParameter("u_gender");
-		String u_skintype = request.getParameter("u_skintype");
-		
-		User u = new User(u_id, u_pw, u_name, u_age, u_gender, u_skintype);
-		
-		
-		userservice.update(u);
-		
-		request.setAttribute("u", u);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-		rd.forward(request, response);
-		
-			
+		// 요청과 응답의 인코딩 설정
+				request.setCharacterEncoding("utf-8");
+				response.setContentType("text/html; charset=UTF-8");
+				response.setCharacterEncoding("utf-8");
+				
+				UserService userservice = new UserServiceImpl();
+				
+				HttpSession session = request.getSession(false);
+				String u_id = (String) session.getAttribute("u_id");
+				String u_pw = (String) session.getAttribute("u_pw");
+				
+				User u = userservice.getUser(u_id);
+				request.setAttribute("u", u);
+				
+				System.out.println("=================");
+				System.out.println("u" + u);
+				System.out.println("=================");
+				System.out.println("u_id = " + u_id);
+				System.out.println("=================");
+				System.out.println("u_pw = " + u_pw);
+				
+				
+				RequestDispatcher rd = request.getRequestDispatcher("/view/user/update.jsp");
+				rd.forward(request, response);
+				
 	}
 
 	/**

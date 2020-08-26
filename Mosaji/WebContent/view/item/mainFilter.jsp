@@ -57,6 +57,74 @@
 		$(".filter").html(html);
 	}
 	
+	function check_data(){
+		
+		var gval = $(':radio[name="genderRadio"]:checked').val();
+		
+		if(($('input:checkbox[name="f_age"]').is(":checked") == false) && ($("#f_age_total").is(":checked") == false)){
+			alert("연령대를 선택하쇼");
+			return false;
+		}
+		
+		if(($('input:checkbox[name="f_stype"]').is(":checked") == false) && ($("#f_skintype_total").is(":checked")) == false){
+			alert("피부타입을 선택하쇼");
+			return false;
+		}
+		
+		var age_arr = new Array();
+		if ($('input:checkbox[name="f_age"]:checked').length == 0){
+			age_arr = ["10", "20", "30", "40"];
+		} else{
+			var f_age = $('input:checkbox[name="f_age"]:checked').each(function(){
+				age_arr.push($(this).val());
+			});
+		}
+		
+		var stype_arr = new Array();
+		if($('input:checkbox[name="f_stype"]:checked').length == 0){
+			stype_arr = ["건성", "지성", "중성", "복합성", "민감성"];
+		} else{
+			var f_stype = $('input:checkbox[name="f_stype"]:checked').each(function(){
+				stype_arr.push($(this).val());
+			});
+		}
+		
+		$.ajax({
+	        url: '${pageContext.request.contextPath }/FilteringListController',
+	        type: 'POST',
+	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+	        data: {
+	        	gval : gval,
+	        	age_arr : age_arr,
+	        	stype_arr : stype_arr
+	        },
+	        success: function(result){
+				var arr2 = $.parseJSON(result);
+				var html;
+				$(".itemList").empty();
+	        	for(i=0;i<arr2.length;i++){
+	        		html = "<div class='boxA'>";
+	        		html += "<div class='i_element i_img'><img src='arr2[i].i_img' style='width:100px;height:100px;'></div>";
+	        		html += "<div class='i_element i_name' num='"+arr2[i].i_no+"'><h3 style='width:100px'>"+arr2[i].i_name+"</h3></div>";
+	        		html += "<div class='i_element i_volume'>"+arr2[i].i_volume+"</div>";
+	        		html += "<div class='i_element i_category1'>"+arr2[i].i_category1+"</div>";
+	        		html += "<div class='i_element i_category2'>"+arr2[i].i_category2+"</div>";
+	        		html += "<div class='i_element i_content'>"+arr2[i].i_content+"</div>";
+	        		html += "<div class='i_element i_brand'>"+arr2[i].i_brand+"</div>";
+	        		html += "<div class='i_element i_gender'>"+arr2[i].i_gender+"</div>";
+	        		html += "<div class='i_element i_age'>"+arr2[i].i_age+"</div>";
+	        		html += "<div class='i_element i_skintype'>"+arr2[i].i_skintype+"</div>";
+	        		html += "<div class='i_element i_price'>"+arr2[i].i_price+"</div>";
+	        		html += "<div class='i_element i_star'>"+arr2[i].i_star+"</div>";
+	        		html += "</div>";
+	        		$(".itemList").append(html);
+	        	}
+			}
+		});
+		
+		return true;
+	}
+	
 
 	$(document).ready(function(){
 		$.ajax({
@@ -86,36 +154,34 @@
 	    });
 		
 		
-		$("#filter_submit").click(function(){
-			var gval = $(':radio[name="genderRadio"]:checked').val();
-			
-			var age_arr = new Array();
-			$('input:checkbox[name="f_age"]:checked').length
-			var f_age = $('input:checkbox[name="f_age"]:checked').each(function(){
-				age_arr.push($(this).val());
-			})
-			
-			var stype_arr = new Array();
-			$('input:checkbox[name="f_stype"]:checked').length
-			var f_stype = $('input:checkbox[name="f_stype"]:checked').each(function(){
-				stype_arr.push($(this).val());
-			})
-			
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/FilteringListController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	gval : gval,
-		        	age_arr : age_arr,
-		        	stype_arr : stype_arr
-		        },
-		        success: function(result){
-					var arr2 = $.parseJSON(result);
-				}
-			});
+		$("#f_age_total").click(function(){
+			$("input:checkbox[name='f_age']").prop("checked",false);
 		});
-
+		
+		$('input:checkbox[name="f_age"]').click(function(){
+			if($("#f_age_total").is(":checked")){
+				$("#f_age_total").prop("checked",false);
+			}
+		});
+		
+		$("#f_skintype_total").click(function(){
+			$("input:checkbox[name='f_stype']").prop("checked",false);
+		});
+		
+		$('input:checkbox[name="f_stype"]').click(function(){
+			if($("#f_skintype_total").is(":checked")){
+				$("#f_skintype_total").prop("checked",false);
+			}
+		});
+		
+		$("#f_reset_btn").click(function(){
+			$("input:checkbox[name='f_age']").prop("checked",false);
+			$("input:checkbox[name='f_stype']").prop("checked",false);
+			$("input:radio[name='genderRadio']").prop("checked",false);
+			$("#f_skintype_total").prop("checked",true);
+			$("#f_age_total").prop("checked",true);
+			$("input:radio[name='genderRadio']").filter("[value='1']").prop("checked",true);
+		})
 	});
 	
 	
@@ -135,7 +201,7 @@
 						<i class="icon-sprite icon-filter filter-header__text-icon"
 							data-v-2c3efac9></i> <span data-v-2c3efac9>필터</span>
 						</h1>
-						<button class="filter-reset-btn">초기화</button>
+						<button class="filter-reset-btn" id="f_reset_btn">초기화</button>
 					</div>
 					<section class="filter-body">
 						<fieldset class="fieldset">
@@ -161,7 +227,7 @@
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
-										class="fieldset__item-input" data-v-7e828efe value="0" name="f_age" checked="checked">전체 <!---->
+										class="fieldset__item-input" data-v-7e828efe value="0" checked="checked" id="f_age_total">전체 <!---->
 										<!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
@@ -169,22 +235,16 @@
 										<!----> <!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="21" name="f_age">20대
-										초반 <!----> <!----></label></li>
+										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="20" name="f_age">20대
+										<!----> <!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="29" name="f_age">20대
-										후반 <!----> <!----></label></li>
+										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="30" name="f_age">30대
+										<!----> <!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="31" name="f_age">30대
-										초반 <!----> <!----></label></li>
-								<li class="fieldset__list-item late30" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="39" name="f_age">30대
-										후반 <i class="icon icon-sprite icon-late30-gray"
-										data-v-7e828efe></i> <i
-										class="icon icon-sprite icon-late30-red" data-v-7e828efe></i></label></li>
+										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="40" name="f_age">40대 이상
+										<!----> <!----></label></li>
 							</ul>
 						</fieldset>
 
@@ -195,7 +255,7 @@
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
-										class="fieldset__item-input" data-v-7e828efe value="전체" name="f_stype" checked="checked">전체 <!---->
+										class="fieldset__item-input" data-v-7e828efe value="전체" checked="checked" id="f_skintype_total">전체 <!---->
 										<!----></label></li>
 								<li class="fieldset__list-item" data-v-7e828efe><label
 									class="fieldset__item-label" data-v-7e828efe><input
@@ -220,7 +280,7 @@
 							</ul>
 						</fieldset>
 					</section>
-					<button style="margin-top:8px" id="filter_submit">필터 적용</button>
+					<button style="margin-top:8px" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</fieldset>
 			</div>
 			

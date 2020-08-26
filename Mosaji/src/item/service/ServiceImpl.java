@@ -20,8 +20,8 @@ public class ServiceImpl implements Service{
 	}
 
 	@Override
-	public ArrayList<Item> AfterFilter() {
-		return dao.selectAfter_filter();
+	public ArrayList<Item> AfterFilter(int gender, String[] age, String[] skintype) {
+		return dao.selectAfter_filter(gender, age, skintype);
 	}
 
 }

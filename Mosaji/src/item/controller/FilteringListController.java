@@ -1,14 +1,16 @@
 package item.controller;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import item.model.Item;
 import item.service.Service;
 import item.service.ServiceImpl;
 
@@ -36,16 +38,15 @@ public class FilteringListController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		Service service = new ServiceImpl();
 		
+		int gender = Integer.parseInt(request.getParameter("gval"));
+		String[] age = request.getParameterValues("age_arr[]");
+		String[] skintype =request.getParameterValues("stype_arr[]");
 		
-		String gval = request.getParameter("gval");
-		String[] age_arr = request.getParameterValues("age_arr[]");
-		String[] stype_arr =request.getParameterValues("stype_arr[]");
-		System.out.println(gval + ", " + stype_arr + ", " + age_arr);
-		
-		for(int i=0; i<stype_arr.length; i++) {
-			System.out.println(stype_arr[i]);
-		}
-//		필터링 변수 데이터 받아오는것까지 되었따
+		ArrayList<Item> item = service.AfterFilter(gender, age, skintype);
+
+		request.setAttribute("item", item);
+		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
