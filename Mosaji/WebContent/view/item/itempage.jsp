@@ -16,6 +16,7 @@
 </head>
 
 <body>
+	<%@ include file="/view/common/header.jsp"%>
 
 <div class="card mb-3">
   <h3 class="card-header" style="text-align: center;"> 
@@ -70,7 +71,7 @@
   </div>
 </div>
 
-
+<%@ include file="/view/common/footer.jsp"%>
 
 </body>
 </html>
