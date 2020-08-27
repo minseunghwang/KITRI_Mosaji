@@ -30,25 +30,18 @@
 
 	$(document).ready(function() {
 
-		var zzim_arr = new Array();
-
+		var zzim_str = "";
 		$("#del_btn").click(function() {
-			$("input[name=del]:checked").each(function() {
-				zzim_arr.push($(this).val());
-			});
-			
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/WishDeleteController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	zzim_arr : zzim_arr
-		        },
-		        success: function(result){
-					var arr = $.parseJSON(result);
-					alert("호잇");
-				}
-			});
+			var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
+			if(confirmflag){
+				$("input[name=del]:checked").each(function() {
+					alert($(this).val());
+					zzim_str += ($(this).val());
+					zzim_str += ",";
+				});
+				
+				location.href = "/Mosaji/WishDeleteController?zzim_str="+zzim_str;
+			}
 		});
 		
 		
@@ -145,8 +138,7 @@
 						<c:forEach var="wishlist" items="${wishlist }">
 							<tr>
 								<th>${wishlist.rownum }</th>
-								<th><a
-									href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_no }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_no }</a></th>
 								<th><a
 									href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_name }</a></th>
 								<th><a
@@ -155,7 +147,7 @@
 									href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"><img
 										src="${wishlist.i_img }"></a></th>
 								<th><input type="checkbox" name="del"
-									value="${wishlist.rownum }"></th>
+									value="${wishlist.w_no }"></th>
 							</tr>
 						</c:forEach>
 					</tbody>
