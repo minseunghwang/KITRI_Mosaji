@@ -80,7 +80,7 @@
 
 							<div>
 								<select id="selectBox" name="u_skintype" id="u_skintype"
-									style="margin-bottom: 15px; width: 100%;">
+									style="margin-bottom: 15px; width: 100%; height:30px;">
 									<option value="">피부타입 선택하기</option>
 									<option value="건성">건성</option>
 									<option value="지성">지성</option>
@@ -96,7 +96,7 @@
 								
 						</form>
 						<br>
-						<button style="width:100%;" type="button" class="btn btn-secondary" onclick="goDelete()"
+						<button style="width:100%;"type="button" class="btn btn-secondary" onclick="goDelete()"
 					value="탈퇴">회원탈퇴</button>
 					</div>
 				</div>

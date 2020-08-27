@@ -27,6 +27,22 @@
 	height: 1.25rem;
 	opacity: 0;
 }
+
+.starR {
+	background:
+		url('http://miuu227.godohosting.com/images/icon/ico_review.png')
+		no-repeat right 0;
+	background-size: auto 100%;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+.starR.on {
+	background-position: 0 0;
+}
 </style>
 </head>
 <body>
@@ -266,13 +282,19 @@
 					action="${pageContext.request.contextPath }/AddReviewController">
 					<div class="form-group">
 						<input type="radio" class="form-check-input" id="r_star"
-							name="r_star" value="1" placeholder="1점">1점 <input type="radio"
-							class="form-check-input" id="r_star" name="r_star" value="2">2점
-						<input type="radio" class="form-check-input" id="r_star"
-							name="r_star" value="3">3점 <input type="radio"
-							class="form-check-input" id="r_star" name="r_star" value="4"
-							checked>4점 <input type="radio" class="form-check-input"
-							id="r_star" name="r_star" value="5">5점
+							name="r_star" value="1" placeholder="1점">1점 <input
+							type="radio" class="form-check-input" id="r_star" name="r_star"
+							value="2">2점 <input type="radio" class="form-check-input"
+							id="r_star" name="r_star" value="3">3점 <input
+							type="radio" class="form-check-input" id="r_star" name="r_star"
+							value="4" checked>4점 <input type="radio"
+							class="form-check-input" id="r_star" name="r_star" value="5">5점
+					</div>
+					<div class="starRev">
+						<span class="starR on">1</span> <span class="starR">1</span> <span
+							class="starR">3</span> <span class="starR">4</span> <span
+							class="starR">5</span>
+
 					</div>
 					<textarea class="form-control" rows="10" cols="66%"
 						name="r_content" id="r_content"></textarea>
@@ -286,8 +308,8 @@
 
 		</div>
 		<div class="col-md-12" style="margin-top: 5%;">
-		<h2 style="text-align:center;">리뷰 내용</h2>
-			<table class="table" style="table-layout:fixed">
+			<h2 style="text-align: center;">리뷰 내용</h2>
+			<table class="table">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">num</th>
@@ -300,20 +322,29 @@
 				<tbody>
 					<c:forEach var="review" items="${review }">
 						<tr>
-							<th>${review.rownum }</th>
-							<th>${review.u_id }</th>
-							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${review.r_content }</th>
-							<th>${review.r_date }</th>
-							<th>${review.r_star }</th>
+							<td>${review.rownum }</td>
+							<td>${review.u_id }</td>
+							<td
+								style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${review.r_content }</td>
+							<td>${review.r_date }</td>
+							<td>${review.r_star }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
-			
+
 			</table>
 		</div>
 	</div>
 
 
 	<%@ include file="/view/common/footer.jsp"%>
+	
+	<script>
+	$('.starRev span').click(function(){
+		  $(this).parent().children('span').removeClass('on');
+		  $(this).addClass('on').prevAll('span').addClass('on');
+		  return false;
+		});
+	</script>
 </body>
 </html>

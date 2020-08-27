@@ -11,8 +11,6 @@ public class Review {
 	private int i_no;
 	private String u_id;
 	private int rownum;
-	private String i_name;
-	private String i_img;
 	
 	
 	
@@ -34,8 +32,6 @@ public class Review {
 		this.i_no = i_no;
 		this.u_id = u_id;
 		this.rownum = rownum;
-		this.i_name = i_name;
-		this.i_img = i_img;
 	}
 
 
@@ -97,34 +93,20 @@ public class Review {
 	public void setRownum(int rownum) {
 		this.rownum = rownum;
 	}
-	
-	
-	public String getI_name() {
-		return i_name;
-	}
 
 
-	public void setI_name(String i_name) {
-		this.i_name = i_name;
-	}
 
 
-	public String getI_img() {
-		return i_img;
-	}
-
-
-	public void setI_img(String i_img) {
-		this.i_img = i_img;
-	}
 
 
 	@Override
 	public String toString() {
 		return "Review [r_no=" + r_no + ", r_content=" + r_content + ", r_date=" + r_date + ", r_star=" + r_star
-				+ ", i_no=" + i_no + ", u_id=" + u_id + ", rownum=" + rownum + ", i_name=" + i_name + ", i_img=" + i_img
-				+ "]";
+				+ ", i_no=" + i_no + ", u_id=" + u_id + ", rownum=" + rownum + "]";
 	}
+
+
+	
 
 
 	
