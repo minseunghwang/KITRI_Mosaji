@@ -62,6 +62,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+	var category2 = '${param.category2}';
 	var arr = [];
 	var search = function(num){
 		for(i=0;i<arr.length;i++){
@@ -119,28 +120,22 @@
 	        type: 'POST',
 	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
 	        data: {
+	        	category2 : category2,
 	        	gval : gval,
 	        	age_arr : age_arr,
 	        	stype_arr : stype_arr
 	        },
 	        success: function(result){
-				var arr2 = $.parseJSON(result);
-				var html;
+				var arr = $.parseJSON(result);
 				$(".itemList").empty();
-	        	for(i=0;i<arr2.length;i++){
-	        		html = "<div class='boxA'>";
-	        		html += "<div class='i_element i_img'><img src='arr2[i].i_img' style='width:100px;height:100px;'></div>";
-	        		html += "<div class='i_element i_name' num='"+arr2[i].i_no+"'><h3 style='width:100px'>"+arr2[i].i_name+"</h3></div>";
-	        		html += "<div class='i_element i_volume'>"+arr2[i].i_volume+"</div>";
-	        		html += "<div class='i_element i_category1'>"+arr2[i].i_category1+"</div>";
-	        		html += "<div class='i_element i_category2'>"+arr2[i].i_category2+"</div>";
-	        		html += "<div class='i_element i_content'>"+arr2[i].i_content+"</div>";
-	        		html += "<div class='i_element i_brand'>"+arr2[i].i_brand+"</div>";
-	        		html += "<div class='i_element i_gender'>"+arr2[i].i_gender+"</div>";
-	        		html += "<div class='i_element i_age'>"+arr2[i].i_age+"</div>";
-	        		html += "<div class='i_element i_skintype'>"+arr2[i].i_skintype+"</div>";
-	        		html += "<div class='i_element i_price'>"+arr2[i].i_price+"</div>";
-	        		html += "<div class='i_element i_star'>"+arr2[i].i_star+"</div>";
+				var html;
+	        	for(i=0;i<arr.length;i++){
+	        		html = "<div class='boxA' style='width:100%'>";
+	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
+	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
+	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
+	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
 	        		html += "</div>";
 	        		$(".itemList").append(html);
 	        	}
@@ -149,11 +144,10 @@
 		
 		return true;
 	}
-	
-	
+
 
 	$(document).ready(function(){
-		var category2 = '${param.category2}';
+		
     	$.ajax({
 	        url: '${pageContext.request.contextPath }/selectController',
 	        type: 'POST',
@@ -207,10 +201,10 @@
 			$("input:radio[name='genderRadio']").filter("[value='1']").prop("checked",true);
 		});
 		
-		var category2 = $(this).val();
 		$("#category2").change(function(){
 			category2 = $(this).val();
-		})
+		});
+		
 		$("#orderby").change(function(){
 			var orderby = $(this).val();
 			$.ajax({
@@ -223,27 +217,22 @@
 		        },
 		        success: function(result){
 		        	arr = $.parseJSON(result);
-		        	var html;
 		        	$(".itemList").empty();
+		        	var html;
 		        	for(i=0;i<arr.length;i++){
-		        		html = "<div class='boxA'>";
-		        		html += "<div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div>";
-		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'><h3 style='width:100px'>"+arr[i].i_name+"</h3></div>";
-		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+"</div>";
-		        		html += "<div class='i_element i_category1'>"+arr[i].i_category1+"</div>";
-		        		html += "<div class='i_element i_category2'>"+arr[i].i_category2+"</div>";
-		        		html += "<div class='i_element i_content'>"+arr[i].i_content+"</div>";
-		        		html += "<div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-		        		html += "<div class='i_element i_gender'>"+arr[i].i_gender+"</div>";
-		        		html += "<div class='i_element i_age'>"+arr[i].i_age+"</div>";
-		        		html += "<div class='i_element i_skintype'>"+arr[i].i_skintype+"</div>";
-		        		html += "<div class='i_element i_price'>"+arr[i].i_price+"</div>";
+		        		html = "<div class='boxA' style='width:100%'>";
+		        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+		        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
+		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
+		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
 		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
 		        		html += "</div>";
 		        		$(".itemList").append(html);
 		        	}
 		        }
 		    });
+			
+			$("#filter").css('visibility','hidden');
 		})
 		
 	});
@@ -261,7 +250,7 @@
 				<span> 연령대, 성별, 취향에 맞는 선물을 추천받으세요!</span>
 			</div>
 			<div class="filter">
-				<fieldset class="filters__filed filters__is-sorted" data-v-07810608>
+				<fieldset class="filters__filed filters__is-sorted" id="filter">
 					<div class="filter-header">
 						<i class="icon-sprite icon-filter filter-header__text-icon"
 							data-v-2c3efac9></i> <span data-v-2c3efac9>필터</span>

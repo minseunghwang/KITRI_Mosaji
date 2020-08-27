@@ -47,7 +47,7 @@ public class DaoImpl implements Dao{
 	}
 
 	@Override
-	public ArrayList<Item> selectAfter_filter(int gender, String[] age, String[] skintype) {
+	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype) {
 
 		
 		ArrayList<String> gen = new ArrayList<String>();
@@ -57,20 +57,6 @@ public class DaoImpl implements Dao{
 		if(gender == 2 || gender == 1) {
 			gen.add("여");
 		}
-		
-//		System.out.println(gen);
-//		System.out.println(gen.size() + " gender :" + gender);
-//		
-//		System.out.print(age.length + " age : ");
-//		for(int i=0; i<age.length; i++) {
-//			System.out.print(age[i]+",");
-//		}
-//		System.out.println();
-//		
-//		System.out.print(skintype.length + " skintype : ");
-//		for(int i=0; i<skintype.length; i++) {
-//			System.out.print(skintype[i]+",");
-//		}
 		
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
@@ -99,8 +85,13 @@ public class DaoImpl implements Dao{
 			}
 			sql = sql.substring(0, sql.length()-1);
 			sql += ") ";
-
-//			System.out.println(sql);
+			
+			sql += "and i_category2 = '";
+			sql += category2;
+			sql += "'";
+			
+			System.out.println(sql);
+			
 			pstmt = conn.prepareStatement(sql);
 			
 			for(int i=0; i<gen.size(); i++) {
@@ -123,6 +114,7 @@ public class DaoImpl implements Dao{
 			while(rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getString(13)));
 			}
+			System.out.println("data size : " + data.size());
 		}
 		catch (Exception e) {
 			e.printStackTrace();

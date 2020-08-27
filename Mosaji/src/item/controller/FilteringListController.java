@@ -38,12 +38,12 @@ public class FilteringListController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		Service service = new ServiceImpl();
 		
+		String category2 = request.getParameter("category2");
 		int gender = Integer.parseInt(request.getParameter("gval"));
 		String[] age = request.getParameterValues("age_arr[]");
 		String[] skintype =request.getParameterValues("stype_arr[]");
 		
-		ArrayList<Item> item = service.AfterFilter(gender, age, skintype);
-
+		ArrayList<Item> item = service.AfterFilter(category2, gender, age, skintype);
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
 		rd.forward(request, response);
