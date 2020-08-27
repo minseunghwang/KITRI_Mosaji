@@ -47,17 +47,14 @@ public class WishlistController extends HttpServlet {
 		
 		
 		HttpSession session = request.getSession(false);
-		System.out.println(session + "session");
 		
 		
 		String u_id = (String) session.getAttribute("u_id");
 		
 		
 		User u = userservice.getUser(u_id);
-		System.out.println("u_id " + u_id);
 		
 		request.setAttribute("u", u);
-		System.out.println(" u  ==" +  u);
 //		ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) wishlistservice.getAll();
 //		
 //		request.setAttribute("wishlist", wishlist);
@@ -70,7 +67,6 @@ public class WishlistController extends HttpServlet {
 		
 		ArrayList<Wishlist1> wishlist = (ArrayList<Wishlist1>) wishlistservice.getItem1(u_id);
 		request.setAttribute("wishlist", wishlist);
-		System.out.println("wishlist = " + wishlist);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/user/wishlist.jsp");
 		rd.forward(request, response);
 		

@@ -16,4 +16,6 @@ public interface WishlistService {
 	
 	void insert(Wishlist1 wishlist1);
 	
+	void DeleteWishList(String[] zzim_arr);
+	
 }

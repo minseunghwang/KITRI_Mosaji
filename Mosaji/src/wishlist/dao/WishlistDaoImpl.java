@@ -164,8 +164,37 @@ public class WishlistDaoImpl implements WishlistDao{
 			
 		}
 	}
-	
-	
-	
 
+	@Override
+	public void DeleteWishList(String[] zzim_arr) {
+		Connection conn = null;
+		String sql = "delete from mosaji_wishlist where";
+		PreparedStatement pstmt = null;
+		
+		for(String i:zzim_arr) {
+			sql += " w_no = ";
+			sql += i;
+			sql += " or ";
+		}
+		
+		sql = sql.substring(0, sql.length()-3);
+		
+		System.out.println(sql);
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
 }
