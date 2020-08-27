@@ -446,6 +446,7 @@
 		</div>
 	</section>
 
+
 	<section>
 		<h1 style="text-align: center;">Contact us</h1><br><br>
 		<div class="container">
@@ -494,6 +495,16 @@
 			}
 		})
 	</script>
+	
+	
+	<form action="upload.jsp" method="post" enctype="multipart/form-data">
+        file: <input type="file" name="file"><br>
+        <input type="submit" value="file upload">
+    </form>
+	
+	<img src="./upload/grim.png" style="margin-top:10px;" width=150 height=150></img>
+	
+	
 	<%@ include file="view/common/footer.jsp"%>
 	
 	
