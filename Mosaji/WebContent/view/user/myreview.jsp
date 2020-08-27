@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +18,27 @@
 		<div class="row">
 			<table class="table">
 				<thead>
-					<th scope="col">번호</th>
-					<th scope="col">상품 번호</th>
-					<th scope="col">상품 이름</th>
-					<th scope="col">상품 설명</th>
-					<th scope="col">상품 이미지</th>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">상품 이미지</th>
+						<th scope="col">상품 이름</th>
+						<th scope="col">리뷰 내용</th> 
+						<th scope="col">내가준 평점</th>
+						<th scope="col">등록일</th>
+					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="review" items="${review }">
+						<tr>
+							<th>${review.r_star }</th>
+							<th><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_img }</a></th>
+							<th><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></th>
+							<th style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></th>
+							<th><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_no }</a></th>
+							<th>${review.r_date }</th>
+							<input type="hidden" value="${review.rownum }">
+						</tr>
+					</c:forEach>
 				</tbody>
 
 

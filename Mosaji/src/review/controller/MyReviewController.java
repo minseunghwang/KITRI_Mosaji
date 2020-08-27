@@ -37,17 +37,19 @@ public class MyReviewController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		System.out.println("controller 1");
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
 		ReviewService reviewservice = new ReviewServiceImpl();
 		HttpSession session = request.getSession(false);
-
+		System.out.println("controller2");
 		String u_id = (String) session.getAttribute("u_id");
 		
 		ArrayList<Review> review = reviewservice.selectByu_id(u_id);
+		System.out.println("controller3");
+		System.out.println(review);
 		request.setAttribute("review", review);
 		RequestDispatcher rd = request.getRequestDispatcher("view/user/myreview.jsp");
 		rd.forward(request, response);

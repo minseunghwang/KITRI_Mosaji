@@ -85,19 +85,20 @@ public class ReviewDaoImpl implements ReviewDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
 		ArrayList<Review> review = new ArrayList<Review>();
-		String sql = "SELECT r_no, r_content, r_date, r_star, i_no, u_id, rownum FROM mosaji_review WHERE u_id = ? ORDER BY rownum desc";
+		String sql = "SELECT rownum, r.r_content, r.r_date, r.r_star, u_id, i.i_no, i.i_name, i.i_img"
+				+ " FROM mosaji_review r, mosaji_item i WHERE r.i_no = i.i_no AND u_id = ? ORDER BY rownum desc";
 		
-		try {
+		try{
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, u_id);
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
-				review.add(new Review(rs.getInt("r_no"), rs.getString("r_content"), rs.getDate("r_date"), rs.getInt("r_star"), rs.getInt("i_no"), rs.getString("u_id"), rs.getInt("rownum")));
+				review.add(new Review(rs.getString("r_content"), rs.getDate("r_date"), rs.getInt("rownum"),  rs.getInt("r_star"), rs.getString("u_id"), rs.getInt("i_no"), rs.getString("i_name"), rs.getString("i_img")));
 			}
-		}catch(SQLException e) {
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			try {
@@ -110,5 +111,9 @@ public class ReviewDaoImpl implements ReviewDao {
 		}
 		return review;
 	}
+
+	
+	
+	
 
 }

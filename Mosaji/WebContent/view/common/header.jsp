@@ -67,7 +67,7 @@
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
 							title="">내 찜 목록</a></li>
 					<li class="active"><a
-							href="#"	
+							href="${pageContext.request.contextPath }/MyReviewController"	
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
 							title="">내가 쓴 리뷰</a></li>					
 					</c:if>
