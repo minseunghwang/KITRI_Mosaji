@@ -259,7 +259,7 @@
 		</div>
 		<!--  review -->
 		<div class="col-md-12" style="margin-top: 8%;">
-			<h2 style="text-align: center;">리뷰쓰기</h2>
+			<h2 style="text-align: center;">리뷰 등록</h2>
 			<div class="col-md-12">
 
 				<form method="post"
@@ -284,6 +284,32 @@
 				</form>
 			</div>
 
+		</div>
+		<div class="col-md-12" style="margin-top: 5%;">
+		<h2 style="text-align:center;">리뷰 내용</h2>
+			<table class="table" style="table-layout:fixed">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">num</th>
+						<th scope="col">작성자</th>
+						<th scope="col">내용</th>
+						<th scope="col">등록일</th>
+						<th scope="col">평점</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="review" items="${review }">
+						<tr>
+							<th>${review.rownum }</th>
+							<th>${review.u_id }</th>
+							<th style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${review.r_content }</th>
+							<th>${review.r_date }</th>
+							<th>${review.r_star }</th>
+						</tr>
+					</c:forEach>
+				</tbody>
+			
+			</table>
 		</div>
 	</div>
 

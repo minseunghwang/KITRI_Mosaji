@@ -1,6 +1,7 @@
 package item.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import item.model.Item;
 import item.service.Service;
 import item.service.ServiceImpl;
+import review.model.Review;
+import review.service.ReviewService;
+import review.service.ReviewServiceImpl;
 
 /**
  * Servlet implementation class ItemDetailController
@@ -39,13 +43,17 @@ public class ItemDetailController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		Service itemservice = new ServiceImpl();
-		
+		ReviewService reviewservice = new ReviewServiceImpl();
 		HttpSession session = request.getSession(false);
 		String u_id = (String) session.getAttribute("u_id");
 		
 		int i_no = Integer.parseInt(request.getParameter("i_no"));
 		Item i = itemservice.detail(i_no);
 		request.setAttribute("i", i);
+		
+		ArrayList<Review> review = reviewservice.selectByi_no(i_no);
+		request.setAttribute("review", review);
+		System.out.println("review list" + review);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itemDetail.jsp");
 		rd.forward(request, response);

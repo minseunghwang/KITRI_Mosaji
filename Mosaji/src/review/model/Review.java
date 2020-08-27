@@ -10,13 +10,16 @@ public class Review {
 	private int r_star;
 	private int i_no;
 	private String u_id;
+	private int rownum;
 	
 	
 	
 	public Review() {
 		super();
 	}
-	public Review(int r_no, String r_content, Date r_date, int r_star, int i_no, String u_id) {
+	
+	
+	public Review(int r_no, String r_content, Date r_date, int r_star, int i_no, String u_id, int rownum) {
 		super();
 		this.r_no = r_no;
 		this.r_content = r_content;
@@ -24,7 +27,10 @@ public class Review {
 		this.r_star = r_star;
 		this.i_no = i_no;
 		this.u_id = u_id;
+		this.rownum = rownum;
 	}
+
+
 	public int getR_no() {
 		return r_no;
 	}
@@ -61,11 +67,22 @@ public class Review {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	@Override
 	public String toString() {
 		return "Review [r_no=" + r_no + ", r_content=" + r_content + ", r_date=" + r_date + ", r_star=" + r_star
-				+ ", i_no=" + i_no + ", u_id=" + u_id + "]";
+				+ ", i_no=" + i_no + ", u_id=" + u_id + ", rownum=" + rownum + "]";
 	}
+	
+	
+	
 	
 	
 	

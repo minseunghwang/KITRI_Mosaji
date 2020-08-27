@@ -56,7 +56,7 @@ public class ReviewDaoImpl implements ReviewDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Review> review = new ArrayList<Review>();
-		String sql = "SELECT * FROM review WHERE i_no = ? ORDER BY r_no";
+		String sql = "SELECT r_no, r_content, r_date, r_star, i_no, u_id, rownum FROM mosaji_review WHERE i_no = ? ORDER BY rownum desc";
 		
 		try {
 			conn = db.getConnection();
@@ -64,13 +64,45 @@ public class ReviewDaoImpl implements ReviewDao {
 			pstmt.setInt(1, i_no);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				review.add(new Review(rs.getInt(1), rs.getString(2), rs.getDate(3), rs.getInt(4), rs.getInt(5), rs.getString(6)));
+				review.add(new Review(rs.getInt("r_no"), rs.getString("r_content"), rs.getDate("r_date"), rs.getInt("r_star"), rs.getInt("i_no"), rs.getString("u_id"), rs.getInt("rownum")));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			try {
 				pstmt.close();
+				rs.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return review;
+	}
+
+	@Override
+	public ArrayList<Review> selectByu_id(String u_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<Review> review = new ArrayList<Review>();
+		String sql = "SELECT r_no, r_content, r_date, r_star, i_no, u_id, rownum FROM mosaji_review WHERE u_id = ? ORDER BY rownum desc";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				review.add(new Review(rs.getInt("r_no"), rs.getString("r_content"), rs.getDate("r_date"), rs.getInt("r_star"), rs.getInt("i_no"), rs.getString("u_id"), rs.getInt("rownum")));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				rs.close();
 				conn.close();
 			}catch(SQLException e) {
 				e.printStackTrace();
