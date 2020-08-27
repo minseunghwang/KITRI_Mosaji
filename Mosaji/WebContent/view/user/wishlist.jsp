@@ -88,19 +88,19 @@
 	<%-- 	</c:if> --%>
 
 	<c:if test="${not empty wishlist }">
-		<h3 style="text-align: center; margin-top: 5%;">찜 목록</h3>
-		<div class="row">
+		<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
+		<div class="row" >
 			<div class="offset-md-3 col-md-6">
 
 				<table class="table">
 					<thead>
 						<tr>
 
-							<th scope="col">번호</th>
-							<th scope="col">상품 번호</th>
-							<th scope="col">상품 이름</th>
-							<th scope="col">상품 설명</th>
-							<th scope="col">상품 이미지</th>
+							<th scope="col" style="color: gray;">번호</th>
+							<th scope="col" style="color: gray;">상품 번호</th>
+							<th scope="col" style="color: gray;">상품 이름</th>
+							<th scope="col" style="color: gray;">상품 설명</th>
+							<th scope="col" style="color: gray;">상품 이미지</th>
 						</tr>
 					</thead>
 
@@ -109,11 +109,11 @@
 
 							<tr>
 								
-								<th>${wishlist.rownum }</th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_no }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_name }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }">${wishlist.i_content }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"><img src="${wishlist.i_img }"></a></th>
+								<th><a style="color: gray;" >${wishlist.rownum }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
 								
 							</tr>
 
@@ -156,8 +156,8 @@
 
 	<div class="row">
 		<div class="offset-md-3 col-md-6">
-			<a id="kakao-link-btn" href="javascript:sendLink()"> <img
-				src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+			<a id="kakao-link-btn" href="javascript:sendLink()"> 
+			<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
 			</a>
 
 

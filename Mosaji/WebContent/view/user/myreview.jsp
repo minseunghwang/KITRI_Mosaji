@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +12,24 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-		<div class="container">
-		<h3 style="text-align:center; margin-top : 5%">내가쓴 리뷰</h3>
-			<div class="row">
-			
-			</div>
+	<div class="container">
+		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3>
+		<div class="row">
+			<table class="table">
+				<thead>
+					<th scope="col">번호</th>
+					<th scope="col">상품 번호</th>
+					<th scope="col">상품 이름</th>
+					<th scope="col">상품 설명</th>
+					<th scope="col">상품 이미지</th>
+				</thead>
+				<tbody>
+				</tbody>
+
+
+			</table>
 		</div>
+	</div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
