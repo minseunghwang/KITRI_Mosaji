@@ -133,6 +133,42 @@ public class UserDaoImpl implements UserDao{
 		}
 	}
 
+	@Override
+	public User login(String u_id, String u_pw) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		User u = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM mosaji_user WHERE u_id =? AND u_pw=?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
+			pstmt.setString(2, u_pw);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				u = new User(rs.getString("u_id"), rs.getInt("u_no"), rs.getString("u_pw"), rs.getString("u_name"), rs.getInt("u_age"), rs.getString("u_gender"),  rs.getString("u_skintype"), rs.getInt("u_like_item"));
+				
+			} 
+			
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return u;
+	}
+
 	
 	
 }

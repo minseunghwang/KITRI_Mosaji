@@ -7,5 +7,5 @@ public interface UserService {
 	void join(User u);
 	void delete(String u_id);
 	void update(User u);
-	
+	User login(String u_id, String u_pw);
 }

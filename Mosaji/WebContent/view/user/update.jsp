@@ -21,6 +21,10 @@
 			return false;
 		}
 	}
+	function goDelete() {
+		location.href = "/Mosaji/DeleteController";
+		alert('탈퇴가 완료되었습니다.');
+	}
 </script>
 
 </head>
@@ -88,8 +92,12 @@
 							</div>
 							<input type="hidden" id="u_like_item" name="u_like_item"
 								value="0"> <input type="button" id="formBtn"
-								class="btn btn-secondary form-control" value="회원가입" >
+								class="btn btn-secondary form-control" value="정보수정" >
+								
 						</form>
+						<br>
+						<button style="width:100%;" type="button" class="btn btn-secondary" onclick="goDelete()"
+					value="탈퇴">회원탈퇴</button>
 					</div>
 				</div>
 			</div>

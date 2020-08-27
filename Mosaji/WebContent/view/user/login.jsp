@@ -15,26 +15,30 @@
 		console.log('회원가입 쪽갈겅미');
 		alert('회원가입 페이지출력');
 		location.href = "register.jsp";
-		
+
 	}
 </script>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	
-	<!--  긁어옴 -->
-	<div class="container">
-		<div class="row" style="position: relative; top: 100px;">
-			<div class="col-lg-1"></div>
-			<!-- /.col-lg-3 -->
 
-			<div class="col-lg-9" style="text-align: center";>
+	<!--  긁어옴 -->
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="row" style="position: relative; top: 100px;"> -->
+	<!-- 			<div class="col-lg-1"></div> -->
+	<!-- /.col-lg-3 -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9" style="text-align: center;">
 
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
-					<img src="<%=request.getContextPath()%>/resources/images/logo_5.png" style="width: 20%; height: 20%;">
+					<img
+						src="<%=request.getContextPath()%>/resources/images/logo_5.png"
+						style="width: 20%; height: 20%;">
 					<div class="card-body col-lg-5">
-						<form method="post" action="${pageContext.request.contextPath }/LoginController">
+						<form method="post"
+							action="${pageContext.request.contextPath }/LoginController">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="아이디"
 									name="u_id" maxlength="20">
@@ -54,6 +58,8 @@
 
 				</div>
 			</div>
+		</div>
+	</div>
 
 
 	<%@ include file="/view/common/footer.jsp"%>
