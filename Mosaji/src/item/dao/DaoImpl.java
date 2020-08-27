@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import conn.DBConnect;
 import item.model.Item;
+import user.model.User;
 
 public class DaoImpl implements Dao{
 	
@@ -188,5 +189,41 @@ public class DaoImpl implements Dao{
 		}
 		
 		return i;
+	}
+	
+	
+	
+	public void insert(Item i) {
+		Connection conn = null;
+		String sql = "INSERT INTO mosaji_item (mosaji_item_seq.nextval, I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT,I_BRAND,I_PRICE,I_STAR,I_IMG) VALUES(?,'?','?','?','?','?','?',?,?,UTL_RAW.CAST_TO_RAW(?))";
+
+		PreparedStatement pstmt = null;
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setString(1, i.getI_name());
+			pstmt.setString(2,i.getI_volume());
+			pstmt.setString(3,i.getI_category1());
+			pstmt.setString(4,i.getI_category2());
+			pstmt.setString(5,i.getI_content());
+			pstmt.setString(6,i.getI_brand());
+			pstmt.setInt(7,i.getI_price());
+			pstmt.setInt(8,i.getI_star());
+			pstmt.setString(9,i.getI_img());
+			
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import item.dao.Dao;
 import item.dao.DaoImpl;
 import item.model.Item;
+import user.model.User;
 
 public class ServiceImpl implements Service{
 	
@@ -32,6 +33,13 @@ public class ServiceImpl implements Service{
 	public Item detail(int i_no) {
 		// TODO Auto-generated method stub
 		return dao.detail(i_no);
+	}
+
+	@Override
+	public void upload(Item i) {
+		dao.insert(i);
+		// TODO Auto-generated method stub
+		
 	}
 
 }

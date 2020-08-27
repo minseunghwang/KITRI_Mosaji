@@ -497,7 +497,9 @@
 	</script>
 	
 	
-	<form action="upload.jsp" method="post" enctype="multipart/form-data">
+	<form  action="${pageContext.request.contextPath}/UploadController" method="post"
+	enctype="multipart/form-data">
+
         file: <input type="file" name="file"><br>
         <input type="submit" value="file upload">
     </form>
