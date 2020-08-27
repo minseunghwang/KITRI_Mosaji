@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -237,49 +240,51 @@
 <script type="text/javascript">
 	$(function() {
 
-		$('#i_category1').change(function() {
+		$('#category1').change(function() {
 
-			var makeup = [ "파운데이션", "컨실러", "베이스", "BB크림" ];
+			var 페이스메이크업 = [ "피니시파우더", "파운데이션", "컨실러" ];
 
-			var skincare = [ "스킨", "로션", "크림" ];
+			var 아이메이크업 = [ "마스카라", "섀도우" ];
 
-			var cleanser = [ "페이스클렌저", "샴푸", "린스" ];
+			var 립메이크업 = [ "틴트", "립스틱"];
 
-			var body = [ "바디로션", "바디워시", "핸드크림" ];
+			var 스킨케어 = [ "스킨/토너", "로션/에센스", "크림" ];
 
-			var changeItem;
+			var category1;
 
-				if (this.value == "makeup") {
+				if (this.value == "페이스메이크업") {
 
-					changeItem = makeup;
+					category1 = 페이스메이크업;
 
-				} else if (this.value == "skincare") {
+				} else if (this.value == "아이메이크업") {
 
-					changeItem = skincare;
+					category1 = 아이메이크업;
 
-			} else if (this.value == "cleanser") {
+			} else if (this.value == "립메이크업") {
 
-				changeItem = cleanser;
+				category1 = 립메이크업;
 
-			} else if (this.value == "body") {
+			} else if (this.value == "스킨케어") {
 
-				changeItem = body;
-
-			}
-
-			$('#i_category2').empty();
-
-			for (var count = 0; count < changeItem.length; count++) {
-
-				var option = $("<option>" + changeItem[count] + "</option>");
-
-				$('#i_category2').append(option);
+				category1 = 스킨케어;
 
 			}
 
+			$('#category2').empty();
+
+			for (var count = 0; count < category1.length; count++) {
+
+				var option = $("<option>" + category1[count] + "</option>");
+				
+				$('#category2').append(option);
+				
+				$("#category2").change(function(){
+					var category2 = $(this).val();
+				})
+			}
 		});
-
 	});
+	
 </script>
 
 
@@ -293,7 +298,7 @@
 	<div id="wrapper" style="background: #FFBFAB;">
 		<div id="staff" class="container">
 			<div class="title">
-				<h2 style="color: #625772">당신의 고민을 해결해주는, 뭐사지 !</h2>
+				<h2 style="color: #625772">당신의 고민을 해결해주는, 뭐사지 !</h2><br>
 				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별,
 					피부타입에 따라 추천받아보세요 </span>
 			</div>
@@ -301,22 +306,22 @@
 
 
 			<div style="margin-bottom: 50px;">
-				<form method="post"
-					action="${pageContext.request.contextPath }/SelectController">
+				<form method="GET"
+					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
-							<select class="custom-select" id="i_category1">
-								<option value="">뷰티 카테고리</option>
-								<option value="makeup">메이크업</option>
-								<option value="skincare">스킨케어</option>
-								<option value="cleanser">클렌징</option>
-								<option value="body">바디케어</option>
+							<select class="custom-select"  name="category1" id="category1">
+								<option value="" disabled selected hidden>뷰티 카테고리</option>
+								<option value="페이스메이크업">페이스메이크업</option>
+								<option value="아이메이크업">아이메이크업</option>
+								<option value="립메이크업">립메이크업</option>
+								<option value="스킨케어">스킨케어</option>
 							</select>
 						</div>
 
 						<div class="col">
-							<select class="custom-select" id="i_category2">
-								<option value=""></option>
+							<select class="custom-select" name="category2" id="category2">
+								<option value="" disabled selected hidden>소분류</option>
 							</select>
 						</div>
 						<div class="col">
@@ -330,7 +335,7 @@
 
 			<form class="form-inline my-2 my-lg-0" style="margin: 0;">
 				<input class="form-control mr-sm-2" type="text"
-					placeholder="화장품 이름을 입력해주세요" style="width: 60%;">
+					placeholder=" 화장품 이름을 입력하세요" style="width: 60%;">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit"
 					style="width: 15%; margin-left: 10%;">화장품 검색</button>
 			</form>

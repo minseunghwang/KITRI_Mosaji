@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -133,11 +135,17 @@
 		return true;
 	}
 	
+	
 
 	$(document).ready(function(){
-		$.ajax({
-	        url: '${pageContext.request.contextPath }/ItemListController',
+		var category2 = '${param.category2}';
+    	$.ajax({
+	        url: '${pageContext.request.contextPath }/selectController',
 	        type: 'POST',
+	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+	        data : {
+	        	category2 : category2
+	        },
 	        success: function(result){
 	        	arr = $.parseJSON(result);
 	        	var html;
@@ -338,8 +346,9 @@
 			<div name="div1">
 				<div class="rankdiv" name="rankdiv1">
 					<select name="category2" id="category2">
+						<option value="" disabled selected hidden>${param.category2}</option>
 						<option disabled>====페이스메이크업====</option>
-						<option value="피니시파우더" checked>피니시파우더 </option>
+						<option value="피니시파우더">피니시파우더 </option>
 						<option value="파운데이션">파운데이션 </option>
 						<option value="컨실러">컨실러</option>
 						<option disabled>====아이메이크업====</option>
