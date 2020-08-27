@@ -249,8 +249,6 @@
 
 			var changeItem;
 
-			if (this.value == "face") {
-
 				if (this.value == "makeup") {
 
 					changeItem = makeup;
@@ -258,8 +256,6 @@
 				} else if (this.value == "skincare") {
 
 					changeItem = skincare;
-
-				}
 
 			} else if (this.value == "cleanser") {
 
