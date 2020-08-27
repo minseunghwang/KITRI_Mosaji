@@ -33,6 +33,7 @@
 }
 
 .boxA{
+	display : inline;
 	width : 100%;
 } 
 
@@ -41,6 +42,20 @@
 	margin-top:10px;
 	border-bottom : 1px solid #c7c6c6;
 }
+
+.element_2{
+	position : relative;
+	width : 80%;
+	margin-top : 15px;
+}
+
+.i_brand, .i_name, .i_volume{
+	display :inline;
+	width: 350px;
+    height: 20px;
+    left:20%;
+} 
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -142,18 +157,11 @@
 	        	arr = $.parseJSON(result);
 	        	var html;
 	        	for(i=0;i<arr.length;i++){
-	        		html = "<div class='boxA'>";
-	        		html += "<div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div>";
-	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'><h3 style='width:100px'>"+arr[i].i_name+"</h3></div>";
-	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+"</div>";
-	        		html += "<div class='i_element i_category1'>"+arr[i].i_category1+"</div>";
-	        		html += "<div class='i_element i_category2'>"+arr[i].i_category2+"</div>";
-	        		html += "<div class='i_element i_content'>"+arr[i].i_content+"</div>";
-	        		html += "<div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-	        		html += "<div class='i_element i_gender'>"+arr[i].i_gender+"</div>";
-	        		html += "<div class='i_element i_age'>"+arr[i].i_age+"</div>";
-	        		html += "<div class='i_element i_skintype'>"+arr[i].i_skintype+"</div>";
-	        		html += "<div class='i_element i_price'>"+arr[i].i_price+"</div>";
+	        		html = "<div class='boxA' style='width:100%'>";
+	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
+	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
+	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
 	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
 	        		html += "</div>";
 	        		$(".itemList").append(html);
