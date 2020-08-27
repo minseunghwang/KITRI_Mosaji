@@ -36,7 +36,7 @@ public class ServiceImpl implements Service{
 	}
 
 	@Override
-	public void upload(Item i) {
+	public void insert(Item i) {
 		dao.insert(i);
 		// TODO Auto-generated method stub
 		

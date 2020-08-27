@@ -80,47 +80,60 @@
                      onsubmit="return check_input();">
                      <div class="form-group">
                         <input type="text" class="form-control"
-                           placeholder="아이디 : 3~12자 영문 소문자" id="u_id" name="u_id"
-                           maxlength="20">
+                           placeholder="상품이름" id="i_name" name="i_name">
                      </div>
 
                      <div class="form-group">
-                        <input type="password" class="form-control"
-                           placeholder="비밀번호 : 3~12자 숫자" id="u_pw" name="u_pw"
-                           maxlength="20">
+                        <input type="text" class="form-control"
+                           placeholder="용량" id="i_volume" name="i_volume">
                      </div>
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="이름"
-                           name="u_name" id="u_name" maxlength="20">
+                        <input type="text" class="form-control" placeholder="카테고리1"
+                           name="i_category1" id="i_category1">
+                     </div>
+                     
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="카테고리2"
+                           name="i_category2" id="i_category2">
+                     </div>
+                     
+                   	<div class="form-group">
+                        <input type="text" class="form-control" placeholder="상품설명"
+                           name="i_content" id="i_content">
+                     </div>
+                     
+                     <div class="form-group">
+                        <input type="text" class="form-control" placeholder="브랜드"
+                           name="i_brand" id="i_brand">
                      </div>
 
                      <div class="form-group" style="text-align: center;">
                         <div class="btn-group" data-toggle="buttons">
                            <label class="btn btn-secondary">
-                              <input type="radio"   name="u_gender" autocomplete="off" value="남자">남자</label>
+                              <input type="radio"   name="i_gender" autocomplete="off" value="남자">남자</label>
                            <label class="btn btn-secondary">
-                              <input type="radio" name="u_gender" autocomplete="off" value="여자">여자</label>
+                              <input type="radio" name="i_gender" autocomplete="off" value="여자">여자</label>
                         </div>
                      </div>
+                     
+                     
                      <div class="form-group">
                         <input type="text" class="form-control" placeholder="나이"
-                           id="u_age" name="u_age" maxlength="20">
+                           id="i_age" name="i_age" maxlength="20">
                      </div>
-
+                     
+                   <div class="form-group">
+                        <input type="text" class="form-control" placeholder="스킨타입"
+                           id="i_skintype" name="i_skintype" maxlength="20">
+                     </div>
+                     
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="가격"
+                           id="i_price" name="i_price" maxlength="20">
+                     </div>
                      
                      
-                     <div>
-                        <select id="selectBox" name="u_skintype" id="u_skintype"
-                           style="margin-bottom: 15px; width:100%;">
-                           <option value="">피부타입 선택하기</option>
-                           <option value="건성">건성</option>
-                           <option value="지성">지성</option>
-                           <option value="중성">중성</option>
-                           <option value="복합성">복합성</option>
-                           <option value="민감성">민감성</option>
-                           
-                        </select>
-                     </div>
+                     
 					 <input type="hidden" id="u_like_item" name="u_like_item" value="0">
                      <input type="submit" class="btn btn-secondary form-control"
                         value="등록">

@@ -38,25 +38,28 @@ public class UploadController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		Service service = new ServiceImpl();
-		System.out.println("Uload controller 오니?");
 		
 		
 		String i_name = request.getParameter("i_name");
 		String i_volume = request.getParameter("i_volume");
+		String i_gender = request.getParameter("i_gender");
+		int i_age = Integer.parseInt(request.getParameter("i_age"));
+		String i_skintype = request.getParameter("i_skintype");
 		String i_category1 = request.getParameter("i_category1");
 		String i_category2 = request.getParameter("i_category2");
 		String i_content = request.getParameter("i_content");
 		String i_brand = request.getParameter("i_brand");
 		int i_price = Integer.parseInt(request.getParameter("i_price"));
-		int i_star = Integer.parseInt(request.getParameter("i_star"));
 		String i_img = request.getParameter("i_img");
 		
-		Item i = new Item(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_price, i_star, i_img);
-
+		int ms=0;
+		int ms2=0;
+		
+		Item i = new Item(ms, i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, ms2, i_img);
 		
 		service.insert(i);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/view/user/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
 		rd.forward(request, response);
 	}
 

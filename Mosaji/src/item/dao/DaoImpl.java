@@ -195,7 +195,8 @@ public class DaoImpl implements Dao{
 	
 	public void insert(Item i) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_item (mosaji_item_seq.nextval, I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT,I_BRAND,I_PRICE,I_STAR,I_IMG) VALUES(?,'?','?','?','?','?','?',?,?,UTL_RAW.CAST_TO_RAW(?))";
+		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG)"
+				+ "VALUES(mosaji_item_seq.nextval,'?','?','?','?','?','?','?',?,'?',?,UTL_RAW.CAST_TO_RAW(?))";
 
 		PreparedStatement pstmt = null;
 		try {
@@ -209,9 +210,11 @@ public class DaoImpl implements Dao{
 			pstmt.setString(4,i.getI_category2());
 			pstmt.setString(5,i.getI_content());
 			pstmt.setString(6,i.getI_brand());
-			pstmt.setInt(7,i.getI_price());
-			pstmt.setInt(8,i.getI_star());
-			pstmt.setString(9,i.getI_img());
+			pstmt.setString(7,i.getI_gender());
+			pstmt.setInt(8,i.getI_age());
+			pstmt.setString(9,i.getI_skintype());
+			pstmt.setInt(10,i.getI_price());
+			pstmt.setString(11,i.getI_img());
 			
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
