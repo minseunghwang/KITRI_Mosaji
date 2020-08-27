@@ -10,6 +10,12 @@ public class Review {
 	private int r_star;
 	private int i_no;
 	private String u_id;
+	
+	
+	
+	public Review() {
+		super();
+	}
 	public Review(int r_no, String r_content, Date r_date, int r_star, int i_no, String u_id) {
 		super();
 		this.r_no = r_no;

@@ -7,11 +7,27 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" -->
+<!-- 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" -->
+<!-- 	crossorigin="anonymous"> -->
 <link href="/resources/glowpickcustom.css">
+<style>
+.btn-prrimary {
+	color: #fff;
+	background-color: #eb6864;
+	border-color: #eb6864;
+}
+
+.custom-control-input {
+	position: absolute;
+	left: 0;
+	z-index: -1;
+	width: 1rem;
+	height: 1.25rem;
+	opacity: 0;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
@@ -235,13 +251,40 @@
 							</tbody>
 						</table>
 					</section>
-					</li>
-					</ul>
+					<!-- 					</li> -->
+					<!-- 					</ul> -->
 			</div>
-			</section>
-			</section>
+			<!-- 			</section> -->
+			<!-- 			</section> -->
 		</div>
-	</div>
+		<!--  review -->
+		<div class="col-md-12" style="margin-top: 8%;">
+			<h2 style="text-align: center;">리뷰쓰기</h2>
+			<div class="col-md-12">
+
+				<form method="post"
+					action="${pageContext.request.contextPath }/AddReviewController">
+					<div class="form-group">
+						<input type="radio" class="form-check-input" id="r_star"
+							name="r_star" value="1" placeholder="1점">1점 <input type="radio"
+							class="form-check-input" id="r_star" name="r_star" value="2">2점
+						<input type="radio" class="form-check-input" id="r_star"
+							name="r_star" value="3">3점 <input type="radio"
+							class="form-check-input" id="r_star" name="r_star" value="4"
+							checked>4점 <input type="radio" class="form-check-input"
+							id="r_star" name="r_star" value="5">5점
+					</div>
+					<textarea class="form-control" rows="10" cols="66%"
+						name="r_content" id="r_content"></textarea>
+					<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" /> <input
+						class="btn btn-primary" type="submit"
+						style="width: 33.9%; float: right; cursor: pointer;" value="등록" />
+
+					<!-- 						<input type="hidden" value="1" id="r_star" name="r_star"/>  -->
+				</form>
+			</div>
+
+		</div>
 	</div>
 
 

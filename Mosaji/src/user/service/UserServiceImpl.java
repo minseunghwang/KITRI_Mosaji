@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService{
 		userdao.update(u);
 		
 	}
+	@Override
+	public User login(String u_id, String u_pw) {
+		
+		return userdao.login(u_id, u_pw);
+		
+	}
 	
 	
 }

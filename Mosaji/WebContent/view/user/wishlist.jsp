@@ -13,58 +13,48 @@
 	crossorigin="anonymous">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-<script type="text/javascript">
-	function goDelete() {
-		location.href = "/Mosaji/DeleteController";
-		alert('탈퇴가 완료되었습니다.');
-	}
-	function goUpdate() {
-		location.href = "/Mosaji/UpdateGetController";
-	}
-</script>
-
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<c:if test="${not empty sessionScope.flag }">
-		<h3 style="text-align: center;">내 정보</h3>
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
+<%-- 	<c:if test="${not empty sessionScope.flag }"> --%>
+<!-- 		<h3 style="text-align: center;">내 정보</h3> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-6 offset-md-3"> -->
 
 
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">아이디</th>
-							<th scope="col">패스워드</th>
-							<th scope="col">이름</th>
-							<th scope="col">나이</th>
-							<th scope="col">성별</th>
-							<th scope="col">피부타입</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>${u.u_id }</td>
-							<td>${u.u_pw }</td>
-							<td>${u.u_name }</td>
-							<td>${u.u_age }</td>
-							<td>${u.u_gender }</td>
-							<td>${u.u_skintype }</td>
-						</tr>
+<!-- 				<table class="table table-hover"> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th scope="col">아이디</th> -->
+<!-- 							<th scope="col">패스워드</th> -->
+<!-- 							<th scope="col">이름</th> -->
+<!-- 							<th scope="col">나이</th> -->
+<!-- 							<th scope="col">성별</th> -->
+<!-- 							<th scope="col">피부타입</th> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody> -->
+<!-- 						<tr> -->
+<%-- 							<td>${u.u_id }</td> --%>
+<%-- 							<td>${u.u_pw }</td> --%>
+<%-- 							<td>${u.u_name }</td> --%>
+<%-- 							<td>${u.u_age }</td> --%>
+<%-- 							<td>${u.u_gender }</td> --%>
+<%-- 							<td>${u.u_skintype }</td> --%>
+<!-- 						</tr> -->
 
-					</tbody>
-				</table>
-				<button type="button" class="btn btn-secondary" onclick="goDelete()"
-					value="탈퇴">회원탈퇴</button>
-				<button type="button" class="btn btn-secondary" onclick="goUpdate()"
-					value="수정">정보수정</button>
-			</div>
-		</div>
-	</c:if>
-	<c:if test="${empty sessionScope.flag }">
+<!-- 					</tbody> -->
+<!-- 				</table> -->
+<!-- 				<button type="button" class="btn btn-secondary" onclick="goDelete()" -->
+<!-- 					value="탈퇴">회원탈퇴</button> -->
+<!-- 				<button type="button" class="btn btn-secondary" onclick="goUpdate()" -->
+<!-- 					value="수정">정보수정</button> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<%-- 	</c:if> --%>
+<%-- 	<c:if test="${empty sessionScope.flag }"> --%>
 
-	</c:if>
+<%-- 	</c:if> --%>
 
 
 
@@ -98,7 +88,7 @@
 	<%-- 	</c:if> --%>
 
 	<c:if test="${not empty wishlist }">
-		<h3 style="text-align: center; margin-top: 10%;">찜 목록</h3>
+		<h3 style="text-align: center; margin-top: 5%;">찜 목록</h3>
 		<div class="row">
 			<div class="offset-md-3 col-md-6">
 

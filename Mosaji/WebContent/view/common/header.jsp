@@ -22,6 +22,7 @@
 
 <body>
 	<input type="hidden" value="${sessionScope.u_name }">
+	<input type="hidden" value="${sessionScope.u_id }"/>
 	<div id="header-wrapper"  style="background-color: #FFBFAB" >
 		<div id="header" class="container">
 			<div id="logo">
@@ -37,7 +38,7 @@
 
 
 
-					<c:if test="${empty sessionScope.flag }">
+					<c:if test="${empty sessionScope.u_id }">
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/view/user/login.jsp"
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
@@ -48,9 +49,9 @@
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
 
-					
+	
 
-					<c:if test="${not empty sessionScope.flag }">
+					<c:if test="${not empty sessionScope.u_id }">
 
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
@@ -58,7 +59,7 @@
 							title="">로그아웃</a></li>
 
 					<li class="active"><a
-							href="#"	
+							href="${pageContext.request.contextPath }/UpdateGetController"	
 							accesskey="5" style="background-color: #FFBFAB; color: #625772"
 							title="">내정보수정</a></li>
 					<li class="active"><a
