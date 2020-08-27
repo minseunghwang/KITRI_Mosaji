@@ -253,10 +253,7 @@
 </script>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	
-	<img src=".../upload/img_1.png" style="margin-top:10px;" width=150 height=150></img>
-	
-	
+		
 	<div id="wrapper">
 		<div id="staff" class="container">
 			<div class="title">
