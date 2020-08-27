@@ -10,7 +10,38 @@ public class Review {
 	private int r_star;
 	private int i_no;
 	private String u_id;
-	public Review(int r_no, String r_content, Date r_date, int r_star, int i_no, String u_id) {
+	private int rownum;
+	private String i_name;
+	private String i_img;
+	
+	
+	
+	public Review() {
+		super();
+	}
+	
+	
+	
+	
+	
+	
+	public Review(String r_content, Date r_date, int r_star, int i_no, String u_id, int rownum, String i_name,
+			String i_img) {
+		super();
+		this.r_content = r_content;
+		this.r_date = r_date;
+		this.r_star = r_star;
+		this.i_no = i_no;
+		this.u_id = u_id;
+		this.rownum = rownum;
+		this.i_name = i_name;
+		this.i_img = i_img;
+	}
+
+
+
+
+	public Review(int r_no, String r_content, Date r_date, int r_star, int i_no, String u_id, int rownum) {
 		super();
 		this.r_no = r_no;
 		this.r_content = r_content;
@@ -18,7 +49,10 @@ public class Review {
 		this.r_star = r_star;
 		this.i_no = i_no;
 		this.u_id = u_id;
+		this.rownum = rownum;
 	}
+
+
 	public int getR_no() {
 		return r_no;
 	}
@@ -55,11 +89,48 @@ public class Review {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	
+	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
+	
+	
+	public String getI_name() {
+		return i_name;
+	}
+
+
+	public void setI_name(String i_name) {
+		this.i_name = i_name;
+	}
+
+
+	public String getI_img() {
+		return i_img;
+	}
+
+
+	public void setI_img(String i_img) {
+		this.i_img = i_img;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Review [r_no=" + r_no + ", r_content=" + r_content + ", r_date=" + r_date + ", r_star=" + r_star
-				+ ", i_no=" + i_no + ", u_id=" + u_id + "]";
+				+ ", i_no=" + i_no + ", u_id=" + u_id + ", rownum=" + rownum + ", i_name=" + i_name + ", i_img=" + i_img
+				+ "]";
 	}
+
+
+	
+	
+	
+	
 	
 	
 	

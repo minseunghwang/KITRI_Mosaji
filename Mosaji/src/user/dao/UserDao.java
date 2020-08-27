@@ -12,6 +12,7 @@ public interface UserDao {
 	
 	void update(User u);
 	
+	User login(String u_id, String u_pw);
 	
 	
 	

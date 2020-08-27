@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import item.model.Item;
 import item.service.Service;
 import item.service.ServiceImpl;
+import review.model.Review;
+import review.service.ReviewService;
+import review.service.ReviewServiceImpl;
 
 /**
  * Servlet implementation class ItemListController
@@ -39,6 +42,8 @@ public class ItemListController extends HttpServlet {
 		
 		Service service = new ServiceImpl();
 		ArrayList<Item> item = service.getAll();
+		
+		
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
 		rd.forward(request, response);
