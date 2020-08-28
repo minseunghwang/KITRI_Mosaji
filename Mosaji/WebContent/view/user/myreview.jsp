@@ -16,7 +16,7 @@
 	<div class="container">
 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3>
 		<div class="row">
-			<table class="table">
+			<table class="table" style="table-layout: fixed">
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
@@ -30,10 +30,10 @@
 				<tbody>
 					<c:forEach var="myreview" items="${myreview }">
 						<tr>
-							<td>${myreview.r_star }</td>
+							<td>${myreview.rownum }</td>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img src="${myreview.i_img }"></a></td>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
-							<td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
+							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; "><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td>
 							<td>${myreview.r_date }</td>
 							

@@ -189,4 +189,29 @@ public class DaoImpl implements Dao{
 		
 		return i;
 	}
+	
+	
+	@Override
+	public void delete(int i_no) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "DELETE mosaji_item WHERE i_no = ?";
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, i_no);
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }

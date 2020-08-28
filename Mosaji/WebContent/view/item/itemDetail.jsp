@@ -44,6 +44,9 @@
 	background-position: 0 0;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</script>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
@@ -273,6 +276,16 @@
 			<!-- 			</section> -->
 			<!-- 			</section> -->
 		</div>
+		<c:if test="${sessionScope.u_id eq 'admin' }">
+		
+		<div class="col-md-12">
+			<form action="${pageContext.request.contextPath }/ItemDeleteController">
+				<input type="hidden" name="i_no" value="${i.i_no }">
+				<input class="btn btn-primary"type="submit" value="삭제" onclick="alert('삭제 완료')">
+			</form>
+		
+		</div>
+		</c:if>
 		<!--  review -->
 		<div class="col-md-12" style="margin-top: 8%;">
 			<h2 style="text-align: center;">리뷰 등록</h2>
@@ -285,15 +298,20 @@
 							name="r_star" value="1" placeholder="1점">1점 <input
 							type="radio" class="form-check-input" id="r_star" name="r_star"
 							value="2">2점 <input type="radio" class="form-check-input"
-							id="r_star" name="r_star" value="3">3점 <input
+							id="r_star" name="r_star" value="3" checked>3점 <input
 							type="radio" class="form-check-input" id="r_star" name="r_star"
-							value="4" checked>4점 <input type="radio"
+							value="4" >4점 <input type="radio"
 							class="form-check-input" id="r_star" name="r_star" value="5">5점
 					</div>
 					<div class="starRev">
-						<span class="starR on">1</span> <span class="starR">1</span> <span
-							class="starR">3</span> <span class="starR">4</span> <span
-							class="starR">5</span>
+						<span class="starR on" id="r_star"
+							name="r_star" value="1">1</span> <span class="starR" id="r_star"
+							name="r_star" value="2">2</span> <span
+							class="starR" id="r_star"
+							name="r_star" value="4">3</span> <span class="starR" id="r_star"
+							name="r_star"  value="4">4</span> <span
+							class="starR" id="r_star"
+							name="r_star"  value="5">5</span>
 
 					</div>
 					<textarea class="form-control" rows="10" cols="66%"
@@ -309,7 +327,7 @@
 		</div>
 		<div class="col-md-12" style="margin-top: 5%;">
 			<h2 style="text-align: center;">리뷰 내용</h2>
-			<table class="table">
+			<table class="table" >
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">num</th>
@@ -325,7 +343,7 @@
 							<td>${review.rownum }</td>
 							<td>${review.u_id }</td>
 							<td
-								style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">${review.r_content }</td>
+								style="overflow: hidden; text-overflow: ellipsis;">${review.r_content }</td>
 							<td>${review.r_date }</td>
 							<td>${review.r_star }</td>
 						</tr>

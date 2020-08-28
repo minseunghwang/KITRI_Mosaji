@@ -33,5 +33,11 @@ public class ServiceImpl implements Service{
 		// TODO Auto-generated method stub
 		return dao.detail(i_no);
 	}
+	
+	@Override
+	public void delete(int i_no) {
+		dao.delete(i_no);
+		
+	}
 
 }
