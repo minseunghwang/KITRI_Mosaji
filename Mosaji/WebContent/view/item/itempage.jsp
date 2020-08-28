@@ -43,19 +43,16 @@
 
 	<div class="container">
 		<h3 class="header"
-			style="text-align: center; background-color: white;">
-			상세페이지
-		</h3>
+			style="text-align: center; background-color: white;">상세페이지</h3>
 
 		<div class="vw">
 
-				<img style="height: 300px; width: 300px; display: block;"
-				src="${i.i_img }"
-				alt="Card image">
+			<img style="height: 300px; width: 300px; display: block;"
+				src="${i.i_img }" alt="Card image">
 		</div>
 
 
-		<div class="card-body">
+		<div class="card-body" style="margin-left: 33%;">
 			<h4 class="card-title">상품이름 : {${i.i_name}(${i.i_brand})}</h4>
 			<h6 class="card-subtitle mb-2 text-muted">카테고리 :
 				{${i.i_category1}/${i.i_category2}}</h6>
@@ -91,7 +88,7 @@
 				<li class="list-group-item">리뷰평점:</li>
 			</ul>
 			<ul class="list-group list-group-flush vw">
-				<li class="list-group-item">${i.i_age }대/ ${i.i_gender }</li>
+				<li class="list-group-item">${i.i_age }대/${i.i_gender }</li>
 				<li class="list-group-item">${i.i_skintype }</li>
 				<li class="list-group-item">${i.i_star }</li>
 			</ul>
@@ -110,27 +107,28 @@
 
 		<div class="container">
 			<div class="rww" role="document">
-				<form method="post" action="${pageContext.request.contextPath }/AddReviewController">
-				<div class="col-md-12">
-					<div class="form-group">
-								<select class="custom-select" id="r_star" name="r_star">
-									<option selected="">---별점---</option>
-									<option value="1">❤
-									<option value="2">❤❤</option>
-									<option value="3">❤❤❤</option>
-									<option value="4">❤❤❤❤</option>
-									<option value="5">❤❤❤❤❤</option>
-								</select>
-							</div>
-				</div>
-				<div class="col-md-12">
-					<textarea rows="10" cols="100%" name="r_content" id="r_content"></textarea>
-					<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
-				</div>
-				<div class="col-md-12">
-					<input type="submit" class="btn btn-primary" value="등록"
-						style="width: 33%; float: right; margin-right: 15%;" />
-				</div>
+				<form method="post"
+					action="${pageContext.request.contextPath }/AddReviewController">
+					<div class="col-md-12">
+						<div class="form-group">
+							<select class="custom-select" id="r_star" name="r_star">
+								<option selected="">---별점---</option>
+								<option value="1">❤
+								<option value="2">❤❤</option>
+								<option value="3">❤❤❤</option>
+								<option value="4">❤❤❤❤</option>
+								<option value="5">❤❤❤❤❤</option>
+							</select>
+						</div>
+						</div>
+					<div class="col-md-12">
+						<textarea rows="10" cols="117%" name="r_content" id="r_content"></textarea>
+						<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
+					</div>
+					<div class="col-md-12">
+						<input type="submit" class="btn btn-primary" value="등록"
+							style="width: 33%; float: right;" />
+					</div>
 				</form>
 			</div>
 		</div>
@@ -251,61 +249,57 @@
 
 	<div class="alert alert-warning container" role="alert">
 		<h4 class="alert-heading">제목</h4>
-		<p> 피부타입 : 
-
-			<span class="badge badge-pill badge-primary">건성</span> <span
+		<p>
+			피부타입 : <span class="badge badge-pill badge-primary">건성</span> <span
 				class="badge badge-pill badge-success">중성</span> <span
 				class="badge badge-pill badge-info">지성</span> <span
 				class="badge badge-pill badge-warning">복합성</span> <span
-				class="badge badge-pill badge-danger">민감성</span> 
-			/ 별점 : {1-5점}
+				class="badge badge-pill badge-danger">민감성</span> / 별점 : {1-5점}
 		</p>
 		<hr>
 		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
 	</div>
 
-<div class="alert alert-light" role="alert"></div>
+	<div class="alert alert-light" role="alert"></div>
 
 	<div class="alert alert-secondary container" role="alert">
 		<h4 class="alert-heading">제목</h4>
-		<p> 피부타입 : 
-
-			<span class="badge badge-pill badge-primary">건성</span> <span
+		<p>
+			피부타입 : <span class="badge badge-pill badge-primary">건성</span> <span
 				class="badge badge-pill badge-success">중성</span> <span
 				class="badge badge-pill badge-info">지성</span> <span
 				class="badge badge-pill badge-warning">복합성</span> <span
-				class="badge badge-pill badge-danger">민감성</span> 
-			/ 별점 : {1-5점}
+				class="badge badge-pill badge-danger">민감성</span> / 별점 : {1-5점}
 		</p>
 		<hr>
 		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
 	</div>
 
-<div class="alert alert-light" role="alert"></div>
+	<div class="alert alert-light" role="alert"></div>
 
 	<div class="container msjj">
 		<div class="card border-danger mb-3 msj" style="max-width: 20rem;">
@@ -389,29 +383,29 @@
 	</fieldset>
 
 
-<!-- 	<div class="card-body"> -->
-<!-- 		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4> -->
-<!-- 		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6> -->
-<!-- 		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6> -->
-<!-- 		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p> -->
+	<!-- 	<div class="card-body"> -->
+	<!-- 		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4> -->
+	<!-- 		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6> -->
+	<!-- 		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6> -->
+	<!-- 		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p> -->
 
-<!-- 		<button type="button" class="btn btn-secondary">찜하기</button> -->
-<!-- 		<button type="button" class="btn btn-secondary">네이버검색</button> -->
-<!-- 		<button type="button" class="btn btn-secondary">네이버상점검색</button> -->
+	<!-- 		<button type="button" class="btn btn-secondary">찜하기</button> -->
+	<!-- 		<button type="button" class="btn btn-secondary">네이버검색</button> -->
+	<!-- 		<button type="button" class="btn btn-secondary">네이버상점검색</button> -->
 
-<!-- 		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a> -->
-<!-- 		<a href="#" class="card-link">네이버상점링크</a> -->
-<!-- 	</div> -->
+	<!-- 		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a> -->
+	<!-- 		<a href="#" class="card-link">네이버상점링크</a> -->
+	<!-- 	</div> -->
 
-<!-- 	<div class="card-body1"> -->
-<!-- 		<button type="button" class="btn btn-outline-secondary" -->
-<%-- 			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
-<!-- 			쇼핑연결</button> -->
-<!-- 		<button type="button" class="btn btn-outline-info" -->
-<%-- 			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
-<!-- 			명으로 검색하기</button> -->
-<!-- 		<button type="button" class="btn btn-outline-danger">찜하기</button> -->
-<!-- 	</div> -->
+	<!-- 	<div class="card-body1"> -->
+	<!-- 		<button type="button" class="btn btn-outline-secondary" -->
+	<%-- 			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
+	<!-- 			쇼핑연결</button> -->
+	<!-- 		<button type="button" class="btn btn-outline-info" -->
+	<%-- 			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
+	<!-- 			명으로 검색하기</button> -->
+	<!-- 		<button type="button" class="btn btn-outline-danger">찜하기</button> -->
+	<!-- 	</div> -->
 
 
 
