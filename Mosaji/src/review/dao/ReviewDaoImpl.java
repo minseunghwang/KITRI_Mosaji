@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import conn.DBConnect;
 import review.model.MyReview;
 import review.model.Review;
+import review.model.Review1;
 
 public class ReviewDaoImpl implements ReviewDao {
 
@@ -110,6 +111,15 @@ public class ReviewDaoImpl implements ReviewDao {
 			}
 		}
 		return review;
+	}
+
+	@Override
+	public ArrayList<Review1> selectByi_no1(int i_no) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Review1> review = new ArrayList<Review1>();
+		String sql = "SELECT u.u_age, u.u_skintype, u.u_gender, r.r_star, r.r_content, r.u_id FROM mosaji_review r, mosaji_user u WHERE r.u_id = u.u_id and i_no = ?";
 	}
 
 	
