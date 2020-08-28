@@ -89,14 +89,15 @@
 
 
 
+                 <form method="post" action="${pageContext.request.contextPath }/UploadController" enctype="multipart/form-data"> 
                   <h3 style="text-align: center;">상품 업로드</h3>
 					<br>
-					  <div class=form-group">
+					  <div class="form-group">
 					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지">
 					  </div>
 					  <br>
 
-                  <form method="post" action="${pageContext.request.contextPath }/UploadController" enctype="multipart/form-data">
+<!--                      <form method="post" action="test.jsp"> -->
                      <div class="form-group">
                         <input type="text" class="form-control"
                            placeholder="상품이름" id="i_name" name="i_name">

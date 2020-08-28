@@ -1,5 +1,6 @@
 package item.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -42,11 +43,12 @@ public class UploadController extends HttpServlet {
 		
 		Service service = new ServiceImpl();
 		
-		String directory = request.getRealPath("/fileFolder");
-		//String directory = "C:\\Users\\KITRI\\git\\KITRI_Mosaji_PROJECT\\Mosaji\\WebContent\\fileFolder";
+//		String directory = request.getRealPath("/fileFolder");
+		String directory = "C:\\Users\\KITRI\\git\\KITRI_Mosaji\\Mosaji\\WebContent\\fileFolder";
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
 
+		
 		MultipartRequest multipartRequest 
 		= new MultipartRequest(request,directory, maxSize, encoding, new DefaultFileRenamePolicy());
 
@@ -58,13 +60,14 @@ public class UploadController extends HttpServlet {
 		int i_age = Integer.parseInt(multipartRequest.getParameter("i_age"));
 		String i_skintype = multipartRequest.getParameter("i_skintype");
 		String i_category1 = multipartRequest.getParameter("i_category1");
+		
 		String i_category2 = multipartRequest.getParameter("i_category2");
 		String i_content = multipartRequest.getParameter("i_content");
 		String i_brand = multipartRequest.getParameter("i_brand");
 		int i_price = Integer.parseInt(multipartRequest.getParameter("i_price"));
 				
 		
-		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+fileRealName);
+		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+File.separator+fileRealName);
 		
 		service.upload(i);
 		
