@@ -39,8 +39,6 @@ public class UserServiceImpl implements UserService{
 	}
 	@Override
 	public int Joincheck(String u_id) {
-		return 0;
+		return userdao.Join_Check(u_id);
 	}
-	
-	
 }

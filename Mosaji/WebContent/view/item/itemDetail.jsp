@@ -43,8 +43,33 @@
 .starR.on {
 	background-position: 0 0;
 }
+
+.star-rating {
+	width: 205px;
+}
+
+//
+별이미지크기
+
+.star-rating, .star-rating span {
+	display: inline-block;
+	height: 39px;
+	overflow: hidden;
+	background:
+		url("star.png")no-repeat;
+}
+
+//
+두개의 span에 동시에 주는 효과들
+
+.star-rating span {
+	background-position: left bottom;
+	line-height: 0;
+	vertical-align: top;
+}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </script>
 </head>
@@ -265,6 +290,37 @@
 											data-v-3b7c2262="" class="info__description">
 											${i.i_content }</div></td>
 								</tr>
+								<tr data-v-3b7c2262="" class="info__description-box info__tr">
+									<th data-v-3b7c2262="" class="info__th"><span
+										data-v-3b7c2262="" class="title">평점</span></th>
+									<td data-v-3b7c2262="" class="info__td"><div
+											data-v-3b7c2262="" class="info__description">
+											${i.i_star }
+											<c:choose>
+												<c:when test="${i.i_star >= 4 }">
+													<div class="star-wrap">
+														<div class="star-rating">
+															<span style="width: 100%"></span>
+														</div>
+													</div>
+												</c:when>
+												<c:when test="${i.i_star <= 4 && i.i_star >= 5 }">
+													<span class="star-rating"> <span style="width: 75%"></span>
+													</span>
+												</c:when>
+												<c:otherwise>
+													<span>평점이 없어요</span>
+												</c:otherwise>
+
+											</c:choose>
+											<div class="star-wrap">
+												<div class="star-rating">
+													<span style="width: 50%;"></span>
+													
+												</div>
+											</div>
+										</div></td>
+								</tr>
 
 
 							</tbody>
@@ -285,6 +341,7 @@
 			</form>
 		
 		</div>
+
 		</c:if>
 		<!--  review -->
 		<div class="col-md-12" style="margin-top: 8%;">
@@ -300,18 +357,15 @@
 							value="2">2점 <input type="radio" class="form-check-input"
 							id="r_star" name="r_star" value="3" checked>3점 <input
 							type="radio" class="form-check-input" id="r_star" name="r_star"
-							value="4" >4점 <input type="radio"
-							class="form-check-input" id="r_star" name="r_star" value="5">5점
+							value="4">4점 <input type="radio" class="form-check-input"
+							id="r_star" name="r_star" value="5">5점
 					</div>
 					<div class="starRev">
-						<span class="starR on" id="r_star"
-							name="r_star" value="1">1</span> <span class="starR" id="r_star"
-							name="r_star" value="2">2</span> <span
-							class="starR" id="r_star"
-							name="r_star" value="4">3</span> <span class="starR" id="r_star"
-							name="r_star"  value="4">4</span> <span
-							class="starR" id="r_star"
-							name="r_star"  value="5">5</span>
+						<span class="starR on" id="r_star" name="r_star" value="1">1</span>
+						<span class="starR" id="r_star" name="r_star" value="2">2</span> <span
+							class="starR" id="r_star" name="r_star" value="4">3</span> <span
+							class="starR" id="r_star" name="r_star" value="4">4</span> <span
+							class="starR" id="r_star" name="r_star" value="5">5</span>
 
 					</div>
 					<textarea class="form-control" rows="10" cols="66%"
@@ -327,7 +381,7 @@
 		</div>
 		<div class="col-md-12" style="margin-top: 5%;">
 			<h2 style="text-align: center;">리뷰 내용</h2>
-			<table class="table" >
+			<table class="table">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">num</th>
@@ -342,8 +396,7 @@
 						<tr>
 							<td>${review.rownum }</td>
 							<td>${review.u_id }</td>
-							<td
-								style="overflow: hidden; text-overflow: ellipsis;">${review.r_content }</td>
+							<td style="overflow: hidden; text-overflow: ellipsis;">${review.r_content }</td>
 							<td>${review.r_date }</td>
 							<td>${review.r_star }</td>
 						</tr>
@@ -356,12 +409,12 @@
 
 
 	<%@ include file="/view/common/footer.jsp"%>
-	
+
 	<script>
-	$('.starRev span').click(function(){
-		  $(this).parent().children('span').removeClass('on');
-		  $(this).addClass('on').prevAll('span').addClass('on');
-		  return false;
+		$('.starRev span').click(function() {
+			$(this).parent().children('span').removeClass('on');
+			$(this).addClass('on').prevAll('span').addClass('on');
+			return false;
 		});
 	</script>
 </body>

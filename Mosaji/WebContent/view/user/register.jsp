@@ -33,7 +33,6 @@
 		        	u_id : u_id
 		        },
 		        success: function(result){
-		        	alert("아자!");
 		        }
 		    });
 		});

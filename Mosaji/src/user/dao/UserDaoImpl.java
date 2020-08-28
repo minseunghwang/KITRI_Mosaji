@@ -147,12 +147,10 @@ public class UserDaoImpl implements UserDao{
 			pstmt.setString(1, u_id);
 			pstmt.setString(2, u_pw);
 			
-			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				u = new User(rs.getString("u_id"), rs.getInt("u_no"), rs.getString("u_pw"), rs.getString("u_name"), rs.getInt("u_age"), rs.getString("u_gender"),  rs.getString("u_skintype"), rs.getInt("u_like_item"));
-				
 			} 
 			
 			
@@ -160,6 +158,7 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		} finally {
 			try {
+				rs.close();
 				pstmt.close();
 				conn.close();
 			}catch(SQLException e) {
@@ -170,11 +169,35 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public int JoinCheck(String u_id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int Join_Check(String u_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT u_id FROM mosaji_user WHERE u_id =?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return 1;		// id 존재하는거 => 
+			} else {
+				return 0;		// id없음 회원가입 가능
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return -1;
 	}
-
-	
-	
 }

@@ -12,8 +12,6 @@ public interface Service {
 	ArrayList<Item> getRank(String category2, String v1, String v2);
 	Item detail(int i_no);
 
-	
-	
 	void upload(Item2 i);
 
 	void delete(int i_no);

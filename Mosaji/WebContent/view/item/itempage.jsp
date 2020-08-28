@@ -36,44 +36,36 @@
 </head>
 
 <body>
+
 	<%@ include file="/view/common/header.jsp"%>
 
+	<div class="alert alert-secondary" role="alert"></div>
+
 	<div class="container">
-		<h3 class="card-header"
-			style="text-align: center; background-color: white;">
-			<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
-			일단 제품이름
-		</h3>
+		<h3 class="header"
+			style="text-align: center; background-color: white;">상세페이지</h3>
 
 		<div class="vw">
-			<img style="height: 300px; width: 100%; display: block;"
-				src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
-				alt="Card image">
+
+			<img style="height: 300px; width: 300px; display: block;"
+				src="${i.i_img }" alt="Card image">
 		</div>
 
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<h4 class="card-title">상품 이름(브랜드)</h4> -->
-		<!-- 			<h6 class="card-subtitle text-muted">용량/가격</h6> -->
-		<!-- 			<h7 class="card-subtitle text-muted">카페고리1/카테고리2</h7> -->
-		<!-- 		</div> -->
 
-		<!-- 		<div class="card-text"> -->
-		<!-- 			<a>제품설명</a> -->
-		<!-- 		</div> -->
+		<div class="card-body" style="margin-left: 33%;">
+			<h4 class="card-title">상품이름 : {${i.i_name}(${i.i_brand})}</h4>
+			<h6 class="card-subtitle mb-2 text-muted">카테고리 :
+				{${i.i_category1}/${i.i_category2}}</h6>
+			<h6 class="card-subtitle mb-2 text-muted">용량/가격 :
+				{${i.i_volume}/${i.i_price}}</h6>
+			<p class="card-text">제품설명 : {${i.i_brand}의 ${i.i_category2} }</p>
 
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<a href="#" class="card-link">네이버검색링크</a> <a href="#" -->
-		<!-- 				class="card-link">네이버상점링크</a> -->
-		<!-- 		</div> -->
+			<form
+				action="${pageContext.request.contextPath }/AddWishlistController">
+				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
+				<button type="button" class="btn btn-secondary">찜하기</button>
 
-		<!-- 	<div class="vw"> -->
-		<div class="card-body">
-			<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4>
-			<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6>
-			<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6>
-			<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p>
-
-			<button type="button" class="btn btn-secondary">찜하기</button>
+			</form>
 			<button type="button" class="btn btn-secondary">네이버검색</button>
 			<button type="button" class="btn btn-secondary">네이버상점검색</button>
 		</div>
@@ -91,9 +83,14 @@
 
 		<div class="card-body2">
 			<ul class="list-group list-group-flush vw">
-				<li class="list-group-item">추천연령/성별</li>
-				<li class="list-group-item">추천피부타입</li>
-				<li class="list-group-item">리뷰평점</li>
+				<li class="list-group-item">추천연령/성별:</li>
+				<li class="list-group-item">추천피부타입:</li>
+				<li class="list-group-item">리뷰평점:</li>
+			</ul>
+			<ul class="list-group list-group-flush vw">
+				<li class="list-group-item">${i.i_age }대/${i.i_gender }</li>
+				<li class="list-group-item">${i.i_skintype }</li>
+				<li class="list-group-item">${i.i_star }</li>
 			</ul>
 		</div>
 
@@ -105,38 +102,34 @@
 			</h3>
 		</div>
 
+
+
+
 		<div class="container">
 			<div class="rww" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">제목</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+				<form method="post"
+					action="${pageContext.request.contextPath }/AddReviewController">
+					<div class="col-md-12">
+						<div class="form-group">
+							<select class="custom-select" id="r_star" name="r_star">
+								<option selected="">---별점---</option>
+								<option value="1">❤
+								<option value="2">❤❤</option>
+								<option value="3">❤❤❤</option>
+								<option value="4">❤❤❤❤</option>
+								<option value="5">❤❤❤❤❤</option>
+							</select>
+						</div>
+						</div>
+					<div class="col-md-12">
+						<textarea rows="10" cols="117%" name="r_content" id="r_content"></textarea>
+						<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
 					</div>
-
-					<div class="form-group">
-						<select class="custom-select">
-							<option selected="">---별점---</option>
-							<option value="1">❤
-							<option value="2">❤❤</option>
-							<option value="3">❤❤❤</option>
-							<option value="4">❤❤❤❤</option>
-							<option value="5">❤❤❤❤❤</option>
-						</select>
+					<div class="col-md-12">
+						<input type="submit" class="btn btn-primary" value="등록"
+							style="width: 33%; float: right;" />
 					</div>
-
-					<div class="modal-body">
-						<p>작성내용</p>
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary">저장</button>
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">취소</button>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 
@@ -167,7 +160,7 @@
 		<div class="container sel">
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---피부타입---</option>
+					<option selected="" disabled selected hidden>---피부타입---</option>
 					<option value="1">건성</option>
 					<option value="2">중성</option>
 					<option value="3">지성</option>
@@ -178,7 +171,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---연령---</option>
+					<option selected="" disabled selected hidden>---연령---</option>
 					<option value="1">10대</option>
 					<option value="2">20대</option>
 					<option value="3">30대</option>
@@ -188,7 +181,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---성별---</option>
+					<option selected="" disabled selected hidden>---성별---</option>
 					<option value="1">여자</option>
 					<option value="2">남자</option>
 				</select>
@@ -199,7 +192,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---정렬---</option>
+					<option selected="" disabled selected hidden>---정렬---</option>
 					<option value="1">최신순</option>
 					<option value="2">오래된순</option>
 				</select>
@@ -242,6 +235,71 @@
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
 	</div>
+
+	<div class="alert alert-warning" role="alert">
+		<div class="container">
+			<span class="badge badge-pill badge-primary">건성</span> <span
+				class="badge badge-pill badge-success">중성</span> <span
+				class="badge badge-pill badge-info">지성</span> <span
+				class="badge badge-pill badge-warning">복합성</span> <span
+				class="badge badge-pill badge-danger">민감성</span>
+		</div>
+	</div>
+
+
+	<div class="alert alert-warning container" role="alert">
+		<h4 class="alert-heading">제목</h4>
+		<p>
+			피부타입 : <span class="badge badge-pill badge-primary">건성</span> <span
+				class="badge badge-pill badge-success">중성</span> <span
+				class="badge badge-pill badge-info">지성</span> <span
+				class="badge badge-pill badge-warning">복합성</span> <span
+				class="badge badge-pill badge-danger">민감성</span> / 별점 : {1-5점}
+		</p>
+		<hr>
+		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
+	</div>
+
+	<div class="alert alert-light" role="alert"></div>
+
+	<div class="alert alert-secondary container" role="alert">
+		<h4 class="alert-heading">제목</h4>
+		<p>
+			피부타입 : <span class="badge badge-pill badge-primary">건성</span> <span
+				class="badge badge-pill badge-success">중성</span> <span
+				class="badge badge-pill badge-info">지성</span> <span
+				class="badge badge-pill badge-warning">복합성</span> <span
+				class="badge badge-pill badge-danger">민감성</span> / 별점 : {1-5점}
+		</p>
+		<hr>
+		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
+	</div>
+
+	<div class="alert alert-light" role="alert"></div>
 
 	<div class="container msjj">
 		<div class="card border-danger mb-3 msj" style="max-width: 20rem;">
@@ -325,29 +383,29 @@
 	</fieldset>
 
 
-	<div class="card-body">
-		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4>
-		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6>
-		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6>
-		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p>
+	<!-- 	<div class="card-body"> -->
+	<!-- 		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4> -->
+	<!-- 		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6> -->
+	<!-- 		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6> -->
+	<!-- 		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p> -->
 
-		<button type="button" class="btn btn-secondary">찜하기</button>
-		<button type="button" class="btn btn-secondary">네이버검색</button>
-		<button type="button" class="btn btn-secondary">네이버상점검색</button>
+	<!-- 		<button type="button" class="btn btn-secondary">찜하기</button> -->
+	<!-- 		<button type="button" class="btn btn-secondary">네이버검색</button> -->
+	<!-- 		<button type="button" class="btn btn-secondary">네이버상점검색</button> -->
 
-		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a>
-		<a href="#" class="card-link">네이버상점링크</a>
-	</div>
+	<!-- 		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a> -->
+	<!-- 		<a href="#" class="card-link">네이버상점링크</a> -->
+	<!-- 	</div> -->
 
-	<div class="card-body1">
-		<button type="button" class="btn btn-outline-secondary"
-			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
-			쇼핑연결</button>
-		<button type="button" class="btn btn-outline-info"
-			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
-			명으로 검색하기</button>
-		<button type="button" class="btn btn-outline-danger">찜하기</button>
-	</div>
+	<!-- 	<div class="card-body1"> -->
+	<!-- 		<button type="button" class="btn btn-outline-secondary" -->
+	<%-- 			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
+	<!-- 			쇼핑연결</button> -->
+	<!-- 		<button type="button" class="btn btn-outline-info" -->
+	<%-- 			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
+	<!-- 			명으로 검색하기</button> -->
+	<!-- 		<button type="button" class="btn btn-outline-danger">찜하기</button> -->
+	<!-- 	</div> -->
 
 
 

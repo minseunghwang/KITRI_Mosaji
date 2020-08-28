@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import item.model.Item2;
+import item.model.Item;
 import item.service.Service;
 import item.service.ServiceImpl;
 
@@ -52,10 +52,12 @@ public class UploadController extends HttpServlet {
 		int i_price = Integer.parseInt(request.getParameter("i_price"));
 		String i_img = request.getParameter("i_img");
 		
+		int ms=0;
+		int ms2=0;
 		
-		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, i_img);
+		Item i = new Item(ms, i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, ms2, i_img);
 		
-		service.upload(i);
+//		service.insert(i);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
 		rd.forward(request, response);

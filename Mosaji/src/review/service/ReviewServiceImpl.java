@@ -7,6 +7,7 @@ import review.dao.ReviewDao;
 import review.dao.ReviewDaoImpl;
 import review.model.MyReview;
 import review.model.Review;
+import review.model.Review1;
 
 public class ReviewServiceImpl implements ReviewService{
 
@@ -32,6 +33,12 @@ private ReviewDao reviewdao;
 	public ArrayList<MyReview> selectByu_id(String u_id) {
 		// TODO Auto-generated method stub
 		return reviewdao.selectByu_id(u_id);
+	}
+
+	@Override
+	public ArrayList<Review1> selectByi_no1(int i_no) {
+		// TODO Auto-generated method stub
+		return reviewdao.selectByi_no1(i_no);
 	}
 	
 }
