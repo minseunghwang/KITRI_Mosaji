@@ -1,5 +1,6 @@
 package item.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -39,25 +40,32 @@ public class UploadController extends HttpServlet {
 		
 		Service service = new ServiceImpl();
 		
+
+//		String directory = request.getRealPath("/fileFolder");
+		String directory = "C:\\Users\\KITRI\\git\\KITRI_Mosaji\\Mosaji\\WebContent\\fileFolder";
+		int maxSize = 1024 * 1024 * 10; 
+		String encoding= "UTF-8";
+
 		
-		String i_name = request.getParameter("i_name");
-		String i_volume = request.getParameter("i_volume");
-		String i_gender = request.getParameter("i_gender");
-		int i_age = Integer.parseInt(request.getParameter("i_age"));
-		String i_skintype = request.getParameter("i_skintype");
-		String i_category1 = request.getParameter("i_category1");
-		String i_category2 = request.getParameter("i_category2");
-		String i_content = request.getParameter("i_content");
-		String i_brand = request.getParameter("i_brand");
-		int i_price = Integer.parseInt(request.getParameter("i_price"));
-		String i_img = request.getParameter("i_img");
+		MultipartRequest multipartRequest 
+		= new MultipartRequest(request,directory, maxSize, encoding, new DefaultFileRenamePolicy());
+
+		String fileName = multipartRequest.getOriginalFileName("i_img");
+		String fileRealName = multipartRequest.getFilesystemName("i_img" );
+		String i_name = multipartRequest.getParameter("i_name");
+		String i_volume = multipartRequest.getParameter("i_volume");
+		String i_gender = multipartRequest.getParameter("i_gender");
+		int i_age = Integer.parseInt(multipartRequest.getParameter("i_age"));
+		String i_skintype = multipartRequest.getParameter("i_skintype");
+		String i_category1 = multipartRequest.getParameter("i_category1");
 		
-		int ms=0;
-		int ms2=0;
-		
-		Item i = new Item(ms, i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, ms2, i_img);
-		
-//		service.insert(i);
+		String i_category2 = multipartRequest.getParameter("i_category2");
+		String i_content = multipartRequest.getParameter("i_content");
+		String i_brand = multipartRequest.getParameter("i_brand");
+		int i_price = Integer.parseInt(multipartRequest.getParameter("i_price"));
+				
+
+		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+File.separator+fileRealName);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
 		rd.forward(request, response);
