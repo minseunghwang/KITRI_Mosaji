@@ -96,7 +96,7 @@
 					  </div>
 					  <br>
 
-                  <form method="post" action="${pageContext.request.contextPath }/UploadController">
+                  <form method="post" action="${pageContext.request.contextPath }/UploadController" enctype="multipart/form-data">
                      <div class="form-group">
                         <input type="text" class="form-control"
                            placeholder="상품이름" id="i_name" name="i_name">
