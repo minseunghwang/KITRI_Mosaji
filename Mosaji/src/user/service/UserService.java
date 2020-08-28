@@ -8,4 +8,5 @@ public interface UserService {
 	void delete(String u_id);
 	void update(User u);
 	User login(String u_id, String u_pw);
+	int Joincheck(String u_id);
 }

@@ -55,8 +55,8 @@ public class ItemDetailController extends HttpServlet {
 		request.setAttribute("review", review);
 		System.out.println("review list" + review);
 		
-//		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itemDetail.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itempage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itemDetail.jsp");
+//		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itempage.jsp");
 		rd.forward(request, response);
 		
 		

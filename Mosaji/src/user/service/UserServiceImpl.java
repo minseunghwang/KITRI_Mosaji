@@ -37,6 +37,10 @@ public class UserServiceImpl implements UserService{
 		return userdao.login(u_id, u_pw);
 		
 	}
+	@Override
+	public int Joincheck(String u_id) {
+		return 0;
+	}
 	
 	
 }

@@ -17,6 +17,31 @@
 <link href="<%=request.getContextPath()%>/resources/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		$("#u_id").on("change keyup paste",function(){
+			var u_id = $("#u_id").val();
+			$.ajax({
+		        url: '${pageContext.request.contextPath }/JoinCheckController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data : {
+		        	u_id : u_id
+		        },
+		        success: function(result){
+		        	alert("아자!");
+		        }
+		    });
+		});
+	});
+	
+</script>
+
+
 <script type="text/javascript">
    var selectBox = document.getElementById("selectBox");
    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
@@ -53,6 +78,7 @@
       return True
    }
 </script>
+
 
 </head>
 <body>

@@ -169,6 +169,12 @@ public class UserDaoImpl implements UserDao{
 		return u;
 	}
 
+	@Override
+	public int JoinCheck(String u_id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 }

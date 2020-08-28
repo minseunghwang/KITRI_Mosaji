@@ -281,7 +281,7 @@
 		<div class="col-md-12">
 			<form action="${pageContext.request.contextPath }/ItemDeleteController">
 				<input type="hidden" name="i_no" value="${i.i_no }">
-				<input class="btn btn-primary"type="submit" value="삭제" onclick="alert('삭제 완료')">
+				<input class="btn btn-primary"type="submit" value="상품 삭제" onclick="alert('삭제 완료')">
 			</form>
 		
 		</div>

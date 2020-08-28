@@ -14,6 +14,7 @@ public interface UserDao {
 	
 	User login(String u_id, String u_pw);
 	
+	int JoinCheck(String u_id);
 	
 	
 }

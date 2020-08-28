@@ -57,46 +57,46 @@
 
 	
 
-	<c:if test="${not empty wishlist }">
+	<c:if test="${not empty wishlist1 }">
 		<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
 		<div class="row" >
 			<div class="offset-md-3 col-md-6">
 				<table class="table">
 					<thead>
 						<tr>
-							<th scope="col" style="color: gray;">번호</th>
-							<th scope="col" style="color: gray;">상품 번호</th>
-							<th scope="col" style="color: gray;">상품 이름</th>
-							<th scope="col" style="color: gray;">상품 설명</th>
+							<th scope="col" style="color: gray;"></th>
 							<th scope="col" style="color: gray;">상품 이미지</th>
-							<th scope="col" style="color: gray;">삭제</th>
+							<th scope="col" style="color: gray;">상품 이름</th>
+							<th scope="col" style="color: gray;">상품 가격</th>
+							<th scope="col" style="color: gray; text-align:center;"><button id="del_btn">찜 삭제</button></th>
 						</tr>
 					</thead>
 					<tbody id="zzim">
-						<c:forEach var="wishlist" items="${wishlist }">
+						<c:forEach var="wishlist" items="${wishlist1 }">
 							<tr>
 								<th><a style="color: gray;" >${wishlist.rownum }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
 								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
-								<th><input type="checkbox" name="del"
-									value="${wishlist.w_no }"></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" > (${wishlist.i_volume })</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_price } ₩</a></th>
+								<th style="text-align:center"><input type="checkbox" name="del" value="${wishlist.w_no }"></th>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<button id="del_btn"
-					style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+				<div style="margin-bottom : 100px; margin-top : 50px;">
+					<a id="kakao-link-btn" href="javascript:sendLink()"> 
+						<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
+					</a>
+				</div>
 			</div>
 		</div>
 
 	</c:if>
-	<c:if test="${empty wishlist}">
+	<c:if test="${empty wishlist1}">
 		<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
 		<div class="row">
 			<div class="offset-md-3 col-md-6">
-				<c:forEach var="wishlist" items="${wishlist }">
+				<c:forEach var="wishlist" items="${wishlist1 }">
 					<table class="table">
 						<thead>
 							<tr>
@@ -108,9 +108,6 @@
 						<tbody>
 							<tr>
 								<th rowspan="3">텅~~~ 비어있어요</th>
-
-
-
 							</tr>
 						</tbody>
 					</table>
@@ -119,16 +116,6 @@
 
 		</div>
 	</c:if>
-
-	<div class="row">
-		<div class="offset-md-3 col-md-6">
-			<a id="kakao-link-btn" href="javascript:sendLink()"> 
-			<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
-			</a>
-
-
-		</div>
-	</div>
 
 	<%@ include file="/view/common/footer.jsp"%>
 

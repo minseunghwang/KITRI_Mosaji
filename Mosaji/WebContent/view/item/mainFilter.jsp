@@ -52,11 +52,25 @@
 }
 
 .i_brand, .i_name, .i_volume{
-	display :inline;
-	width: 350px;
-    height: 20px;
-    left:20%;
+	display : inline;
+	width : 350px;
+    height : 20px;
+    left : 20%;
+    text-align : left;
+    margin-left : 10%;
 } 
+
+.i_name{
+	font-size:18px;
+}
+
+.i_brand{
+	font-size:13px;
+}
+
+.i_volume{
+	font-size:14px;
+}
 
 </style>
 
@@ -130,13 +144,14 @@
 				$(".itemList").empty();
 				var html;
 	        	for(i=0;i<arr.length;i++){
-	        		html = "<div class='boxA' style='width:100%'>";
+	        		html = "<a href='/Mosaji/ItemDetailController?i_no=" + arr[i].i_no + "'>"
+	        		html += "<div class='boxA' style='width:100%'>";
 	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
 	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
 	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
 	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
 	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
-	        		html += "</div>";
+	        		html += "</div></a>";
 	        		$(".itemList").append(html);
 	        	}
 			}
@@ -159,13 +174,14 @@
 	        	arr = $.parseJSON(result);
 	        	var html;
 	        	for(i=0;i<arr.length;i++){
-	        		html = "<div class='boxA' style='width:100%'>";
+	        		html = "<a href='/Mosaji/ItemDetailController?i_no=" + arr[i].i_no + "'>"
+	        		html += "<div class='boxA' style='width:100%'>";
 	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
 	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
 	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
 	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
 	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
-	        		html += "</div>";
+	        		html += "</div></a>";
 	        		$(".itemList").append(html);
 	        	}
 	        }
@@ -220,13 +236,14 @@
 		        	$(".itemList").empty();
 		        	var html;
 		        	for(i=0;i<arr.length;i++){
-		        		html = "<div class='boxA' style='width:100%'>";
+		        		html = "<a href='/Mosaji/ItemDetailController?i_no=" + arr[i].i_no + "'>"
+		        		html += "<div class='boxA' style='width:100%'>";
 		        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
 		        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
 		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
 		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
 		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
-		        		html += "</div>";
+		        		html += "</div></a>";
 		        		$(".itemList").append(html);
 		        	}
 		        }
