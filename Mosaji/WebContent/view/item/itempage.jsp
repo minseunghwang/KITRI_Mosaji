@@ -41,39 +41,32 @@
 	<div class="container">
 		<h3 class="card-header"
 			style="text-align: center; background-color: white;">
-			<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
-			일단 제품이름
+			
+			${i.i_name }페이지
 		</h3>
 
 		<div class="vw">
-			<img style="height: 300px; width: 100%; display: block;"
-				src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+
+				<img style="height: 300px; width: 300px; display: block;"
+				src="${i.i_img }"
 				alt="Card image">
 		</div>
 
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<h4 class="card-title">상품 이름(브랜드)</h4> -->
-		<!-- 			<h6 class="card-subtitle text-muted">용량/가격</h6> -->
-		<!-- 			<h7 class="card-subtitle text-muted">카페고리1/카테고리2</h7> -->
-		<!-- 		</div> -->
 
-		<!-- 		<div class="card-text"> -->
-		<!-- 			<a>제품설명</a> -->
-		<!-- 		</div> -->
-
-		<!-- 		<div class="card-body"> -->
-		<!-- 			<a href="#" class="card-link">네이버검색링크</a> <a href="#" -->
-		<!-- 				class="card-link">네이버상점링크</a> -->
-		<!-- 		</div> -->
-
-		<!-- 	<div class="vw"> -->
 		<div class="card-body">
-			<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4>
-			<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6>
-			<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6>
-			<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p>
+			<h4 class="card-title">상품이름 : {${i.i_name}(${i.i_brand})}</h4>
+			<h6 class="card-subtitle mb-2 text-muted">카테고리 :
+				{${i.i_category1}/${i.i_category2}}</h6>
+			<h6 class="card-subtitle mb-2 text-muted">용량/가격 :
+				{${i.i_volume}/${i.i_price}}</h6>
+			<p class="card-text">제품설명 : {${i.i_brand}의 ${i.i_category2} }</p>
 
-			<button type="button" class="btn btn-secondary">찜하기</button>
+			<form
+				action="${pageContext.request.contextPath }/AddWishlistController">
+				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
+				<button type="button" class="btn btn-secondary">찜하기</button>
+
+			</form>
 			<button type="button" class="btn btn-secondary">네이버검색</button>
 			<button type="button" class="btn btn-secondary">네이버상점검색</button>
 		</div>
@@ -91,9 +84,14 @@
 
 		<div class="card-body2">
 			<ul class="list-group list-group-flush vw">
-				<li class="list-group-item">추천연령/성별</li>
-				<li class="list-group-item">추천피부타입</li>
-				<li class="list-group-item">리뷰평점</li>
+				<li class="list-group-item">추천연령/성별:</li>
+				<li class="list-group-item">추천피부타입:</li>
+				<li class="list-group-item">리뷰평점:</li>
+			</ul>
+			<ul class="list-group list-group-flush vw">
+				<li class="list-group-item">${i.i_age }대/ ${i.i_gender }</li>
+				<li class="list-group-item">${i.i_skintype }</li>
+				<li class="list-group-item">${i.i_star }</li>
 			</ul>
 		</div>
 
@@ -105,38 +103,33 @@
 			</h3>
 		</div>
 
+
+
+
 		<div class="container">
 			<div class="rww" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">제목</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-
+				<form method="post" action="${pageContext.request.contextPath }/AddReviewController">
+				<div class="col-md-12">
 					<div class="form-group">
-						<select class="custom-select">
-							<option selected="">---별점---</option>
-							<option value="1">❤
-							<option value="2">❤❤</option>
-							<option value="3">❤❤❤</option>
-							<option value="4">❤❤❤❤</option>
-							<option value="5">❤❤❤❤❤</option>
-						</select>
-					</div>
-
-					<div class="modal-body">
-						<p>작성내용</p>
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary">저장</button>
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">취소</button>
-					</div>
+								<select class="custom-select" id="r_star" name="r_star">
+									<option selected="">---별점---</option>
+									<option value="1">❤
+									<option value="2">❤❤</option>
+									<option value="3">❤❤❤</option>
+									<option value="4">❤❤❤❤</option>
+									<option value="5">❤❤❤❤❤</option>
+								</select>
+							</div>
 				</div>
+				<div class="col-md-12">
+					<textarea rows="10" cols="100%" name="r_content" id="r_content"></textarea>
+					<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
+				</div>
+				<div class="col-md-12">
+					<input type="submit" class="btn btn-primary" value="등록"
+						style="width: 33%; float: right; margin-right: 15%;" />
+				</div>
+				</form>
 			</div>
 		</div>
 
