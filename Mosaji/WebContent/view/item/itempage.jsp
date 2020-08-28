@@ -118,7 +118,7 @@
 
 					<div class="form-group">
 						<select class="custom-select">
-							<option selected="">---별점---</option>
+							<option value="" disabled selected hidden>---별점---</option>
 							<option value="1">❤
 							<option value="2">❤❤</option>
 							<option value="3">❤❤❤</option>
@@ -127,11 +127,11 @@
 						</select>
 					</div>
 
-					<div class="modal-body">
+					<div class="rwbody">
 						<p>작성내용</p>
 					</div>
 
-					<div class="modal-footer">
+					<div class="rw-footer">
 						<button type="button" class="btn btn-secondary">저장</button>
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">취소</button>
@@ -167,7 +167,7 @@
 		<div class="container sel">
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---피부타입---</option>
+					<option selected="" disabled selected hidden>---피부타입---</option>
 					<option value="1">건성</option>
 					<option value="2">중성</option>
 					<option value="3">지성</option>
@@ -178,7 +178,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---연령---</option>
+					<option selected="" disabled selected hidden>---연령---</option>
 					<option value="1">10대</option>
 					<option value="2">20대</option>
 					<option value="3">30대</option>
@@ -188,7 +188,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---성별---</option>
+					<option selected="" disabled selected hidden >---성별---</option>
 					<option value="1">여자</option>
 					<option value="2">남자</option>
 				</select>
@@ -199,7 +199,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---정렬---</option>
+					<option selected="" disabled selected hidden>---정렬---</option>
 					<option value="1">최신순</option>
 					<option value="2">오래된순</option>
 				</select>
