@@ -22,36 +22,6 @@
    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
    alert(selectedValue);
 
-   function check_input() {
-      // 사용자가 입력한 데이터를 추출한다.
-      var user_name = $("#u_name").val()
-      var user_id = $("#u_id").val()
-      var user_pw = $("#u_id").val()
-      var user_age = $("#u_age").val()
-
-      if (user_id.length == 0) {
-         alert('아이디를 입력해 주세요')
-         $("#user_id").focus()
-         return false
-      }
-      if (user_pw.length == 0) {
-         alert('비밀번호를 입력해 주세요')
-         $("#user_pw").focus()
-         return false
-      }
-      if (user_name.length == 0) {
-         alert("이름을 입력해 주세요")
-         $("#user_name").focus()
-         return false
-      }
-      if (user_age.length == 0) {
-         alert('나이를 입력해 주세요')
-         $("#user_age").focus()
-         return false
-      }
-
-      return True
-   }
 </script>
 
 </head>
@@ -76,8 +46,7 @@
                   <h3 style="text-align: center;">상품 업로드</h3>
 
 
-                  <form method="post" action="${pageContext.request.contextPath }/UploadController"
-                     onsubmit="return check_input();">
+                  <form method="post" action="${pageContext.request.contextPath }/UploadController">
                      <div class="form-group">
                         <input type="text" class="form-control"
                            placeholder="상품이름" id="i_name" name="i_name">
@@ -124,7 +93,7 @@
                      
                    <div class="form-group">
                         <input type="text" class="form-control" placeholder="스킨타입"
-                           id="i_skintype" name="i_skintype" maxlength="20">
+                           id="i_skintype" name="i_skintype">
                      </div>
                      
                     <div class="form-group">
@@ -132,11 +101,13 @@
                            id="i_price" name="i_price" maxlength="20">
                      </div>
                      
+                       <div class="form-group">
+                        <input type="text" class="form-control" placeholder="이미지"
+                           id="i_img" name="i_img" >
+                     </div>
                      
-                     
-					 <input type="hidden" id="u_like_item" name="u_like_item" value="0">
-                     <input type="submit" class="btn btn-secondary form-control"
-                        value="등록">
+                
+                     <input type="submit" class="btn btn-secondary form-control" value="등록">
                   </form>
                </div>
             </div>

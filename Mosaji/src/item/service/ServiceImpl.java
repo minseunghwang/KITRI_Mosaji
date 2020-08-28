@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import item.dao.Dao;
 import item.dao.DaoImpl;
 import item.model.Item;
-import user.model.User;
+import item.model.Item2;
 
 public class ServiceImpl implements Service{
 	
 	private Dao dao;
 	
 	public ServiceImpl() {
-		dao = new DaoImpl();
+		this.dao = new DaoImpl();
 	}
 
 	@Override
@@ -36,10 +36,14 @@ public class ServiceImpl implements Service{
 	}
 
 	@Override
-	public void insert(Item i) {
-		dao.insert(i);
+	public void upload(Item2 i) {
 		// TODO Auto-generated method stub
-		
+		dao.insert(i);
 	}
+
+
+
+
+
 
 }

@@ -1,6 +1,5 @@
 package item.dao;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 
 import conn.DBConnect;
 import item.model.Item;
-import user.model.User;
+import item.model.Item2;
 
 public class DaoImpl implements Dao{
 	
@@ -192,11 +191,10 @@ public class DaoImpl implements Dao{
 	}
 	
 	
-	
-	public void insert(Item i) {
+	@Override
+	public void insert(Item2 i) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG)"
-				+ "VALUES(mosaji_item_seq.nextval,'?','?','?','?','?','?','?',?,'?',?,UTL_RAW.CAST_TO_RAW(?))";
+		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(mosaji_item_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstmt = null;
 		try {
@@ -229,4 +227,6 @@ public class DaoImpl implements Dao{
 		}
 		
 	}
+
+
 }
