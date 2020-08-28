@@ -20,18 +20,9 @@
 .pp {
 	float: left;
 }
-.
-{
-float
 
-
-:
-
-
-left
-;
-
-
+.sel {
+	float: left;
 }
 </style>
 
@@ -81,19 +72,30 @@ left
 			<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6>
 			<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6>
 			<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p>
+
 			<button type="button" class="btn btn-secondary">찜하기</button>
 			<button type="button" class="btn btn-secondary">네이버검색</button>
 			<button type="button" class="btn btn-secondary">네이버상점검색</button>
-			<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a>
-			<a href="#" class="card-link">네이버상점링크</a>
+		</div>
+
+		<div class="card-body1">
+			<button type="button" class="btn btn-outline-secondary"
+				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
+				쇼핑연결</button>
+			<button type="button" class="btn btn-outline-info"
+				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
+				명으로 검색하기</button>
+			<button type="button" class="btn btn-outline-danger">찜하기</button>
 		</div>
 		<!-- 	</div> -->
 
-		<ul class="list-group list-group-flush vw">
-			<li class="list-group-item">추천연령/성별</li>
-			<li class="list-group-item">추천피부타입</li>
-			<li class="list-group-item">리뷰평점</li>
-		</ul>
+		<div class="card-body2">
+			<ul class="list-group list-group-flush vw">
+				<li class="list-group-item">추천연령/성별</li>
+				<li class="list-group-item">추천피부타입</li>
+				<li class="list-group-item">리뷰평점</li>
+			</ul>
+		</div>
 
 		<div class="container">
 			<h3 class="card-header"
@@ -162,20 +164,54 @@ left
 	<!-- 	</div> -->
 
 	<div class="container">
-		<div class="form-group">
-			<select class="custom-select">
-				<option selected="">---피부타입---</option>
-				<option value="1">건성</option>
-				<option value="2">중성</option>
-				<option value="3">지성</option>
-				<option value="4">복합성</option>
-				<option value="5">민감성</option>
-			</select>
+		<div class="container sel">
+			<div class="form-group sel">
+				<select class="custom-select sel">
+					<option selected="">---피부타입---</option>
+					<option value="1">건성</option>
+					<option value="2">중성</option>
+					<option value="3">지성</option>
+					<option value="4">복합성</option>
+					<option value="5">민감성</option>
+				</select>
+			</div>
+
+			<div class="form-group sel">
+				<select class="custom-select sel">
+					<option selected="">---연령---</option>
+					<option value="1">10대</option>
+					<option value="2">20대</option>
+					<option value="3">30대</option>
+					<option value="4">40대</option>
+				</select>
+			</div>
+
+			<div class="form-group sel">
+				<select class="custom-select sel">
+					<option selected="">---성별---</option>
+					<option value="1">여자</option>
+					<option value="2">남자</option>
+				</select>
+			</div>
+
+			<button type="button" class="btn btn-outline-light sel"
+				style="background-color: darkgrey;">검색</button>
+
+			<div class="form-group sel">
+				<select class="custom-select sel">
+					<option selected="">---정렬---</option>
+					<option value="1">최신순</option>
+					<option value="2">오래된순</option>
+				</select>
+			</div>
+
+			<button type="button" class="btn btn-outline-light sel"
+				style="background-color: darkgrey;">검색</button>
 		</div>
 	</div>
 
 	<div class="container">
-		<a>건성</a>
+		<a>건성(리뷰수)</a>
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped" role="progressbar"
 				style="width: 10%" aria-valuenow="10" aria-valuemin="0"
@@ -236,6 +272,8 @@ left
 	<div class="container">
 		<h3 class>--------------------------------</h3>
 	</div>
+
+
 	<fieldset>
 		<h1 class="container">필터기능??? 아오ㅡㅡ 뭘로하지</h1>
 		<div class="container">
@@ -285,6 +323,33 @@ left
 			</div>
 		</div>
 	</fieldset>
+
+
+	<div class="card-body">
+		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4>
+		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6>
+		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6>
+		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p>
+
+		<button type="button" class="btn btn-secondary">찜하기</button>
+		<button type="button" class="btn btn-secondary">네이버검색</button>
+		<button type="button" class="btn btn-secondary">네이버상점검색</button>
+
+		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a>
+		<a href="#" class="card-link">네이버상점링크</a>
+	</div>
+
+	<div class="card-body1">
+		<button type="button" class="btn btn-outline-secondary"
+			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
+			쇼핑연결</button>
+		<button type="button" class="btn btn-outline-info"
+			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
+			명으로 검색하기</button>
+		<button type="button" class="btn btn-outline-danger">찜하기</button>
+	</div>
+
+
 
 	<%@ include file="/view/common/footer.jsp"%>
 
