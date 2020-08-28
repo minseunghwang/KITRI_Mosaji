@@ -120,6 +120,19 @@ public class ReviewDaoImpl implements ReviewDao {
 		ResultSet rs = null;
 		ArrayList<Review1> review = new ArrayList<Review1>();
 		String sql = "SELECT u.u_age, u.u_skintype, u.u_gender, r.r_star, r.r_content, r.u_id FROM mosaji_review r, mosaji_user u WHERE r.u_id = u.u_id and i_no = ?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, i_no);
+			
+			while(rs.next() ) {
+				
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return review;
 	}
 
 	
