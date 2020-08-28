@@ -160,7 +160,7 @@
 		<div class="container sel">
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---피부타입---</option>
+					<option selected="" disabled selected hidden>---피부타입---</option>
 					<option value="1">건성</option>
 					<option value="2">중성</option>
 					<option value="3">지성</option>
@@ -171,7 +171,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---연령---</option>
+					<option selected="" disabled selected hidden>---연령---</option>
 					<option value="1">10대</option>
 					<option value="2">20대</option>
 					<option value="3">30대</option>
@@ -181,7 +181,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---성별---</option>
+					<option selected="" disabled selected hidden >---성별---</option>
 					<option value="1">여자</option>
 					<option value="2">남자</option>
 				</select>
@@ -192,7 +192,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="">---정렬---</option>
+					<option selected="" disabled selected hidden>---정렬---</option>
 					<option value="1">최신순</option>
 					<option value="2">오래된순</option>
 				</select>
