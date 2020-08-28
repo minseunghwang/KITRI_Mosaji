@@ -36,13 +36,15 @@
 </head>
 
 <body>
+
 	<%@ include file="/view/common/header.jsp"%>
 
+	<div class="alert alert-secondary" role="alert"></div>
+
 	<div class="container">
-		<h3 class="card-header"
+		<h3 class="header"
 			style="text-align: center; background-color: white;">
-			
-			${i.i_name }페이지
+			상세페이지
 		</h3>
 
 		<div class="vw">
@@ -181,7 +183,7 @@
 
 			<div class="form-group sel">
 				<select class="custom-select sel">
-					<option selected="" disabled selected hidden >---성별---</option>
+					<option selected="" disabled selected hidden>---성별---</option>
 					<option value="1">여자</option>
 					<option value="2">남자</option>
 				</select>
@@ -235,6 +237,75 @@
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
 	</div>
+
+	<div class="alert alert-warning" role="alert">
+		<div class="container">
+			<span class="badge badge-pill badge-primary">건성</span> <span
+				class="badge badge-pill badge-success">중성</span> <span
+				class="badge badge-pill badge-info">지성</span> <span
+				class="badge badge-pill badge-warning">복합성</span> <span
+				class="badge badge-pill badge-danger">민감성</span>
+		</div>
+	</div>
+
+
+	<div class="alert alert-warning container" role="alert">
+		<h4 class="alert-heading">제목</h4>
+		<p> 피부타입 : 
+
+			<span class="badge badge-pill badge-primary">건성</span> <span
+				class="badge badge-pill badge-success">중성</span> <span
+				class="badge badge-pill badge-info">지성</span> <span
+				class="badge badge-pill badge-warning">복합성</span> <span
+				class="badge badge-pill badge-danger">민감성</span> 
+			/ 별점 : {1-5점}
+		</p>
+		<hr>
+		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
+	</div>
+
+<div class="alert alert-light" role="alert"></div>
+
+	<div class="alert alert-secondary container" role="alert">
+		<h4 class="alert-heading">제목</h4>
+		<p> 피부타입 : 
+
+			<span class="badge badge-pill badge-primary">건성</span> <span
+				class="badge badge-pill badge-success">중성</span> <span
+				class="badge badge-pill badge-info">지성</span> <span
+				class="badge badge-pill badge-warning">복합성</span> <span
+				class="badge badge-pill badge-danger">민감성</span> 
+			/ 별점 : {1-5점}
+		</p>
+		<hr>
+		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+		ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
+	</div>
+
+<div class="alert alert-light" role="alert"></div>
 
 	<div class="container msjj">
 		<div class="card border-danger mb-3 msj" style="max-width: 20rem;">
@@ -318,29 +389,29 @@
 	</fieldset>
 
 
-	<div class="card-body">
-		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4>
-		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6>
-		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6>
-		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p>
+<!-- 	<div class="card-body"> -->
+<!-- 		<h4 class="card-title">상품이름 : {상품이름(브랜드)}</h4> -->
+<!-- 		<h6 class="card-subtitle mb-2 text-muted">카테고리 : {카테고리1/카테고리2}</h6> -->
+<!-- 		<h6 class="card-subtitle mb-2 text-muted">용량/가격 : {용량/가격}</h6> -->
+<!-- 		<p class="card-text">제품설명 : {제품설명 지울수도 있음}</p> -->
 
-		<button type="button" class="btn btn-secondary">찜하기</button>
-		<button type="button" class="btn btn-secondary">네이버검색</button>
-		<button type="button" class="btn btn-secondary">네이버상점검색</button>
+<!-- 		<button type="button" class="btn btn-secondary">찜하기</button> -->
+<!-- 		<button type="button" class="btn btn-secondary">네이버검색</button> -->
+<!-- 		<button type="button" class="btn btn-secondary">네이버상점검색</button> -->
 
-		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a>
-		<a href="#" class="card-link">네이버상점링크</a>
-	</div>
+<!-- 		<a href="#" class="card-link">찜하기</a> <a href="#" class="card-link">네이버검색링크</a> -->
+<!-- 		<a href="#" class="card-link">네이버상점링크</a> -->
+<!-- 	</div> -->
 
-	<div class="card-body1">
-		<button type="button" class="btn btn-outline-secondary"
-			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
-			쇼핑연결</button>
-		<button type="button" class="btn btn-outline-info"
-			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
-			명으로 검색하기</button>
-		<button type="button" class="btn btn-outline-danger">찜하기</button>
-	</div>
+<!-- 	<div class="card-body1"> -->
+<!-- 		<button type="button" class="btn btn-outline-secondary" -->
+<%-- 			onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
+<!-- 			쇼핑연결</button> -->
+<!-- 		<button type="button" class="btn btn-outline-info" -->
+<%-- 			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
+<!-- 			명으로 검색하기</button> -->
+<!-- 		<button type="button" class="btn btn-outline-danger">찜하기</button> -->
+<!-- 	</div> -->
 
 
 
