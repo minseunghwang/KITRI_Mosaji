@@ -6,17 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" -->
+<!-- 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" -->
+<!-- 	crossorigin="anonymous"> -->
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
 	<div class="container">
 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3>
 		<div class="row">
-			<table class="table">
+			<table class="table" style="table-layout: fixed">
 				<thead>
 					<tr>
 						<th scope="col">번호</th>
@@ -28,15 +28,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="review" items="${review }">
+					<c:forEach var="myreview" items="${myreview }">
 						<tr>
-							<th>${review.r_star }</th>
-							<th><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_img }</a></th>
-							<th><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></th>
-							<th style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></th>
-							<th><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_no }</a></th>
-							<th>${review.r_date }</th>
-							<input type="hidden" value="${review.rownum }">
+							<td>${myreview.rownum }</td>
+							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img src="${myreview.i_img }"></a></td>
+							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
+							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; "><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
+							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td>
+							<td>${myreview.r_date }</td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>

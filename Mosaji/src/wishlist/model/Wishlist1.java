@@ -8,14 +8,26 @@ public class Wishlist1 {
 	private String i_content;
 	private String i_img;
 	private String u_id;
-	public Wishlist1(int w_no, int i_no, String i_name, String i_content, String i_img, String u_id) {
+	
+	public Wishlist1(int rownum, int w_no, int i_no, String i_name, String i_content, String i_img, String u_id) {
 		super();
+		this.rownum = rownum;
 		this.w_no = w_no;
 		this.i_no = i_no;
 		this.i_name = i_name;
 		this.i_content = i_content;
 		this.i_img = i_img;
 		this.u_id = u_id;
+	}
+	
+	public Wishlist1(int rownum, int w_no, int i_no, String i_name, String i_content, String i_img) {
+		super();
+		this.rownum = rownum;
+		this.w_no = w_no;
+		this.i_no = i_no;
+		this.i_name = i_name;
+		this.i_content = i_content;
+		this.i_img = i_img;
 	}
 	
 	
@@ -27,9 +39,6 @@ public class Wishlist1 {
 		this.i_content = i_content;
 		this.i_img = i_img;
 	}
-	
-	
-
 	
 
 	public Wishlist1(int i_no, String u_id) {

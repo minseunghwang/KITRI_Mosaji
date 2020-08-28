@@ -12,4 +12,6 @@ public interface Dao {
 	Item detail(int i_no);
 	
 	void insert(Item2 i);
+
+	void delete(int i_no);
 }

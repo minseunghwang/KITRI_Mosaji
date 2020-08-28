@@ -233,7 +233,7 @@
 		    });
 			
 			$("#filter").css('visibility','hidden');
-		})
+		});
 		
 	});
 	

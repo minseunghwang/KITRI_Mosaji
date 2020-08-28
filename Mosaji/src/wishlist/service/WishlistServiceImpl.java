@@ -55,4 +55,11 @@ private WishlistDao wishlistdao;
 		
 	}
 
+
+
+	@Override
+	public void DeleteWishList(String[] zzim_arr) {
+		wishlistdao.DeleteWishList(zzim_arr);
+	}
+
 }

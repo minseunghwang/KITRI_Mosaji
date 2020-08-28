@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import review.model.MyReview;
 import review.model.Review;
 
 public class ReviewDaoImpl implements ReviewDao {
@@ -81,13 +82,12 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public ArrayList<Review> selectByu_id(String u_id) {
+	public ArrayList<MyReview> selectByu_id(String u_id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ArrayList<Review> review = new ArrayList<Review>();
-		String sql = "SELECT rownum, r.r_content, r.r_date, r.r_star, u_id, i.i_no, i.i_name, i.i_img"
-				+ " FROM mosaji_review r, mosaji_item i WHERE r.i_no = i.i_no AND u_id = ? ORDER BY rownum desc";
+		ArrayList<MyReview> review = new ArrayList<MyReview>();
+		String sql = "SELECT rownum, i.i_img, i.i_name, r.r_content, r.r_star, r.r_date, u_id, i.i_no FROM mosaji_review r, mosaji_item i WHERE r.i_no = i.i_no AND u_id = ? ORDER BY rownum desc";
 		
 		try{
 			conn = db.getConnection();
@@ -96,7 +96,7 @@ public class ReviewDaoImpl implements ReviewDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				review.add(new Review(rs.getString("r_content"), rs.getDate("r_date"), rs.getInt("rownum"),  rs.getInt("r_star"), rs.getString("u_id"), rs.getInt("i_no"), rs.getString("i_name"), rs.getString("i_img")));
+				review.add(new MyReview(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDate(6), rs.getString(7), rs.getInt(8)));
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();

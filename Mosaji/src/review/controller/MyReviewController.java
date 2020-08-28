@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import review.model.MyReview;
 import review.model.Review;
 import review.service.ReviewService;
 import review.service.ReviewServiceImpl;
@@ -47,10 +48,10 @@ public class MyReviewController extends HttpServlet {
 		System.out.println("controller2");
 		String u_id = (String) session.getAttribute("u_id");
 		
-		ArrayList<Review> review = reviewservice.selectByu_id(u_id);
+		ArrayList<MyReview> myreview = reviewservice.selectByu_id(u_id);
 		System.out.println("controller3");
-		System.out.println(review);
-		request.setAttribute("review", review);
+		System.out.println(myreview);
+		request.setAttribute("myreview", myreview);
 		RequestDispatcher rd = request.getRequestDispatcher("view/user/myreview.jsp");
 		rd.forward(request, response);
 		

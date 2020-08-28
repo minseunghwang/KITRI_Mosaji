@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import item.dao.Dao;
 import review.dao.ReviewDao;
 import review.dao.ReviewDaoImpl;
+import review.model.MyReview;
 import review.model.Review;
 
 public class ReviewServiceImpl implements ReviewService{
@@ -28,7 +29,7 @@ private ReviewDao reviewdao;
 	}
 
 	@Override
-	public ArrayList<Review> selectByu_id(String u_id) {
+	public ArrayList<MyReview> selectByu_id(String u_id) {
 		// TODO Auto-generated method stub
 		return reviewdao.selectByu_id(u_id);
 	}
