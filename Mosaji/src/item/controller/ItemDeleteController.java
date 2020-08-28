@@ -44,7 +44,7 @@ public class ItemDeleteController extends HttpServlet {
 		System.out.println("도냐");
 		service.delete(i_no);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ItemListController");
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 		rd.forward(request, response);
 		
 	}
