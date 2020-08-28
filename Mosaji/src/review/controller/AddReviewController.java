@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import item.service.Service;
+import item.service.ServiceImpl;
 import review.model.Review;
 import review.service.ReviewService;
 import review.service.ReviewServiceImpl;
@@ -40,6 +42,8 @@ public class AddReviewController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		ReviewService reviewservice = new ReviewServiceImpl();
+		Service service = new ServiceImpl();
+		
 		HttpSession session = request.getSession(false);
 		
 		
@@ -52,8 +56,12 @@ public class AddReviewController extends HttpServlet {
 		review.setI_no(Integer.parseInt(request.getParameter("i_no")));
 		review.setR_star(Integer.parseInt(request.getParameter("r_star")));;
 		
-		reviewservice.insert(review, u_id);
 		
+		
+		reviewservice.insert(review, u_id);
+		service.avg(review.getI_no());
+		
+		System.out.println("리뷰쓸때 i_no ========" +review.getI_no());
 		
 		
 		

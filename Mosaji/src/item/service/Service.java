@@ -17,4 +17,6 @@ public interface Service {
 	void upload(Item2 i);
 
 	void delete(int i_no);
+	
+	void avg(int i_no);
 }

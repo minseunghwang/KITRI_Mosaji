@@ -46,6 +46,12 @@ public class ServiceImpl implements Service{
 		// TODO Auto-generated method stub
 		dao.insert(i);
 	}
+	
+	@Override
+	public void avg(int i_no) {
+		dao.avg(i_no);
+		
+	}
 
 
 

@@ -14,4 +14,6 @@ public interface Dao {
 	void insert(Item2 i);
 
 	void delete(int i_no);
+	
+	void avg(int i_no);
 }
