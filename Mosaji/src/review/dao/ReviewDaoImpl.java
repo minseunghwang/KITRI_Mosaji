@@ -7,17 +7,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import conn.mysql_DBConnect;
 import review.model.MyReview;
 import review.model.Review;
 import review.model.Review1;
 
 public class ReviewDaoImpl implements ReviewDao {
 
-	private DBConnect db;
+	
+//	private DBConnect db;
+	private mysql_DBConnect db;
 
 	public ReviewDaoImpl() {
-		db = DBConnect.getInstance();
+//		db = DBConnect.getInstance();
+		db = mysql_DBConnect.getInstance();
 	}
+	
 
 	@Override
 	public void insert(Review review, String u_id) {

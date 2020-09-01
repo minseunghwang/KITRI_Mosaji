@@ -7,15 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import conn.mysql_DBConnect;
 import wishlist.model.Wishlist;
 import wishlist.model.Wishlist1;
 
 public class WishlistDaoImpl implements WishlistDao{
-
-	private DBConnect db;
+	
+//	private DBConnect db;
+	private mysql_DBConnect db;
 
 	public WishlistDaoImpl() {
-		db = DBConnect.getInstance();
+//		db = DBConnect.getInstance();
+		db = mysql_DBConnect.getInstance();
 	}
 	
 	@Override
