@@ -8,7 +8,9 @@ public class DBConnect {
 	public Connection conn = null;
 	
 	String jdbc_driver = "oracle.jdbc.driver.OracleDriver";
-	String jdbc_url = "jdbc:oracle:thin:@192.168.0.25:1521:xe";
+//	String jdbc_url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String jdbc_url = "jdbc:oracle:thin:@192.168.0.57:1521:xe";
+//	String jdbc_url = "jdbc:oracle:thin:@192.168.0.25:1521:xe";
 	
 	private DBConnect() {
 		
@@ -29,6 +31,4 @@ public class DBConnect {
 		}
 		return conn;
 	}
-	
-	
 }

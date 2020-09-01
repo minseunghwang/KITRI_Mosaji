@@ -7,15 +7,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import conn.mysql_DBConnect;
 import item.model.Item;
 import item.model.Item2;
+import sun.security.util.Length;
 
 public class DaoImpl implements Dao {
 
-	private DBConnect db;
+//	private DBConnect db;
+	private mysql_DBConnect db;
 
 	public DaoImpl() {
-		db = DBConnect.getInstance();
+//		db = DBConnect.getInstance();
+		db = mysql_DBConnect.getInstance();
 	}
 
 	@Override
@@ -50,7 +54,7 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype) {
-
+		System.out.println(category2 + "," + gender + "," + age + "," + skintype);
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
 			gen.add("남");
@@ -91,7 +95,6 @@ public class DaoImpl implements Dao {
 			sql += category2;
 			sql += "'";
 
-			System.out.println(sql);
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -116,7 +119,6 @@ public class DaoImpl implements Dao {
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
 						rs.getInt(11), rs.getInt(12), rs.getString(13)));
 			}
-			System.out.println("data size : " + data.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -133,6 +135,7 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public ArrayList<Item> selectRank_product(String category2, String v1, String v2) {
+//		Connection conn = db.getConnection();
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
