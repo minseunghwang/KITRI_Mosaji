@@ -110,6 +110,11 @@
 
 
 
+					
+
+					<input type="hidden" id="u_like_item" name="u_like_item"
+						value="0">
+						
 					<div class="form-group">
 						<select class="custom-select" name="u_skintype" id="u_skintype">
 							<option value="">피부타입 선택하기</option>
@@ -121,9 +126,6 @@
 
 						</select>
 					</div>
-
-					<input type="hidden" id="u_like_item" name="u_like_item"
-						value="0">
 					<div class="form-group">
 						<input type="submit" class="btn btn-secondary form-control"
 							value="회원가입">

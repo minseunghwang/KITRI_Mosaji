@@ -5,14 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import conn.DBConnect;
+import conn.mysql_DBConnect;
 import user.model.User;
 
 public class UserDaoImpl implements UserDao{
-	private DBConnect db;
+	private mysql_DBConnect db;
 
 	public UserDaoImpl() {
-		db = DBConnect.getInstance();
+		db = mysql_DBConnect.getInstance();
 	}
 	
 	public User select(String u_id) {
@@ -49,8 +49,8 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void insert(User u) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_user VALUES(mosaji_user_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
-		
+		String sql = "INSERT INTO mosaji_user(u_no, u_id, u_pw, u_name, u_age, u_gender, u_like_item, u_skintype) VALUES((select * from (select max(u_no)+1 from mosaji_user) next), ?, ?, ?, ?, ?, ?, ?)";
+//		(select * from (select max(u_no)+1 from mosaji_user) next)
 		PreparedStatement pstmt = null;
 		try {
 			conn = db.getConnection();
@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "DELETE mosaji_user WHERE u_id=?";
+		String sql = "DELETE FROM mosaji_user WHERE u_id=?";
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
