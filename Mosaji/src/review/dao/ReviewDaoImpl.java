@@ -18,6 +18,7 @@ public class ReviewDaoImpl implements ReviewDao {
 //	private DBConnect db;
 	private mysql_DBConnect db;
 
+	
 	public ReviewDaoImpl() {
 //		db = DBConnect.getInstance();
 		db = mysql_DBConnect.getInstance();

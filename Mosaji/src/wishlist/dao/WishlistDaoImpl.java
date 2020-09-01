@@ -16,6 +16,7 @@ public class WishlistDaoImpl implements WishlistDao{
 //	private DBConnect db;
 	private mysql_DBConnect db;
 
+	
 	public WishlistDaoImpl() {
 //		db = DBConnect.getInstance();
 		db = mysql_DBConnect.getInstance();
