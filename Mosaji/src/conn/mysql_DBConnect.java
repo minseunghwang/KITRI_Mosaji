@@ -8,7 +8,7 @@ public class mysql_DBConnect {
 	public Connection conn = null;
 	
 	String jdbc_driver = "com.mysql.jdbc.Driver";
-	String jdbc_url = "jdbc:mysql://mosaji.csu1yuqbzcre.ap-northeast-2.rds.amazonaws.com/mosaji";
+	String jdbc_url = "jdbc:mysql://mosaji.csu1yuqbzcre.ap-northeast-2.rds.amazonaws.com/mosaji?userSSL=false";
 	
 	private mysql_DBConnect() {
 		
