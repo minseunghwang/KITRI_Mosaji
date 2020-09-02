@@ -104,7 +104,7 @@ h2 {font-size:15px;}
 			</ul>
 			<div class="wrap-star">
 						<div class='star-rating'>
-							<span style="width: ${i.i_star * 20}%"></span>
+							<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
 						</div>
 					</div>
 		</div>
@@ -313,7 +313,7 @@ h2 {font-size:15px;}
 				<!-- 				<span class="badge badge-pill badge-info">지성</span>  -->
 				<!-- 				<span class="badge badge-pill badge-warning">복합성</span>  -->
 				<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
-				/ ${review.u_age }세 ${review.u_gender }
+				/ ${review.u_age }세 ${review.u_gender } 
 			</p>
 			<hr>
 			<p class="mb-0">${review.r_content }</p>

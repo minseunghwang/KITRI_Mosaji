@@ -366,10 +366,10 @@
 
 	</div>
 	<section>
-		<h1 style="text-align: center;">Out Brand</h1>
+		<h1 style="text-align: center;">Our Brand</h1>
 	</section>
 	<section class="blog_section">
-		<div class="container">
+		<div class="col-md-8 offset-md-2">
 			<div class="blog_content">
 				<div class="owl-carousel owl-theme">
 					<div class="blog_item">
@@ -449,7 +449,7 @@
 
 	<section>
 		<h1 style="text-align: center;">Contact us</h1><br><br>
-		<div class="container">
+		<div class="col-md-8 offset-md-2">
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.9665602215405!2d126.89660961519179!3d37.48511547981327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e3ac6500f81%3A0x9c30e9fbc9189200!2z7ZWc6rWt7KCV67O06riw7Iig7Jew6rWs7JuQ!5e0!3m2!1sko!2skr!4v1598426938539!5m2!1sko!2skr"
 				width="100%" height="450" frameborder="0" style="border: 0;"

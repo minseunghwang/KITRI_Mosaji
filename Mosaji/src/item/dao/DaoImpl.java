@@ -199,10 +199,46 @@ public class DaoImpl implements Dao {
 		return i;
 	}
 
+//	@Override
+//	public void insert(Item2 i) {
+//		Connection conn = null;
+//		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(mosaji_item_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+//
+//		PreparedStatement pstmt = null;
+//		try {
+//			conn = db.getConnection();
+//			pstmt = conn.prepareStatement(sql);
+//
+//			pstmt.setString(1, i.getI_name());
+//			pstmt.setString(2, i.getI_volume());
+//			pstmt.setString(3, i.getI_category1());
+//			pstmt.setString(4, i.getI_category2());
+//			pstmt.setString(5, i.getI_content());
+//			pstmt.setString(6, i.getI_brand());
+//			pstmt.setString(7, i.getI_gender());
+//			pstmt.setInt(8, i.getI_age());
+//			pstmt.setString(9, i.getI_skintype());
+//			pstmt.setInt(10, i.getI_price());
+//			pstmt.setString(11, i.getI_img());
+//
+//			pstmt.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				pstmt.close();
+//				conn.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//
+//	}
+	
 	@Override
 	public void insert(Item2 i) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(mosaji_item_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO mosaji_item (I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstmt = null;
 		try {
