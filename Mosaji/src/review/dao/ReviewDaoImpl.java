@@ -30,7 +30,7 @@ public class ReviewDaoImpl implements ReviewDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "INSERT INTO mosaji_review VALUES(mosaji_review_seq.nextval, ?, sysdate, ?, ?, ?)";
+		String sql = "INSERT INTO mosaji_review(r_content, r_date, r_star, u_id, i_no) VALUES(?, sysdate(), ?, ?, ?)";
 
 		try {
 			conn = db.getConnection();
@@ -94,7 +94,7 @@ public class ReviewDaoImpl implements ReviewDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<MyReview> review = new ArrayList<MyReview>();
-		String sql = "SELECT rownum, i.i_img, i.i_name, r.r_content, r.r_star, r.r_date, u_id, i.i_no FROM mosaji_review r, mosaji_item i WHERE r.i_no = i.i_no AND u_id = ? ORDER BY rownum desc";
+		String sql = "SELECT @rownum:=@rownum+1 as rownum, i.i_img, i.i_name, r.r_content, r.r_star, r.r_date, u_id, i.i_no FROM mosaji_review r, mosaji_item i WHERE (@rownum:=0)=0 AND r.i_no = i.i_no AND u_id = ? ORDER BY r_date desc";
 		
 		try{
 			conn = db.getConnection();
@@ -125,18 +125,27 @@ public class ReviewDaoImpl implements ReviewDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Review1> review = new ArrayList<Review1>();
-		String sql = "SELECT u.u_age, u.u_skintype, u.u_gender, r.r_star, r.r_content, r.u_id FROM mosaji_review r, mosaji_user u WHERE r.u_id = u.u_id and i_no = ?";
+		String sql = "SELECT r.r_no, u.u_age, u.u_skintype, u.u_gender, r.r_star, r.r_content, r.u_id FROM mosaji_review r, mosaji_user u WHERE r.u_id = u.u_id and i_no = ?";
 		
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, i_no);
+			rs = pstmt.executeQuery();
 			
 			while(rs.next() ) {
-				
+				review.add(new Review1(rs.getInt("r_no"), rs.getInt("u_age"), rs.getString("u_skintype"), rs.getString("u_gender"), rs.getInt("r_star"), rs.getString("r_content"), rs.getString("u_id")));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return review;
 	}

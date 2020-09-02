@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import item.model.Item;
 import item.service.Service;
 import item.service.ServiceImpl;
-import review.model.Review;
+import review.model.Review1;
 import review.service.ReviewService;
 import review.service.ReviewServiceImpl;
 
@@ -51,7 +51,7 @@ public class ItemDetailController extends HttpServlet {
 		Item i = itemservice.detail(i_no);
 		request.setAttribute("i", i);
 		
-		ArrayList<Review> review = reviewservice.selectByi_no(i_no);
+		ArrayList<Review1> review = reviewservice.selectByi_no1(i_no);
 		request.setAttribute("review", review);
 		System.out.println("review list" + review);
 		
