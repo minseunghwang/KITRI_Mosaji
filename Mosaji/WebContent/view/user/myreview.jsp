@@ -35,7 +35,36 @@
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img src="${myreview.i_img }"></a></td>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
 							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; "><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
-							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td>
+<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
+							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">
+				<c:choose>
+					<c:when test="${myreview.r_star == 5 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star5.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${myreview.r_star == 4 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star4.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${myreview.r_star == 3 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star3.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${myreview.r_star == 2 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star2.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${myreview.r_star == 1 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star1.png"
+							style="width: 140px;">
+					</c:when>
+				</c:choose>
+							</a></td>
 							<td>${myreview.r_date }</td>
 							
 						</tr>
