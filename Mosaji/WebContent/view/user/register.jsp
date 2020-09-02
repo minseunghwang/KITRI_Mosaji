@@ -71,11 +71,8 @@
 
                <div class="card-body col-lg-5">
 
-
-
                   <h3 style="text-align: center;"> 회원가입</h3>
                   <br>
-
 
                   <form method="post" action="${pageContext.request.contextPath }/JoinController"
                      onsubmit="return check_input();">
@@ -84,6 +81,8 @@
                            placeholder="아이디 : 3~12자 영문 소문자" id="u_id" name="u_id"
                            maxlength="20">
                      </div>
+                     
+                     <textbox>여기다여기</textbox>
 
                      <div class="form-group">
                         <input type="password" class="form-control"
@@ -107,10 +106,6 @@
                         <input type="text" class="form-control" placeholder="나이"
                            id="u_age" name="u_age" maxlength="20">
                    	</div>
-
-
-
-					
 
 					<input type="hidden" id="u_like_item" name="u_like_item"
 						value="0">

@@ -52,10 +52,12 @@
 }
 
 .i_brand, .i_name, .i_volume{
+	text-align :left;
 	display :inline;
-	width: 350px;
+	width: 300px;
     height: 20px;
     left:20%;
+    margin-left : 30px;
 } 
 
 </style>
@@ -131,11 +133,11 @@
 				var html;
 	        	for(i=0;i<arr.length;i++){
 	        		html = "<div class='boxA' style='width:100%'>";
-	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+	        		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
 	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
 	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
 	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
+	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div></a>";
 	        		html += "</div>";
 	        		$(".itemList").append(html);
 	        	}
@@ -160,11 +162,11 @@
 	        	var html;
 	        	for(i=0;i<arr.length;i++){
 	        		html = "<div class='boxA' style='width:100%'>";
-	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+	        		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
 	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
 	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
 	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
+	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div></a>";
 	        		html += "</div>";
 	        		$(".itemList").append(html);
 	        	}
@@ -221,11 +223,11 @@
 		        	var html;
 		        	for(i=0;i<arr.length;i++){
 		        		html = "<div class='boxA' style='width:100%'>";
-		        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+		        		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
 		        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
 		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
 		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
+		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div></a>";
 		        		html += "</div>";
 		        		$(".itemList").append(html);
 		        	}

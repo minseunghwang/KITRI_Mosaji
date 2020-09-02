@@ -167,6 +167,7 @@ public class DaoImpl implements Dao {
 	}
 
 	public Item detail(int i_no) {
+		System.out.println("i_NO : " + i_no);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

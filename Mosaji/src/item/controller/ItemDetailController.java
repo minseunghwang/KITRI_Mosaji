@@ -48,21 +48,21 @@ public class ItemDetailController extends HttpServlet {
 		String u_id = (String) session.getAttribute("u_id");
 		
 		int i_no = Integer.parseInt(request.getParameter("i_no"));
+		
+		System.out.println(u_id);
+		
 		Item i = itemservice.detail(i_no);
 		request.setAttribute("i", i);
 		
-		ArrayList<Review> review = reviewservice.selectByi_no(i_no);
-		request.setAttribute("review", review);
-		System.out.println("review list" + review);
+		System.out.println(i);
+		
+//		ArrayList<Review> review = reviewservice.selectByi_no(i_no);
+//		request.setAttribute("review", review);
+//		System.out.println("review list" + review);
 		
 //		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itemDetail.jsp");
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itempage.jsp");
 		rd.forward(request, response);
-		
-		
-		
-		
-		
 	}
 
 	/**
