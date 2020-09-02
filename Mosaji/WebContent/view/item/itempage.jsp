@@ -24,6 +24,11 @@
 .sel {
 	float: left;
 }
+
+h2 {font-size:15px;}
+.star-rating {width:304px; }
+.star-rating,.star-rating span {display:inline-block; height:55px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star.png)no-repeat; }
+.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
 </style>
 
 <!---- css ---->
@@ -53,36 +58,41 @@
 
 
 		<div class="card-body" style="margin-left: 33%;">
-			<h4 class="card-title">상품이름 : {${i.i_name}(${i.i_brand})}</h4>
+			<h4 class="card-title">상품이름 : ${i.i_name}(${i.i_brand})</h4>
 			<h6 class="card-subtitle mb-2 text-muted">카테고리 :
-				{${i.i_category1}/${i.i_category2}}</h6>
+				${i.i_category1}/${i.i_category2}</h6>
 			<h6 class="card-subtitle mb-2 text-muted">용량/가격 :
-				{${i.i_volume}/${i.i_price}}</h6>
-			<p class="card-text">제품설명 : {${i.i_brand}의 ${i.i_category2} }</p>
+				${i.i_volume}/${i.i_price}</h6>
+			<p class="card-text">제품설명 : ${i.i_brand}의 ${i.i_category2}</p>
 
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<button type="button" class="btn btn-secondary">찜하기</button>
+				<button type="submit" class="btn btn-outline-danger"
+					onclick="alert('찜완료')">찜하기</button>
 
 			</form>
-			<button type="button" class="btn btn-secondary">네이버검색</button>
-			<button type="button" class="btn btn-secondary">네이버상점검색</button>
-		</div>
-
-		<div class="card-body1">
 			<button type="button" class="btn btn-outline-secondary"
 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
 				쇼핑연결</button>
 			<button type="button" class="btn btn-outline-info"
 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
 				명으로 검색하기</button>
-			<button type="button" class="btn btn-outline-danger">찜하기</button>
 		</div>
+
+		<!-- 		<div class="card-body1"> -->
+		<!-- 			<button type="button" class="btn btn-outline-secondary" -->
+		<%-- 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
+		<!-- 				쇼핑연결</button> -->
+		<!-- 			<button type="button" class="btn btn-outline-info" -->
+		<%-- 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
+		<!-- 				명으로 검색하기</button> -->
+		<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
+		<!-- 		</div> -->
 		<!-- 	</div> -->
 
 		<div class="card-body2">
-			<ul class="list-group list-group-flush vw">
+			<ul class="list-group list-group-flush vw" style="margin-left: 2%;">
 				<li class="list-group-item">추천연령/성별:</li>
 				<li class="list-group-item">추천피부타입:</li>
 				<li class="list-group-item">리뷰평점:</li>
@@ -92,6 +102,11 @@
 				<li class="list-group-item">${i.i_skintype }</li>
 				<li class="list-group-item">${i.i_star }</li>
 			</ul>
+			<div class="wrap-star">
+						<div class='star-rating'>
+							<span style="width: ${i.i_star * 20}%"></span>
+						</div>
+					</div>
 		</div>
 
 		<div class="container">
@@ -118,14 +133,14 @@
 								<option value="5">❤❤❤❤❤</option>
 							</select>
 						</div>
-						</div>
+					</div>
 					<div class="col-md-12">
-						<textarea rows="10" cols="117%" name="r_content" id="r_content"></textarea>
+						<textarea rows="10" cols="115%" name="r_content" id="r_content"></textarea>
 						<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
 					</div>
 					<div class="col-md-12">
 						<input type="submit" class="btn btn-primary" value="등록"
-							style="width: 33%; float: right;" />
+							style="width: 33%; float: right;" onclick="alert('리뷰 등록완료')" />
 					</div>
 				</form>
 			</div>
@@ -234,151 +249,159 @@
 		</div>
 	</div>
 
-	<div class="alert alert-warning" role="alert">
-		<div class="container">
-			<span class="badge badge-pill badge-primary">건성</span> <span
-				class="badge badge-pill badge-success">중성</span> <span
-				class="badge badge-pill badge-info">지성</span> <span
-				class="badge badge-pill badge-warning">복합성</span> <span
-				class="badge badge-pill badge-danger">민감성</span>
-		</div>
-	</div>
 
 
-	<div class="alert alert-warning container" role="alert">
-		<h4 class="alert-heading">제목</h4>
-		<p>
-			피부타입 : <span class="badge badge-pill badge-primary">건성</span> <span
-				class="badge badge-pill badge-success">중성</span> <span
-				class="badge badge-pill badge-info">지성</span> <span
-				class="badge badge-pill badge-warning">복합성</span> <span
-				class="badge badge-pill badge-danger">민감성</span> / 별점 : {1-5점}
-		</p>
-		<hr>
-		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
-	</div>
 
-	<div class="alert alert-light" role="alert"></div>
-
-	<div class="alert alert-secondary container" role="alert">
-		<h4 class="alert-heading">제목</h4>
-		<p>
-			피부타입 : <span class="badge badge-pill badge-primary">건성</span> <span
-				class="badge badge-pill badge-success">중성</span> <span
-				class="badge badge-pill badge-info">지성</span> <span
-				class="badge badge-pill badge-warning">복합성</span> <span
-				class="badge badge-pill badge-danger">민감성</span> / 별점 : {1-5점}
-		</p>
-		<hr>
-		<p class="mb-0">길어지는거 확인하자@@@@@@@@@@@리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ리뷰 상세 내용 적는곳ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-			ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㄹㄴㅇㅀㄴㄹㅇㄴㅇㅎㄴㅇㅀㅇㅀㅇㅀㅇㅀㅇㅀ</p>
-	</div>
-
-	<div class="alert alert-light" role="alert"></div>
-
-	<div class="container msjj">
-		<div class="card border-danger mb-3 msj" style="max-width: 20rem;">
-			<div class="card-header">연령/피부타입/성별</div>
-			<div class="card-body">
-				<h4 class="card-title">별점</h4>
-				<p class="card-text">리뷰 내용</p>
-			</div>
+	<c:forEach var="review" items="${review }">
+		<div class="alert alert-warning container" role="alert">
+			<h4 class="alert-heading">
+				별점 :
+				<c:choose>
+					<c:when test="${review.r_star == 5 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star5.png"
+							style="width: 150px;">
+					</c:when>
+					<c:when test="${review.r_star == 4 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star4.png"
+							style="width: 150px;">
+					</c:when>
+					<c:when test="${review.r_star == 3 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star3.png"
+							style="width: 150px;">
+					</c:when>
+					<c:when test="${review.r_star == 2 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star2.png"
+							style="width: 150px;">
+					</c:when>
+					<c:when test="${review.r_star == 1 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star1.png"
+							style="width: 150px;">
+					</c:when>
+				</c:choose>
+			</h4>
+			<p>
+				피부타입 :
+				<c:choose>
+					<c:when test="${review.u_skintype == '건성' }">
+						<span class="badge badge-pill badge-primary">건성</span>
+					</c:when>
+					<c:when test="${review.u_skintype == '중성' }">
+						<span class="badge badge-pill badge-success">중성</span>
+					</c:when>
+					<c:when test="${review.u_skintype == '지성' }">
+						<span class="badge badge-pill badge-info">지성</span>
+					</c:when>
+					<c:when test="${review.u_skintype == '복합성' }">
+						<span class="badge badge-pill badge-warning">복합성</span>
+					</c:when>
+					<c:when test="${review.u_skintype == '민감성' }">
+						<span class="badge badge-pill badge-danger">민감성</span>
+					</c:when>
+					<c:otherwise>
+						<span class="badge badge-pill badge-primary">선택 안함</span>
+					</c:otherwise>
+				</c:choose>
+				<!-- 				<span class="badge badge-pill badge-primary">건성</span>  -->
+				<!-- 				<span class="badge badge-pill badge-success">중성</span>  -->
+				<!-- 				<span class="badge badge-pill badge-info">지성</span>  -->
+				<!-- 				<span class="badge badge-pill badge-warning">복합성</span>  -->
+				<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
+				/ ${review.u_age }세 ${review.u_gender }
+			</p>
+			<hr>
+			<p class="mb-0">${review.r_content }</p>
 		</div>
 
-		<div class="card border-danger mb-3 msj" style="max-width: 20rem;">
-			<div class="card-header">연령/피부타입/성별</div>
-			<div class="card-body">
-				<h4 class="card-title">별점</h4>
-				<p class="card-text">리뷰 내용</p>
-			</div>
-		</div>
-
-		<div class="card border-danger mb-3 msj" style="max-width: 20rem;">
-			<div class="card-header">연령/피부타입/성별</div>
-			<div class="card-body">
-				<h4 class="card-title">별점</h4>
-				<p class="card-text">리뷰 내용</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<h3 class>--------------------------------</h3>
-	</div>
+		<div class="alert alert-light" role="alert"></div>
+	</c:forEach>
 
 
-	<fieldset>
-		<h1 class="container">필터기능??? 아오ㅡㅡ 뭘로하지</h1>
-		<div class="container">
-			<div class="form-group">
-				<div class="custom-control custom-radio">
-					<input type="radio" id="customRadio1" name="customRadio"
-						class="custom-control-input" checked=""> <label
-						class="custom-control-label" for="customRadio1">건성</label>
-				</div>
-				<div class="custom-control custom-radio">
-					<input type="radio" id="customRadio2" name="customRadio"
-						class="custom-control-input"> <label
-						class="custom-control-label" for="customRadio2">중성</label>
-				</div>
-				<div class="custom-control custom-radio">
-					<input type="radio" id="customRadio3" name="customRadio"
-						class="custom-control-input" disabled=""> <label
-						class="custom-control-label" for="customRadio3">지성</label>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input"
-						id="customCheck1" checked=""> <label
-						class="custom-control-label" for="customCheck1">10대</label>
-				</div>
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input"
-						id="customCheck2" disabled=""> <label
-						class="custom-control-label" for="customCheck2">20대</label>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="custom-control custom-switch">
-					<input type="checkbox" class="custom-control-input"
-						id="customSwitch1" checked=""> <label
-						class="custom-control-label" for="customSwitch1">복합성</label>
-				</div>
-				<div class="custom-control custom-switch">
-					<input type="checkbox" class="custom-control-input" disabled=""
-						id="customSwitch2"> <label class="custom-control-label"
-						for="customSwitch2">아아아아ㅏ아</label>
-				</div>
-			</div>
-			<div class="form-group">
-				<div class="input-group mb-3"></div>
-			</div>
-		</div>
-	</fieldset>
+
+	<!-- 	<div class="container msjj"> -->
+	<!-- 		<div class="card border-danger mb-3 msj" style="max-width: 20rem;"> -->
+	<!-- 			<div class="card-header">연령/피부타입/성별</div> -->
+	<!-- 			<div class="card-body"> -->
+	<!-- 				<h4 class="card-title">별점</h4> -->
+	<!-- 				<p class="card-text">리뷰 내용</p> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+
+	<!-- 		<div class="card border-danger mb-3 msj" style="max-width: 20rem;"> -->
+	<!-- 			<div class="card-header">연령/피부타입/성별</div> -->
+	<!-- 			<div class="card-body"> -->
+	<!-- 				<h4 class="card-title">별점</h4> -->
+	<!-- 				<p class="card-text">리뷰 내용</p> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+
+	<!-- 		<div class="card border-danger mb-3 msj" style="max-width: 20rem;"> -->
+	<!-- 			<div class="card-header">연령/피부타입/성별</div> -->
+	<!-- 			<div class="card-body"> -->
+	<!-- 				<h4 class="card-title">별점</h4> -->
+	<!-- 				<p class="card-text">리뷰 내용</p> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+	<!-- 	<div class="container"> -->
+	<!-- 		<h3 class>--------------------------------</h3> -->
+	<!-- 	</div> -->
+
+
+	<!-- 	<fieldset> -->
+	<!-- 		<h1 class="container">필터기능??? 아오ㅡㅡ 뭘로하지</h1> -->
+	<!-- 		<div class="container"> -->
+	<!-- 			<div class="form-group"> -->
+	<!-- 				<div class="custom-control custom-radio"> -->
+	<!-- 					<input type="radio" id="customRadio1" name="customRadio" -->
+	<!-- 						class="custom-control-input" checked=""> <label -->
+	<!-- 						class="custom-control-label" for="customRadio1">건성</label> -->
+	<!-- 				</div> -->
+	<!-- 				<div class="custom-control custom-radio"> -->
+	<!-- 					<input type="radio" id="customRadio2" name="customRadio" -->
+	<!-- 						class="custom-control-input"> <label -->
+	<!-- 						class="custom-control-label" for="customRadio2">중성</label> -->
+	<!-- 				</div> -->
+	<!-- 				<div class="custom-control custom-radio"> -->
+	<!-- 					<input type="radio" id="customRadio3" name="customRadio" -->
+	<!-- 						class="custom-control-input" disabled=""> <label -->
+	<!-- 						class="custom-control-label" for="customRadio3">지성</label> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="form-group"> -->
+	<!-- 				<div class="custom-control custom-checkbox"> -->
+	<!-- 					<input type="checkbox" class="custom-control-input" -->
+	<!-- 						id="customCheck1" checked=""> <label -->
+	<!-- 						class="custom-control-label" for="customCheck1">10대</label> -->
+	<!-- 				</div> -->
+	<!-- 				<div class="custom-control custom-checkbox"> -->
+	<!-- 					<input type="checkbox" class="custom-control-input" -->
+	<!-- 						id="customCheck2" disabled=""> <label -->
+	<!-- 						class="custom-control-label" for="customCheck2">20대</label> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="form-group"> -->
+	<!-- 				<div class="custom-control custom-switch"> -->
+	<!-- 					<input type="checkbox" class="custom-control-input" -->
+	<!-- 						id="customSwitch1" checked=""> <label -->
+	<!-- 						class="custom-control-label" for="customSwitch1">복합성</label> -->
+	<!-- 				</div> -->
+	<!-- 				<div class="custom-control custom-switch"> -->
+	<!-- 					<input type="checkbox" class="custom-control-input" disabled="" -->
+	<!-- 						id="customSwitch2"> <label class="custom-control-label" -->
+	<!-- 						for="customSwitch2">아아아아ㅏ아</label> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="form-group"> -->
+	<!-- 				<div class="input-group mb-3"></div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</fieldset> -->
 
 
 	<!-- 	<div class="card-body"> -->

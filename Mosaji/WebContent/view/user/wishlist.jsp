@@ -146,8 +146,8 @@
 						description : '#모사지 #선물추천 #선물 #내놔 ',
 						imageUrl : 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
 						link : {
-							mobileWebUrl : 'http://localhost:8004/Mosaji/WishlistController',
-							webUrl : 'http://localhost:8004/Mosaji/WishlistController'
+							mobileWebUrl : 'http://localhost:8080/Mosaji/WishlistController',
+							webUrl : 'http://localhost:8080/Mosaji/WishlistController'
 						}
 					},
 					social : {
@@ -159,15 +159,15 @@
 							{
 								title : '웹으로 보기',
 								link : {
-									mobileWebUrl : 'http://localhost:8004/Mosaji/WishlistController',
-									webUrl : 'http://localhost:8004/Mosaji/WishlistController'
+									mobileWebUrl : 'http://localhost:8080/Mosaji/WishlistController',
+									webUrl : 'http://localhost:8080/Mosaji/WishlistController'
 								}
 							},
 							{
 								title : '앱으로 보기',
 								link : {
-									mobileWebUrl : 'http://localhost:8004/Mosaji/WishlistController',
-									webUrl : 'http://localhost:8004/Mosaji/WishlistController'
+									mobileWebUrl : 'http://localhost:8080/Mosaji/WishlistController',
+									webUrl : 'http://localhost:8080/Mosaji/WishlistController'
 								}
 							} ]
 				});
