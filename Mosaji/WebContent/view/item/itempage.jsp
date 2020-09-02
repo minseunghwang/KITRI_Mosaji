@@ -24,6 +24,11 @@
 .sel {
 	float: left;
 }
+
+h2 {font-size:15px;}
+.star-rating {width:304px; }
+.star-rating,.star-rating span {display:inline-block; height:55px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star.png)no-repeat; }
+.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
 </style>
 
 <!---- css ---->
@@ -75,15 +80,15 @@
 				명으로 검색하기</button>
 		</div>
 
-<!-- 		<div class="card-body1"> -->
-<!-- 			<button type="button" class="btn btn-outline-secondary" -->
-<%-- 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
-<!-- 				쇼핑연결</button> -->
-<!-- 			<button type="button" class="btn btn-outline-info" -->
-<%-- 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
-<!-- 				명으로 검색하기</button> -->
-<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
-<!-- 		</div> -->
+		<!-- 		<div class="card-body1"> -->
+		<!-- 			<button type="button" class="btn btn-outline-secondary" -->
+		<%-- 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
+		<!-- 				쇼핑연결</button> -->
+		<!-- 			<button type="button" class="btn btn-outline-info" -->
+		<%-- 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
+		<!-- 				명으로 검색하기</button> -->
+		<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
+		<!-- 		</div> -->
 		<!-- 	</div> -->
 
 		<div class="card-body2">
@@ -97,6 +102,11 @@
 				<li class="list-group-item">${i.i_skintype }</li>
 				<li class="list-group-item">${i.i_star }</li>
 			</ul>
+			<div class="wrap-star">
+						<div class='star-rating'>
+							<span style="width: ${i.i_star * 20}%"></span>
+						</div>
+					</div>
 		</div>
 
 		<div class="container">
@@ -303,7 +313,8 @@
 				<!-- 				<span class="badge badge-pill badge-info">지성</span>  -->
 				<!-- 				<span class="badge badge-pill badge-warning">복합성</span>  -->
 				<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
-			 / ${review.u_age }세 ${review.u_gender }</p>
+				/ ${review.u_age }세 ${review.u_gender }
+			</p>
 			<hr>
 			<p class="mb-0">${review.r_content }</p>
 		</div>
