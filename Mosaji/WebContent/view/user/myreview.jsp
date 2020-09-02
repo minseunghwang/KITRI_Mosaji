@@ -28,9 +28,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="myreview" items="${myreview }">
+					<c:forEach var="myreview" items="${myreview }" varStatus="status">
 						<tr>
-							<td>${myreview.rownum }</td>
+<%-- 							<td>${myreview.rownum }</td> --%>
+							<td>${status.count }</td>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img src="${myreview.i_img }"></a></td>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
 							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; "><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>

@@ -73,9 +73,10 @@
 						</tr>
 					</thead>
 					<tbody id="zzim">
-						<c:forEach var="wishlist" items="${wishlist }">
+						<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
 							<tr>
-								<th><a style="color: gray;" >${wishlist.rownum }</a></th>
+<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
+								<th><a style="color: gray;" >${status.count }</a></th>
 								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
 								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
 								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
