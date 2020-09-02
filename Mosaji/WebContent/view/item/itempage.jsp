@@ -317,7 +317,15 @@ h2 {font-size:15px;}
 			<p class="mb-0">${review.r_content }</p>
 		</div>
 
-		<div class="alert alert-light" role="alert"></div>
+		<div class="alert alert-light container" role="alert">
+			<c:if test="${review.u_id == sessionScope.u_id }">
+				<form action="${pageContext.request.contextPath }/DeleteReviewController" method="post">
+					<input type="hidden" name="r_no" id="r_no" value="${review.r_no }">
+					<input type="hidden" name="i_no" id="i_no" value="${review.i_no }">
+					<input type="submit" class="btn btn-primary" value="내 리뷰삭제">
+				</form>
+			</c:if>
+		</div>
 	</c:forEach>
 
 

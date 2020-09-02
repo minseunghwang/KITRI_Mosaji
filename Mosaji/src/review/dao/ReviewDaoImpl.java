@@ -125,7 +125,7 @@ public class ReviewDaoImpl implements ReviewDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Review1> review = new ArrayList<Review1>();
-		String sql = "SELECT r.r_no, u.u_age, u.u_skintype, u.u_gender, r.r_star, r.r_content, r.u_id FROM mosaji_review r, mosaji_user u WHERE r.u_id = u.u_id and i_no = ?";
+		String sql = "SELECT r.r_no, u.u_age, u.u_skintype, u.u_gender, r.r_star, r.r_content, r.u_id, r.i_no FROM mosaji_review r, mosaji_user u WHERE r.u_id = u.u_id and i_no = ?";
 		
 		try {
 			conn = db.getConnection();
@@ -134,7 +134,7 @@ public class ReviewDaoImpl implements ReviewDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next() ) {
-				review.add(new Review1(rs.getInt("r_no"), rs.getInt("u_age"), rs.getString("u_skintype"), rs.getString("u_gender"), rs.getInt("r_star"), rs.getString("r_content"), rs.getString("u_id")));
+				review.add(new Review1(rs.getInt("r_no"), rs.getInt("u_age"), rs.getString("u_skintype"), rs.getString("u_gender"), rs.getInt("r_star"), rs.getString("r_content"), rs.getString("u_id"), rs.getInt("i_no")));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -148,6 +148,32 @@ public class ReviewDaoImpl implements ReviewDao {
 			}
 		}
 		return review;
+	}
+
+
+	@Override
+	public void delete(int r_no) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "DELETE FROM mosaji_review WHERE r_no = ?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r_no);
+			pstmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	

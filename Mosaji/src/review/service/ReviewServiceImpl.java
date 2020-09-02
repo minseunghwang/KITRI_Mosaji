@@ -40,5 +40,11 @@ private ReviewDao reviewdao;
 		// TODO Auto-generated method stub
 		return reviewdao.selectByi_no1(i_no);
 	}
+
+	@Override
+	public void delete(int r_no) {
+		reviewdao.delete(r_no);
+		
+	}
 	
 }

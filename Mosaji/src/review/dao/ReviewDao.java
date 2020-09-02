@@ -11,4 +11,6 @@ public interface ReviewDao {
 	ArrayList<Review> selectByi_no(int i_no);
 	ArrayList<MyReview> selectByu_id(String u_id);
 	ArrayList<Review1> selectByi_no1(int i_no);
+	
+	void delete(int r_no);
 }
