@@ -30,10 +30,6 @@
 	margin-right : 50px;
 }
 
-.i_element{
-	float : left;
-}
-
 .boxA{
 	display : inline;
 	width : 100%;
@@ -44,21 +40,49 @@
 	margin-top:10px;
 	border-bottom : 1px solid #c7c6c6;
 }
+.element_1, .element_2, .element_3{
+	float:left;
+}
 
-.element_2{
-	position : relative;
-	width : 80%;
-	margin-top : 15px;
+.element_2, .element_3{
+	display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    top: 10px;
+}
+
+
+.element_3{
+	float: right;
+    transform: translate(-150px, 25px);
 }
 
 .i_brand, .i_name, .i_volume{
 	text-align :left;
-	display :inline;
-	width: 300px;
-    height: 20px;
     left:20%;
     margin-left : 30px;
-} 
+}
+
+.i_brand{
+	color : #d0021b;
+	font-size:13px;
+}
+ 
+.i_name{
+	font-size:18px;
+	height : 40px;
+	color : black;
+}
+
+.i_volume{
+	font-size:14px;
+	color : #84868e;
+}
+
+.i_price{
+	color : black;
+	font-family : 'Jua', sans-serif;
+}
 
 </style>
 
@@ -75,14 +99,18 @@
 		return null;
 	}
 	
-	var makeTbl = function(obj) {
-		var html = "<table border='1'>";
-		html += "<tr><th>num</th><td>"+obj.i_no+"</td></tr>";
-		html += "<tr><th>title</th><td>"+obj.i_name+"</td><tr>";
-		html += "<tr><th>writer</th><td>"+obj.i_category1+"</td><tr>";
-		html += "<tr><th>date</th><td>"+obj.u_i_category2+"</td><tr>";
-		html += "</table>";
-		$(".filter").html(html);
+	var makeTbl = function(arr) {
+    	for(i=0;i<arr.length;i++){
+    		var html;
+    		html = "<div class='boxA' style='width:100%'>";
+    		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+    		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
+    		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
+    		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
+    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+"</div></div></a>";
+    		html += "</div>";
+    		$(".itemList").append(html);
+    	}
 	}
 	
 	function check_data(){
@@ -130,17 +158,7 @@
 	        success: function(result){
 				var arr = $.parseJSON(result);
 				$(".itemList").empty();
-				var html;
-	        	for(i=0;i<arr.length;i++){
-	        		html = "<div class='boxA' style='width:100%'>";
-	        		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
-	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
-	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div></a>";
-	        		html += "</div>";
-	        		$(".itemList").append(html);
-	        	}
+	        	makeTbl(arr);
 			}
 		});
 		
@@ -159,17 +177,7 @@
 	        },
 	        success: function(result){
 	        	arr = $.parseJSON(result);
-	        	var html;
-	        	for(i=0;i<arr.length;i++){
-	        		html = "<div class='boxA' style='width:100%'>";
-	        		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
-	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
-	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div></a>";
-	        		html += "</div>";
-	        		$(".itemList").append(html);
-	        	}
+	        	makeTbl(arr);
 	        }
 	    });
 		
@@ -220,17 +228,7 @@
 		        success: function(result){
 		        	arr = $.parseJSON(result);
 		        	$(".itemList").empty();
-		        	var html;
-		        	for(i=0;i<arr.length;i++){
-		        		html = "<div class='boxA' style='width:100%'>";
-		        		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
-		        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
-		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div></a>";
-		        		html += "</div>";
-		        		$(".itemList").append(html);
-		        	}
+		        	makeTbl(arr);
 		        }
 		    });
 			

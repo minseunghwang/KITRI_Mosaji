@@ -54,6 +54,36 @@
    }
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var u_id;
+		$("#u_id").on("propertychange change keyup paste input",function(){
+			u_id = $(this).val();
+			$.ajax({
+		        url: '${pageContext.request.contextPath }/IdCheckController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data: {
+		        	u_id : u_id
+		        },
+		        success: function(result){
+		        	if(result == "1"){
+		        		$("#idcheck").html('<p style="color:red">이미 존재하는 아이디 입니다.</p>');
+		        	} else{
+		        		$("#idcheck").html('<p style="color:green">사용 가능한 아이디 입니다.</p>');
+		        	}
+					if (u_id.length == 0){
+						$("#idcheck").html('<p style="color:gray">아이디를 한글자 이상 입력해 주세요.</p>');
+					}
+		        }
+			});
+		});
+	});
+
+</script>
+
+
 </head>
 <body>
 <%@ include file="/view/common/header.jsp"%>
@@ -66,14 +96,10 @@
          <!-- /.col-lg-3 -->
 
          <div class="col-lg-9" style="text-align: center;">
-            <div id="carouselExampleIndicators" class="carousel slide my-4"
-               data-ride="carousel" style="text-align: -webkit-center;">
-
+            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" style="text-align: -webkit-center;">
                <div class="card-body col-lg-5">
-
                   <h3 style="text-align: center;"> 회원가입</h3>
                   <br>
-
                   <form method="post" action="${pageContext.request.contextPath }/JoinController"
                      onsubmit="return check_input();">
                      <div class="form-group">
@@ -82,7 +108,9 @@
                            maxlength="20">
                      </div>
                      
-                     <textbox>여기다여기</textbox>
+                     <textbox id="idcheck">
+                     	<p style="color:gray">아이디를 한글자 이상 입력해 주세요.</p>
+                     </textbox>
 
                      <div class="form-group">
                         <input type="password" class="form-control"
