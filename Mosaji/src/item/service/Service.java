@@ -19,4 +19,6 @@ public interface Service {
 	void delete(int i_no);
 	
 	void avg(int i_no);
+	
+	ArrayList<Item> search(String keyword);
 }

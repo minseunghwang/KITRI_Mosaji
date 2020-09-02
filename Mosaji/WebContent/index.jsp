@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <% request.setCharacterEncoding("UTF-8"); %>
+<%@ page import="item.dao.DaoImpl"%>
+<%@ page import="java.util.ArrayList" %>
 
 
 <!DOCTYPE html>
@@ -333,8 +335,8 @@
 			</div>
 
 
-			<form class="form-inline my-2 my-lg-0" style="margin: 0;">
-				<input class="form-control mr-sm-2" type="text"
+			<form method="get" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}" class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="text" name="keyword" id="keyword"
 					placeholder=" 화장품 이름을 입력하세요" style="width: 60%;">
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit"
 					style="width: 15%; margin-left: 10%;">화장품 검색</button>
@@ -496,15 +498,7 @@
 		})
 	</script>
 	
-	
-	<form  action="${pageContext.request.contextPath}/UploadController" method="post"
-	enctype="multipart/form-data">
 
-        file: <input type="file" name="file"><br>
-        <input type="submit" value="file upload">
-    </form>
-	
-	<img src="./upload/grim.png" style="margin-top:10px;" width=150 height=150></img>
 	
 	
 	<%@ include file="view/common/footer.jsp"%>

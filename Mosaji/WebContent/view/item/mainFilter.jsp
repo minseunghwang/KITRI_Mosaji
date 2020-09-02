@@ -89,6 +89,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	var category2 = '${param.category2}';
+	var keyword = '${param.keyword}';
 	var arr = [];
 	var search = function(num){
 		for(i=0;i<arr.length;i++){
@@ -180,7 +181,22 @@
 	        	makeTbl(arr);
 	        }
 	    });
-		
+    	
+    	/* $(document).ready(function(){
+    		
+        	$.ajax({
+    	        url: '${pageContext.request.contextPath }/SearchController',
+    	        type: 'POST',
+    	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+    	        data : {
+    	        	keyword : keyword
+    	        },
+    	        success: function(result){
+    	        	arr = $.parseJSON(result);
+    	        	makeTbl(arr);
+    	        }
+    	    });
+		 */
 		
 		$("#f_age_total").click(function(){
 			$("input:checkbox[name='f_age']").prop("checked",false);

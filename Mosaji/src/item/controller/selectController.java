@@ -41,6 +41,7 @@ public class selectController extends HttpServlet {
 		String category2 = request.getParameter("category2");
 		Service service = new ServiceImpl();
 		ArrayList<Item> item = service.getRank(category2, "i_star", "desc");
+		
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
 		rd.forward(request, response);
