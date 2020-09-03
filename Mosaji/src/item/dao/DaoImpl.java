@@ -210,7 +210,6 @@ public class DaoImpl implements Dao {
 //		try {
 //			conn = db.getConnection();
 //			pstmt = conn.prepareStatement(sql);
-//
 //			pstmt.setString(1, i.getI_name());
 //			pstmt.setString(2, i.getI_volume());
 //			pstmt.setString(3, i.getI_category1());
