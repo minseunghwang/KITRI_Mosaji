@@ -22,7 +22,7 @@
 
 .itemList, .col{
 	float: left;
-	width: 65%;
+	width: 75%;
 	padding: 10px;
 }
 
