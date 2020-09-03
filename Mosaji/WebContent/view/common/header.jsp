@@ -41,10 +41,10 @@
 					<c:if test="${empty sessionScope.u_id }">
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/view/user/login.jsp"
-							accesskey="5" style="background-color: #FFBFAB; color: #625772"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">로그인</a></li>
 						<li class="active"><a
-							style="background-color: #FFBFAB; color: #625772"
+							style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							href="${pageContext.request.contextPath }/view/user/register.jsp"
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
@@ -55,20 +55,20 @@
 
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
-							accesskey="5" style="background-color: #FFBFAB; color: #625772"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">로그아웃</a></li>
 
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/UpdateGetController"	
-							accesskey="5" style="background-color: #FFBFAB; color: #625772"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">내정보수정</a></li>
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/WishlistController"	
-							accesskey="5" style="background-color: #FFBFAB; color: #625772"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">내 찜 목록</a></li>
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/MyReviewController"	
-							accesskey="5" style="background-color: #FFBFAB; color: #625772"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">내가 쓴 리뷰</a></li>					
 					</c:if>
 					

@@ -11,22 +11,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-----css----->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
-
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
-<link href="<%=request.getContextPath()%>/resources/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
-
-<link href="./Resource/css/bootstrap.min.css" rel="stylesheet">
-<link href="./Resource/css/bootstrap.css" rel="stylesheet">
-
 
 <!-- slider -->
 <link
@@ -291,22 +275,20 @@
 
 
 
-<body style="background: white; overflow: scroll;">
-
-
-
-
+<body style="overflow: scroll;">
 
 	<div id="wrapper" style="background: #FFBFAB;">
 		<div id="staff" class="container">
-			<div class="title">
-				<h2 style="color: #625772">당신의 고민을 해결해주는, 뭐사지 !</h2><br>
-				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별, 피부타입에 따라 추천받아보세요 </span>
+			<div class="row" style="margin-left:1%;">
+				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는, 뭐사지 !</span>
+			</div>
+			<div class="row"  style="margin-left:1%; margin-bottom:5%;">
+				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별, 피부타입에 따라 추천 받으세요 </span>
 			</div>
 
 
 
-			<div style="margin-bottom: 50px;">
+			<div style="margin-bottom:10px;">
 				<form method="GET"
 					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
@@ -327,7 +309,7 @@
 						</div>
 						<div class="col">
 							<button type="submit" class="btn btn-secondary"
-								onclick="select()" style="width: 50%;">랭킹 순위보기</button>
+								onclick="select()" style="width: 50%;">랭킹 보기</button>
 						</div>
 					</div>
 				</form>

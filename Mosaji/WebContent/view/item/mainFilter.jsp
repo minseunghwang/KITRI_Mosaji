@@ -16,11 +16,11 @@
 	padding: 10px;
 }
 
-.rankdiv{
+.col{
     text-align: right;
 }
 
-.itemList, .rankdiv{
+.itemList, .col{
 	float: left;
 	width: 65%;
 	padding: 10px;
@@ -257,13 +257,15 @@
 </script>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-		
+	
+
+			<div class="title" style="text-align: center; height: 5%;">
+			<br><br><br><br>
+			<h2 style="color: #625772"> ${param.category2} &nbsp; 랭킹 </h2>
+			</div>
+
 	<div id="wrapper">
 		<div id="staff" class="container">
-			<div class="title">
-				<h2>당신의 고민을 해결해주는 뭐사지!</h2>
-				<span> 연령대, 성별, 취향에 맞는 선물을 추천받으세요!</span>
-			</div>
 			<div class="filter">
 				<fieldset class="filters__filed filters__is-sorted" id="filter">
 					<div class="filter-header">
@@ -352,9 +354,9 @@
 					<button style="margin-top:8px" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</fieldset>
 			</div>
-			<div name="div1">
-				<div class="rankdiv" name="rankdiv1">
-					<select name="category2" id="category2">
+			<div class="row">
+				<div class="col" >
+					<select  class="form-control" name="category2" id="category2">
 						<option value="" disabled selected hidden>${param.category2}</option>
 						<option disabled>====페이스메이크업====</option>
 						<option value="피니시파우더">피니시파우더 </option>
@@ -383,12 +385,15 @@
 						<option value="바디오일">바디오일</option>
 						<option value="바디로션">바디로션</option>						
 					</select>
-					<select name="orderby" id="orderby">
+					</div>
+					<div class="col">
+					<select  class="form-control" name="orderby" id="orderby">
 						<option value="i_star:desc">평점 높은순</option>
 						<option value="i_star:asc">평점 낮은순</option>
 						<option value="i_price:desc">가격 높은순</option>
 						<option value="i_price:asc">가격 낮은순</option>
 					</select>
+					</div>
 				</div>
 				<div class="itemList">
 				</div>
@@ -412,6 +417,6 @@
 			</p>
 		</div>
 	</div>
-	<%@ include file="/view/common/footer2.jsp"%>
+	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
