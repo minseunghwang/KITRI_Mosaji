@@ -272,34 +272,25 @@
 	<div id="wrapper">
 		<div id="staff" class="container">
 			<div class="filter">
-				<fieldset class="filters__filed filters__is-sorted" id="filter">
-					<div class="filter-header">
-						<i class="icon-sprite icon-filter filter-header__text-icon"
-							data-v-2c3efac9></i> <span data-v-2c3efac9>필터</span>
-						</h1>
-						<button class="filter-reset-btn" id="f_reset_btn">초기화</button>
+				<div class="filters__filed filters__is-sorted" id="filter" style="background: #EAEAEA; border:none;">
+					<div class="filter-header" style="text-align: left; font-size: 20px; margin-bottom:10px; margin-top:10px;">
+						<span>  &nbsp; ✔  &nbsp;필터</span>
 					</div>
 					<section class="filter-body">
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" style="margin-bottom:10px;">
 							<legend itemprop="valueName" content="genderFilter"
 								class="fieldset__legend"> 성별 </legend>
-							<ul class="fieldset__list">
-								<li class="fieldset__list-item fieldset__list-item--selected"><label
-									class="fieldset__item-label"><input type="radio"
-										class="fieldset__item-input" name="genderRadio" value="1" checked="checked">전체 <!----> <!----></label></li>
-								<li class="fieldset__list-item"><label
-									class="fieldset__item-label"><input type="radio"
-										class="fieldset__item-input" name="genderRadio" value="2">여자 <!----> <!----></label></li>
-								<li class="fieldset__list-item"><label
-									class="fieldset__item-label"><input type="radio"
-										class="fieldset__item-input" name="genderRadio" value="3">남자 <!----> <!----></label></li>
-							</ul>
+							<div class="row"  style="margin-top:10px;">
+								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="1" checked="checked">전체 </div>
+								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="2" checked="checked">여자 </div>
+								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="3" checked="checked">남자 </div>
+							</div>
 						</fieldset>
 
-						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2>
+						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2 style="margin-bottom:10px;  ">
 							<legend itemprop="valueName" content="genderFilter"
 								class="fieldset__legend" data-v-7e828efe> 연령대 </legend>
-							<ul class="fieldset__list" data-v-7e828efe>
+							<ul class="fieldset__list" data-v-7e828efe style="margin-top:10px;">
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
@@ -324,10 +315,10 @@
 							</ul>
 						</fieldset>
 
-						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2>
+						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2 style="margin-bottom:10px;">
 							<legend itemprop="valueName" content="genderFilter"
 								class="fieldset__legend" data-v-7e828efe> 피부타입 </legend>
-							<ul class="fieldset__list" data-v-7e828efe>
+							<ul class="fieldset__list" data-v-7e828efe style="margin-top:10px;">
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
@@ -356,12 +347,13 @@
 							</ul>
 						</fieldset>
 					</section>
-					<button style="margin-top:8px" id="filter_submit" onclick="check_data()">필터 적용</button>
-				</fieldset>
+					<button class="btn btn-secondary" id="f_reset_btn">초기화</button>
+					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px;" id="filter_submit" onclick="check_data()">필터 적용</button>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col" >
-					<select  class="form-control" name="category2" id="category2">
+					<select class="form-control" name="category2" id="category2">
 						<option value="" disabled selected hidden>${param.category2}</option>
 						<option disabled>====페이스메이크업====</option>
 						<option value="피니시파우더">피니시파우더 </option>

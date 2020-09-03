@@ -53,7 +53,7 @@
 
 					<c:if test="${not empty sessionScope.u_id }">
 
-						<li class="active"><a
+					<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">로그아웃</a></li>
