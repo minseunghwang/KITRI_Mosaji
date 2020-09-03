@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import conn.DBConnect;
+
 import conn.mysql_DBConnect;
 import item.model.Item;
 import item.model.Item2;
-import sun.security.util.Length;
+
 
 public class DaoImpl implements Dao {
 
