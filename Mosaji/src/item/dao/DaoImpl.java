@@ -10,6 +10,7 @@ import conn.DBConnect;
 import conn.mysql_DBConnect;
 import item.model.Item;
 import item.model.Item2;
+import sun.security.util.Length;
 
 public class DaoImpl implements Dao {
 
@@ -18,6 +19,7 @@ public class DaoImpl implements Dao {
 
 	public DaoImpl() {
 //		db = DBConnect.getInstance();
+		
 		db = mysql_DBConnect.getInstance();
 	}
 
@@ -320,9 +322,7 @@ public class DaoImpl implements Dao {
 			}
 		}
 	}
-	
 
-	
 	@Override
 	public ArrayList<Item> search(String keyword) {
 //		Connection conn = db.getConnection();
@@ -330,7 +330,7 @@ public class DaoImpl implements Dao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
-		String sql = " SELECT * FROM mosaji_item WHERE i_name LIKE %?% ORDER BY i_no ";
+		String sql = "SELECT * FROM mosaji_item WHERE i_name LIKE concat('%', ?, '%') ORDER BY i_no";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, keyword);
@@ -353,6 +353,4 @@ public class DaoImpl implements Dao {
 		}
 		return data;
 	}
-	
-	
 }
