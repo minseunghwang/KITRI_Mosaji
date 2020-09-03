@@ -113,7 +113,7 @@
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
     		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
     		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+"</div></div>";
-    		html += "<div class='star-rating'><span style='width:" + arr[i].i_star + "></span></div></a>"
+    		html += "<div class='wrap-star'><div class='star-rating' style='text-align:left'><span style='width:" + arr[i].i_star * 20+ "%'></span></div></div></a>"
     		html += "</div>";
     		$(".itemList").append(html);
     	}
