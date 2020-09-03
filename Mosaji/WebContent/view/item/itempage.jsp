@@ -217,34 +217,35 @@ h2 {font-size:15px;}
 	</div>
 
 	<div class="container">
-		<a>건성(리뷰수)</a>
+		<a>건성(${reviewcount.dryCount })</a>
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped" role="progressbar"
-				style="width: 10%" aria-valuenow="10" aria-valuemin="0"
+				style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10" aria-valuemin="0"
 				aria-valuemax="100"></div>
 		</div>
-		<a>중성</a>
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-success"
-				role="progressbar" style="width: 25%" aria-valuenow="25"
-				aria-valuemin="0" aria-valuemax="100"></div>
-		</div>
-		<a>지성</a>
+		<a>지성(${reviewcount.normalCount })</a>
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped bg-info"
-				role="progressbar" style="width: 50%" aria-valuenow="50"
+				role="progressbar" style="width: ${reviewcount.normalStar * 20}%" aria-valuenow="50"
+				
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
-		<a>복합성</a>
+		<a>중성(${reviewcount.oilyCount })</a>
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped bg-success"
+				role="progressbar" style="width: ${reviewcount.oilyStar * 20}%" aria-valuenow="25"
+				aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+		<a>복합성(${reviewcount.complexitiesCount })</a>
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped bg-warning"
-				role="progressbar" style="width: 75%" aria-valuenow="75"
+				role="progressbar" style="width: ${reviewcount.complexitiesStar * 20}%" aria-valuenow="75"
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
-		<a>민감성</a>
+		<a>민감성(${reviewcount.sensitiveCount })</a>
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped bg-danger"
-				role="progressbar" style="width: 100%" aria-valuenow="100"
+				role="progressbar" style="width: ${reviewcount.sensitiveStar * 20}%" aria-valuenow="100"
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
 	</div>

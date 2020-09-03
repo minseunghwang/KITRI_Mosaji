@@ -277,7 +277,7 @@ public class DaoImpl implements Dao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "DELETE mosaji_item WHERE i_no = ?";
+		String sql = "DELETE FROM mosaji_item WHERE i_no = ?";
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
