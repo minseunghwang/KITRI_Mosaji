@@ -190,6 +190,7 @@ public class ReviewDaoImpl implements ReviewDao {
 				"avg((select sum(r.r_star) / count(if(u.u_skintype = '중성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='중성' and i_no = ?)) as normalStar, count(if(u.u_skintype = '중성', u.u_skintype, null)) as normalCoun," + 
 				"avg((select sum(r.r_star) / count(if(u.u_skintype = '복합성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='복합성' and i_no = ?)) as complexitiesStar, count(if(u.u_skintype = '복합성', u.u_skintype, null)) as complexitiesCount," + 
 				"avg((select sum(r.r_star) / count(if(u.u_skintype = '민감성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='민감성' and i_no = ?)) as sensitiveStar, count(if(u.u_skintype = '민감성', u.u_skintype, null)) as sensitiveCount from mosaji_review r, mosaji_user u where r.u_id = u.u_id and i_no = ?";
+
 		
 		try {
 			conn = db.getConnection();
