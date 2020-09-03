@@ -46,8 +46,6 @@ public class SearchController extends HttpServlet {
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
 		rd.forward(request, response);
-
-
 	}
 
 	/**

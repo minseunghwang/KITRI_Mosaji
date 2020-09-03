@@ -168,8 +168,7 @@
 
 
 	$(document).ready(function(){
-		
-		if(keyword == null){
+		if(keyword == ""){
 	    	$.ajax({
 		        url: '${pageContext.request.contextPath }/selectController',
 		        type: 'POST',
@@ -413,8 +412,6 @@
 			</p>
 		</div>
 	</div>
-
-
-	<%@ include file="/view/common/footer.jsp"%>
+	<%@ include file="/view/common/footer2.jsp"%>
 </body>
 </html>
