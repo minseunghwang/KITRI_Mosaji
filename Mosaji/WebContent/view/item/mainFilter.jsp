@@ -168,7 +168,7 @@
 
 
 	$(document).ready(function(){
-		
+		/*
     	$.ajax({
 	        url: '${pageContext.request.contextPath }/selectController',
 	        type: 'POST',
@@ -181,22 +181,21 @@
 	        	makeTbl(arr);
 	        }
 	    });
-    	
-    	/* $(document).ready(function(){
+    	*/
     		
-        	$.ajax({
-    	        url: '${pageContext.request.contextPath }/SearchController',
-    	        type: 'POST',
-    	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-    	        data : {
-    	        	keyword : keyword
-    	        },
-    	        success: function(result){
-    	        	arr = $.parseJSON(result);
-    	        	makeTbl(arr);
-    	        }
-    	    });
-		 */
+       	$.ajax({
+   	        url: '${pageContext.request.contextPath }/SearchController',
+   	        type: 'POST',
+   	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+   	        data : {
+   	        	keyword : keyword
+   	        },
+   	        success: function(result){
+   	        	arr = $.parseJSON(result);
+   	        	makeTbl(arr);
+   	        }
+       	});
+		
 		
 		$("#f_age_total").click(function(){
 			$("input:checkbox[name='f_age']").prop("checked",false);
