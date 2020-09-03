@@ -26,31 +26,43 @@
       // 사용자가 입력한 데이터를 추출한다.
       var user_name = $("#u_name").val()
       var user_id = $("#u_id").val()
-      var user_pw = $("#u_id").val()
+      var user_pw = $("#u_pw").val()
       var user_age = $("#u_age").val()
+      var user_gender = $("#u_gender").val()
+      var user_skintype = $("#u_skintype").val()
 
       if (user_id.length == 0) {
          alert('아이디를 입력해 주세요')
-         $("#user_id").focus()
+         $("#u_id").focus()
          return false
       }
       if (user_pw.length == 0) {
          alert('비밀번호를 입력해 주세요')
-         $("#user_pw").focus()
+         $("#u_pw").focus()
          return false
       }
       if (user_name.length == 0) {
          alert("이름을 입력해 주세요")
-         $("#user_name").focus()
+         $("#u_name").focus()
          return false
       }
       if (user_age.length == 0) {
          alert('나이를 입력해 주세요')
-         $("#user_age").focus()
+         $("#u_age").focus()
          return false
       }
+      if (user_gender.length == 0) {
+    	  alert('성별을 선택해 주세요')
+    	  $("#u_gedner").focus()
+    	  return false
+      }
+      if (user_skintype.length == 0) {
+    	  alert('피부타입을 선택해주세요')
+    	  $("#u_skintype").focus()
+    	  return false;
+      }
 
-      return True
+      return true
    }
 </script>
 

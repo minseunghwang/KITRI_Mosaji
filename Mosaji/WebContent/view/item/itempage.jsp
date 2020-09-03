@@ -100,13 +100,13 @@ h2 {font-size:15px;}
 			<ul class="list-group list-group-flush vw">
 				<li class="list-group-item">${i.i_age }대/${i.i_gender }</li>
 				<li class="list-group-item">${i.i_skintype }</li>
-				<li class="list-group-item">${i.i_star }</li>
-			</ul>
-			<div class="wrap-star">
+				<li class="list-group-item"><div class="wrap-star">
 						<div class='star-rating'>
 							<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
 						</div>
-					</div>
+					</div></li>
+			</ul>
+			
 		</div>
 
 		<div class="container">
