@@ -185,11 +185,11 @@ public class ReviewDaoImpl implements ReviewDao {
 		ReviewCount reviewcount = null;
 		
 		
-		String sql = "select avg((select sum(r.r_star) / count(if(u.u_skintype = '°Ç¼º', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='°Ç¼º' and i_no = ?)) as dryStar, count(if(u.u_skintype = '°Ç¼º', u.u_skintype, null)) as dryCount," + 
-				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'Áö¼º', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='Áö¼º' and i_no = ?)) as oilyStar, count(if(u.u_skintype = 'Áö¼º', u.u_skintype, null)) as oilyCount," + 
-				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'Áß¼º', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='Áß¼º' and i_no = ?)) as normalStar, count(if(u.u_skintype = 'Áß¼º', u.u_skintype, null)) as normalCoun," + 
-				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'º¹ÇÕ¼º', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='º¹ÇÕ¼º' and i_no = ?)) as complexitiesStar, count(if(u.u_skintype = 'º¹ÇÕ¼º', u.u_skintype, null)) as complexitiesCount," + 
-				"avg((select sum(r.r_star) / count(if(u.u_skintype = '¹Î°¨¼º', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='¹Î°¨¼º' and i_no = ?)) as sensitiveStar, count(if(u.u_skintype = '¹Î°¨¼º', u.u_skintype, null)) as sensitiveCount from mosaji_review r, mosaji_user u where r.u_id = u.u_id and i_no = ?";
+		String sql = "select avg((select sum(r.r_star) / count(if(u.u_skintype = 'ê±´ì„±', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='ê±´ì„±' and i_no = ?)) as dryStar, count(if(u.u_skintype = 'ê±´ì„±', u.u_skintype, null)) as dryCount," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'ì§€ì„±', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='ì§€ì„±' and i_no = ?)) as oilyStar, count(if(u.u_skintype = 'ì§€ì„±', u.u_skintype, null)) as oilyCount," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'ì¤‘ì„±', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='ì¤‘ì„±' and i_no = ?)) as normalStar, count(if(u.u_skintype = 'ì¤‘ì„±', u.u_skintype, null)) as normalCoun," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'ë³µí•©ì„±', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='ë³µí•©ì„±' and i_no = ?)) as complexitiesStar, count(if(u.u_skintype = 'ë³µí•©ì„±', u.u_skintype, null)) as complexitiesCount," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = 'ë¯¼ê°ì„±', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='ë¯¼ê°ì„±' and i_no = ?)) as sensitiveStar, count(if(u.u_skintype = 'ë¯¼ê°ì„±', u.u_skintype, null)) as sensitiveCount from mosaji_review r, mosaji_user u where r.u_id = u.u_id and i_no = ?";
 		
 		try {
 			conn = db.getConnection();

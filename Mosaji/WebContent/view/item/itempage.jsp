@@ -26,8 +26,8 @@
 }
 
 h2 {font-size:15px;}
-.star-rating {width:304px; }
-.star-rating,.star-rating span {display:inline-block; height:55px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star.png)no-repeat; }
+.star-rating {width:100px; }
+.star-rating,.star-rating span {display:inline-block; height:17.5px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star100.png)no-repeat; }
 .star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
 </style>
 
@@ -217,6 +217,7 @@ h2 {font-size:15px;}
 	</div>
 
 	<div class="container">
+		<a>피부타입 ( 리뷰수 )</a><br>
 		<a>건성(${reviewcount.dryCount })</a>
 		<div class="progress">
 			<div class="progress-bar progress-bar-striped" role="progressbar"
