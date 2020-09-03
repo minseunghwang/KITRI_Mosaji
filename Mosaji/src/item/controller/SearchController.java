@@ -38,7 +38,6 @@ public class SearchController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 	
-
 		String keyword = request.getParameter("keyword");
 		Service service = new ServiceImpl();
 		ArrayList<Item> item = service.search(keyword);
