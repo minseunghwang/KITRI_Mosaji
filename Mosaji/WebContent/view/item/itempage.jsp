@@ -73,8 +73,9 @@ h2 {font-size:15px;}
 
 			</form>
 			<button type="button" class="btn btn-outline-secondary"
-				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버
+				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name }&cat_id=&frm=NVSHATC') ">네이버
 				쇼핑연결</button>
+				
 			<button type="button" class="btn btn-outline-info"
 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
 				명으로 검색하기</button>

@@ -29,7 +29,7 @@
 	<!-- /.col-lg-3 -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-9" style="text-align: center;">
+			<div class="col-md-8 offset-md-2" style="text-align: center;">
 
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
