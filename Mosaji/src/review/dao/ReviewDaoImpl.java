@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import conn.DBConnect;
 import conn.mysql_DBConnect;
 import review.model.MyReview;
 import review.model.Review;
 import review.model.Review1;
+import review.model.ReviewCount;
 
 public class ReviewDaoImpl implements ReviewDao {
 
@@ -175,6 +175,52 @@ public class ReviewDaoImpl implements ReviewDao {
 			}
 		}
 	}
+
+
+	@Override
+	public ReviewCount count(int i_no) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ReviewCount reviewcount = null;
+		
+		
+		String sql = "select avg((select sum(r.r_star) / count(if(u.u_skintype = '건성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='건성' and i_no = ?)) as dryStar, count(if(u.u_skintype = '건성', u.u_skintype, null)) as dryCount," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = '지성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='지성' and i_no = ?)) as oilyStar, count(if(u.u_skintype = '지성', u.u_skintype, null)) as oilyCount," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = '중성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='중성' and i_no = ?)) as normalStar, count(if(u.u_skintype = '중성', u.u_skintype, null)) as normalCoun," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = '복합성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='복합성' and i_no = ?)) as complexitiesStar, count(if(u.u_skintype = '복합성', u.u_skintype, null)) as complexitiesCount," + 
+				"avg((select sum(r.r_star) / count(if(u.u_skintype = '민감성', u.u_skintype, null)) from mosaji_review r, mosaji_user u where r.u_id = u.u_id and u.u_skintype ='민감성' and i_no = ?)) as sensitiveStar, count(if(u.u_skintype = '민감성', u.u_skintype, null)) as sensitiveCount from mosaji_review r, mosaji_user u where r.u_id = u.u_id and i_no = ?";
+		
+		try {
+			conn = db.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, i_no);
+			pstmt.setInt(2, i_no);
+			pstmt.setInt(3, i_no);
+			pstmt.setInt(4, i_no);
+			pstmt.setInt(5, i_no);
+			pstmt.setInt(6, i_no);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				reviewcount = new ReviewCount(rs.getFloat(1), rs.getInt(2), rs.getFloat(3), rs.getInt(4), rs.getFloat(5), rs.getInt(6), rs.getFloat(7), rs.getInt(8), rs.getFloat(9), rs.getInt(10));
+			}
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				pstmt.close();
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return reviewcount;
+	}
+	
+	
 
 	
 	
