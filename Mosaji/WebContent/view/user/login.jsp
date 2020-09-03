@@ -18,6 +18,13 @@
 
 	}
 </script>
+<style>
+	#copyright {
+		bottom : 0;
+		position : fixed;
+		width: 100%;
+	}
+</style>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
