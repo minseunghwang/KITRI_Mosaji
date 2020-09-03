@@ -223,16 +223,16 @@ h2 {font-size:15px;}
 				style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10" aria-valuemin="0"
 				aria-valuemax="100"></div>
 		</div>
-		<a>지성(${reviewcount.normalCount })</a>
+		<a>중성(${reviewcount.normalCount })</a>
 		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-info"
+			<div class="progress-bar progress-bar-striped bg-success"
 				role="progressbar" style="width: ${reviewcount.normalStar * 20}%" aria-valuenow="50"
 				
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
-		<a>중성(${reviewcount.oilyCount })</a>
+		<a>지성(${reviewcount.oilyCount })</a>
 		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-success"
+			<div class="progress-bar progress-bar-striped bg-info"
 				role="progressbar" style="width: ${reviewcount.oilyStar * 20}%" aria-valuenow="25"
 				aria-valuemin="0" aria-valuemax="100"></div>
 		</div>
