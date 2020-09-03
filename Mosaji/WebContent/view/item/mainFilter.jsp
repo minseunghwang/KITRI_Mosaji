@@ -54,7 +54,7 @@
 
 .element_3{
 	float: right;
-    transform: translate(-150px, 25px);
+    transform: translate(-50px, 25px);
 }
 
 .i_brand, .i_name, .i_volume{
@@ -112,8 +112,8 @@
     		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
     		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
-    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+"</div></div>";
-    		html += "<div class='wrap-star'><div class='star-rating' style='text-align:left'><span style='width:" + arr[i].i_star * 20+ "%'></span></div></div></a>"
+    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+" <div class='star-rating' style='text-align:left'><span style='width:" + arr[i].i_star * 20+ "%'></span></div></div></div>";
+    		html += "</a>"
     		html += "</div>";
     		$(".itemList").append(html);
     	}
