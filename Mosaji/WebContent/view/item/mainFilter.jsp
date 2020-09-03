@@ -84,10 +84,6 @@
 	font-family : 'Jua', sans-serif;
 }
 
-.star-rating {width:304px; }
-.star-rating,.star-rating span {display:inline-block; height:55px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star.png)no-repeat; }
-.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
-	
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -112,8 +108,7 @@
     		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
     		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
-    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+"</div></div>";
-    		html += "<div class='star-rating'><span style='width:" + arr[i].i_star + "></span></div></a>"
+    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+"</div></div></a>";
     		html += "</div>";
     		$(".itemList").append(html);
     	}
