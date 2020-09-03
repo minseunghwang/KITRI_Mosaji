@@ -36,7 +36,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
 
 		} catch (Exception e) {
@@ -118,7 +118,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -151,7 +151,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -183,7 +183,7 @@ public class DaoImpl implements Dao {
 			if (rs.next()) {
 				i = new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13));
 			}
 
 		} catch (SQLException e) {
@@ -210,7 +210,6 @@ public class DaoImpl implements Dao {
 //		try {
 //			conn = db.getConnection();
 //			pstmt = conn.prepareStatement(sql);
-//
 //			pstmt.setString(1, i.getI_name());
 //			pstmt.setString(2, i.getI_volume());
 //			pstmt.setString(3, i.getI_category1());
@@ -277,7 +276,7 @@ public class DaoImpl implements Dao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "DELETE mosaji_item WHERE i_no = ?";
+		String sql = "DELETE FROM mosaji_item WHERE i_no = ?";
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -338,7 +337,7 @@ public class DaoImpl implements Dao {
 //			while (rs.next()) {
 //				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 //						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-//						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+//						rs.getInt(11), rs.getFloat(12), rs.getString(13)));
 //			}
 //		} catch (Exception e) {
 //			e.printStackTrace();
@@ -369,7 +368,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
