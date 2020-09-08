@@ -15,6 +15,7 @@
 
 .vw {
 	float: left;
+	height:500px;;
 }
 
 .pp {
@@ -24,6 +25,59 @@
 .sel {
 	float: left;
 }
+
+.searchbtn, .naverbtn{
+	margin-top : 10px;
+}
+
+
+.searchbtn{
+	margin-left : 5px;
+}
+
+.wrap-star{
+	float:right;
+	margin-bottom:30px;
+	margin-top:4px;
+}
+
+.card-content{
+	border-top:2px solid #f0f0f2;
+	border-bottom:2px solid #f0f0f2;
+	margin-top:60px;
+	margin-bottom:30px;
+	padding : 30px;
+}
+
+.card-subtitle{
+	color:black;
+	margin-top:30px;
+}
+
+.card-text{
+	margin-top:30px;
+}
+
+.card2{
+	margin-top:30px;	
+}
+
+.title{
+	color:#6c757d;
+}
+
+td{
+	padding-top:20px;
+	padding-right:10px;
+}
+
+istar{
+	float:right;
+	font-size:20px;
+	margin-right:5px;
+	color:#6c757d;
+}
+
 
 h2 {font-size:15px;}
 .star-rating {width:100px; }
@@ -37,7 +91,7 @@ h2 {font-size:15px;}
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
-
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 </head>
 
 <body>
@@ -46,10 +100,7 @@ h2 {font-size:15px;}
 
 	<div class="alert alert-secondary" role="alert"></div>
 
-	<div class="container">
-		<h3 class="header"
-			style="text-align: center; background-color: white;">상세페이지</h3>
-
+	<div class="container" style="margin-top:100px;">
 		<div class="vw">
 
 			<img style="height: 300px; width: 300px; display: block;"
@@ -58,27 +109,62 @@ h2 {font-size:15px;}
 
 
 		<div class="card-body" style="margin-left: 33%;">
-			<h4 class="card-title">상품이름 : ${i.i_name}(${i.i_brand})</h4>
-			<h6 class="card-subtitle mb-2 text-muted">카테고리 :
-				${i.i_category1}/${i.i_category2}</h6>
-			<h6 class="card-subtitle mb-2 text-muted">용량/가격 :
-				${i.i_volume}/${i.i_price}</h6>
-			<p class="card-text">제품설명 : ${i.i_brand}의 ${i.i_category2}</p>
-
+			<h6 class="card-brand" style="color:red">${i.i_brand}</h6>
+			<h4 class="card-title" style="font-size:30px;">${i.i_name}</h4>
+			<h6 class="card-subtitle mb-2 text-muted">${i.i_volume} / <price style="color:black">${i.i_price}원</price></h6>
+			
+			<div class="wrap-star">
+				<div class='star-rating'>
+					<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
+				</div>
+			</div>
+			<istar>${i.i_star }</istar>
+			
+			<c:if test="${i.i_content == null }">
+				<section class="card-content">
+					<divv style="color:#e16d33"><i class="fas fa-vial"></i></divv><divv style="color:#6c757d!important; margin-left:20px;">등록된 성분이 없습니다.</divv>
+				</section>
+			</c:if>
+			<c:if test="${i.i_content != null }">
+				<section class="card-content">${i.i_content }</section>
+			</c:if>
+			
+			<table>
+				<tbody>
+					<tr>
+						<td class="title">카테고리</th>
+						<td>${i.i_category1}/${i.i_category2}</td>
+					</tr>
+					<tr>
+						<td class="title">제품설명</th>
+						<td>${i.i_brand}의 ${i.i_category2}</td>
+					</tr>
+					<tr>
+						<td class="title">추천연령/성별</th>
+						<td>${i.i_age }대/${i.i_gender }</td>
+					</tr>
+					<tr>
+						<td class="title">추천피부타입</th>
+						<td>${i.i_skintype }</td>
+					</tr>
+				</tbody>
+			</table>
+			
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
 				<button type="submit" class="btn btn-outline-danger"
-					onclick="alert('찜완료')">찜하기</button>
+					onclick="alert('찜완료')" style="margin-top: 50px;">찜하기</button>
 
 			</form>
-			<button type="button" class="btn btn-outline-secondary"
-				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name }&cat_id=&frm=NVSHATC') ">네이버
+			<button type="button" class="btn btn-outline-secondary naverbtn"
+				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name }&cat_id=&frm=NVSHATC') " style="color:#08cf5f; border-color:#08cf5f;">네이버
 				쇼핑연결</button>
 				
-			<button type="button" class="btn btn-outline-info"
+			<button type="button" class="btn btn-outline-info searchbtn"
 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
 				명으로 검색하기</button>
+
 		</div>
 
 		<!-- 		<div class="card-body1"> -->
@@ -91,24 +177,6 @@ h2 {font-size:15px;}
 		<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
 		<!-- 		</div> -->
 		<!-- 	</div> -->
-
-		<div class="card-body2">
-			<ul class="list-group list-group-flush vw" style="margin-left: 2%;">
-				<li class="list-group-item">추천연령/성별:</li>
-				<li class="list-group-item">추천피부타입:</li>
-				<li class="list-group-item">리뷰평점:</li>
-			</ul>
-			<ul class="list-group list-group-flush vw">
-				<li class="list-group-item">${i.i_age }대/${i.i_gender }</li>
-				<li class="list-group-item">${i.i_skintype }</li>
-				<li class="list-group-item"><div class="wrap-star">
-						<div class='star-rating'>
-							<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
-						</div>
-					</div></li>
-			</ul>
-			
-		</div>
 
 		<div class="container">
 			<h3 class="card-header"
