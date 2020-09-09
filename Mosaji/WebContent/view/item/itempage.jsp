@@ -78,6 +78,11 @@ istar{
 	color:#6c757d;
 }
 
+.search_option{
+	width : 70%;
+	margin-bottom : 1rem;
+}
+
 
 h2 {font-size:15px;}
 .star-rating {width:100px; }
@@ -177,44 +182,49 @@ h2 {font-size:15px;}
 		<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
 		<!-- 		</div> -->
 		<!-- 	</div> -->
+		
+		<div class="card-review">
+			<div class="container" style="border-top: 2px solid #f0f0f2;margin-top: 50px;">
+				<h3 class="card-header"
+					style="text-align: center; background-color: white;">
+					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
+					리뷰 작성
+				</h3>
+			</div>
 
-		<div class="container">
-			<h3 class="card-header"
-				style="text-align: center; background-color: white;">
-				<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
-				리뷰
-			</h3>
-		</div>
 
-
-		<div class="container">
-			<div class="rww" role="document">
-				<form method="post"
-					action="${pageContext.request.contextPath }/AddReviewController">
-					<div class="col-md-12">
-						<div class="form-group">
-							<select class="custom-select" id="r_star" name="r_star">
-								<option selected="">---별점---</option>
-								<option value="1">❤
-								<option value="2">❤❤</option>
-								<option value="3">❤❤❤</option>
-								<option value="4">❤❤❤❤</option>
-								<option value="5">❤❤❤❤❤</option>
-							</select>
+			<div class="container">
+				<div class="rww" role="document">
+					<form method="post"
+						action="${pageContext.request.contextPath }/AddReviewController">
+						<div class="row">
+						<div class="col-md-12">
+							<textarea rows="10" cols="115%" name="r_content" id="r_content" style="width:100%; padding:15px;" placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
+							<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
 						</div>
-					</div>
-					<div class="col-md-12">
-						<textarea rows="10" cols="115%" name="r_content" id="r_content"></textarea>
-						<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
-					</div>
-					<div class="col-md-12">
-						<input type="submit" class="btn btn-primary" value="등록"
-							style="width: 33%; float: right;" onclick="alert('리뷰 등록완료')" />
-					</div>
-				</form>
+						
+						<div class="col-md-8">
+							<div class="form-group">
+								<select class="custom-select" id="r_star" name="r_star">
+									<option selected="">별점</option>
+									<option value="1">❤
+									<option value="2">❤❤</option>
+									<option value="3">❤❤❤</option>
+									<option value="4">❤❤❤❤</option>
+									<option value="5">❤❤❤❤❤</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="col-md-4">
+							<input type="submit" class="btn btn-primary" value="등록"
+								style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" />
+						</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-
 		<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
 	</div>
 
@@ -238,87 +248,96 @@ h2 {font-size:15px;}
 	<!-- 		</ul> -->
 	<!-- 	</div> -->
 
-	<div class="container">
-		<div class="container sel">
-			<div class="form-group sel">
-				<select class="custom-select sel">
-					<option selected="" disabled selected hidden>---피부타입---</option>
-					<option value="1">건성</option>
-					<option value="2">중성</option>
-					<option value="3">지성</option>
-					<option value="4">복합성</option>
-					<option value="5">민감성</option>
-				</select>
+	<div class="container" style="margin-top: 50px;">
+		<div class="row">
+			<div class="col-md-3" style="text-align: -webkit-center; margin-top:15px; padding:20px;">
+				<div class="search_option">
+					<select class="custom-select" style="text-align-last: center;">
+						<option selected="" disabled selected hidden>피부타입</option>
+						<option value="1">건성</option>
+						<option value="2">중성</option>
+						<option value="3">지성</option>
+						<option value="4">복합성</option>
+						<option value="5">민감성</option>
+					</select>
+				</div>
+
+				<div class="search_option">
+					<select class="custom-select" style="text-align-last: center;">
+						<option selected="" disabled selected hidden>연령</option>
+						<option value="1">10대</option>
+						<option value="2">20대</option>
+						<option value="3">30대</option>
+						<option value="4">40대</option>
+					</select>
+				</div>
+
+				<div class="search_option">
+					<select class="custom-select" style="text-align-last: center;">
+						<option selected="" disabled selected hidden>성별</option>
+						<option value="1">여자</option>
+						<option value="2">남자</option>
+					</select>
+				</div>
+
+				<button type="button" class="btn btn-outline-light search_option"
+					style="background-color: #e80521;">검색</button>
+
+
 			</div>
 
-			<div class="form-group sel">
-				<select class="custom-select sel">
-					<option selected="" disabled selected hidden>---연령---</option>
-					<option value="1">10대</option>
-					<option value="2">20대</option>
-					<option value="3">30대</option>
-					<option value="4">40대</option>
-				</select>
+			<div class="col-md-9" style="border: 2px solid #f0f0f2;padding: 20px;">
+				<a>피부타입 ( 리뷰수 )</a><br> <a>건성(${reviewcount.dryCount })</a>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar"
+						style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
+						aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<a>중성(${reviewcount.normalCount })</a>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-success"
+						role="progressbar" style="width: ${reviewcount.normalStar * 20}%"
+						aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<a>지성(${reviewcount.oilyCount })</a>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-info"
+						role="progressbar" style="width: ${reviewcount.oilyStar * 20}%"
+						aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<a>복합성(${reviewcount.complexitiesCount })</a>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-warning"
+						role="progressbar"
+						style="width: ${reviewcount.complexitiesStar * 20}%"
+						aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<a>민감성(${reviewcount.sensitiveCount })</a>
+				<div class="progress">
+					<div class="progress-bar progress-bar-striped bg-danger"
+						role="progressbar"
+						style="width: ${reviewcount.sensitiveStar * 20}%"
+						aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
 			</div>
-
-			<div class="form-group sel">
-				<select class="custom-select sel">
-					<option selected="" disabled selected hidden>---성별---</option>
-					<option value="1">여자</option>
-					<option value="2">남자</option>
-				</select>
-			</div>
-
-			<button type="button" class="btn btn-outline-light sel"
-				style="background-color: darkgrey;">검색</button>
-
-			<div class="form-group sel">
-				<select class="custom-select sel">
-					<option selected="" disabled selected hidden>---정렬---</option>
-					<option value="1">최신순</option>
-					<option value="2">오래된순</option>
-				</select>
-			</div>
-
-			<button type="button" class="btn btn-outline-light sel"
-				style="background-color: darkgrey;">검색</button>
-		</div>
-	</div>
-
-	<div class="container">
-		<a>피부타입 ( 리뷰수 )</a><br>
-		<a>건성(${reviewcount.dryCount })</a>
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped" role="progressbar"
-				style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10" aria-valuemin="0"
-				aria-valuemax="100"></div>
-		</div>
-		<a>중성(${reviewcount.normalCount })</a>
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-success"
-				role="progressbar" style="width: ${reviewcount.normalStar * 20}%" aria-valuenow="50"
+			<div class="col-md-12" style="margin-top:50px;">
+				<ms style="font-size:30px;">리뷰</ms>
 				
-				aria-valuemin="0" aria-valuemax="100"></div>
-		</div>
-		<a>지성(${reviewcount.oilyCount })</a>
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-info"
-				role="progressbar" style="width: ${reviewcount.oilyStar * 20}%" aria-valuenow="25"
-				aria-valuemin="0" aria-valuemax="100"></div>
-		</div>
-		<a>복합성(${reviewcount.complexitiesCount })</a>
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-warning"
-				role="progressbar" style="width: ${reviewcount.complexitiesStar * 20}%" aria-valuenow="75"
-				aria-valuemin="0" aria-valuemax="100"></div>
-		</div>
-		<a>민감성(${reviewcount.sensitiveCount })</a>
-		<div class="progress">
-			<div class="progress-bar progress-bar-striped bg-danger"
-				role="progressbar" style="width: ${reviewcount.sensitiveStar * 20}%" aria-valuenow="100"
-				aria-valuemin="0" aria-valuemax="100"></div>
+				<button type="button" class="btn btn-outline-light sel"
+					style="background-color: #e80521; float:right;">검색</button>
+					
+				<div class="form-group sel" style="float:right; margin-right:10px;">
+					<select class="custom-select">
+						<option selected="" disabled selected hidden>정렬</option>
+						<option value="1">최신순</option>
+						<option value="2">오래된순</option>
+					</select>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
 
 
 
