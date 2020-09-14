@@ -37,7 +37,7 @@ $(document).ready(function() {
 		<div class="row">
 			<table class="table" style="table-layout: fixed">
 				<thead>
-					<tr>
+					<tr style="text-align:center;">
 						<th scope="col">번호</th>
 <!-- 						<th scope="col">상품 이미지</th> -->
 						<th scope="col">상품 이름</th>
@@ -47,14 +47,14 @@ $(document).ready(function() {
 						<th scope="col" >삭제</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="text-align:center;">
 					<c:forEach var="review" items="${review }" varStatus="status">
 						<tr>
 <%-- 							<td>${myreview.rownum }</td> --%>
 							<td>${status.count }</td>
 <%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}"><img src="${review.i_img }"></a></td> --%>
-							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></td>
-							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; "><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></td>
+							<td style="text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></td>
+							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></td>
 <%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
 							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">
 				<c:choose>
@@ -93,9 +93,10 @@ $(document).ready(function() {
 
 
 			</table>
-			<button id="del_btn"
-					style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+			
 		</div>
+		<button id="del_btn"
+				class="btn btn-primary"	style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10%;">삭제</button>
 	</div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>

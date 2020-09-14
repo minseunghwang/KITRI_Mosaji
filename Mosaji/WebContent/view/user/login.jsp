@@ -55,11 +55,11 @@
 									name="u_pw" maxlength="20">
 							</div>
 							<input type="submit" class="btn btn-secondary form-control"
-								value="로그인" style="margin-top: 10px";>
+								value="로그인" style="margin-top: 10px;">
 						</form>
 						<form method="post" action="register.jsp">
 							<input type="submit" class="btn btn-secondary form-control"
-								value="회원가입" style="margin-top: 10px";>
+								value="회원가입" style="margin-top: 10px;">
 						</form>
 					</div>
 
