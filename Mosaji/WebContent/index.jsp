@@ -11,7 +11,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
 <!-- slider -->
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -39,6 +38,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
 
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <style>
 .blog_section {
 	padding-top: 5rem;
@@ -278,22 +278,24 @@
 <body style="overflow: scroll;">
 
 	<div id="wrapper" style="background: #FFBFAB;">
-		<div id="staff" class="container">
+		<div id="staff" class="container" style="padding:3em 0em;">
 			<div class="row" style="margin-left:1%;">
 				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는, 뭐사지 !</span>
 			</div>
 			<div class="row"  style="margin-left:1%; margin-bottom:5%;">
 				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별, 피부타입에 따라 추천 받으세요 </span>
 			</div>
+		</div>
+	</div>
 
-
-
+	<div id="wrapper2" style="background: #FFBFAB; margin-top:1px;" >
+		<div id="staff" class="container" style="padding:2em 0em;">
 			<div style="margin-bottom:10px;">
 				<form method="GET"
 					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
-						<div class="col">
-							<select class="form-control"  name="category1" id="category1">
+						<div class="col" style="padding-right:0px; padding-left:0px;">
+							<select class="form-control"  name="category1" id="category1" style="width:500px;">
 								<option value="" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
@@ -302,32 +304,28 @@
 							</select>
 						</div>
 
-						<div class="col">
-							<select class="form-control" name="category2" id="category2">
+						<div class="col" style="padding-right:0px; padding-left:0px;">
+							<select class="form-control" name="category2" id="category2" style="width:300px;">
 								<option value="" disabled selected hidden>소분류</option>
 							</select>
 						</div>
-						<div class="col">
+						<div class="col" style="padding-right:0px; padding-left:0px;">
 							<button type="submit" class="btn btn-secondary"
-								onclick="select()" style="width: 50%;">랭킹 보기</button>
+								onclick="select()" style="width: 50%; float:left">랭킹 보기</button>
 						</div>
 					</div>
 				</form>
 			</div>
 
-
-			<form method="get" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}" >
+			<form method="get"
+				action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}">
 				<div class="row">
-				<div class="col">
-				<input class="form-control" type="text" name="keyword" id="keyword"
-					placeholder="제품 명, 브랜드 명으로 검색해보세요" style="text-align: center; width: 135%; font-size: 16px;">
-				</div>
-				<div class="col">
-				<button class="btn btn-secondary" type="submit" style="width:32%; margin-left:35%;">화장품 검색</button>
-				</div>	
+						<input class="form-control" type="text" name="keyword" id="keyword" placeholder="제품 명, 브랜드 명으로 검색해보세요"
+							style="font-size: 16px; height:38px; width:400px; position: relative;z-index: 1;">
+						<button class="btn btn-secondary" type="submit" style="position: relative;z-index: 2;left:-42px;"><i class="fas fa-search"></i></button>
 				</div>
 			</form>
-		
+
 		</div>
 	</div>
 
@@ -340,8 +338,7 @@
 					width="100%" height="100%" alt="" />
 			</div>
 			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_2.png"
+				<img src="${pageContext.request.contextPath }/resources/images/lip_2.png"
 					width="100%" height="100%" alt="" />
 			</div>
 			<div class="col">
