@@ -1,5 +1,7 @@
 package user.dao;
 
+import java.util.ArrayList;
+
 import user.model.User;
 
 public interface UserDao {
@@ -15,6 +17,8 @@ public interface UserDao {
 	User login(String u_id, String u_pw);
 	
 	int Join_Check(String u_id);
+	
+	ArrayList<User> allUser();
 	
 	
 }

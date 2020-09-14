@@ -154,7 +154,6 @@ h2 {font-size:15px;}
 					</tr>
 				</tbody>
 			</table>
-			
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">

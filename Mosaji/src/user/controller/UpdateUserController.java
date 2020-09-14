@@ -1,7 +1,6 @@
 package user.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,22 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 import user.model.User;
 import user.service.UserService;
 import user.service.UserServiceImpl;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class UpdateUserController
  */
-@WebServlet("/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/UpdateUserController")
+public class UpdateUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public UpdateUserController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,53 +38,32 @@ public class LoginController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
-		
 		UserService userservice = new UserServiceImpl();
 		
-		PrintWriter out = response.getWriter();
-		
-		boolean flag = false;
-		
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession(false);
 		String u_id = request.getParameter("u_id");
 		String u_pw = request.getParameter("u_pw");
+		String u_name = request.getParameter("u_name");
+		int u_age = Integer.parseInt(request.getParameter("u_age"));
+		String u_gender = request.getParameter("u_gender");
+		String u_skintype = request.getParameter("u_skintype");
 		
-//		User u = userservice.getUser(u_id);
-		User u = userservice.login(u_id, u_pw);
-		if(u != null && u_pw.equals(u.getU_pw())) {
-			session.setAttribute("u_id", u_id);
-			System.out.println(" u_id = " + u_id);
-			System.out.println(" u_pw = " + u_pw);
-			flag = true;
-			
-			System.out.println("세션 담긴" + u_id);
-			
-			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-			rd.forward(request, response);
-			
-			
-			
-		} else {
-			System.out.println("아이디 비밀번호가 틀려요");
-			response.setContentType("text/html; charset=UTF-8");
-			out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go('-1');</script>");
-			out.flush();
-
-			flag = false;
-		}
-		
-		session.setAttribute("flag", flag);
-
+		User u = new User(u_id, u_pw, u_name, u_age, u_gender, u_skintype);
 		
 		
+		userservice.update(u);
+		
+		request.setAttribute("u", u);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/UserListController");
+		rd.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

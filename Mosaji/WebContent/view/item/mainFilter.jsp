@@ -33,6 +33,7 @@
 .boxA{
 	display : inline;
 	width : 100%;
+	padding : 20px;
 } 
 
 .boxA, .boxB{
@@ -40,8 +41,18 @@
 	margin-top:10px;
 	border-bottom : 1px solid #c7c6c6;
 }
-.element_1, .element_2, .element_3{
+.element_0, .element_1, .element_2, .element_3{
 	float:left;
+}
+
+.element_0{
+    padding: 20px;
+    padding-right: 40px;
+    margin-top: 10px;
+}
+
+.element_2{
+	margin-left : 20px;
 }
 
 .element_2, .element_3{
@@ -110,6 +121,7 @@
     	for(i=0;i<arr.length;i++){
     		var html;
     		html = "<div class='boxA' style='width:100%'>";
+    		html += "<div class=' element_0'>" + (i+1) + "</div>";
     		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
     		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
