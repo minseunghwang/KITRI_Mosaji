@@ -62,7 +62,8 @@ public class LoginController extends HttpServlet {
 			out.println("<script>alert('로그인 성공'); </script>");
 			System.out.println("세션 담긴" + u_id);
 			
-			
+			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
 			
 			
 			
@@ -77,8 +78,7 @@ public class LoginController extends HttpServlet {
 		
 		session.setAttribute("flag", flag);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-		rd.forward(request, response);
+		
 		
 	}
 
