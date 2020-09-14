@@ -49,11 +49,6 @@
 <body>
 	<%@ include file="/view/common/header.jsp"%>
 
-
-
-
-	
-
 	<c:if test="${not empty wishlist }">
 		<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
 		<div class="row" >

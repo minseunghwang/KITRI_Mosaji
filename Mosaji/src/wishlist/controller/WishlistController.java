@@ -65,6 +65,7 @@ public class WishlistController extends HttpServlet {
 //		ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) wishlistservice.getItem(u_id);
 //		request.setAttribute("wishlist", wishlist);
 		
+		
 		ArrayList<Wishlist1> wishlist1 = (ArrayList<Wishlist1>) wishlistservice.getItem1(u_id);
 		request.setAttribute("wishlist", wishlist1);
 		System.out.println("controller : " + wishlist1);
