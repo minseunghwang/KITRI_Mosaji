@@ -48,81 +48,55 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-
-	<c:if test="${not empty wishlist }">
-		<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
-		<div class="row" >
-			<div class="offset-md-3 col-md-6">
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col" style="color: gray;">번호</th>
-							<th scope="col" style="color: gray;">상품 번호</th>
-							<th scope="col" style="color: gray;">상품 이름</th>
-							<th scope="col" style="color: gray;">상품 설명</th>
-							<th scope="col" style="color: gray;">상품 이미지</th>
-							<th scope="col" style="color: gray;">삭제</th>
-						</tr>
-					</thead>
-					<tbody id="zzim">
-						<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
-							<tr>
-<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
-								<th><a style="color: gray;" >${status.count }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
-								<th><input type="checkbox" name="del"
-									value="${wishlist.w_no }"></th>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<button id="del_btn"
-					style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
-			</div>
-		</div>
-
-	</c:if>
-	<c:if test="${empty wishlist}">
-		<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
-		<div class="row">
-			<div class="offset-md-3 col-md-6">
-				<c:forEach var="wishlist" items="${wishlist }">
+	
+	<div id="body" style="min-height: 570px;">
+		<c:if test="${not empty wishlist }">
+			<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
+			<div class="row" >
+				<div class="offset-md-3 col-md-6">
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">상품 번호</th>
-								<th scope="col">상품 이름</th>
-								<th scope="col">상품 설명</th>
+								<th scope="col" style="color: gray;">번호</th>
+								<th scope="col" style="color: gray;">상품 번호</th>
+								<th scope="col" style="color: gray;">상품 이름</th>
+								<th scope="col" style="color: gray;">상품 설명</th>
+								<th scope="col" style="color: gray;">상품 이미지</th>
+								<th scope="col" style="color: gray;">삭제</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr>
-								<th rowspan="3">텅~~~ 비어있어요</th>
-
-
-
-							</tr>
+						<tbody id="zzim">
+								<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
+								<tr>
+	<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
+									<th><a style="color: gray;" >${status.count }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
+									<th><input type="checkbox" name="del"
+										value="${wishlist.w_no }"></th>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
-				</c:forEach>
+					<button id="del_btn"
+						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+				</div>
 			</div>
-
+			<div class="row">
+			<div class="offset-md-3 col-md-6">
+				<a id="kakao-link-btn" href="javascript:sendLink()"> 
+				<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
+				</a>
+			</div>
 		</div>
-	</c:if>
-
-	<div class="row">
-		<div class="offset-md-3 col-md-6">
-			<a id="kakao-link-btn" href="javascript:sendLink()"> 
-			<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
-			</a>
-
-
-		</div>
-	</div>
-
+	
+		</c:if>
+		<c:if test="${empty wishlist}">
+			<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
+		</c:if>
+	</div>	
 	<%@ include file="/view/common/footer.jsp"%>
 
 	<script type='text/javascript'>
