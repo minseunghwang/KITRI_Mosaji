@@ -20,7 +20,6 @@
 </head>
 
 
-<<<<<<< HEAD
 <script type="text/javascript">
 	$(document).ready(function() {
 		
@@ -31,9 +30,6 @@
 	})
 </script>
 
-
-=======
->>>>>>> branch 'master' of https://github.com/minseunghwang/KITRI_Mosaji.git
 <body>
 	<input type="hidden" value="${sessionScope.u_name }">
 	<input type="hidden" value="${sessionScope.u_id }"/>
