@@ -153,6 +153,8 @@
 			});
 		}
 		
+
+		
 		$.ajax({
 	        url: '${pageContext.request.contextPath }/FilteringListController',
 	        type: 'POST',
@@ -168,6 +170,12 @@
 				$(".itemList").empty();
 	        	makeTbl(arr);
 			}
+	        
+	        
+	        
+	        
+	        
+	        
 		});
 		
 		return true;

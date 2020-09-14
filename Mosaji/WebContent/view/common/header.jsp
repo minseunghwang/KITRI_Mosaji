@@ -63,7 +63,8 @@
 
 					<c:if test="${not empty sessionScope.u_id && sessionScope.u_id != 'admin'}">
 
-					<li class="active"><a href="${pageContext.request.contextPath }/LogoutController" accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
+					<li class="active"><a href="${pageContext.request.contextPath }/LogoutController"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">로그아웃</a></li>
 
 					<li class="active"><a
@@ -84,6 +85,10 @@
 							href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="" id="logout_btn">로그아웃</a></li>
+						<li class="active"><a
+							href="${pageContext.request.contextPath }/UploadController"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
+							title="">상품 등록 </a></li>
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/AllReviewController"
 							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
