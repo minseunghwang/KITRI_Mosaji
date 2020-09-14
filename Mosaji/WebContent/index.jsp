@@ -570,7 +570,7 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="font-size: 30px;" href="https://www.innisfree.com/kr/ko/Main.do">이니스프리</a>
+									<a style="color: black; font-size: 30px;" href="https://www.innisfree.com/kr/ko/Main.do">이니스프리</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>이니스프리</li>
@@ -592,7 +592,7 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="font-size: 30px;" href="https://www.makeupforever.com/">메이크업포에버</a>
+									<a style="color: black; font-size: 30px;" href="https://www.makeupforever.com/">메이크업포에버</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>절대팩트</li>
@@ -614,7 +614,7 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<a style="font-size: 30px;" href="https://www.etude.com">에뛰드</a>
+								<a style="color: black; font-size: 30px;" href="https://www.etude.com">에뛰드</a>
 								<ul>
 									<li><i class="icon ion-md-person"></i>에뛰드</li>
 									<li><i class="icon ion-md-calendar"></i>에뛰드 틴트 맛있어</li>
@@ -636,7 +636,7 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="font-size: 30px;" href="https://www.theskinfood.com">스킨푸드</a>
+									<a style="color: black; font-size: 30px;" href="https://www.theskinfood.com">스킨푸드</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>스킨푸드</li>
@@ -658,7 +658,7 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="font-size: 30px;" href="https://www.lauramercier.co.kr/">로라메르시에</a>
+									<a style="color: black; font-size: 30px;" href="https://www.lauramercier.co.kr/">로라메르시에</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>비싸다</li>
