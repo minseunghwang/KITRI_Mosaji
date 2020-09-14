@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="container">
+	<div class="container" style="min-height:610px;">
 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3>
 		<div class="row">
 			<table class="table" style="table-layout: fixed">
@@ -30,49 +30,54 @@
 				<tbody>
 					<c:forEach var="myreview" items="${myreview }" varStatus="status">
 						<tr>
-<%-- 							<td>${myreview.rownum }</td> --%>
+							<%-- 							<td>${myreview.rownum }</td> --%>
 							<td>${status.count }</td>
-							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img src="${myreview.i_img }"></a></td>
-							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
-							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; "><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
-<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
-							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">
-				<c:choose>
-					<c:when test="${myreview.r_star == 5 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star5.png"
-							style="width: 140px;">
-					</c:when>
-					<c:when test="${myreview.r_star == 4 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star4.png"
-							style="width: 140px;">
-					</c:when>
-					<c:when test="${myreview.r_star == 3 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star3.png"
-							style="width: 140px;">
-					</c:when>
-					<c:when test="${myreview.r_star == 2 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star2.png"
-							style="width: 140px;">
-					</c:when>
-					<c:when test="${myreview.r_star == 1 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star1.png"
-							style="width: 140px;">
-					</c:when>
-				</c:choose>
+							<td><a
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img
+									src="${myreview.i_img }"></a></td>
+							<td><a
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
+							<td
+								style="text-overflow: ellipsis; overflow: hidden; white-space: pre;"><a
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
+							<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
+							<td><a
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"> <c:choose>
+										<c:when test="${myreview.r_star == 5 }">
+											<img
+												src="${pageContext.request.contextPath }/resources/images/star5.png"
+												style="width: 140px;">
+										</c:when>
+										<c:when test="${myreview.r_star == 4 }">
+											<img
+												src="${pageContext.request.contextPath }/resources/images/star4.png"
+												style="width: 140px;">
+										</c:when>
+										<c:when test="${myreview.r_star == 3 }">
+											<img
+												src="${pageContext.request.contextPath }/resources/images/star3.png"
+												style="width: 140px;">
+										</c:when>
+										<c:when test="${myreview.r_star == 2 }">
+											<img
+												src="${pageContext.request.contextPath }/resources/images/star2.png"
+												style="width: 140px;">
+										</c:when>
+										<c:when test="${myreview.r_star == 1 }">
+											<img
+												src="${pageContext.request.contextPath }/resources/images/star1.png"
+												style="width: 140px;">
+										</c:when>
+									</c:choose>
 							</a></td>
 							<td>${myreview.r_date }</td>
-							
 						</tr>
 					</c:forEach>
 				</tbody>
-
-
 			</table>
+			<c:if test="${empty myreview}">
+						<div style="width: 100%;text-align: center;">작성한 리뷰가 없습니다.</div>
+			</c:if>
 		</div>
 	</div>
 	<%@ include file="/view/common/footer.jsp"%>
