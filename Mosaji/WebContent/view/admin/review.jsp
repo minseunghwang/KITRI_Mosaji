@@ -6,20 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
 <script>
 $(document).ready(function() {
 
-	var zzim_str = "";
+	var review_str = "";
 	$("#del_btn").click(function() {
 		var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
 		if(confirmflag){
 			$("input[name=del]:checked").each(function() {
-				alert($(this).val());
+				
 				review_str += ($(this).val());
-				zzim_str += ",";
+				review_str += ",";
 			});
 			
-			location.href = "/Mosaji/WishDeleteController?zzim_str="+zzim_str;
+			location.href = "/Mosaji/AllDeleteReviewController?review_str="+review_str;
 		}
 	});
 	
@@ -41,7 +44,7 @@ $(document).ready(function() {
 						<th scope="col">리뷰 내용</th> 
 						<th scope="col">평점</th>
 						<th scope="col">등록일</th>
-						<th scope="col" style="text-align:center;"><button id="del_btn">리뷰 삭제</button></th>
+						<th scope="col" >삭제</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -90,6 +93,8 @@ $(document).ready(function() {
 
 
 			</table>
+			<button id="del_btn"
+					style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
 		</div>
 	</div>
 	<%@ include file="/view/common/footer.jsp"%>

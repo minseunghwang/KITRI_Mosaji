@@ -266,13 +266,13 @@ public class ReviewDaoImpl implements ReviewDao {
 			PreparedStatement pstmt = null;
 			
 			for(String i:review_arr) {
-				sql += "r_no = ";
+				sql += " r_no = ";
 				sql += i;
 				sql += " or ";
 			}
 			
 			sql = sql.substring(0, sql.length()-3);
-			
+			System.out.println(sql);
 			try {
 				conn = db.getConnection();
 				pstmt = conn.prepareStatement(sql);
