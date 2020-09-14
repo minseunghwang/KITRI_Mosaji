@@ -287,6 +287,7 @@ h2 {
 	<!-- 		</ul> -->
 	<!-- 	</div> -->
 
+	<c:if test="${not empty review }">
 	<div class="container" style="margin-top: 50px;">
 		<div class="row">
 			<div class="col-md-3"
@@ -361,6 +362,7 @@ h2 {
 						aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 			</div>
+			<c:if test="${not empty review }">
 			<div class="col-md-12" style="margin-top: 50px;">
 				<ms style="font-size:30px;">리뷰</ms>
 
@@ -376,10 +378,10 @@ h2 {
 					</select>
 				</div>
 			</div>
+			</c:if>
 		</div>
 	</div>
-
-
+	</c:if>
 
 
 	<c:if test="${not empty review }">
@@ -471,7 +473,9 @@ h2 {
 		</c:forEach>
 	</c:if>
 	<c:if test="${empty review }">
+	<div style="margin-top:200px; margin-bottom:200px;">
 		<h3 style="text-align: center;">리뷰가 없습니다</h3>
+	</div>		
 	</c:if>
 
 
