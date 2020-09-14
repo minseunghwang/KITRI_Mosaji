@@ -1,5 +1,7 @@
 package user.service;
 
+import java.util.ArrayList;
+
 import user.dao.UserDao;
 import user.dao.UserDaoImpl;
 import user.model.User;
@@ -40,5 +42,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int Joincheck(String u_id) {
 		return userdao.Join_Check(u_id);
+	}
+	
+	@Override
+	public ArrayList<User> allUser() {
+		// TODO Auto-generated method stub
+		return userdao.allUser();
 	}
 }
