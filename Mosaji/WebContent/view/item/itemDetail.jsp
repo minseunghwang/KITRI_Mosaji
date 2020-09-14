@@ -19,6 +19,8 @@
 	border-color: #eb6864;
 }
 
+
+
 .custom-control-input {
 	position: absolute;
 	left: 0;
