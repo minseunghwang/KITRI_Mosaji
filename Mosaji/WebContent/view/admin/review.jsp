@@ -6,6 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+$(document).ready(function() {
+
+	var zzim_str = "";
+	$("#del_btn").click(function() {
+		var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
+		if(confirmflag){
+			$("input[name=del]:checked").each(function() {
+				alert($(this).val());
+				review_str += ($(this).val());
+				zzim_str += ",";
+			});
+			
+			location.href = "/Mosaji/WishDeleteController?zzim_str="+zzim_str;
+		}
+	});
+	
+	
+});
+</script>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
@@ -21,6 +41,7 @@
 						<th scope="col">리뷰 내용</th> 
 						<th scope="col">평점</th>
 						<th scope="col">등록일</th>
+						<th scope="col" style="text-align:center;"><button id="del_btn">리뷰 삭제</button></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -62,7 +83,7 @@
 				</c:choose>
 							</a></td>
 							<td>${review.r_date }</td>
-							
+							<td style="text-align:center"><input type="checkBox" name="del" value="${review.r_no }"></td>							
 						</tr>
 					</c:forEach>
 				</tbody>
