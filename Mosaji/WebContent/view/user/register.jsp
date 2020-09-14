@@ -50,34 +50,74 @@
       // 사용자가 입력한 데이터를 추출한다.
       var user_name = $("#u_name").val()
       var user_id = $("#u_id").val()
-      var user_pw = $("#u_id").val()
+      var user_pw = $("#u_pw").val()
       var user_age = $("#u_age").val()
+      var user_gender = $("#u_gender").val()
+      var user_skintype = $("#u_skintype").val()
 
       if (user_id.length == 0) {
          alert('아이디를 입력해 주세요')
-         $("#user_id").focus()
+         $("#u_id").focus()
          return false
       }
       if (user_pw.length == 0) {
          alert('비밀번호를 입력해 주세요')
-         $("#user_pw").focus()
+         $("#u_pw").focus()
          return false
       }
       if (user_name.length == 0) {
          alert("이름을 입력해 주세요")
-         $("#user_name").focus()
+         $("#u_name").focus()
          return false
       }
       if (user_age.length == 0) {
          alert('나이를 입력해 주세요')
-         $("#user_age").focus()
+         $("#u_age").focus()
          return false
       }
+      if (user_gender.length == 0) {
+    	  alert('성별을 선택해 주세요')
+    	  $("#u_gedner").focus()
+    	  return false
+      }
+      if (user_skintype.length == 0) {
+    	  alert('피부타입을 선택해주세요')
+    	  $("#u_skintype").focus()
+    	  return false;
+      }
 
-      return True
+      return true
    }
 </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		var u_id;
+		$("#u_id").on("propertychange change keyup paste input",function(){
+			u_id = $(this).val();
+			$.ajax({
+		        url: '${pageContext.request.contextPath }/IdCheckController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data: {
+		        	u_id : u_id
+		        },
+		        success: function(result){
+		        	if(result == "1"){
+		        		$("#idcheck").html('<p style="color:red">이미 존재하는 아이디 입니다.</p>');
+		        	} else{
+		        		$("#idcheck").html('<p style="color:green">사용 가능한 아이디 입니다.</p>');
+		        	}
+					if (u_id.length == 0){
+						$("#idcheck").html('<p style="color:gray">아이디를 한글자 이상 입력해 주세요.</p>');
+					}
+		        }
+			});
+		});
+	});
+
+</script>
 
 </head>
 <body>
@@ -91,17 +131,10 @@
          <!-- /.col-lg-3 -->
 
          <div class="col-lg-9" style="text-align: center;">
-            <div id="carouselExampleIndicators" class="carousel slide my-4"
-               data-ride="carousel" style="text-align: -webkit-center;">
-
+            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" style="text-align: -webkit-center;">
                <div class="card-body col-lg-5">
-
-
-
                   <h3 style="text-align: center;"> 회원가입</h3>
                   <br>
-
-
                   <form method="post" action="${pageContext.request.contextPath }/JoinController"
                      onsubmit="return check_input();">
                      <div class="form-group">
@@ -109,6 +142,10 @@
                            placeholder="아이디 : 3~12자 영문 소문자" id="u_id" name="u_id"
                            maxlength="20">
                      </div>
+                     
+                     <textbox id="idcheck">
+                     	<p style="color:gray">아이디를 한글자 이상 입력해 주세요.</p>
+                     </textbox>
 
                      <div class="form-group">
                         <input type="password" class="form-control"
@@ -133,8 +170,9 @@
                            id="u_age" name="u_age" maxlength="20">
                    	</div>
 
-
-
+					<input type="hidden" id="u_like_item" name="u_like_item"
+						value="0">
+						
 					<div class="form-group">
 						<select class="custom-select" name="u_skintype" id="u_skintype">
 							<option value="">피부타입 선택하기</option>
@@ -146,9 +184,6 @@
 
 						</select>
 					</div>
-
-					<input type="hidden" id="u_like_item" name="u_like_item"
-						value="0">
 					<div class="form-group">
 						<input type="submit" class="btn btn-secondary form-control"
 							value="회원가입">

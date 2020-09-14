@@ -16,22 +16,18 @@
 	padding: 10px;
 }
 
-.rankdiv{
+.col{
     text-align: right;
 }
 
-.itemList, .rankdiv{
+.itemList, .col{
 	float: left;
-	width: 65%;
+	width: 75%;
 	padding: 10px;
 }
 
 #orderby{
 	margin-right : 50px;
-}
-
-.i_element{
-	float : left;
 }
 
 .boxA{
@@ -44,14 +40,25 @@
 	margin-top:10px;
 	border-bottom : 1px solid #c7c6c6;
 }
+.element_1, .element_2, .element_3{
+	float:left;
+}
 
-.element_2{
-	position : relative;
-	width : 80%;
-	margin-top : 15px;
+.element_2, .element_3{
+	display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    top: 10px;
+}
+
+
+.element_3{
+	float: right;
+    transform: translate(-50px, 25px);
 }
 
 .i_brand, .i_name, .i_volume{
+<<<<<<< HEAD
 	display : inline;
 	width : 350px;
     height : 20px;
@@ -59,7 +66,14 @@
     text-align : left;
     margin-left : 10%;
 } 
+=======
+	text-align :left;
+    left:20%;
+    margin-left : 30px;
+}
+>>>>>>> refs/remotes/origin/master
 
+<<<<<<< HEAD
 .i_name{
 	font-size:18px;
 }
@@ -72,11 +86,39 @@
 	font-size:14px;
 }
 
+=======
+.i_brand{
+	color : #d0021b;
+	font-size:13px;
+}
+ 
+.i_name{
+	font-size:18px;
+	height : 40px;
+	color : black;
+}
+
+.i_volume{
+	font-size:14px;
+	color : #84868e;
+}
+
+.i_price{
+	color : black;
+	font-family : 'Jua', sans-serif;
+}
+
+.star-rating {width:80px; }
+.star-rating,.star-rating span {display:inline-block; height:14px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star80.png)no-repeat; }
+.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
+	
+>>>>>>> refs/remotes/origin/master
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 	var category2 = '${param.category2}';
+	var keyword = '${param.keyword}';
 	var arr = [];
 	var search = function(num){
 		for(i=0;i<arr.length;i++){
@@ -87,14 +129,19 @@
 		return null;
 	}
 	
-	var makeTbl = function(obj) {
-		var html = "<table border='1'>";
-		html += "<tr><th>num</th><td>"+obj.i_no+"</td></tr>";
-		html += "<tr><th>title</th><td>"+obj.i_name+"</td><tr>";
-		html += "<tr><th>writer</th><td>"+obj.i_category1+"</td><tr>";
-		html += "<tr><th>date</th><td>"+obj.u_i_category2+"</td><tr>";
-		html += "</table>";
-		$(".filter").html(html);
+	var makeTbl = function(arr) {
+    	for(i=0;i<arr.length;i++){
+    		var html;
+    		html = "<div class='boxA' style='width:100%'>";
+    		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+    		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
+    		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
+    		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
+    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+" <div class='star-rating' style='text-align:left'><span style='width:" + arr[i].i_star * 20+ "%'></span></div></div></div>";
+    		html += "</a>"
+    		html += "</div>";
+    		$(".itemList").append(html);
+    	}
 	}
 	
 	function check_data(){
@@ -142,18 +189,7 @@
 	        success: function(result){
 				var arr = $.parseJSON(result);
 				$(".itemList").empty();
-				var html;
-	        	for(i=0;i<arr.length;i++){
-	        		html = "<a href='/Mosaji/ItemDetailController?i_no=" + arr[i].i_no + "'>"
-	        		html += "<div class='boxA' style='width:100%'>";
-	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
-	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
-	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
-	        		html += "</div></a>";
-	        		$(".itemList").append(html);
-	        	}
+	        	makeTbl(arr);
 			}
 		});
 		
@@ -162,31 +198,34 @@
 
 
 	$(document).ready(function(){
-		
-    	$.ajax({
-	        url: '${pageContext.request.contextPath }/selectController',
-	        type: 'POST',
-	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-	        data : {
-	        	category2 : category2
-	        },
-	        success: function(result){
-	        	arr = $.parseJSON(result);
-	        	var html;
-	        	for(i=0;i<arr.length;i++){
-	        		html = "<a href='/Mosaji/ItemDetailController?i_no=" + arr[i].i_no + "'>"
-	        		html += "<div class='boxA' style='width:100%'>";
-	        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
-	        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-	        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
-	        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-	        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
-	        		html += "</div></a>";
-	        		$(".itemList").append(html);
-	        	}
-	        }
-	    });
-		
+		if(keyword == ""){
+	    	$.ajax({
+		        url: '${pageContext.request.contextPath }/selectController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data : {
+		        	category2 : category2
+		        },
+		        success: function(result){
+		        	arr = $.parseJSON(result);
+		        	makeTbl(arr);
+		        }
+		    });
+		}
+		else{
+	       	$.ajax({
+	   	        url: '${pageContext.request.contextPath }/SearchController',
+	   	        type: 'POST',
+	   	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+	   	        data : {
+	   	        	keyword : keyword
+	   	        },
+	   	        success: function(result){
+	   	        	arr = $.parseJSON(result);
+	   	        	makeTbl(arr);
+	   	        }
+	       	});
+		}
 		
 		$("#f_age_total").click(function(){
 			$("input:checkbox[name='f_age']").prop("checked",false);
@@ -234,18 +273,7 @@
 		        success: function(result){
 		        	arr = $.parseJSON(result);
 		        	$(".itemList").empty();
-		        	var html;
-		        	for(i=0;i<arr.length;i++){
-		        		html = "<a href='/Mosaji/ItemDetailController?i_no=" + arr[i].i_no + "'>"
-		        		html += "<div class='boxA' style='width:100%'>";
-		        		html += "<div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
-		        		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
-		        		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
-		        		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + arr[i].i_price + "</div></div>"; 
-		        		html += "<div class='i_element i_star'>"+arr[i].i_star+"</div>";
-		        		html += "</div></a>";
-		        		$(".itemList").append(html);
-		        	}
+		        	makeTbl(arr);
 		        }
 		    });
 			
@@ -259,42 +287,35 @@
 </script>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-		
+	
+
+			<div class="title" style="text-align: center; height: 5%;">
+			<br><br><br><br>
+			<h2 style="color: #625772"> ${param.category2} &nbsp; 랭킹 </h2>
+			</div>
+
 	<div id="wrapper">
 		<div id="staff" class="container">
-			<div class="title">
-				<h2>당신의 고민을 해결해주는 뭐사지!</h2>
-				<span> 연령대, 성별, 취향에 맞는 선물을 추천받으세요!</span>
-			</div>
 			<div class="filter">
-				<fieldset class="filters__filed filters__is-sorted" id="filter">
-					<div class="filter-header">
-						<i class="icon-sprite icon-filter filter-header__text-icon"
-							data-v-2c3efac9></i> <span data-v-2c3efac9>필터</span>
-						</h1>
-						<button class="filter-reset-btn" id="f_reset_btn">초기화</button>
+				<div class="filters__filed filters__is-sorted" id="filter" style="background: #EAEAEA; border:none;">
+					<div class="filter-header" style="text-align: left; font-size: 20px; margin-bottom:10px; margin-top:10px;">
+						<span>  &nbsp; ✔  &nbsp;필터</span>
 					</div>
 					<section class="filter-body">
-						<fieldset class="fieldset">
+						<fieldset class="fieldset" style="margin-bottom:10px;">
 							<legend itemprop="valueName" content="genderFilter"
 								class="fieldset__legend"> 성별 </legend>
-							<ul class="fieldset__list">
-								<li class="fieldset__list-item fieldset__list-item--selected"><label
-									class="fieldset__item-label"><input type="radio"
-										class="fieldset__item-input" name="genderRadio" value="1" checked="checked">전체 <!----> <!----></label></li>
-								<li class="fieldset__list-item"><label
-									class="fieldset__item-label"><input type="radio"
-										class="fieldset__item-input" name="genderRadio" value="2">여자 <!----> <!----></label></li>
-								<li class="fieldset__list-item"><label
-									class="fieldset__item-label"><input type="radio"
-										class="fieldset__item-input" name="genderRadio" value="3">남자 <!----> <!----></label></li>
-							</ul>
+							<div class="row"  style="margin-top:10px;">
+								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="1" checked="checked">전체 </div>
+								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="2" checked="checked">여자 </div>
+								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="3" checked="checked">남자 </div>
+							</div>
 						</fieldset>
 
-						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2>
+						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2 style="margin-bottom:10px;  ">
 							<legend itemprop="valueName" content="genderFilter"
 								class="fieldset__legend" data-v-7e828efe> 연령대 </legend>
-							<ul class="fieldset__list" data-v-7e828efe>
+							<ul class="fieldset__list" data-v-7e828efe style="margin-top:10px;">
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
@@ -319,10 +340,10 @@
 							</ul>
 						</fieldset>
 
-						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2>
+						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2 style="margin-bottom:10px;">
 							<legend itemprop="valueName" content="genderFilter"
 								class="fieldset__legend" data-v-7e828efe> 피부타입 </legend>
-							<ul class="fieldset__list" data-v-7e828efe>
+							<ul class="fieldset__list" data-v-7e828efe style="margin-top:10px;">
 								<li class="fieldset__list-item fieldset__list-item--selected"
 									data-v-7e828efe><label class="fieldset__item-label"
 									data-v-7e828efe><input type="checkbox"
@@ -351,12 +372,13 @@
 							</ul>
 						</fieldset>
 					</section>
-					<button style="margin-top:8px" id="filter_submit" onclick="check_data()">필터 적용</button>
-				</fieldset>
+					<button class="btn btn-secondary" id="f_reset_btn">초기화</button>
+					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px;" id="filter_submit" onclick="check_data()">필터 적용</button>
+				</div>
 			</div>
-			<div name="div1">
-				<div class="rankdiv" name="rankdiv1">
-					<select name="category2" id="category2">
+			<div class="row">
+				<div class="col" >
+					<select class="form-control" name="category2" id="category2">
 						<option value="" disabled selected hidden>${param.category2}</option>
 						<option disabled>====페이스메이크업====</option>
 						<option value="피니시파우더">피니시파우더 </option>
@@ -385,12 +407,15 @@
 						<option value="바디오일">바디오일</option>
 						<option value="바디로션">바디로션</option>						
 					</select>
-					<select name="orderby" id="orderby">
+					</div>
+					<div class="col">
+					<select  class="form-control" name="orderby" id="orderby">
 						<option value="i_star:desc">평점 높은순</option>
 						<option value="i_star:asc">평점 낮은순</option>
 						<option value="i_price:desc">가격 높은순</option>
 						<option value="i_price:asc">가격 낮은순</option>
 					</select>
+					</div>
 				</div>
 				<div class="itemList">
 				</div>
@@ -414,8 +439,6 @@
 			</p>
 		</div>
 	</div>
-
-
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

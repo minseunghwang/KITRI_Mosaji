@@ -7,15 +7,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import conn.DBConnect;
+import conn.mysql_DBConnect;
 import wishlist.model.Wishlist;
 import wishlist.model.Wishlist1;
 
 public class WishlistDaoImpl implements WishlistDao{
+	
+//	private DBConnect db;
+	private mysql_DBConnect db;
 
-	private DBConnect db;
-
+	
 	public WishlistDaoImpl() {
-		db = DBConnect.getInstance();
+//		db = DBConnect.getInstance();
+		db = mysql_DBConnect.getInstance();
 	}
 	
 	@Override
@@ -108,13 +112,42 @@ public class WishlistDaoImpl implements WishlistDao{
 		return wishlist;
 	}
 
+//	@Override
+//	public ArrayList<Wishlist1> selectItem1(String u_id) {
+//		Connection conn = db.getConnection();
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		ArrayList<Wishlist1> wishlist = new ArrayList<Wishlist1>();
+//		String sql = "SELECT rownum, w.w_no, i.i_no, i.i_name, i.i_content, i.i_img FROM mosaji_wishlist w, mosaji_item i WHERE w.i_no = i.i_no AND w.u_id = ?";
+//		
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, u_id);
+//			rs = pstmt.executeQuery();
+//			while(rs.next()) {
+//				wishlist.add(new Wishlist1(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+//			}
+//			
+//		}catch(SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			try {
+//				pstmt.close();
+//				rs.close();
+//				conn.close();
+//			}catch(SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return wishlist;
+//	}
 	@Override
 	public ArrayList<Wishlist1> selectItem1(String u_id) {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Wishlist1> wishlist = new ArrayList<Wishlist1>();
-		String sql = "select w.w_no, w.u_id, w.i_no, i.i_no, i.i_name, i.i_volume, i.i_category1, i.i_category2, i.i_content, i.i_brand, i.i_gender, i.i_age, i.i_skintype, i.i_price, i.i_star, i.i_img, rownum FROM mosaji_wishlist w, mosaji_item i WHERE w.i_no = i.i_no AND w.u_id = ?";
+		String sql = "SELECT @rownum:=@rownum + 1 as rownum, w.w_no, i.i_no, i.i_name, i.i_content, i.i_img FROM mosaji_wishlist w, mosaji_item i WHERE (@rownum:=0)=0 AND w.i_no = i.i_no AND w.u_id = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, u_id);
@@ -140,7 +173,7 @@ public class WishlistDaoImpl implements WishlistDao{
 	@Override
 	public void insert(Wishlist1 wishlist1) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_wishlist VALUES(mosaji_wishlist_seq.nextval, ?, ?)";
+		String sql = "INSERT INTO mosaji_wishlist(u_id, i_no) VALUES(?, ?)";
 		
 		PreparedStatement pstmt = null;
 		try {
