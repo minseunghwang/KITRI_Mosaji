@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
 <% request.setCharacterEncoding("UTF-8"); %>
+<%@ page import="item.dao.DaoImpl"%>
+<%@ page import="java.util.ArrayList" %>
 
 
 <!DOCTYPE html>
@@ -8,22 +10,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<!-----css----->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
-
-<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-
-<link href="<%=request.getContextPath()%>/resources/default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
-
-<link href="./Resource/css/bootstrap.min.css" rel="stylesheet">
-<link href="./Resource/css/bootstrap.css" rel="stylesheet">
 
 
 <!-- slider -->
@@ -289,28 +275,25 @@
 
 
 
-<body style="background: white; overflow: scroll;">
-
-
-
-
+<body style="overflow: scroll;">
 
 	<div id="wrapper" style="background: #FFBFAB;">
 		<div id="staff" class="container">
-			<div class="title">
-				<h2 style="color: #625772">당신의 고민을 해결해주는, 뭐사지 !</h2><br>
-				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별,
-					피부타입에 따라 추천받아보세요 </span>
+			<div class="row" style="margin-left:1%;">
+				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는, 뭐사지 !</span>
+			</div>
+			<div class="row"  style="margin-left:1%; margin-bottom:5%;">
+				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별, 피부타입에 따라 추천 받으세요 </span>
 			</div>
 
 
 
-			<div style="margin-bottom: 50px;">
+			<div style="margin-bottom:10px;">
 				<form method="GET"
 					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
-							<select class="custom-select"  name="category1" id="category1">
+							<select class="form-control"  name="category1" id="category1">
 								<option value="" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
@@ -320,24 +303,29 @@
 						</div>
 
 						<div class="col">
-							<select class="custom-select" name="category2" id="category2">
+							<select class="form-control" name="category2" id="category2">
 								<option value="" disabled selected hidden>소분류</option>
 							</select>
 						</div>
 						<div class="col">
 							<button type="submit" class="btn btn-secondary"
-								onclick="select()" style="width: 50%;">랭킹 순위보기</button>
+								onclick="select()" style="width: 50%;">랭킹 보기</button>
 						</div>
 					</div>
 				</form>
 			</div>
 
 
-			<form class="form-inline my-2 my-lg-0" style="margin: 0;">
-				<input class="form-control mr-sm-2" type="text"
-					placeholder=" 화장품 이름을 입력하세요" style="width: 60%;">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit"
-					style="width: 15%; margin-left: 10%;">화장품 검색</button>
+			<form method="get" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}" >
+				<div class="row">
+				<div class="col">
+				<input class="form-control" type="text" name="keyword" id="keyword"
+					placeholder="제품 명, 브랜드 명으로 검색해보세요" style="text-align: center; width: 135%; font-size: 16px;">
+				</div>
+				<div class="col">
+				<button class="btn btn-secondary" type="submit" style="width:32%; margin-left:35%;">화장품 검색</button>
+				</div>	
+				</div>
 			</form>
 		
 		</div>
@@ -366,10 +354,10 @@
 
 	</div>
 	<section>
-		<h1 style="text-align: center;">Out Brand</h1>
+		<h1 style="text-align: center;">Our Brand</h1>
 	</section>
 	<section class="blog_section">
-		<div class="container">
+		<div class="col-md-8 offset-md-2">
 			<div class="blog_content">
 				<div class="owl-carousel owl-theme">
 					<div class="blog_item">
@@ -449,7 +437,7 @@
 
 	<section>
 		<h1 style="text-align: center;">Contact us</h1><br><br>
-		<div class="container">
+		<div class="col-md-8 offset-md-2">
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.9665602215405!2d126.89660961519179!3d37.48511547981327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e3ac6500f81%3A0x9c30e9fbc9189200!2z7ZWc6rWt7KCV67O06riw7Iig7Jew6rWs7JuQ!5e0!3m2!1sko!2skr!4v1598426938539!5m2!1sko!2skr"
 				width="100%" height="450" frameborder="0" style="border: 0;"
@@ -496,15 +484,7 @@
 		})
 	</script>
 	
-	
-	<form  action="${pageContext.request.contextPath}/UploadController" method="post"
-	enctype="multipart/form-data">
 
-        file: <input type="file" name="file"><br>
-        <input type="submit" value="file upload">
-    </form>
-	
-	<img src="./upload/grim.png" style="margin-top:10px;" width=150 height=150></img>
 	
 	
 	<%@ include file="view/common/footer.jsp"%>

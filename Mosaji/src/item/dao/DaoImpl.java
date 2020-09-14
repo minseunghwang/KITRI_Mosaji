@@ -6,16 +6,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import conn.DBConnect;
+
+import conn.mysql_DBConnect;
 import item.model.Item;
 import item.model.Item2;
 
+
 public class DaoImpl implements Dao {
 
-	private DBConnect db;
+//	private DBConnect db;
+	private mysql_DBConnect db;
 
 	public DaoImpl() {
-		db = DBConnect.getInstance();
+//		db = DBConnect.getInstance();
+		
+		db = mysql_DBConnect.getInstance();
 	}
 
 	@Override
@@ -31,7 +36,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
 
 		} catch (Exception e) {
@@ -50,7 +55,7 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype) {
-
+		System.out.println(category2 + "," + gender + "," + age + "," + skintype);
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
 			gen.add("남");
@@ -91,7 +96,6 @@ public class DaoImpl implements Dao {
 			sql += category2;
 			sql += "'";
 
-			System.out.println(sql);
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -114,9 +118,8 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
-			System.out.println("data size : " + data.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -133,6 +136,7 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public ArrayList<Item> selectRank_product(String category2, String v1, String v2) {
+//		Connection conn = db.getConnection();
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -147,7 +151,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -164,6 +168,7 @@ public class DaoImpl implements Dao {
 	}
 
 	public Item detail(int i_no) {
+		System.out.println("i_NO : " + i_no);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -178,7 +183,7 @@ public class DaoImpl implements Dao {
 			if (rs.next()) {
 				i = new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), rs.getInt(12), rs.getString(13));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13));
 			}
 
 		} catch (SQLException e) {
@@ -196,10 +201,45 @@ public class DaoImpl implements Dao {
 		return i;
 	}
 
+//	@Override
+//	public void insert(Item2 i) {
+//		Connection conn = null;
+//		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(mosaji_item_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+//
+//		PreparedStatement pstmt = null;
+//		try {
+//			conn = db.getConnection();
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, i.getI_name());
+//			pstmt.setString(2, i.getI_volume());
+//			pstmt.setString(3, i.getI_category1());
+//			pstmt.setString(4, i.getI_category2());
+//			pstmt.setString(5, i.getI_content());
+//			pstmt.setString(6, i.getI_brand());
+//			pstmt.setString(7, i.getI_gender());
+//			pstmt.setInt(8, i.getI_age());
+//			pstmt.setString(9, i.getI_skintype());
+//			pstmt.setInt(10, i.getI_price());
+//			pstmt.setString(11, i.getI_img());
+//
+//			pstmt.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				pstmt.close();
+//				conn.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//
+//	}
+	
 	@Override
 	public void insert(Item2 i) {
 		Connection conn = null;
-		String sql = "INSERT INTO mosaji_item (I_NO,I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(mosaji_item_seq.nextval,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO mosaji_item (I_NAME, I_VOLUME, I_CATEGORY1, I_CATEGORY2, I_CONTENT, I_BRAND, I_GENDER, I_AGE, I_SKINTYPE, I_PRICE,I_IMG) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 		PreparedStatement pstmt = null;
 		try {
@@ -236,7 +276,7 @@ public class DaoImpl implements Dao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "DELETE mosaji_item WHERE i_no = ?";
+		String sql = "DELETE FROM mosaji_item WHERE i_no = ?";
 		try {
 			conn = db.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -280,5 +320,67 @@ public class DaoImpl implements Dao {
 				e.printStackTrace();
 			}
 		}
+	}
+
+//	@Override
+//	public ArrayList<Item> search(String keyword) {
+////		Connection conn = db.getConnection();
+//		Connection conn = db.getConnection();
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		ArrayList<Item> data = new ArrayList<Item>();
+//		String sql = "SELECT * FROM mosaji_item WHERE i_name LIKE concat('%', ?, '%') ORDER BY i_no";
+//		try {
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.setString(1, keyword);
+//			rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+//						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
+//						rs.getInt(11), rs.getFloat(12), rs.getString(13)));
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				rs.close();
+//				pstmt.close();
+//				conn.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		return data;
+//	}
+	@Override
+	public ArrayList<Item> search(String keyword) {
+//		Connection conn = db.getConnection();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Item> data = new ArrayList<Item>();
+		String sql = "SELECT * FROM mosaji_item WHERE i_name LIKE concat('%', ?, '%') OR i_brand LIKE concat('%', ?, '%') ORDER BY i_no";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, keyword);
+			pstmt.setString(2, keyword);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				pstmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return data;
 	}
 }

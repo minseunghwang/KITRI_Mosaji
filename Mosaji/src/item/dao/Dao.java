@@ -16,4 +16,7 @@ public interface Dao {
 	void delete(int i_no);
 	
 	void avg(int i_no);
+	
+	ArrayList<Item> search(String keyword);
+
 }

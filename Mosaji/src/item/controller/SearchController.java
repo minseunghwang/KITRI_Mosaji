@@ -15,16 +15,16 @@ import item.service.Service;
 import item.service.ServiceImpl;
 
 /**
- * Servlet implementation class selectController
+ * Servlet implementation class SearchController
  */
-@WebServlet("/selectController")
-public class selectController extends HttpServlet {
+@WebServlet("/SearchController")
+public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public selectController() {
+    public SearchController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,10 +37,10 @@ public class selectController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
-		
-		String category2 = request.getParameter("category2");
+	
+		String keyword = request.getParameter("keyword");
 		Service service = new ServiceImpl();
-		ArrayList<Item> item = service.getRank(category2, "i_star", "desc");
+		ArrayList<Item> item = service.search(keyword);
 		
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");

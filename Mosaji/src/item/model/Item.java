@@ -13,10 +13,10 @@ public class Item {
 	private int i_age;
 	private String i_skintype;
 	private int i_price;
-	private int i_star;
+	private float i_star;
 	private String i_img;
 	public Item(int i_no, String i_name, String i_volume, String i_category1, String i_category2, String i_content,
-			String i_brand, String i_gender, int i_age, String i_skintype, int i_price, int i_star, String i_img) {
+			String i_brand, String i_gender, int i_age, String i_skintype, int i_price, float i_star, String i_img) {
 		super();
 		this.i_no = i_no;
 		this.i_name = i_name;
@@ -98,10 +98,10 @@ public class Item {
 	public void setI_price(int i_price) {
 		this.i_price = i_price;
 	}
-	public int getI_star() {
+	public float getI_star() {
 		return i_star;
 	}
-	public void setI_star(int i_star) {
+	public void setI_star(float i_star) {
 		this.i_star = i_star;
 	}
 	public String getI_img() {

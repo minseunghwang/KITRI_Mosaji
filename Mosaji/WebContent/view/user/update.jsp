@@ -78,18 +78,17 @@
 
 
 
-							<div>
-								<select id="selectBox" name="u_skintype" id="u_skintype"
-									style="margin-bottom: 15px; width: 100%; height:30px;">
-									<option value="">피부타입 선택하기</option>
+							<div class="form-group">
+								<select class="form-control" name="u_skintype" id="u_skintype">
+									<option value=""  disabled selected hidden >피부타입 선택하기</option>
 									<option value="건성">건성</option>
 									<option value="지성">지성</option>
 									<option value="중성">중성</option>
 									<option value="복합성">복합성</option>
 									<option value="민감성">민감성</option>
-
 								</select>
 							</div>
+							
 							<input type="hidden" id="u_like_item" name="u_like_item"
 								value="0"> <input type="button" id="formBtn"
 								class="btn btn-secondary form-control" value="정보수정" >

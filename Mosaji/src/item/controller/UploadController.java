@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import item.model.Item;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import item.model.Item2;
 import item.service.Service;
 import item.service.ServiceImpl;
 
@@ -42,16 +45,16 @@ public class UploadController extends HttpServlet {
 		
 
 //		String directory = request.getRealPath("/fileFolder");
-		String directory = "C:\\Users\\KITRI\\git\\KITRI_Mosaji\\Mosaji\\WebContent\\fileFolder";
+		String directory = "C:\\Users\\KITRI\\git\\Mosaji_project\\Mosaji\\WebContent\\fileFolder";
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
 
 		
-		MultipartRequest multipartRequest 
-		= new MultipartRequest(request,directory, maxSize, encoding, new DefaultFileRenamePolicy());
+		MultipartRequest multipartRequest = new MultipartRequest(request,directory, maxSize, encoding, new DefaultFileRenamePolicy());
 
 		String fileName = multipartRequest.getOriginalFileName("i_img");
 		String fileRealName = multipartRequest.getFilesystemName("i_img" );
+		
 		String i_name = multipartRequest.getParameter("i_name");
 		String i_volume = multipartRequest.getParameter("i_volume");
 		String i_gender = multipartRequest.getParameter("i_gender");
@@ -64,8 +67,9 @@ public class UploadController extends HttpServlet {
 		String i_brand = multipartRequest.getParameter("i_brand");
 		int i_price = Integer.parseInt(multipartRequest.getParameter("i_price"));
 				
-
 		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+File.separator+fileRealName);
+		
+		service.upload(i);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
 		rd.forward(request, response);

@@ -1,7 +1,6 @@
-package item.controller;
+package review.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import item.model.Item;
-import item.service.Service;
-import item.service.ServiceImpl;
+import review.service.ReviewService;
+import review.service.ReviewServiceImpl;
 
 /**
- * Servlet implementation class selectController
+ * Servlet implementation class DelteReviewController
  */
-@WebServlet("/selectController")
-public class selectController extends HttpServlet {
+@WebServlet("/DeleteReviewController")
+public class DeleteReviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public selectController() {
+    public DeleteReviewController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +31,17 @@ public class selectController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
-		String category2 = request.getParameter("category2");
-		Service service = new ServiceImpl();
-		ArrayList<Item> item = service.getRank(category2, "i_star", "desc");
+		ReviewService reviewservice = new ReviewServiceImpl();
 		
-		request.setAttribute("item", item);
-		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
+		int r_no = Integer.parseInt(request.getParameter("r_no"));
+		int i_no = Integer.parseInt(request.getParameter("i_no"));
+		reviewservice.delete(r_no);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController");
 		rd.forward(request, response);
 	}
 

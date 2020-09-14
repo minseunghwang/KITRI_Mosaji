@@ -131,7 +131,7 @@ h2 {font-size:15px;}
 				</section>
 			</c:if>
 			<c:if test="${i.i_content != null }">
-				<section class="card-content">${i.i_content }</section>
+				<section class="card-content"><divv style="color:#e16d33"><i class="fas fa-vial"></i>${i.i_content }</section>
 			</c:if>
 			
 			<table>

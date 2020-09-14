@@ -1,7 +1,6 @@
-package item.controller;
+package user.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import item.model.Item;
-import item.service.Service;
-import item.service.ServiceImpl;
+import user.service.UserService;
+import user.service.UserServiceImpl;
 
 /**
- * Servlet implementation class selectController
+ * Servlet implementation class JoinCheckController
  */
-@WebServlet("/selectController")
-public class selectController extends HttpServlet {
+@WebServlet("/JoinCheckController")
+public class JoinCheckController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public selectController() {
+    public JoinCheckController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,18 +31,21 @@ public class selectController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
-		String category2 = request.getParameter("category2");
-		Service service = new ServiceImpl();
-		ArrayList<Item> item = service.getRank(category2, "i_star", "desc");
+		UserService service = new UserServiceImpl();
 		
-		request.setAttribute("item", item);
-		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
+		String u_id= request.getParameter("u_id");
+		
+		int check = service.Joincheck(u_id);
+		
+		request.setAttribute("check", check);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/register.jsp");
 		rd.forward(request, response);
+
 	}
 
 	/**

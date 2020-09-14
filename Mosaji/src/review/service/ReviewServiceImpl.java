@@ -8,6 +8,7 @@ import review.dao.ReviewDaoImpl;
 import review.model.MyReview;
 import review.model.Review;
 import review.model.Review1;
+import review.model.ReviewCount;
 
 public class ReviewServiceImpl implements ReviewService{
 
@@ -40,5 +41,19 @@ private ReviewDao reviewdao;
 		// TODO Auto-generated method stub
 		return reviewdao.selectByi_no1(i_no);
 	}
+
+	@Override
+	public void delete(int r_no) {
+		reviewdao.delete(r_no);
+		
+	}
+
+	@Override
+	public ReviewCount count(int i_no) {
+		// TODO Auto-generated method stub
+		return reviewdao.count(i_no);
+	}
+
+	
 	
 }

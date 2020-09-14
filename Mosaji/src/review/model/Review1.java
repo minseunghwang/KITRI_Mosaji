@@ -8,7 +8,8 @@ public class Review1 {
 	private int r_star;
 	private String r_content;
 	private String u_id;
-	public Review1(int r_no, int u_age, String u_skintype, String u_gender, int r_star, String r_content, String u_id) {
+	private int i_no;
+	public Review1(int r_no, int u_age, String u_skintype, String u_gender, int r_star, String r_content, String u_id, int i_no) {
 		super();
 		this.r_no = r_no;
 		this.u_age = u_age;
@@ -17,6 +18,7 @@ public class Review1 {
 		this.r_star = r_star;
 		this.r_content = r_content;
 		this.u_id = u_id;
+		this.i_no = i_no;
 	}
 	public int getR_no() {
 		return r_no;
@@ -60,11 +62,21 @@ public class Review1 {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	
+	
+	public int getI_no() {
+		return i_no;
+	}
+	public void setI_no(int i_no) {
+		this.i_no = i_no;
+	}
 	@Override
 	public String toString() {
 		return "Review1 [r_no=" + r_no + ", u_age=" + u_age + ", u_skintype=" + u_skintype + ", u_gender=" + u_gender
-				+ ", r_star=" + r_star + ", r_content=" + r_content + ", u_id=" + u_id + "]";
+				+ ", r_star=" + r_star + ", r_content=" + r_content + ", u_id=" + u_id + ", i_no=" + i_no + "]";
 	}
+	
+	
 	
 	
 	

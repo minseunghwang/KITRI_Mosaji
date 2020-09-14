@@ -35,7 +35,7 @@
 			var i_category1;
 
 				if (this.value == "페이스메이크업") {
-
+ 
 					i_category1 = 페이스메이크업;
 
 				} else if (this.value == "아이메이크업") {
