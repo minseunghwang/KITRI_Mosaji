@@ -197,13 +197,14 @@ h2 {
 			<button type="button" class="btn btn-outline-info searchbtn"
 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
 				명으로 검색하기</button>
-			<form action="${pageContext.request.contextPath }/OrderController">
-				<input type="text" name="o_qty" value="1"> 
-				<input type="button" value="+" onClick="javascript:this.form.o_qty.value++;">
-				<input type="button" value="-" onClick="javascript:this.form.o_qty.value--;">
-				<input type="hidden" value="${i.i_no }">
-				<input type="hidden" value="${sessionScope.u_id }">
-			</form>
+<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
+<%-- 				<input type="hidden" value="${i.i_no }"> --%>
+<!-- 				<input type="text" name="o_qty" value="1">  -->
+<!-- 				<input type="button" value="+" onClick="javascript:this.form.o_qty.value++;"> -->
+<!-- 				<input type="button" value="-" onClick="javascript:this.form.o_qty.value--;"> -->
+<%-- 				<input type="hidden" value="${sessionScope.u_id }"> --%>
+<!-- 				<input type="submit" value="주문"> -->
+<!-- 			</form> -->
 
 		</div>
 
