@@ -28,9 +28,10 @@
 			var result = confirm("삭제 하시겠습니까?");
 			if(result == true) {
 			document.getElementById('delFrm').submit();
+			return false;
 			}
 			else if(result == false) {
-				return false;
+				return true;
 			}
 			
 			
@@ -43,8 +44,8 @@
 	<h3 style="text-align: center; margin-top: 5%;">회원 관리</h3>
 	<div class="container">
 		<div class="row">
-			<table class="table">
-				<thead class="thead-light">
+			<table class="table table-hover" style="text-align:center;">
+				<thead>
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">아이디</th>

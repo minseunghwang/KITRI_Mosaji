@@ -15,7 +15,7 @@
 
 .vw {
 	float: left;
-	height:500px;;
+	height: 500px;;
 }
 
 .pp {
@@ -26,68 +26,84 @@
 	float: left;
 }
 
-.searchbtn, .naverbtn{
-	margin-top : 10px;
+.searchbtn, .naverbtn {
+	margin-top: 10px;
 }
 
-
-.searchbtn{
-	margin-left : 5px;
+.searchbtn {
+	margin-left: 5px;
 }
 
-.wrap-star{
-	float:right;
-	margin-bottom:30px;
-	margin-top:4px;
+.wrap-star {
+	float: right;
+	margin-bottom: 30px;
+	margin-top: 4px;
 }
 
-.card-content{
-	border-top:2px solid #f0f0f2;
-	border-bottom:2px solid #f0f0f2;
-	margin-top:60px;
-	margin-bottom:30px;
-	padding : 30px;
+.card-content {
+	border-top: 2px solid #f0f0f2;
+	border-bottom: 2px solid #f0f0f2;
+	margin-top: 60px;
+	margin-bottom: 30px;
+	padding: 30px;
 }
 
-.card-subtitle{
-	color:black;
-	margin-top:30px;
+.card-subtitle {
+	color: black;
+	margin-top: 30px;
 }
 
-.card-text{
-	margin-top:30px;
+.card-text {
+	margin-top: 30px;
 }
 
-.card2{
-	margin-top:30px;	
+.card2 {
+	margin-top: 30px;
 }
 
-.title{
-	color:#6c757d;
+.title {
+	color: #6c757d;
 }
 
-td{
-	padding-top:20px;
-	padding-right:10px;
+td {
+	padding-top: 20px;
+	padding-right: 10px;
 }
 
-istar{
-	float:right;
-	font-size:20px;
-	margin-right:5px;
-	color:#6c757d;
+istar {
+	float: right;
+	font-size: 20px;
+	margin-right: 5px;
+	color: #6c757d;
 }
 
-.search_option{
-	width : 70%;
-	margin-bottom : 1rem;
+.search_option {
+	width: 70%;
+	margin-bottom: 1rem;
 }
 
+h2 {
+	font-size: 15px;
+}
 
-h2 {font-size:15px;}
-.star-rating {width:100px; }
-.star-rating,.star-rating span {display:inline-block; height:17.5px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star100.png)no-repeat; }
-.star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
+.star-rating {
+	width: 100px;
+}
+
+.star-rating, .star-rating span {
+	display: inline-block;
+	height: 17.5px;
+	overflow: hidden;
+	background:
+		url(${pageContext.request.contextPath}/resources/images/star100.png)
+		no-repeat;
+}
+
+.star-rating span {
+	background-position: left bottom;
+	line-height: 0;
+	vertical-align: top;
+}
 </style>
 
 <!---- css ---->
@@ -105,7 +121,7 @@ h2 {font-size:15px;}
 
 	<div class="alert alert-secondary" role="alert"></div>
 
-	<div class="container" style="margin-top:100px;">
+	<div class="container" style="margin-top: 100px;">
 		<div class="vw">
 
 			<img style="height: 300px; width: 300px; display: block;"
@@ -114,42 +130,55 @@ h2 {font-size:15px;}
 
 
 		<div class="card-body" style="margin-left: 33%;">
-			<h6 class="card-brand" style="color:red">${i.i_brand}</h6>
-			<h4 class="card-title" style="font-size:30px;">${i.i_name}</h4>
-			<h6 class="card-subtitle mb-2 text-muted">${i.i_volume} / <price style="color:black">${i.i_price}원</price></h6>
-			
+			<h6 class="card-brand" style="color: red">${i.i_brand}</h6>
+			<h4 class="card-title" style="font-size: 30px;">${i.i_name}</h4>
+			<h6 class="card-subtitle mb-2 text-muted">${i.i_volume}
+				/
+				<price style="color:black">${i.i_price}원</price>
+			</h6>
+
 			<div class="wrap-star">
 				<div class='star-rating'>
 					<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
 				</div>
 			</div>
 			<istar>${i.i_star }</istar>
-			
+
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
-					<divv style="color:#e16d33"><i class="fas fa-vial"></i></divv><divv style="color:#6c757d!important; margin-left:20px;">등록된 성분이 없습니다.</divv>
+					<divv style="color:#e16d33">
+					<i class="fas fa-vial"></i></divv>
+					<divv style="color:#6c757d!important; margin-left:20px;">등록된
+					성분이 없습니다.</divv>
 				</section>
 			</c:if>
 			<c:if test="${i.i_content != null }">
-				<section class="card-content"><divv style="color:#e16d33"><i class="fas fa-vial"></i>${i.i_content }</section>
+				<section class="card-content">
+					<divv style="color:#e16d33">
+					<i class="fas fa-vial"></i>${i.i_content }
+				</section>
 			</c:if>
-			
+
 			<table>
 				<tbody>
 					<tr>
-						<td class="title">카테고리</th>
+						<td class="title">카테고리
+						</th>
 						<td>${i.i_category1}/${i.i_category2}</td>
 					</tr>
 					<tr>
-						<td class="title">제품설명</th>
-						<td>${i.i_brand}의 ${i.i_category2}</td>
+						<td class="title">제품설명
+						</th>
+						<td>${i.i_brand}의${i.i_category2}</td>
 					</tr>
 					<tr>
-						<td class="title">추천연령/성별</th>
+						<td class="title">추천연령/성별
+						</th>
 						<td>${i.i_age }대/${i.i_gender }</td>
 					</tr>
 					<tr>
-						<td class="title">추천피부타입</th>
+						<td class="title">추천피부타입
+						</th>
 						<td>${i.i_skintype }</td>
 					</tr>
 				</tbody>
@@ -162,12 +191,19 @@ h2 {font-size:15px;}
 
 			</form>
 			<button type="button" class="btn btn-outline-secondary naverbtn"
-				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name }&cat_id=&frm=NVSHATC') " style="color:#08cf5f; border-color:#08cf5f;">네이버
-				쇼핑연결</button>
-				
+				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name }&cat_id=&frm=NVSHATC') "
+				style="color: #08cf5f; border-color: #08cf5f;">네이버 쇼핑연결</button>
+
 			<button type="button" class="btn btn-outline-info searchbtn"
 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
 				명으로 검색하기</button>
+			<form action="${pageContext.request.contextPath }/OrderController">
+				<input type="text" name="o_qty" value="1"> 
+				<input type="button" value="+" onClick="javascript:this.form.o_qty.value++;">
+				<input type="button" value="-" onClick="javascript:this.form.o_qty.value--;">
+				<input type="hidden" value="${i.i_no }">
+				<input type="hidden" value="${sessionScope.u_id }">
+			</form>
 
 		</div>
 
@@ -181,9 +217,10 @@ h2 {font-size:15px;}
 		<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
 		<!-- 		</div> -->
 		<!-- 	</div> -->
-		
+
 		<div class="card-review">
-			<div class="container" style="border-top: 2px solid #f0f0f2;margin-top: 50px;">
+			<div class="container"
+				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
 				<h3 class="card-header"
 					style="text-align: center; background-color: white;">
 					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
@@ -197,28 +234,30 @@ h2 {font-size:15px;}
 					<form method="post"
 						action="${pageContext.request.contextPath }/AddReviewController">
 						<div class="row">
-						<div class="col-md-12">
-							<textarea rows="10" cols="115%" name="r_content" id="r_content" style="width:100%; padding:15px;" placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
-							<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
-						</div>
-						
-						<div class="col-md-8">
-							<div class="form-group">
-								<select class="custom-select" id="r_star" name="r_star">
-									<option selected="">별점</option>
-									<option value="1">❤
-									<option value="2">❤❤</option>
-									<option value="3">❤❤❤</option>
-									<option value="4">❤❤❤❤</option>
-									<option value="5">❤❤❤❤❤</option>
-								</select>
+							<div class="col-md-12">
+								<textarea rows="10" cols="115%" name="r_content" id="r_content"
+									style="width: 100%; padding: 15px;"
+									placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
+								<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
 							</div>
-						</div>
-						
-						<div class="col-md-4">
-							<input type="submit" class="btn btn-primary" value="등록"
-								style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" />
-						</div>
+
+							<div class="col-md-8">
+								<div class="form-group">
+									<select class="custom-select" id="r_star" name="r_star">
+										<option selected="">별점</option>
+										<option value="1">❤
+										<option value="2">❤❤</option>
+										<option value="3">❤❤❤</option>
+										<option value="4">❤❤❤❤</option>
+										<option value="5">❤❤❤❤❤</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<input type="submit" class="btn btn-primary" value="등록"
+									style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" />
+							</div>
 						</div>
 					</form>
 				</div>
@@ -249,7 +288,8 @@ h2 {font-size:15px;}
 
 	<div class="container" style="margin-top: 50px;">
 		<div class="row">
-			<div class="col-md-3" style="text-align: -webkit-center; margin-top:15px; padding:20px;">
+			<div class="col-md-3"
+				style="text-align: -webkit-center; margin-top: 15px; padding: 20px;">
 				<div class="search_option">
 					<select class="custom-select" style="text-align-last: center;">
 						<option selected="" disabled selected hidden>피부타입</option>
@@ -285,7 +325,8 @@ h2 {font-size:15px;}
 
 			</div>
 
-			<div class="col-md-9" style="border: 2px solid #f0f0f2;padding: 20px;">
+			<div class="col-md-9"
+				style="border: 2px solid #f0f0f2; padding: 20px;">
 				<a>피부타입 ( 리뷰수 )</a><br> <a>건성(${reviewcount.dryCount })</a>
 				<div class="progress">
 					<div class="progress-bar progress-bar-striped" role="progressbar"
@@ -319,13 +360,14 @@ h2 {font-size:15px;}
 						aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 			</div>
-			<div class="col-md-12" style="margin-top:50px;">
+			<div class="col-md-12" style="margin-top: 50px;">
 				<ms style="font-size:30px;">리뷰</ms>
-				
+
 				<button type="button" class="btn btn-outline-light sel"
-					style="background-color: #e80521; float:right;">검색</button>
-					
-				<div class="form-group sel" style="float:right; margin-right:10px;">
+					style="background-color: #e80521; float: right;">검색</button>
+
+				<div class="form-group sel"
+					style="float: right; margin-right: 10px;">
 					<select class="custom-select">
 						<option selected="" disabled selected hidden>정렬</option>
 						<option value="1">최신순</option>
@@ -341,93 +383,94 @@ h2 {font-size:15px;}
 
 	<c:if test="${not empty review }">
 
-	<c:forEach var="review" items="${review }">
-		<div class="alert alert-warning container" role="alert">
-			<h4 class="alert-heading">
-				별점 :
-				<c:choose>
-					<c:when test="${review.r_star == 5 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star5.png"
-							style="width: 150px;">
-					</c:when>
-					<c:when test="${review.r_star == 4 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star4.png"
-							style="width: 150px;">
-					</c:when>
-					<c:when test="${review.r_star == 3 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star3.png"
-							style="width: 150px;">
-					</c:when>
-					<c:when test="${review.r_star == 2 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star2.png"
-							style="width: 150px;">
-					</c:when>
-					<c:when test="${review.r_star == 1 }">
-						<img
-							src="${pageContext.request.contextPath }/resources/images/star1.png"
-							style="width: 150px;">
-					</c:when>
-				</c:choose>
-			</h4>
-			<p>
-				피부타입 :
-				<c:choose>
-					<c:when test="${review.u_skintype == '건성' }">
-						<span class="badge badge-pill badge-primary">건성</span>
-					</c:when>
-					<c:when test="${review.u_skintype == '중성' }">
-						<span class="badge badge-pill badge-success">중성</span>
-					</c:when>
-					<c:when test="${review.u_skintype == '지성' }">
-						<span class="badge badge-pill badge-info">지성</span>
-					</c:when>
-					<c:when test="${review.u_skintype == '복합성' }">
-						<span class="badge badge-pill badge-warning">복합성</span>
-					</c:when>
-					<c:when test="${review.u_skintype == '민감성' }">
-						<span class="badge badge-pill badge-danger">민감성</span>
-					</c:when>
-					<c:otherwise>
-						<span class="badge badge-pill badge-primary">선택 안함</span>
-					</c:otherwise>
-				</c:choose>
-				<!-- 				<span class="badge badge-pill badge-primary">건성</span>  -->
-				<!-- 				<span class="badge badge-pill badge-success">중성</span>  -->
-				<!-- 				<span class="badge badge-pill badge-info">지성</span>  -->
-				<!-- 				<span class="badge badge-pill badge-warning">복합성</span>  -->
-				<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
-				/ ${review.u_age }세 ${review.u_gender } 
-			</p>
-			<hr>
-			<p class="mb-0">${review.r_content }</p>
-			<c:if test="${review.u_id == sessionScope.u_id }">
-				<form action="${pageContext.request.contextPath }/DeleteReviewController" method="post">
-					<input type="hidden" name="r_no" id="r_no" value="${review.r_no }">
-					<input type="hidden" name="i_no" id="i_no" value="${review.i_no }">
-					<input type="submit" class="btn btn-primary" value="내 리뷰삭제" style="
-    float: right;
-">
-				</form>
-			</c:if>
-		</div>
+		<c:forEach var="review" items="${review }">
+			<div class="alert alert-warning container" role="alert">
+				<h4 class="alert-heading">
+					별점 :
+					<c:choose>
+						<c:when test="${review.r_star == 5 }">
+							<img
+								src="${pageContext.request.contextPath }/resources/images/star5.png"
+								style="width: 150px;">
+						</c:when>
+						<c:when test="${review.r_star == 4 }">
+							<img
+								src="${pageContext.request.contextPath }/resources/images/star4.png"
+								style="width: 150px;">
+						</c:when>
+						<c:when test="${review.r_star == 3 }">
+							<img
+								src="${pageContext.request.contextPath }/resources/images/star3.png"
+								style="width: 150px;">
+						</c:when>
+						<c:when test="${review.r_star == 2 }">
+							<img
+								src="${pageContext.request.contextPath }/resources/images/star2.png"
+								style="width: 150px;">
+						</c:when>
+						<c:when test="${review.r_star == 1 }">
+							<img
+								src="${pageContext.request.contextPath }/resources/images/star1.png"
+								style="width: 150px;">
+						</c:when>
+					</c:choose>
+				</h4>
+				<p>
+					피부타입 :
+					<c:choose>
+						<c:when test="${review.u_skintype == '건성' }">
+							<span class="badge badge-pill badge-primary">건성</span>
+						</c:when>
+						<c:when test="${review.u_skintype == '중성' }">
+							<span class="badge badge-pill badge-success">중성</span>
+						</c:when>
+						<c:when test="${review.u_skintype == '지성' }">
+							<span class="badge badge-pill badge-info">지성</span>
+						</c:when>
+						<c:when test="${review.u_skintype == '복합성' }">
+							<span class="badge badge-pill badge-warning">복합성</span>
+						</c:when>
+						<c:when test="${review.u_skintype == '민감성' }">
+							<span class="badge badge-pill badge-danger">민감성</span>
+						</c:when>
+						<c:otherwise>
+							<span class="badge badge-pill badge-primary">선택 안함</span>
+						</c:otherwise>
+					</c:choose>
+					<!-- 				<span class="badge badge-pill badge-primary">건성</span>  -->
+					<!-- 				<span class="badge badge-pill badge-success">중성</span>  -->
+					<!-- 				<span class="badge badge-pill badge-info">지성</span>  -->
+					<!-- 				<span class="badge badge-pill badge-warning">복합성</span>  -->
+					<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
+					/ ${review.u_age }세 ${review.u_gender }
+				</p>
+				<hr>
+				<p class="mb-0">${review.r_content }</p>
+				<c:if test="${review.u_id == sessionScope.u_id }">
+					<form
+						action="${pageContext.request.contextPath }/DeleteReviewController"
+						method="post">
+						<input type="hidden" name="r_no" id="r_no" value="${review.r_no }">
+						<input type="hidden" name="i_no" id="i_no" value="${review.i_no }">
+						<input type="submit" class="btn btn-primary" value="내 리뷰삭제"
+							style="float: right;">
+					</form>
+				</c:if>
+			</div>
 
-		<div class="alert alert-light container" role="alert">
-<%-- 			<c:if test="${review.u_id == sessionScope.u_id }"> --%>
-<%-- 				<form action="${pageContext.request.contextPath }/DeleteReviewController" method="post"> --%>
-<%-- 					<input type="hidden" name="r_no" id="r_no" value="${review.r_no }"> --%>
-<%-- 					<input type="hidden" name="i_no" id="i_no" value="${review.i_no }"> --%>
-<!-- 					<input type="submit" class="btn btn-primary" value="내 리뷰삭제"> -->
-<!-- 				</form> -->
-<%-- 			</c:if> --%>
-		</div>
-	</c:forEach>
+			<div class="alert alert-light container" role="alert">
+				<%-- 			<c:if test="${review.u_id == sessionScope.u_id }"> --%>
+				<%-- 				<form action="${pageContext.request.contextPath }/DeleteReviewController" method="post"> --%>
+				<%-- 					<input type="hidden" name="r_no" id="r_no" value="${review.r_no }"> --%>
+				<%-- 					<input type="hidden" name="i_no" id="i_no" value="${review.i_no }"> --%>
+				<!-- 					<input type="submit" class="btn btn-primary" value="내 리뷰삭제"> -->
+				<!-- 				</form> -->
+				<%-- 			</c:if> --%>
+			</div>
+		</c:forEach>
 	</c:if>
 	<c:if test="${empty review }">
-		<h3 style="text-align:center;">리뷰가 없습니다</h3>
+		<h3 style="text-align: center;">리뷰가 없습니다</h3>
 	</c:if>
 
 
