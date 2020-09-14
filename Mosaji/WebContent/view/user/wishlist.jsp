@@ -68,18 +68,28 @@
 						</tr>
 					</thead>
 					<tbody id="zzim">
-
-						<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
+<%--
+						<c:forEach var="wishlist1" items="${wishlist1 }" varStatus="status">
 							<tr>
-<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
 								<th><a style="color: gray;" >${status.count }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" > (${wishlist.i_volume })</a></th>
-								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_price } ₩</a></th>
-								<th style="text-align:center"><input type="checkbox" name="del" value="${wishlist.w_no }"></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: gray;">${wishlist1.i_no }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: #625772;" >${wishlist1.i_name }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: gray;">${wishlist1.i_content }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: gray;" ><img src="${wishlist1.i_img }"></a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: #625772;" >${wishlist1.i_name }</a><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" > (${wishlist.i_volume })</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: gray;">${wishlist1.i_price } ₩</a></th>
+								<th style="text-align:center"><input type="checkbox" name="del" value="${wishlist1.w_no }"></th>
+							</tr>
+						</c:forEach>
+						
+						 --%>
+						 <c:forEach var="wishlist1" items="${wishlist1 }" varStatus="status">
+							<tr>
+								<th><a style="color: gray;" >${status.count }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: gray;" ><img src="${wishlist1.i_img }"></a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: #625772;" >${wishlist1.i_name }</a></th>
+								<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist1.i_no }" style="color: gray;">${wishlist1.i_price } ₩</a></th>
+								<th style="text-align:center"><input type="checkbox" name="del" value="${wishlist1.w_no }"></th>
 							</tr>
 						</c:forEach>
 					</tbody>

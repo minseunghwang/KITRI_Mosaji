@@ -147,14 +147,17 @@ public class WishlistDaoImpl implements WishlistDao{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Wishlist1> wishlist = new ArrayList<Wishlist1>();
-		String sql = "SELECT @rownum:=@rownum + 1 as rownum, w.w_no, i.i_no, i.i_name, i.i_content, i.i_img FROM mosaji_wishlist w, mosaji_item i WHERE (@rownum:=0)=0 AND w.i_no = i.i_no AND w.u_id = ?";
+		String sql = "SELECT @rownum:=@rownum + 1 as rownum, w.w_no, i.i_no, i.i_name, i.i_content, i.i_img, i.i_price FROM mosaji_wishlist w, mosaji_item i WHERE (@rownum:=0)=0 AND w.i_no = i.i_no AND w.u_id = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, u_id);
 			rs = pstmt.executeQuery();
+			System.out.println("0");
 			while(rs.next()) {
-				wishlist.add(new Wishlist1(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12), rs.getString(13), rs.getInt(14), rs.getInt(15), rs.getString(16), rs.getInt(17)));
+//				wishlist.add(new Wishlist1(rs.getInt("w_no"), rs.getString("u_id"), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getInt(12), rs.getString(13), rs.getInt(14), rs.getInt(15), rs.getString(16), rs.getInt(17)));
+				wishlist.add(new Wishlist1(rs.getInt("rownum"), rs.getInt("w_no"), rs.getInt("i_no"),rs.getString("i_name"),rs.getString("i_content"), rs.getString("i_img"), rs.getInt("i_price")));
 			}
+			System.out.println("1");
 			
 		}catch(SQLException e) {
 			e.printStackTrace();

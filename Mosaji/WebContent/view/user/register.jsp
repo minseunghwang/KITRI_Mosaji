@@ -18,10 +18,8 @@
 <link href="<%=request.getContextPath()%>/resources/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-
 	$(document).ready(function(){
 		$("#u_id").on("change keyup paste",function(){
 			var u_id = $("#u_id").val();
@@ -48,45 +46,47 @@
 
    function check_input() {
       // 사용자가 입력한 데이터를 추출한다.
-      var user_name = $("#u_name").val()
-      var user_id = $("#u_id").val()
-      var user_pw = $("#u_pw").val()
-      var user_age = $("#u_age").val()
-      var user_gender = $("#u_gender").val()
-      var user_skintype = $("#u_skintype").val()
+      var user_name = $("#u_name").val();
+      var user_id = $("#u_id").val();
+      var user_pw = $("#u_pw").val();
+      var user_age = $("#u_age").val();
+      var user_gender = $('input:radio[name="u_gender"]:checked').val();
+      var user_skintype = $("#u_skintype option:selected").val();
 
       if (user_id.length == 0) {
-         alert('아이디를 입력해 주세요')
-         $("#u_id").focus()
-         return false
+         alert('아이디를 입력해 주세요');
+         $("#u_id").focus();
+         return false;
       }
       if (user_pw.length == 0) {
-         alert('비밀번호를 입력해 주세요')
-         $("#u_pw").focus()
-         return false
+         alert('비밀번호를 입력해 주세요');
+         $("#u_pw").focus();
+         return false;
       }
+      
       if (user_name.length == 0) {
-         alert("이름을 입력해 주세요")
-         $("#u_name").focus()
-         return false
+         alert("이름을 입력해 주세요");
+         $("#u_name").focus();
+         return false;
       }
       if (user_age.length == 0) {
-         alert('나이를 입력해 주세요')
-         $("#u_age").focus()
-         return false
+         alert('나이를 입력해 주세요');
+         $("#u_age").focus();
+         return false;
       }
       if (user_gender.length == 0) {
-    	  alert('성별을 선택해 주세요')
-    	  $("#u_gedner").focus()
-    	  return false
+    	  alert('성별을 선택해 주세요');
+    	  $("#u_gender").focus();
+    	  return false;
+      
       }
       if (user_skintype.length == 0) {
-    	  alert('피부타입을 선택해주세요')
-    	  $("#u_skintype").focus()
+    	  alert('피부타입을 선택해주세요');
+    	  $("#u_skintype").focus();
     	  return false;
       }
-	alert('회원가입 성공');
-      return true
+   	  alert('회원가입 성공!');
+      return true;
    }
 </script>
 
@@ -132,6 +132,7 @@
 
          <div class="col-lg-9" style="text-align: center;">
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel" style="text-align: -webkit-center;">
+               <img src="<%=request.getContextPath()%>/resources/images/logo_5.png" style="width: 20%; height: 20%;">
                <div class="card-body col-lg-5">
                   <h3 style="text-align: center;"> 회원가입</h3>
                   <br>
@@ -160,7 +161,7 @@
                      <div class="form-group" style="text-align: center;">
                         <div class="btn-group" data-toggle="buttons">
                            <label class="btn btn-secondary">
-                              <input type="radio"   name="u_gender" autocomplete="off" value="남자">남자</label>
+                              <input type="radio" name="u_gender" autocomplete="off" value="남자">남자</label>
                            <label class="btn btn-secondary">
                               <input type="radio" name="u_gender" autocomplete="off" value="여자">여자</label>
                         </div>
@@ -181,7 +182,6 @@
 							<option value="중성">중성</option>
 							<option value="복합성">복합성</option>
 							<option value="민감성">민감성</option>
-
 						</select>
 					</div>
 					<div class="form-group">
