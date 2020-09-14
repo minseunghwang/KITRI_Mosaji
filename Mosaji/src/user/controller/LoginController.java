@@ -1,6 +1,7 @@
 package user.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,6 +43,8 @@ public class LoginController extends HttpServlet {
 		
 		UserService userservice = new UserServiceImpl();
 		
+		PrintWriter out = response.getWriter();
+		
 		boolean flag = false;
 		
 		HttpSession session = request.getSession();
@@ -56,20 +59,27 @@ public class LoginController extends HttpServlet {
 			System.out.println(" u_id = " + u_id);
 			System.out.println(" u_pw = " + u_pw);
 			flag = true;
+			out.println("<script>alert('로그인 성공'); </script>");
 			System.out.println("세션 담긴" + u_id);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+			rd.forward(request, response);
+			
+			
+			
 		} else {
 			System.out.println("아이디 비밀번호가 틀려요");
+			response.setContentType("text/html; charset=UTF-8");
+			out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go('-1');</script>");
+			out.flush();
+
 			flag = false;
 		}
 		
 		session.setAttribute("flag", flag);
+
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-		rd.forward(request, response);
 		
-//		response.sendRedirect("/Mosaji/MainController");
-		
-		System.out.println("세션이 있나 " + u_id);
 	}
 
 	/**

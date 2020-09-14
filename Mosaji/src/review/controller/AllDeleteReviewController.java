@@ -42,6 +42,12 @@ public class AllDeleteReviewController extends HttpServlet {
 		ReviewService reviewservice = new ReviewServiceImpl();
 		
 		String[] review_str = request.getParameter("review_str").split(",");
+		for(String arr:review_str) {
+			System.out.println(arr);
+		}
+		
+		reviewservice.DeleteReview(review_str);
+		
 		
 		HttpSession session = request.getSession(false);
 		String u_id = (String) session.getAttribute("u_id");
