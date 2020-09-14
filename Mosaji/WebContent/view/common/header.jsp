@@ -22,11 +22,9 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		
 		$("#logout_btn").click(function(){
 			alert("로그아웃 되었습니다.");	
 		});
-	
 	})
 </script>
 
@@ -64,7 +62,7 @@
 					<c:if test="${not empty sessionScope.u_id && sessionScope.u_id != 'admin'}">
 
 					<li class="active"><a href="${pageContext.request.contextPath }/LogoutController" accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
-							title="">로그아웃</a></li>
+							title="" id="logout_btn">로그아웃</a></li>
 
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/UpdateGetController"	

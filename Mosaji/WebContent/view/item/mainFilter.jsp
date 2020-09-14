@@ -15,27 +15,22 @@
 	width: 25%;
 	padding: 10px;
 }
-
 .col{
     text-align: right;
 }
-
 .itemList, .col{
 	float: left;
 	width: 75%;
 	padding: 10px;
 }
-
 #orderby{
 	margin-right : 50px;
 }
-
 .boxA{
 	display : inline;
 	width : 100%;
 	padding : 20px;
 } 
-
 .boxA, .boxB{
 	width:100%;
 	margin-top:10px;
@@ -44,38 +39,29 @@
 .element_0, .element_1, .element_2, .element_3{
 	float:left;
 }
-
 .element_0{
     padding: 20px;
     padding-right: 40px;
     margin-top: 10px;
 }
-
 .element_2{
 	margin-left : 20px;
 }
-
 .element_2, .element_3{
 	display: table-cell;
     vertical-align: middle;
     position: relative;
     top: 10px;
 }
-
-
 .element_3{
 	float: right;
     transform: translate(-50px, 25px);
 }
-
 .i_brand, .i_name, .i_volume{
-
 	text-align :left;
     left:20%;
     margin-left : 30px;
 }
-
-
 .i_brand{
 	color : #d0021b;
 	font-size:13px;
@@ -86,16 +72,15 @@
 	height : 40px;
 	color : black;
 }
-
 .i_volume{
 	font-size:14px;
 	color : #84868e;
 }
-
 .i_price{
 	color : black;
 	font-family : 'Jua', sans-serif;
 }
+
 
 .star-rating {width:80px; }
 .star-rating,.star-rating span {display:inline-block; height:14px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star80.png)no-repeat; }
@@ -184,8 +169,6 @@
 		
 		return true;
 	}
-
-
 	$(document).ready(function(){
 		if(keyword == ""){
 	    	$.ajax({
@@ -286,7 +269,7 @@
 	<div id="wrapper">
 		<div id="staff" class="container">
 			<div class="filter">
-				<div class="filters__filed filters__is-sorted" id="filter" style="background: #EAEAEA; border:none;">
+				<div class="filters__filed filters__is-sorted" id="filter" style="background: #fafafc; border:2px solid #e6e6e6;">
 					<div class="filter-header" style="text-align: left; font-size: 20px; margin-bottom:10px; margin-top:10px;">
 						<span>  &nbsp; ✔  &nbsp;필터</span>
 					</div>
@@ -362,7 +345,7 @@
 						</fieldset>
 					</section>
 					<button class="btn btn-secondary" id="f_reset_btn">초기화</button>
-					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px;" id="filter_submit" onclick="check_data()">필터 적용</button>
+					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#e80521;" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</div>
 			</div>
 			<div class="row">

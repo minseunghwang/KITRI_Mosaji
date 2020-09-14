@@ -58,10 +58,9 @@
 						<thead>
 							<tr>
 								<th scope="col" style="color: gray;">번호</th>
-								<th scope="col" style="color: gray;">상품 번호</th>
-								<th scope="col" style="color: gray;">상품 이름</th>
-								<th scope="col" style="color: gray;">상품 설명</th>
 								<th scope="col" style="color: gray;">상품 이미지</th>
+								<th scope="col" style="color: gray;">상품 정보</th>
+								<th scope="col" style="color: gray;">상품 가격</th>
 								<th scope="col" style="color: gray;">삭제</th>
 							</tr>
 						</thead>
@@ -70,10 +69,9 @@
 								<tr>
 	<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
 									<th><a style="color: gray;" >${status.count }</a></th>
-									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_no }</a></th>
-									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
-									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_content }</a></th>
 									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_price }</a></th>
 									<th><input type="checkbox" name="del"
 										value="${wishlist.w_no }"></th>
 								</tr>
