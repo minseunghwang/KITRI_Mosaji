@@ -59,7 +59,7 @@ public class LoginController extends HttpServlet {
 			System.out.println(" u_id = " + u_id);
 			System.out.println(" u_pw = " + u_pw);
 			flag = true;
-			out.println("<script>alert('로그인 성공'); </script>");
+			
 			System.out.println("세션 담긴" + u_id);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
