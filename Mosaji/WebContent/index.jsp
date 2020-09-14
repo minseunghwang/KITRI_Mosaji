@@ -352,7 +352,7 @@
 					src="${pageContext.request.contextPath }/resources/images/index (2).png"
 					alt="Card image cap">
 				<div class="card-body">
-				<button type="button" class="btn btn-secondary btn-lg btn-block"
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
 						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션')">파운데이션</button>
 				</div>
 
@@ -373,7 +373,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
 				</div>
 			</div>
 
@@ -383,7 +383,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
@@ -392,7 +392,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
 				</div>
 			</div>
 		</div>
@@ -405,7 +405,7 @@
 					src="${pageContext.request.contextPath }/resources/images/index (30).png"
 					alt="Card image cap">
 				<div class="card-body">
-				<button type="button" class="btn btn-secondary btn-lg btn-block"
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
 						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너')">스킨/토너</button>
 				</div>
 
@@ -426,7 +426,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
 				</div>
 			</div>
 
@@ -436,7 +436,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
@@ -445,7 +445,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
 				</div>
 			</div>
 		</div>
@@ -546,7 +546,8 @@
 	<section>
 		<!-- 		<h1 style="text-align: center;"></h1> -->
 		<div class="container"
-			style="text-align: center; font-size: 50px; color: #625772">BEST</div>
+			style="text-align: center; font-size: 50px; color: #625772">인기
+			브랜드</div>
 	</section>
 
 	<!-- 	<div class="container"> -->
@@ -559,74 +560,119 @@
 			<div class="blog_content">
 				<div class="owl-carousel owl-theme">
 					<div class="blog_item">
+					
+					
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="${pageContext.request.contextPath }/resources/images/lip_3.png"
+								src="${pageContext.request.contextPath }/resources/images/이니스프리_로고_(1).png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<h5>
-									<a href="#">MAC</a>
-								</h5>
+									<a style="font-size: 30px;" href="https://www.innisfree.com/kr/ko/Main.do">이니스프리</a>
 							</div>
 							<ul>
-								<li><i class="icon ion-md-person"></i>Alex</li>
-								<li><i class="icon ion-md-calendar"></i>August 1, 2018</li>
+								<li><i class="icon ion-md-person"></i>이니스프리</li>
+								<li><i class="icon ion-md-calendar"></i>자연주의</li>
 							</ul>
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry. Lorem...</p>
-							<a href="#">Read More<i class="icofont-long-arrow-right"></i></a>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=이니스프리')">제품보기</button>
 						</div>
 					</div>
+					
+					
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="${pageContext.request.contextPath }/resources/images/lip_2.png"
-								alt="images not found"> <span><i
+								src="${pageContext.request.contextPath }/resources/images/메이크업_포에버_로고_(3).png"
+								width="150px" height="100px" alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<h5>
-									<a href="#">MAC</a>
-								</h5>
+									<a style="font-size: 30px;" href="https://www.makeupforever.com/">메이크업포에버</a>
 							</div>
 							<ul>
-								<li><i class="icon ion-md-person"></i>Alex</li>
-								<li><i class="icon ion-md-calendar"></i>August 1, 2018</li>
+								<li><i class="icon ion-md-person"></i>절대팩트</li>
+								<li><i class="icon ion-md-calendar"></i>메포</li>
 							</ul>
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry. Lorem...</p>
-							<a href="#">Read More<i class="icofont-long-arrow-right"></i></a>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=메이크업포에버')">제품보기</button>
 						</div>
 					</div>
+					
+					
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="${pageContext.request.contextPath }/resources/images/lip_1.png"
+								src="${pageContext.request.contextPath }/resources/images/에뛰드_로고_(2).png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<h5>
-									<a href="#">MAC</a>
-								</h5>
+								<a style="font-size: 30px;" href="https://www.etude.com">에뛰드</a>
+								<ul>
+									<li><i class="icon ion-md-person"></i>에뛰드</li>
+									<li><i class="icon ion-md-calendar"></i>에뛰드 틴트 맛있어</li>
+								</ul>
+								<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드')">제품보기</button>
 							</div>
-							<ul>
-								<li><i class="icon ion-md-person"></i>Alex</li>
-								<li><i class="icon ion-md-calendar"></i>August 1, 2018</li>
-							</ul>
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry. Lorem...</p>
-							<a href="#">Read More<i class="icofont-long-arrow-right"></i></a>
 						</div>
 					</div>
+					
+					
+					<div class="blog_item">
+						<div class="blog_image">
+							<img class="img-fluid"
+								src="${pageContext.request.contextPath }/resources/images/스킨푸드_로고_(3).png"
+								width="150px" height="100px" alt="images not found"> <span><i
+								class="icon ion-md-create"></i></span>
+						</div>
+						<div class="blog_details">
+							<div class="blog_title">
+									<a style="font-size: 30px;" href="https://www.theskinfood.com">스킨푸드</a>
+							</div>
+							<ul>
+								<li><i class="icon ion-md-person"></i>스킨푸드</li>
+								<li><i class="icon ion-md-calendar"></i>피부에 양보하세요</li>
+							</ul>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=스킨푸드')">제품보기</button>
+						</div>
+					</div>
+					
+					
+					<div class="blog_item">
+						<div class="blog_image">
+							<img class="img-fluid"
+								src="${pageContext.request.contextPath }/resources/images/로라메르시에.jpeg"
+								width="150px" height="100px" alt="images not found"> <span><i
+								class="icon ion-md-create"></i></span>
+						</div>
+						<div class="blog_details">
+							<div class="blog_title">
+									<a style="font-size: 30px;" href="https://www.lauramercier.co.kr/">로라메르시에</a>
+							</div>
+							<ul>
+								<li><i class="icon ion-md-person"></i>비싸다</li>
+								<li><i class="icon ion-md-calendar"></i>좋다</li>
+							</ul>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=로라메르시에')">제품보기</button>
+						</div>
+					</div>
+					
+					
 				</div>
 			</div>
-		</div>
 	</section>
 
 
