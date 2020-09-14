@@ -1,8 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@page import="java.util.*"%>
-<% request.setCharacterEncoding("UTF-8"); %>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
 <%@ page import="item.dao.DaoImpl"%>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.ArrayList"%>
 
 
 <!DOCTYPE html>
@@ -80,7 +83,7 @@
 	top: 0;
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 79%, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 79%, 0 100%);
-	background-color: #ff5e14;
+	background-color: #FFBFAB;
 }
 
 .blog_section .blog_content .blog_item .blog_details {
@@ -100,7 +103,7 @@
 
 .blog_section .blog_content .blog_item .blog_details .blog_title h5 a:hover
 	{
-	color: #ff5e14;
+	color: #FFBFAB;
 }
 
 .blog_section .blog_content .blog_item .blog_details ul {
@@ -128,7 +131,7 @@
 .blog_section .blog_content .blog_item .blog_details a {
 	font-size: 16px;
 	display: inline-block;
-	color: #ff5e14;
+	color: #FFBFAB;
 	font-weight: 600;
 	text-decoration: none;
 	transition: all 0.3s;
@@ -158,7 +161,7 @@
 	height: 40px;
 	border-radius: 50%;
 	outline: 0;
-	background: #ff5e14;
+	background: #FFBFAB;
 	transition: all 0.3s;
 	color: #fff;
 }
@@ -171,8 +174,8 @@
 
 .blog_section .blog_content .owl-nav .owl-prev:hover {
 	background: #fff;
-	border-color: #ff5e14;
-	color: #ff5e14;
+	border-color: #FFBFAB;
+	color: #FFBFAB;
 }
 
 .blog_section .blog_content .owl-nav .owl-next {
@@ -186,7 +189,7 @@
 	height: 40px;
 	border-radius: 50%;
 	outline: 0;
-	background: #ff5e14;
+	background: #FFBFAB;
 	color: #fff;
 	transition: all 0.3s;
 }
@@ -199,8 +202,8 @@
 
 .blog_section .blog_content .owl-nav .owl-next:hover {
 	background: #fff;
-	border-color: #ff5e14;
-	color: #ff5e14;
+	border-color: #FFBFAB;
+	color: #FFBFAB;
 }
 
 @media only screen and (max-width: 577px) {
@@ -232,19 +235,19 @@
 
 			var 아이메이크업 = [ "마스카라", "섀도우" ];
 
-			var 립메이크업 = [ "틴트", "립스틱"];
+			var 립메이크업 = [ "틴트", "립스틱" ];
 
 			var 스킨케어 = [ "스킨/토너", "로션/에센스", "크림" ];
 
 			var category1;
 
-				if (this.value == "페이스메이크업") {
+			if (this.value == "페이스메이크업") {
 
-					category1 = 페이스메이크업;
+				category1 = 페이스메이크업;
 
-				} else if (this.value == "아이메이크업") {
+			} else if (this.value == "아이메이크업") {
 
-					category1 = 아이메이크업;
+				category1 = 아이메이크업;
 
 			} else if (this.value == "립메이크업") {
 
@@ -261,16 +264,15 @@
 			for (var count = 0; count < category1.length; count++) {
 
 				var option = $("<option>" + category1[count] + "</option>");
-				
+
 				$('#category2').append(option);
-				
-				$("#category2").change(function(){
+
+				$("#category2").change(function() {
 					var category2 = $(this).val();
 				})
 			}
 		});
 	});
-	
 </script>
 
 
@@ -279,21 +281,23 @@
 
 	<div id="wrapper" style="background: #FFBFAB;">
 		<div id="staff" class="container">
-			<div class="row" style="margin-left:1%;">
-				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는, 뭐사지 !</span>
+			<div class="row" style="margin-left: 1%;">
+				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는,
+					뭐사지 !</span>
 			</div>
-			<div class="row"  style="margin-left:1%; margin-bottom:5%;">
-				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별, 피부타입에 따라 추천 받으세요 </span>
+			<div class="row" style="margin-left: 1%; margin-bottom: 5%;">
+				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별,
+					피부타입에 따라 추천 받으세요 </span>
 			</div>
 
 
 
-			<div style="margin-bottom:10px;">
+			<div style="margin-bottom: 10px;">
 				<form method="GET"
 					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
-							<select class="form-control"  name="category1" id="category1">
+							<select class="form-control" name="category1" id="category1">
 								<option value="" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
@@ -316,21 +320,156 @@
 			</div>
 
 
-			<form method="get" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}" >
+			<form method="get"
+				action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}">
 				<div class="row">
-				<div class="col">
-				<input class="form-control" type="text" name="keyword" id="keyword"
-					placeholder="제품 명, 브랜드 명으로 검색해보세요" style="text-align: center; width: 135%; font-size: 16px;">
-				</div>
-				<div class="col">
-				<button class="btn btn-secondary" type="submit" style="width:32%; margin-left:35%;">화장품 검색</button>
-				</div>	
+					<div class="col">
+						<input class="form-control" type="text" name="keyword"
+							id="keyword" placeholder="제품 명, 브랜드 명으로 검색해보세요"
+							style="text-align: center; width: 135%; font-size: 16px;">
+					</div>
+					<div class="col">
+						<button class="btn btn-secondary" type="submit"
+							style="width: 32%; margin-left: 35%;">화장품 검색</button>
+					</div>
 				</div>
 			</form>
-		
+
 		</div>
 	</div>
 
+	<div class="p-3 mb-2 bg-secondary text-white"></div>
+
+	<div class="container">
+		<div class="container"
+			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
+	</div>
+
+	<div class="container">
+		<div class="card-deck">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (2).png"
+					width="100px" height="100px"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button>
+				</div>
+				
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (9).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 10rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (6).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (15).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (12).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="card-deck">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/ban (11).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/ban (12).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 10rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/ban (8).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/ban (7).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/lip_1.png"
+					alt="Card image cap">
+				<div class="card-body">
+					<!-- 				<h5 class="card-title"></h5> -->
+					<!-- 				<p class="card-text"></p> -->
+					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div id="page" class="container">
 		<div class="row" style="margin: 0;">
@@ -436,16 +575,18 @@
 
 
 	<section>
-		<h1 style="text-align: center;">Contact us</h1><br><br>
+		<h1 style="text-align: center;">Contact us</h1>
+		<br> <br>
 		<div class="col-md-8 offset-md-2">
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.9665602215405!2d126.89660961519179!3d37.48511547981327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9e3ac6500f81%3A0x9c30e9fbc9189200!2z7ZWc6rWt7KCV67O06riw7Iig7Jew6rWs7JuQ!5e0!3m2!1sko!2skr!4v1598426938539!5m2!1sko!2skr"
 				width="100%" height="450" frameborder="0" style="border: 0;"
 				allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 		</div>
-		
+
 	</section>
-	<br><br>
+	<br>
+	<br>
 
 
 
@@ -483,16 +624,16 @@
 			}
 		})
 	</script>
-	
 
-	
-	
+
+
+
 	<%@ include file="view/common/footer.jsp"%>
-	
-	
-	
-	
-	
+
+
+
+
+
 
 </body>
 </html>
