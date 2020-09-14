@@ -340,7 +340,7 @@ h2 {font-size:15px;}
 
 
 
-
+	<c:if test="${not empty review }">
 
 	<c:forEach var="review" items="${review }">
 		<div class="alert alert-warning container" role="alert">
@@ -426,6 +426,10 @@ h2 {font-size:15px;}
 <%-- 			</c:if> --%>
 		</div>
 	</c:forEach>
+	</c:if>
+	<c:if test="${empty review }">
+		<h3 style="text-align:center;">리뷰가 없습니다</h3>
+	</c:if>
 
 
 
