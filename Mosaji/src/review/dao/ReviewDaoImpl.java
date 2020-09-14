@@ -158,6 +158,39 @@ public class ReviewDaoImpl implements ReviewDao {
 		return review;
 	}
 	@Override
+		public ArrayList<Review> selectReview() {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<Review> review = new ArrayList<Review>();
+			String sql = "SELECT r.r_no, r.r_content, r.r_date, r.r_star, r.i_no, r.u_id, i.i_name FROM mosaji_review r, mosaji_item i WHERE r.i_no = i.i_no order by r.r_date desc";
+			
+			try {
+				conn = db.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next() ) {
+					review.add(new Review(rs.getInt("r_no"), rs.getString("r_content"), rs.getDate("r_date"), rs.getInt("r_star"), rs.getInt("i_no"), rs.getString("u_id"), rs.getString("i_name")));
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					rs.close();
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			return review;
+		}
+	
+	
+	@Override
 	public void delete(int r_no) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -226,4 +259,35 @@ public class ReviewDaoImpl implements ReviewDao {
 		}
 		return reviewcount;
 	}
+	@Override
+		public void DeleteReview(String[] review_arr) {
+			Connection conn = null;
+			String sql = "DELETE FROM mosaji_review WHERE";
+			PreparedStatement pstmt = null;
+			
+			for(String i:review_arr) {
+				sql += "r_no = ";
+				sql += i;
+				sql += " or ";
+			}
+			
+			sql = sql.substring(0, sql.length()-3);
+			
+			try {
+				conn = db.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.executeUpdate();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
 }

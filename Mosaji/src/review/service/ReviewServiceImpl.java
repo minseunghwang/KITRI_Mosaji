@@ -41,6 +41,11 @@ private ReviewDao reviewdao;
 		// TODO Auto-generated method stub
 		return reviewdao.selectByi_no1(i_no);
 	}
+	@Override
+		public ArrayList<Review> selectReview() {
+			// TODO Auto-generated method stub
+			return reviewdao.selectReview();
+		}
 
 	@Override
 	public void delete(int r_no) {
@@ -54,6 +59,11 @@ private ReviewDao reviewdao;
 		return reviewdao.count(i_no);
 	}
 
+	@Override
+		public void DeleteReview(String[] review_arr) {
+			reviewdao.DeleteReview(review_arr);
+			
+		}
 	
 	
 }

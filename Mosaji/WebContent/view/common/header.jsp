@@ -48,7 +48,9 @@
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
 
-					<c:if test="${not empty sessionScope.u_id }">
+	
+
+					<c:if test="${not empty sessionScope.u_id && sessionScope.u_id != 'admin'}">
 
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
@@ -67,6 +69,18 @@
 							href="${pageContext.request.contextPath }/MyReviewController"	
 							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
 							title="">내가 쓴 리뷰</a></li>					
+					</c:if>
+					<c:if test="${sessionScope.u_id == 'admin' }">
+						<li class="active"><a
+							href="${pageContext.request.contextPath }/LogoutController"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
+							title="">로그아웃</a></li>
+						<li class="active"><a
+							href="${pageContext.request.contextPath }/AllReviewController"
+							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
+							title="">리뷰관리</a></li>
+
+					
 					</c:if>
 					
 				</ul>
