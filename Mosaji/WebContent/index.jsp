@@ -47,6 +47,7 @@
 	padding-top: 5rem;
 	padding-bottom: 3rem;
 }
+
 .blog_section .blog_content .blog_item {
 	margin-bottom: 30px;
 	box-shadow: 0 0 11px 0 rgba(6, 22, 58, 0.14);
@@ -54,17 +55,21 @@
 	border-radius: 2px;
 	overflow: hidden;
 }
+
 .blog_section .blog_content .blog_item:hover .blog_image img {
 	transform: scale(1.1);
 }
+
 .blog_section .blog_content .blog_item .blog_image {
 	overflow: hidden;
 	padding: 0;
 }
+
 .blog_section .blog_content .blog_item .blog_image img {
 	width: 100%;
 	transition: transform 0.5s ease-in-out;
 }
+
 .blog_section .blog_content .blog_item .blog_image span i {
 	position: absolute;
 	z-index: 2;
@@ -80,9 +85,11 @@
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 79%, 0 100%);
 	background-color: #FFBFAB;
 }
+
 .blog_section .blog_content .blog_item .blog_details {
 	padding: 25px 20px 30px 20px;
 }
+
 .blog_section .blog_content .blog_item .blog_details .blog_title h5 a {
 	color: #020d26;
 	margin-top: 0;
@@ -93,28 +100,34 @@
 	transition: all 0.3s;
 	text-decoration: none;
 }
+
 .blog_section .blog_content .blog_item .blog_details .blog_title h5 a:hover
 	{
 	color: #FFBFAB;
 }
+
 .blog_section .blog_content .blog_item .blog_details ul {
 	padding: 0 3px 10px 0;
 	margin: 0;
 }
+
 .blog_section .blog_content .blog_item .blog_details ul li {
 	display: inline-block;
 	padding-right: 15px;
 	position: relative;
 	color: #7f7f7f;
 }
+
 .blog_section .blog_content .blog_item .blog_details ul li i {
 	padding-right: 7px;
 }
+
 .blog_section .blog_content .blog_item .blog_details p {
 	border-top: 1px solid #e5e5e5;
 	margin-top: 4px;
 	padding: 20px 0 4px;
 }
+
 .blog_section .blog_content .blog_item .blog_details a {
 	font-size: 16px;
 	display: inline-block;
@@ -123,16 +136,20 @@
 	text-decoration: none;
 	transition: all 0.3s;
 }
+
 .blog_section .blog_content .blog_item .blog_details a:hover {
 	color: #020d26;
 }
+
 .blog_section .blog_content .blog_item .blog_details a i {
 	vertical-align: middle;
 	font-size: 20px;
 }
+
 .blog_section .blog_content .owl-nav {
 	display: block;
 }
+
 .blog_section .blog_content .owl-nav .owl-prev {
 	position: absolute;
 	left: -27px;
@@ -148,16 +165,19 @@
 	transition: all 0.3s;
 	color: #fff;
 }
+
 .blog_section .blog_content .owl-nav .owl-prev span {
 	font-size: 25px;
 	margin-top: -6px;
 	display: inline-block;
 }
+
 .blog_section .blog_content .owl-nav .owl-prev:hover {
 	background: #fff;
 	border-color: #FFBFAB;
 	color: #FFBFAB;
 }
+
 .blog_section .blog_content .owl-nav .owl-next {
 	position: absolute;
 	right: -27px;
@@ -173,16 +193,19 @@
 	color: #fff;
 	transition: all 0.3s;
 }
+
 .blog_section .blog_content .owl-nav .owl-next span {
 	font-size: 25px;
 	margin-top: -6px;
 	display: inline-block;
 }
+
 .blog_section .blog_content .owl-nav .owl-next:hover {
 	background: #fff;
 	border-color: #FFBFAB;
 	color: #FFBFAB;
 }
+
 @media only screen and (max-width: 577px) {
 	.blog_section .owl-nav .owl-prev {
 		left: -17px !important;
@@ -205,25 +228,45 @@
 
 <script type="text/javascript">
 	$(function() {
+
 		$('#category1').change(function() {
+
 			var 페이스메이크업 = [ "피니시파우더", "파운데이션", "컨실러" ];
+
 			var 아이메이크업 = [ "마스카라", "섀도우" ];
+
 			var 립메이크업 = [ "틴트", "립스틱" ];
+
 			var 스킨케어 = [ "스킨/토너", "로션/에센스", "크림" ];
+
 			var category1;
+
 			if (this.value == "페이스메이크업") {
+
 				category1 = 페이스메이크업;
+
 			} else if (this.value == "아이메이크업") {
+
 				category1 = 아이메이크업;
+
 			} else if (this.value == "립메이크업") {
+
 				category1 = 립메이크업;
+
 			} else if (this.value == "스킨케어") {
+
 				category1 = 스킨케어;
+
 			}
+
 			$('#category2').empty();
+
 			for (var count = 0; count < category1.length; count++) {
+
 				var option = $("<option>" + category1[count] + "</option>");
+
 				$('#category2').append(option);
+
 				$("#category2").change(function() {
 					var category2 = $(this).val();
 				})
@@ -296,7 +339,7 @@
 	</div>
 
 	<div class="p-3 mb-2 bg-secondary text-white"></div>
-
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="container">
 		<div class="container"
 			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
@@ -307,25 +350,20 @@
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
 					src="${pageContext.request.contextPath }/resources/images/index (2).png"
-					width="100px" height="100px"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션')">파운데이션</button>
 				</div>
-				
+
 			</div>
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
 					src="${pageContext.request.contextPath }/resources/images/index (9).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=피니시파우더')">파우더</button>
 				</div>
 			</div>
 
@@ -334,10 +372,8 @@
 					src="${pageContext.request.contextPath }/resources/images/index (6).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
 				</div>
 			</div>
 
@@ -346,10 +382,8 @@
 					src="${pageContext.request.contextPath }/resources/images/index (15).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
@@ -357,101 +391,169 @@
 					src="${pageContext.request.contextPath }/resources/images/index (12).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container">
 		<div class="card-deck">
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (11).png"
+					src="${pageContext.request.contextPath }/resources/images/index (30).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button>
+				<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너')">스킨/토너</button>
 				</div>
+
 			</div>
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (12).png"
+					src="${pageContext.request.contextPath }/resources/images/index (28).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=로션/에센스')">로션/에센스</button>
 				</div>
 			</div>
 
 			<div class="card" style="width: 10rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (8).png"
+					src="${pageContext.request.contextPath }/resources/images/index (29).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
 				</div>
 			</div>
 
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (7).png"
+					src="${pageContext.request.contextPath }/resources/images/index (5).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/lip_1.png"
+					src="${pageContext.request.contextPath }/resources/images/index (11).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+					onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="page" class="container">
-		<div class="row" style="margin: 0;">
-			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_1.png"
-					width="100%" height="100%" alt="" />
-			</div>
-			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_2.png"
-					width="100%" height="100%" alt="" />
-			</div>
-			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_3.png"
-					width="100%" height="100%" alt="" />
-			</div>
-		</div>
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="card-deck"> -->
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (11).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (12).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+
+	<!-- 			<div class="card" style="width: 10rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (8).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (7).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_1.png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+	<!-- 사진 3개 -->
+	<!-- 	<div id="page" class="container"> -->
+	<!-- 		<div class="row" style="margin: 0;"> -->
+	<!-- 			<div class="col"> -->
+	<!-- 				<img -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_1.png" --%>
+	<!-- 					width="100%" height="100%" alt="" /> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col"> -->
+	<!-- 				<img -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_2.png" --%>
+	<!-- 					width="100%" height="100%" alt="" /> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col"> -->
+	<!-- 				<img -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_3.png" --%>
+	<!-- 					width="100%" height="100%" alt="" /> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 
 
-	</div>
+
+
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+
+	<!-- <div class="p-3 mb-2 bg-secondary text-white"></div> -->
+
 	<section>
-		<h1 style="text-align: center;">Our Brand</h1>
+		<!-- 		<h1 style="text-align: center;"></h1> -->
+		<div class="container"
+			style="text-align: center; font-size: 50px; color: #625772">BEST</div>
 	</section>
+
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="container" -->
+	<!-- 			style="text-align: center; font-size: 50px; color: #625772">BEST</div> -->
+	<!-- 	</div> -->
+
 	<section class="blog_section">
 		<div class="col-md-8 offset-md-2">
 			<div class="blog_content">
@@ -459,15 +561,14 @@
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="https://cdn.pixabay.com/photo/2019/03/10/18/31/hong-kong-4046913_960_720.jpg"
+								src="${pageContext.request.contextPath }/resources/images/lip_3.png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
 								<h5>
-									<a href="#">We are best for any industrial & business
-										solution.</a>
+									<a href="#">MAC</a>
 								</h5>
 							</div>
 							<ul>
@@ -482,15 +583,14 @@
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="https://cdn.pixabay.com/photo/2015/07/09/22/45/tree-838667_960_720.jpg"
+								src="${pageContext.request.contextPath }/resources/images/lip_2.png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
 								<h5>
-									<a href="#">We are best for any industrial & business
-										solution.</a>
+									<a href="#">MAC</a>
 								</h5>
 							</div>
 							<ul>
@@ -505,15 +605,14 @@
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_960_720.jpg"
+								src="${pageContext.request.contextPath }/resources/images/lip_1.png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
 								<h5>
-									<a href="#">We are best for any industrial & business
-										solution.</a>
+									<a href="#">MAC</a>
 								</h5>
 							</div>
 							<ul>
@@ -586,6 +685,9 @@
 
 
 	<%@ include file="view/common/footer.jsp"%>
+
+
+
 
 
 
