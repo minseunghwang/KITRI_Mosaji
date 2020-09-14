@@ -45,14 +45,15 @@ public class UploadController extends HttpServlet {
 		
 
 //		String directory = request.getRealPath("/fileFolder");
-		String directory = "C:\\Users\\KITRI\\git\\Mosaji_project\\Mosaji\\WebContent\\fileFolder";
+		String directory = "C:\\Users\\peduk\\git\\KITRI_Mosaji_Final\\Mosaji\\WebContent\\fileFolder";
+
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
 
 		
 		MultipartRequest multipartRequest = new MultipartRequest(request,directory, maxSize, encoding, new DefaultFileRenamePolicy());
 
-		String fileName = multipartRequest.getOriginalFileName("i_img");
+		// String fileName = multipartRequest.getOriginalFileName("i_img");
 		String fileRealName = multipartRequest.getFilesystemName("i_img" );
 		
 		String i_name = multipartRequest.getParameter("i_name");

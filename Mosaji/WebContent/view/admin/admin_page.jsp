@@ -21,6 +21,22 @@
 	function goUpdate() {
 		location.href="${pageContext.request.contextPath}/GetUserController";
 	}
+	
+	window.onload = function() {
+		document.getElementById('delBtn').onclick = function() {
+			confirm("삭제 하시겠습니까?");
+			var result = confirm("삭제 하시겠습니까?");
+			if(result == true) {
+			document.getElementById('delFrm').submit();
+			return false;
+			}
+			else if(result == false) {
+				return true;
+			}
+			
+			
+		}
+	}
 </script>
 </head>
 <body>
@@ -28,8 +44,8 @@
 	<h3 style="text-align: center; margin-top: 5%;">회원 관리</h3>
 	<div class="container">
 		<div class="row">
-			<table class="table">
-				<thead class="thead-light">
+			<table class="table table-hover" style="text-align:center;">
+				<thead>
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">아이디</th>
@@ -44,12 +60,15 @@
 							<th scope="row">${status.count }</th>
 							<td>${user.u_id }</td>
 							<td>${user.u_name }</td>
-							<td><form action="GetUserController" method="post">
-								<input type="submit" class="btn btn-primary" value="수정">
+							<td><form action="${pageContext.request.contextPath }/GetUserController" method="post">
+								<input type="submit" class="btn btn-secondary btn-lg" value="수정">
 									<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
 									</form></td>
 									
-							<td><input type="button" class="btn btn-primary " value="삭제"></td>
+							<td><form name="delFrm" id="delFrm" action="${pageContext.request.contextPath }/AdminDelUserController" method="post">
+							<input type="submit" name="delBtn"id="delBtn" class="btn btn-secondary btn-lg" value="삭제" onclick="confirm('정말 삭제하시겠습니까?')" >
+							<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
+							</form></td>
 							
 						</tr>
 						
@@ -58,27 +77,7 @@
 			</table>
 		</div>
 	</div>
-	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
-		// fade는 투명 효과
-		<div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">x</button>
-					<h4 class="modal-title">Modal Header</h4>
-				</div>
-				<div class="modal-body">
-					<p>Some text in the modal.</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

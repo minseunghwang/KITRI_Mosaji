@@ -282,7 +282,7 @@
 	<div id="wrapper" style="background: #FFBFAB;">
 		<div id="staff" class="container">
 			<div class="row" style="margin-left: 1%;">
-				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는,
+				<span style="font-size: 50px; color: #625772;">당신의 고민을 해결해주는,
 					뭐사지 !</span>
 			</div>
 			<div class="row" style="margin-left: 1%; margin-bottom: 5%;">
@@ -290,7 +290,7 @@
 					피부타입에 따라 추천 받으세요 </span>
 			</div>
 
-
+			<hr>
 
 			<div style="margin-bottom: 10px;">
 				<form method="GET"
@@ -338,8 +338,9 @@
 		</div>
 	</div>
 
-	<div class="p-3 mb-2 bg-secondary text-white"></div>
 
+
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="container">
 		<div class="container"
 			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
@@ -350,25 +351,20 @@
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
 					src="${pageContext.request.contextPath }/resources/images/index (2).png"
-					width="100px" height="100px"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션')">파운데이션</button>
 				</div>
-				
+
 			</div>
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
 					src="${pageContext.request.contextPath }/resources/images/index (9).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=피니시파우더')">파우더</button>
 				</div>
 			</div>
 
@@ -377,10 +373,8 @@
 					src="${pageContext.request.contextPath }/resources/images/index (6).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
 				</div>
 			</div>
 
@@ -389,10 +383,8 @@
 					src="${pageContext.request.contextPath }/resources/images/index (15).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
@@ -400,177 +392,288 @@
 					src="${pageContext.request.contextPath }/resources/images/index (12).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="container">
 		<div class="card-deck">
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (11).png"
+					src="${pageContext.request.contextPath }/resources/images/index (30).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너')">스킨/토너</button>
 				</div>
+
 			</div>
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (12).png"
+					src="${pageContext.request.contextPath }/resources/images/index (28).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=로션/에센스')">로션/에센스</button>
 				</div>
 			</div>
 
 			<div class="card" style="width: 10rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (8).png"
+					src="${pageContext.request.contextPath }/resources/images/index (29).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
 				</div>
 			</div>
 
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/ban (7).png"
+					src="${pageContext.request.contextPath }/resources/images/index (5).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
 				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/lip_1.png"
+					src="${pageContext.request.contextPath }/resources/images/index (11).png"
 					alt="Card image cap">
 				<div class="card-body">
-					<!-- 				<h5 class="card-title"></h5> -->
-					<!-- 				<p class="card-text"></p> -->
-					<!-- 				<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
-					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button>
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div id="page" class="container">
-		<div class="row" style="margin: 0;">
-			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_1.png"
-					width="100%" height="100%" alt="" />
-			</div>
-			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_2.png"
-					width="100%" height="100%" alt="" />
-			</div>
-			<div class="col">
-				<img
-					src="${pageContext.request.contextPath }/resources/images/lip_3.png"
-					width="100%" height="100%" alt="" />
-			</div>
-		</div>
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="card-deck"> -->
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (11).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">파운데이션</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (12).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">파우더</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+
+	<!-- 			<div class="card" style="width: 10rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (8).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">섀도우</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/ban (7).png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">마스카라</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="card" style="width: 18rem;"> -->
+	<!-- 				<img class="card-img-top" -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_1.png" --%>
+	<!-- 					alt="Card image cap"> -->
+	<!-- 				<div class="card-body"> -->
+	<!-- 									<h5 class="card-title"></h5> -->
+	<!-- 									<p class="card-text"></p> -->
+	<!-- 									<a href="#" class="btn btn-primary btn-Block">립스틱</a> -->
+	<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block">립스틱</button> -->
+	<!-- 				</div> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+
+	<!-- 사진 3개 -->
+	<!-- 	<div id="page" class="container"> -->
+	<!-- 		<div class="row" style="margin: 0;"> -->
+	<!-- 			<div class="col"> -->
+	<!-- 				<img -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_1.png" --%>
+	<!-- 					width="100%" height="100%" alt="" /> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col"> -->
+	<!-- 				<img -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_2.png" --%>
+	<!-- 					width="100%" height="100%" alt="" /> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col"> -->
+	<!-- 				<img -->
+	<%-- 					src="${pageContext.request.contextPath }/resources/images/lip_3.png" --%>
+	<!-- 					width="100%" height="100%" alt="" /> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 
 
-	</div>
+
+
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+
+	<!-- <div class="p-3 mb-2 bg-secondary text-white"></div> -->
+
 	<section>
-		<h1 style="text-align: center;">Our Brand</h1>
+		<!-- 		<h1 style="text-align: center;"></h1> -->
+		<div class="container"
+			style="text-align: center; font-size: 50px; color: #625772">인기
+			브랜드</div>
 	</section>
+
+	<!-- 	<div class="container"> -->
+	<!-- 		<div class="container" -->
+	<!-- 			style="text-align: center; font-size: 50px; color: #625772">BEST</div> -->
+	<!-- 	</div> -->
+
 	<section class="blog_section">
 		<div class="col-md-8 offset-md-2">
 			<div class="blog_content">
 				<div class="owl-carousel owl-theme">
 					<div class="blog_item">
+					
+					
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="https://cdn.pixabay.com/photo/2019/03/10/18/31/hong-kong-4046913_960_720.jpg"
+								src="${pageContext.request.contextPath }/resources/images/이니스프리_로고_(1).png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<h5>
-									<a href="#">We are best for any industrial & business
-										solution.</a>
-								</h5>
+									<a style="font-size: 30px;" href="https://www.innisfree.com/kr/ko/Main.do">이니스프리</a>
 							</div>
 							<ul>
-								<li><i class="icon ion-md-person"></i>Alex</li>
-								<li><i class="icon ion-md-calendar"></i>August 1, 2018</li>
+								<li><i class="icon ion-md-person"></i>이니스프리</li>
+								<li><i class="icon ion-md-calendar"></i>자연주의</li>
 							</ul>
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry. Lorem...</p>
-							<a href="#">Read More<i class="icofont-long-arrow-right"></i></a>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=이니스프리')">제품보기</button>
 						</div>
 					</div>
+					
+					
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="https://cdn.pixabay.com/photo/2015/07/09/22/45/tree-838667_960_720.jpg"
-								alt="images not found"> <span><i
+								src="${pageContext.request.contextPath }/resources/images/메이크업_포에버_로고_(3).png"
+								width="150px" height="100px" alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<h5>
-									<a href="#">We are best for any industrial & business
-										solution.</a>
-								</h5>
+									<a style="font-size: 30px;" href="https://www.makeupforever.com/">메이크업포에버</a>
 							</div>
 							<ul>
-								<li><i class="icon ion-md-person"></i>Alex</li>
-								<li><i class="icon ion-md-calendar"></i>August 1, 2018</li>
+								<li><i class="icon ion-md-person"></i>절대팩트</li>
+								<li><i class="icon ion-md-calendar"></i>메포</li>
 							</ul>
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry. Lorem...</p>
-							<a href="#">Read More<i class="icofont-long-arrow-right"></i></a>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=메이크업포에버')">제품보기</button>
 						</div>
 					</div>
+					
+					
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
-								src="https://cdn.pixabay.com/photo/2015/10/30/20/13/sunrise-1014712_960_720.jpg"
+								src="${pageContext.request.contextPath }/resources/images/에뛰드_로고_(2).png"
 								alt="images not found"> <span><i
 								class="icon ion-md-create"></i></span>
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<h5>
-									<a href="#">We are best for any industrial & business
-										solution.</a>
-								</h5>
+								<a style="font-size: 30px;" href="https://www.etude.com">에뛰드</a>
+								<ul>
+									<li><i class="icon ion-md-person"></i>에뛰드</li>
+									<li><i class="icon ion-md-calendar"></i>에뛰드 틴트 맛있어</li>
+								</ul>
+								<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드')">제품보기</button>
 							</div>
-							<ul>
-								<li><i class="icon ion-md-person"></i>Alex</li>
-								<li><i class="icon ion-md-calendar"></i>August 1, 2018</li>
-							</ul>
-							<p>Lorem Ipsum is simply dummy text of the printing and
-								typesetting industry. Lorem...</p>
-							<a href="#">Read More<i class="icofont-long-arrow-right"></i></a>
 						</div>
 					</div>
+					
+					
+					<div class="blog_item">
+						<div class="blog_image">
+							<img class="img-fluid"
+								src="${pageContext.request.contextPath }/resources/images/스킨푸드_로고_(3).png"
+								width="150px" height="100px" alt="images not found"> <span><i
+								class="icon ion-md-create"></i></span>
+						</div>
+						<div class="blog_details">
+							<div class="blog_title">
+									<a style="font-size: 30px;" href="https://www.theskinfood.com">스킨푸드</a>
+							</div>
+							<ul>
+								<li><i class="icon ion-md-person"></i>스킨푸드</li>
+								<li><i class="icon ion-md-calendar"></i>피부에 양보하세요</li>
+							</ul>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=스킨푸드')">제품보기</button>
+						</div>
+					</div>
+					
+					
+					<div class="blog_item">
+						<div class="blog_image">
+							<img class="img-fluid"
+								src="${pageContext.request.contextPath }/resources/images/로라메르시에.jpeg"
+								width="150px" height="100px" alt="images not found"> <span><i
+								class="icon ion-md-create"></i></span>
+						</div>
+						<div class="blog_details">
+							<div class="blog_title">
+									<a style="font-size: 30px;" href="https://www.lauramercier.co.kr/">로라메르시에</a>
+							</div>
+							<ul>
+								<li><i class="icon ion-md-person"></i>비싸다</li>
+								<li><i class="icon ion-md-calendar"></i>좋다</li>
+							</ul>
+							<p></p>
+							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=로라메르시에')">제품보기</button>
+						</div>
+					</div>
+					
+					
 				</div>
 			</div>
-		</div>
 	</section>
 
 
