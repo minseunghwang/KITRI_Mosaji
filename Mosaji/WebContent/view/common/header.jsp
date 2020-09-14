@@ -7,17 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
-
-
-
 <link href="<%=request.getContextPath()%>/resources/default.css"
 	rel="stylesheet" type="text/css" media="all" />
 <link href="<%=request.getContextPath()%>/resources/fonts.css"
 	rel="stylesheet" type="text/css" media="all" />
-
-
 </head>
+
+
+<script type="text/javascript">
+	$(function() {
+		$('#logout_btn').onclick(){
+			alert("로그아웃 되었습니다.");
+		}		
+	}
+</script>
 
 
 <body>
@@ -34,10 +37,6 @@
 			</div>
 			<div id="menu">
 				<ul>
-
-
-
-
 					<c:if test="${empty sessionScope.u_id }">
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/view/user/login.jsp"
@@ -49,14 +48,12 @@
 							accesskey="5" title="">회원가입</a></li>
 					</c:if>
 
-	
-
 					<c:if test="${not empty sessionScope.u_id }">
 
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #FFBFAB; font-size: 20px; color: #625772"
-							title="">로그아웃</a></li>
+							title="" id="logout_btn">로그아웃</a></li>
 
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/UpdateGetController"	

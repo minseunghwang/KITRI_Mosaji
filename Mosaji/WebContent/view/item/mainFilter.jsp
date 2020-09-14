@@ -58,35 +58,13 @@
 }
 
 .i_brand, .i_name, .i_volume{
-<<<<<<< HEAD
-	display : inline;
-	width : 350px;
-    height : 20px;
-    left : 20%;
-    text-align : left;
-    margin-left : 10%;
-} 
-=======
+
 	text-align :left;
     left:20%;
     margin-left : 30px;
 }
->>>>>>> refs/remotes/origin/master
 
-<<<<<<< HEAD
-.i_name{
-	font-size:18px;
-}
 
-.i_brand{
-	font-size:13px;
-}
-
-.i_volume{
-	font-size:14px;
-}
-
-=======
 .i_brand{
 	color : #d0021b;
 	font-size:13px;
@@ -112,7 +90,6 @@
 .star-rating,.star-rating span {display:inline-block; height:14px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star80.png)no-repeat; }
 .star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
 	
->>>>>>> refs/remotes/origin/master
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

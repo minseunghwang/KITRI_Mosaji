@@ -55,7 +55,7 @@ public class Wishlist1 {
 		this.u_id = u_id;
 	}
 	
-	public Wishlist1(int rownum, int w_no, int i_no, String i_name, String i_content, String i_img) {
+	public Wishlist1(int rownum, int w_no, int i_no, String i_name, String i_content, String i_img, int i_price) {
 		super();
 		this.rownum = rownum;
 		this.w_no = w_no;
@@ -63,6 +63,7 @@ public class Wishlist1 {
 		this.i_name = i_name;
 		this.i_content = i_content;
 		this.i_img = i_img;
+		this.i_price = i_price;
 	}
 	
 	
