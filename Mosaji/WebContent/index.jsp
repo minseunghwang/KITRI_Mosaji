@@ -374,7 +374,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
+						onclick="location.href('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
 				</div>
 			</div>
 

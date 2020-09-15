@@ -120,6 +120,9 @@ public class DaoImpl implements Dao {
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
 						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
 			}
+			for(Item a:data) {
+				System.out.println(a);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -383,4 +386,51 @@ public class DaoImpl implements Dao {
 		}
 		return data;
 	}
+	
+	@Override
+		public void update(Item i) {
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			System.out.println(i.getI_no());
+			System.out.println(i.getI_name());
+			System.out.println(i.getI_volume());
+			System.out.println(i.getI_category1());
+			System.out.println(i.getI_category2());
+			System.out.println(i.getI_gender());
+			System.out.println(i.getI_age());
+				
+			String sql = "UPDATE mosaji_item SET i_name = ?, i_volume = ?, i_category1 = ?, i_category2 = ?, i_content = ?, i_brand = ?, i_gender = ?, i_age = ?, i_skintype = ?, i_price = ?, i_img = ? WHERE i_no = ?";
+			System.out.println(sql);
+			try {
+				conn = db.getConnection();
+				pstmt = conn.prepareStatement(sql);
+//				pstmt.setInt(1, i.getI_no());
+				pstmt.setString(1, i.getI_name());
+				pstmt.setString(2, i.getI_volume());
+				pstmt.setString(3, i.getI_category1());
+				pstmt.setString(4, i.getI_category2());
+				pstmt.setString(5, i.getI_content());
+				pstmt.setString(6, i.getI_brand());
+				pstmt.setString(7, i.getI_gender());
+				pstmt.setInt(8, i.getI_age());
+				pstmt.setString(9, i.getI_skintype());
+				pstmt.setInt(10, i.getI_price());
+				pstmt.setString(11, i.getI_img());
+				pstmt.setInt(12, i.getI_no());
+				
+				pstmt.executeUpdate();
+				System.out.println("1");
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+	
 }
