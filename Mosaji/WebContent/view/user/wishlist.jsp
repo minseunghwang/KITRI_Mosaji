@@ -90,8 +90,8 @@
 			<div class="row">
 				<div class="offset-md-3 col-md-6">
 					<a id="kakao-link-btn" href="javascript:sendLink()"> <input
-						type="button" class="btn btn-outline-warning"
-						style="float: left; margin-top: 10px; margin-right: 10px"
+						type="button" class="btn btn-warning"
+						style="color: white; float: left; margin-top: 10px; margin-right: 10px"
 						value="카카오톡 공유하기">
 					</a>
 
