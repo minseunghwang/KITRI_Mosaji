@@ -21,7 +21,6 @@
 <style>
 	#copyright {
 		bottom : 0;
-		position : fixed;
 		width: 100%;
 	}
 </style>
@@ -34,7 +33,7 @@
 	<!-- 		<div class="row" style="position: relative; top: 100px;"> -->
 	<!-- 			<div class="col-lg-1"></div> -->
 	<!-- /.col-lg-3 -->
-	<div class="container" style="margin-top: 5%">
+	<div class="container" style="margin-top: 5%;min-height: 500px;">
 		<div class="row">
 			<div class="col-md-8 offset-md-2" style="text-align: center;">
 
