@@ -46,14 +46,17 @@
 	});
 
 </script>
-
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div id="body" style="min-height: 570px; margin-top:100px; margin-bottom:100px;">
+	
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div id="body" >
+<!-- 	style="min-height: 570px; margin-top:100px; margin-bottom:100px;" -->
 
 		<c:if test="${not empty wishlist }">
-			<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
+			<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> 찜 목록  </h3>
+			<div class="p-3 mb-2 bg-white text-dark"></div>
 			<div class="row" >
 				<div class="offset-md-3 col-md-6" style="text-align: center;">
 					<table class="table">
@@ -87,7 +90,7 @@
 			<div class="row">
 				<div class="offset-md-3 col-md-6">
 					<a id="kakao-link-btn" href="javascript:sendLink()"> <input
-						type="button" class="btn btn-outline-secondary"
+						type="button" class="btn btn-outline-warning"
 						style="float: left; margin-top: 10px; margin-right: 10px"
 						value="카카오톡 공유하기">
 					</a>

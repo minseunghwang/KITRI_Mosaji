@@ -13,10 +13,12 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="container" style="min-height: 610px; margin-top:100px; margin-bottom:70px;">
+	<div class="container" >
+<!-- 	style="min-height: 610px; margin-top:100px; margin-bottom:70px;" -->
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 		<h3
 			style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
-			✨내가 쓴 리뷰✨</h3>
+			내가 쓴 리뷰</h3>
 		<!-- 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3> -->
 		<div class="row" style="margin-top:40px;">
 			<table class="table" style="table-layout: fixed; table-layout: fixed;">
