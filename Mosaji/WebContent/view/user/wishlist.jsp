@@ -25,34 +25,44 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	
 </script>
 <script>
-	$(document).ready(function() {
-		var zzim_str = "";
-		$("#del_btn").click(function() {
-			var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
-			if(confirmflag){
-				$("input[name=del]:checked").each(function() {
-					zzim_str += ($(this).val());
-					zzim_str += ",";
-				});
-				
-				location.href = "/Mosaji/WishDeleteController?zzim_str="+zzim_str;
-			}
-		});
-		
-		
-	});
+	$(document)
+			.ready(
+					function() {
+						var zzim_str = "";
+						$("#del_btn")
+								.click(
+										function() {
+											var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
+											if (confirmflag) {
+												$("input[name=del]:checked")
+														.each(
+																function() {
+																	zzim_str += ($(this)
+																			.val());
+																	zzim_str += ",";
+																});
+
+												location.href = "/Mosaji/WishDeleteController?zzim_str="
+														+ zzim_str;
+											}
+										});
+
+					});
 </script>
 
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	
+
 	<div id="body" style="min-height: 570px;">
 		<c:if test="${not empty wishlist }">
-			<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
-			<div class="row" >
+			<h3
+				style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
+				✨찜 목록✨</h3>
+			<div class="row">
 				<div class="offset-md-3 col-md-6">
 					<table class="table">
 						<thead>
@@ -65,15 +75,22 @@
 							</tr>
 						</thead>
 						<tbody id="zzim">
-								<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
+							<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
 								<tr>
-	<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
-									<th><a style="color: gray;" >${status.count }</a></th>
-									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }"></a></th>
-									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
-									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_price }</a></th>
+									<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
+									<th><a style="color: #625772;">${status.count }</a></th>
+									<th><a
+										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
+										style="color: gray;"><img src="${wishlist.i_img }"></a></th>
+									<th><a
+										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
+										style="color: #625772;">${wishlist.i_name }</a></th>
+									<th><a
+										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
+										style="color: #625772;">${wishlist.i_price }</a></th>
 									<th><input type="checkbox" name="del"
-										value="${wishlist.w_no }"></th>
+										value="${wishlist.w_no }"
+										style="color: #625772;"></th>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -83,19 +100,19 @@
 				</div>
 			</div>
 			<div class="row">
-			<div class="offset-md-3 col-md-6">
-				<a id="kakao-link-btn" href="javascript:sendLink()"> 
-				<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
-				</a>
+				<div class="offset-md-3 col-md-6">
+					<a id="kakao-link-btn" href="javascript:sendLink()"> <input
+						type="button" class="btn btn-secondary" value="카카오톡 공유하기">
+					</a>
+				</div>
 			</div>
-		</div>
-	
+
 		</c:if>
 		<c:if test="${empty wishlist}">
 			<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
 		</c:if>
-	</div>	
-	<%@ include file="/view/common/footer.jsp"%>
+	</div>
+
 
 	<script type='text/javascript'>
 		//<![CDATA[
@@ -138,6 +155,6 @@
 				});
 		//]]>
 	</script>
-
+	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
