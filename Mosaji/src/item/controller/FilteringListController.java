@@ -44,11 +44,6 @@ public class FilteringListController extends HttpServlet {
 		String[] skintype =request.getParameterValues("stype_arr[]");
 		
 		ArrayList<Item> item = service.AfterFilter(category2, gender, age, skintype);
-		System.out.println("filterlinglistController");
-		for(Item a:item) {
-			System.out.println(a);
-			System.out.println("이미지!!! : " + a.getI_img());
-		}
 		
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");

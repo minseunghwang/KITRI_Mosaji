@@ -146,8 +146,8 @@
                      <div class="form-group">
                         <select class="custom-select" name="i_gender" id="i_gender">
                            <option value="" disabled selected hidden>추천 성별</option>
-                           <option value="남자">남자</option>
-                           <option value="여자">여자</option>
+                           <option value="남">남자</option>
+                           <option value="여">여자</option>
                       	</select>
                      </div>
 
