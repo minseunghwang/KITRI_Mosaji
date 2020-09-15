@@ -28,42 +28,34 @@
 	
 </script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						var zzim_str = "";
-						$("#del_btn")
-								.click(
-										function() {
-											var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
-											if (confirmflag) {
-												$("input[name=del]:checked")
-														.each(
-																function() {
-																	zzim_str += ($(this)
-																			.val());
-																	zzim_str += ",";
-																});
+	$(document).ready(function() {
+		var zzim_str = "";
+		$("#del_btn").click(function() {
+			var confirmflag = confirm("정말 삭제하시겠습니까?");
+			if(confirmflag){
+				$("input[name=del]:checked").each(function() {
+					zzim_str += ($(this).val());
+					zzim_str += ",";
+				});
+				
+				location.href = "/Mosaji/WishDeleteController?zzim_str="+zzim_str;
+			}
+		});
+		
+		
+	});
 
-												location.href = "/Mosaji/WishDeleteController?zzim_str="
-														+ zzim_str;
-											}
-										});
-
-					});
 </script>
 
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div id="body" style="min-height: 570px; margin-top:100px; margin-bottom:100px;">
 
-	<div id="body" style="min-height: 570px;">
 		<c:if test="${not empty wishlist }">
-			<h3
-				style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
-				✨찜 목록✨</h3>
-			<div class="row">
-				<div class="offset-md-3 col-md-6">
+			<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
+			<div class="row" >
+				<div class="offset-md-3 col-md-6" style="text-align: center;">
 					<table class="table">
 						<thead>
 							<tr>
@@ -77,17 +69,12 @@
 						<tbody id="zzim">
 							<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
 								<tr>
-									<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
-									<th><a style="color: #625772;">${status.count }</a></th>
-									<th><a
-										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
-										style="color: gray;"><img src="${wishlist.i_img }"></a></th>
-									<th><a
-										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
-										style="color: #625772;">${wishlist.i_name }</a></th>
-									<th><a
-										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
-										style="color: #625772;">${wishlist.i_price }</a></th>
+	<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
+									<th><a style="color: gray;" >${status.count }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }" style="width:80px; height:70px;"></a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
+									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_price }</a></th>
+
 									<th><input type="checkbox" name="del"
 										value="${wishlist.w_no }" style="color: #625772;"></th>
 								</tr>

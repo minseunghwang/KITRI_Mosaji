@@ -13,13 +13,13 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="container" style="min-height: 610px;">
+	<div class="container" style="min-height: 610px; margin-top:100px; margin-bottom:70px;">
 		<h3
 			style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
 			✨내가 쓴 리뷰✨</h3>
 		<!-- 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3> -->
-		<div class="row">
-			<table class="table" style="table-layout: fixed">
+		<div class="row" style="margin-top:40px;">
+			<table class="table" style="table-layout: fixed; table-layout: fixed;">
 				<thead>
 					<tr>
 						<th scope="col" style="color: gray;">번호</th>
@@ -37,8 +37,8 @@
 							<td style="color: gray;">${status.count}</td>
 							<td><a
 								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
-								style="color: gray;"><img
-									src="${myreview.i_img }"></a></td>
+								style="color: gray; "><img
+									src="${myreview.i_img }" style="width:80px; height:70px;"></a></td>
 							<td><a
 								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
 								style="color: #625772;">${myreview.i_name }</a></td>
