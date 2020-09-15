@@ -89,24 +89,33 @@
 										href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }"
 										style="color: #625772;">${wishlist.i_price }</a></th>
 									<th><input type="checkbox" name="del"
-										value="${wishlist.w_no }"
-										style="color: #625772;"></th>
+										value="${wishlist.w_no }" style="color: #625772;"></th>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
-					<button id="del_btn"
-						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+
+					<!-- 					<button id="del_btn" type="button" class="btn btn-outline-secondary" -->
+					<!-- 						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button> -->
+
 				</div>
 			</div>
 			<div class="row">
 				<div class="offset-md-3 col-md-6">
 					<a id="kakao-link-btn" href="javascript:sendLink()"> <input
-						type="button" class="btn btn-secondary" value="카카오톡 공유하기">
+						type="button" class="btn btn-outline-secondary"
+						style="float: left; margin-top: 10px; margin-right: 10px"
+						value="카카오톡 공유하기">
 					</a>
+
+					<button id="del_btn" type="button"
+						class="btn btn-outline-secondary"
+						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+
 				</div>
 			</div>
-
+			<div class="p-3 mb-2 bg-white text-dark"></div>
+			<div class="p-3 mb-2 bg-white text-dark"></div>
 		</c:if>
 		<c:if test="${empty wishlist}">
 			<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
@@ -126,7 +135,7 @@
 					content : {
 						title : '모사지 - 선물추천 웹사이트',
 						description : '#모사지 #선물추천 #선물 #내놔 ',
-// 						imageUrl : 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+						// 						imageUrl : 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
 						imageUrl : '../../resources/images/logo_5.png',
 						link : {
 							mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
