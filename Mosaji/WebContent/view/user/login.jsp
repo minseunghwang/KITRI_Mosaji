@@ -27,7 +27,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="p-3 mb-2 bg-white text-dark"></div>
+	
 	<!--  긁어옴 -->
 	<!-- 	<div class="container"> -->
 	<!-- 		<div class="row" style="position: relative; top: 100px;"> -->
@@ -66,8 +66,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="p-3 mb-2 bg-white text-dark"></div>
-
+	
+<div class="p-3 mb-2 bg-white text-white" style="color:white;">.</div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
