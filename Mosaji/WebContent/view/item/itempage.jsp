@@ -181,6 +181,7 @@ h2 {
 					</tr>
 				</tbody>
 			</table>
+			<div class="row">
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
@@ -190,11 +191,12 @@ h2 {
 			</form>
 			<button type="button" class="btn btn-outline-secondary naverbtn"
 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')"
-				style="color: #08cf5f; border-color: #08cf5f;">네이버 쇼핑연결</button>
+				style="color: #08cf5f; border-color: #08cf5f; margin-top: 50px; margin-left: 5px;">네이버 쇼핑연결</button>
 
 			<button type="button" class="btn btn-outline-info searchbtn"
-				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}')">브랜드
+				style="margin-top: 50px;" onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}')">브랜드
 				명으로 검색하기</button>
+				</div>
 			<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
 			<%-- 				<input type="hidden" value="${i.i_no }"> --%>
 			<!-- 				<input type="text" name="o_qty" value="1">  -->
@@ -203,7 +205,7 @@ h2 {
 			<%-- 				<input type="hidden" value="${sessionScope.u_id }"> --%>
 			<!-- 				<input type="submit" value="주문"> -->
 			<!-- 			</form> -->
-
+		
 		</div>
 
 		<c:if test="${sessionScope.u_id eq 'admin' }">
@@ -268,8 +270,14 @@ h2 {
 							</div>
 
 							<div class="col-md-4">
+								<c:if test="${not empty sessionScope.u_id }">
 								<input type="submit" class="btn btn-primary" value="등록"
 									style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" />
+								</c:if>
+								<c:if test="${empty sessionScope.u_id }">
+									<input type="button" class="btn btn-primary" value="로그인 해주세요"
+									style="width: 100%; float: right;" onclick="location.href='/Mosaji/view/user/login.jsp'"/>
+								</c:if>
 							</div>
 						</div>
 					</form>

@@ -94,6 +94,7 @@
 					<br>
 					  <div class="form-group">
 					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지" value="${i.i_img }">
+<%-- 					  	<img src="${i.i_img }" alt="등록된 이미지 없음"> --%>
 					  </div>
 					  <br>
 
@@ -204,12 +205,12 @@
                            <option value="" disabled selected hidden>추천 성별</option>
                            <c:if test="${i.i_gender == '남' }">
                            
-                           <option value="남자" selected>남자</option>
-                           <option value="여자">여자</option>
+                           <option value="남" selected>남자</option>
+                           <option value="여">여자</option>
                            </c:if>
                            <c:if test="${i.i_gender == '여' }">
-                           <option value="남자">남자</option>
-                           <option value="여자" selected>여자</option>
+                           <option value="남">남자</option>
+                           <option value="여" selected>여자</option>
                            </c:if>
 <!--                            <option value="남자">남자</option> -->
 <!--                            <option value="여자">여자</option> -->
