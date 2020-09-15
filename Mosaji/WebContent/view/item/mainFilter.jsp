@@ -429,13 +429,9 @@
 			</p>
 		</div>
 	</div>
-<<<<<<< HEAD
- 
- 	<%@ include file="/view/common/footer.jsp"%>
-=======
+
 	
 	<%@ include file="/view/common/footer.jsp"%>
->>>>>>> branch 'master' of https://github.com/minseunghwang/KITRI_Mosaji
 </body>
 
 	<script src="<%=request.getContextPath()%>/resources/jquery.nicelabel.js"></script>
