@@ -141,6 +141,38 @@
                      	 <div class="form-group">
 							<select class="custom-select" name="i_category2" id="i_category2">
 								<option value="" disabled selected hidden>카테고리2</option>
+								
+								<c:if test="${i.i_category2 == '피니시파우더' }">
+								<option value="피니시파우더" selected>피니시파우더</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '파운데이션' }">
+								<option value="파운데이션" selected>파운데이션</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '컨실러' }">
+								<option value="컨실러" selected>컨실러</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '마스카라' }">
+								<option value="마스카라" selected>마스카라</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '섀도우' }">
+								<option value="섀도우" selected>섀도우</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '틴트' }">
+								<option value="틴트" selected>틴트</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '립스틱' }">
+								<option value="립스틱" selected>립스틱</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '스킨/토너' }">
+								<option value="스킨/토너" selected>스킨/토너</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '로션/에센스' }">
+								<option value="로션/에센스" selected>로션/에센스</option>
+								</c:if>
+								<c:if test="${i.i_category2 == '크림' }">
+								<option value="크림" selected>크림</option>
+								</c:if>
+
 							</select>
 						</div>
 						

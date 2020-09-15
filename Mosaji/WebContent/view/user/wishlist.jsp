@@ -25,6 +25,7 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	
 </script>
 <script>
 	$(document).ready(function() {
@@ -43,13 +44,14 @@
 		
 		
 	});
+
 </script>
 
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	
 	<div id="body" style="min-height: 570px; margin-top:100px; margin-bottom:100px;">
+
 		<c:if test="${not empty wishlist }">
 			<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨찜 목록✨  </h3>
 			<div class="row" >
@@ -65,37 +67,45 @@
 							</tr>
 						</thead>
 						<tbody id="zzim">
-								<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
+							<c:forEach var="wishlist" items="${wishlist }" varStatus="status">
 								<tr>
 	<%-- 								<th><a style="color: gray;" >${wishlist.rownum }</a></th> --%>
 									<th><a style="color: gray;" >${status.count }</a></th>
 									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;" ><img src="${wishlist.i_img }" style="width:80px; height:70px;"></a></th>
 									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a></th>
 									<th><a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: gray;">${wishlist.i_price }</a></th>
+
 									<th><input type="checkbox" name="del"
-										value="${wishlist.w_no }"></th>
+										value="${wishlist.w_no }" style="color: #625772;"></th>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
-					<button id="del_btn"
-						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+
 				</div>
 			</div>
 			<div class="row">
-			<div class="offset-md-3 col-md-6">
-				<a id="kakao-link-btn" href="javascript:sendLink()"> 
-				<input type="button" class="btn btn-secondary" value="카카오톡 공유하기">
-				</a>
+				<div class="offset-md-3 col-md-6">
+					<a id="kakao-link-btn" href="javascript:sendLink()"> <input
+						type="button" class="btn btn-outline-secondary"
+						style="float: left; margin-top: 10px; margin-right: 10px"
+						value="카카오톡 공유하기">
+					</a>
+
+					<button id="del_btn" type="button"
+						class="btn btn-outline-secondary"
+						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button>
+
+				</div>
 			</div>
-		</div>
-	
+			<div class="p-3 mb-2 bg-white text-dark"></div>
+			<div class="p-3 mb-2 bg-white text-dark"></div>
 		</c:if>
 		<c:if test="${empty wishlist}">
 			<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
 		</c:if>
-	</div>	
-	<%@ include file="/view/common/footer.jsp"%>
+	</div>
+
 
 	<script type='text/javascript'>
 		//<![CDATA[
@@ -109,10 +119,11 @@
 					content : {
 						title : '모사지 - 선물추천 웹사이트',
 						description : '#모사지 #선물추천 #선물 #내놔 ',
-						imageUrl : 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+						// 						imageUrl : 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+						imageUrl : '../../resources/images/logo_5.png',
 						link : {
-							mobileWebUrl : 'http://localhost:8080/Mosaji/WishlistController',
-							webUrl : 'http://localhost:8080/Mosaji/WishlistController'
+							mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
+							webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
 						}
 					},
 					social : {
@@ -124,20 +135,20 @@
 							{
 								title : '웹으로 보기',
 								link : {
-									mobileWebUrl : 'http://localhost:8080/Mosaji/WishlistController',
-									webUrl : 'http://localhost:8080/Mosaji/WishlistController'
+									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
+									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
 								}
 							},
 							{
 								title : '앱으로 보기',
 								link : {
-									mobileWebUrl : 'http://localhost:8080/Mosaji/WishlistController',
-									webUrl : 'http://localhost:8080/Mosaji/WishlistController'
+									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
+									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
 								}
 							} ]
 				});
 		//]]>
 	</script>
-
+	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

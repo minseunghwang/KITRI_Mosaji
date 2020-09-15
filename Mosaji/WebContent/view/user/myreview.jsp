@@ -13,36 +13,43 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="container" style="min-height:610px; margin-top:100px; margin-bottm:100px;">
-		<h3 style="text-align: center; margin-bottom:50px;">내가쓴 리뷰</h3>
+	<div class="container" style="min-height: 610px;">
+		<h3
+			style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
+			✨내가 쓴 리뷰✨</h3>
+		<!-- 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3> -->
 		<div class="row">
 			<table class="table" style="table-layout: fixed; table-layout: fixed;">
 				<thead>
 					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">상품 이미지</th>
-						<th scope="col">상품 이름</th>
-						<th scope="col">리뷰 내용</th> 
-						<th scope="col">내가준 평점</th>
-						<th scope="col">등록일</th>
+						<th scope="col" style="color: gray;">번호</th>
+						<th scope="col" style="color: gray;">상품 이미지</th>
+						<th scope="col" style="color: gray;">상품 이름</th>
+						<th scope="col" style="color: gray;">리뷰 내용</th>
+						<th scope="col" style="color: gray;">내가준 평점</th>
+						<th scope="col" style="color: gray;">등록일</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="myreview" items="${myreview }" varStatus="status">
 						<tr>
 							<%-- 							<td>${myreview.rownum }</td> --%>
-							<td>${status.count }</td>
+							<td style="color: gray;">${status.count}</td>
 							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"><img
-									src="${myreview.i_img }" style="width:80px; height:70px;"></a></td>
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
+								style="color: gray;"><img
+									src="${myreview.i_img }"></a></td>
 							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.i_name }</a></td>
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
+								style="color: #625772;">${myreview.i_name }</a></td>
 							<td
 								style="text-overflow: ellipsis; overflow: hidden; white-space: pre;"><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_content }</a></td>
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
+								style="color: #625772;">${myreview.r_content }</a></td>
 							<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
 							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"> <c:choose>
+								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
+								style="color: #625772;"> <c:choose>
 										<c:when test="${myreview.r_star == 5 }">
 											<img
 												src="${pageContext.request.contextPath }/resources/images/star5.png"
@@ -70,13 +77,13 @@
 										</c:when>
 									</c:choose>
 							</a></td>
-							<td>${myreview.r_date }</td>
+							<td style="color: #625772;">${myreview.r_date}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 			<c:if test="${empty myreview}">
-						<div style="width: 100%;text-align: center;">작성한 리뷰가 없습니다.</div>
+				<div style="width: 100%; text-align: center;">작성한 리뷰가 없습니다.</div>
 			</c:if>
 		</div>
 	</div>
