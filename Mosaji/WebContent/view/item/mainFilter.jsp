@@ -86,8 +86,6 @@
 	color : black;
 	font-family : 'Jua', sans-serif;
 }
-
-
 .star-rating {width:80px; }
 .star-rating,.star-rating span {display:inline-block; height:14px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star80.png)no-repeat; }
 .star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
@@ -115,7 +113,7 @@
     		var html;
     		html = "<div class='boxA' style='width:100%'>";
     		html += "<div class=' element_0'>" + (i+1) + "</div>";
-    		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+    		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='"+arr[i].i_img+"' style='width:100px;height:100px;'></div></div>";
     		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
     		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
@@ -158,8 +156,6 @@
 			});
 		}
 		
-
-		
 		$.ajax({
 	        url: '${pageContext.request.contextPath }/FilteringListController',
 	        type: 'POST',
@@ -171,16 +167,11 @@
 	        	stype_arr : stype_arr
 	        },
 	        success: function(result){
-				var arr = $.parseJSON(result);
+	        	var arr = $.parseJSON(result);
+	        	alert(arr[0].i_img);
 				$(".itemList").empty();
 	        	makeTbl(arr);
 			}
-	        
-	        
-	        
-	        
-	        
-	        
 		});
 		
 		return true;
@@ -438,8 +429,13 @@
 			</p>
 		</div>
 	</div>
+<<<<<<< HEAD
  
  	<%@ include file="/view/common/footer.jsp"%>
+=======
+	
+	<%@ include file="/view/common/footer.jsp"%>
+>>>>>>> branch 'master' of https://github.com/minseunghwang/KITRI_Mosaji
 </body>
 
 	<script src="<%=request.getContextPath()%>/resources/jquery.nicelabel.js"></script>

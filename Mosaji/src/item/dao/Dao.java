@@ -18,5 +18,7 @@ public interface Dao {
 	void avg(int i_no);
 	
 	ArrayList<Item> search(String keyword);
+	
+	void update(Item i);
 
 }

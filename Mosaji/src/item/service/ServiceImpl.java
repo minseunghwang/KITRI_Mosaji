@@ -61,7 +61,11 @@ public class ServiceImpl implements Service{
 		return dao.search(keyword);
 	}
 
-
+	@Override
+	public void update(Item i) {
+		dao.update(i);
+		
+	}
 
 
 

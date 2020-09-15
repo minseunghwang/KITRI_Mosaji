@@ -58,11 +58,26 @@
 
 							<div class="form-group" style="text-align: center;">
 								<div class="btn-group" data-toggle="buttons">
+								<c:if test="${u.u_gender == '남자' }">
 									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="남자">남자
+										name="u_gender" autocomplete="off" value="남자" checked="checked">남자
 									</label> <label class="btn btn-secondary"> <input type="radio"
 										name="u_gender" autocomplete="off" value="여자">여자
 									</label>
+								</c:if>
+								<c:if test="${u.u_gender == '여자' }">
+									<label class="btn btn-secondary"> <input type="radio"
+										name="u_gender" autocomplete="off" value="남자">남자
+									</label> <label class="btn btn-secondary"> <input type="radio"
+										name="u_gender" autocomplete="off" value="여자" checked="checked">여자
+									</label>
+								</c:if>
+								
+<!-- 									<label class="btn btn-secondary"> <input type="radio" -->
+<!-- 										name="u_gender" autocomplete="off" value="남자">남자 -->
+<!-- 									</label> <label class="btn btn-secondary"> <input type="radio" -->
+<!-- 										name="u_gender" autocomplete="off" value="여자">여자 -->
+<!-- 									</label> -->
 								</div>
 							</div>
 							<div class="form-group">
@@ -75,11 +90,46 @@
 							<div class="form-group">
 								<select class="form-control" name="u_skintype" id="u_skintype">
 									<option value=""  disabled selected hidden >피부타입 선택하기</option>
-									<option value="건성">건성</option>
+									<c:if test="${u.u_skintype == '건성' }">
+									<option value="건성" selected>건성</option>
 									<option value="지성">지성</option>
 									<option value="중성">중성</option>
 									<option value="복합성">복합성</option>
 									<option value="민감성">민감성</option>
+									</c:if>
+									<c:if test="${u.u_skintype == '지성' }">
+									<option value="건성">건성</option>
+									<option value="지성" selected>지성</option>
+									<option value="중성">중성</option>
+									<option value="복합성">복합성</option>
+									<option value="민감성">민감성</option>
+									</c:if>
+									<c:if test="${u.u_skintype == '중성' }">
+									<option value="건성">건성</option>
+									<option value="지성">지성</option>
+									<option value="중성" selected>중성</option>
+									<option value="복합성">복합성</option>
+									<option value="민감성">민감성</option>
+									</c:if>
+									<c:if test="${u.u_skintype == '복합성' }">
+									<option value="건성">건성</option>
+									<option value="지성">지성</option>
+									<option value="중성">중성</option>
+									<option value="복합성" selected>복합성</option>
+									<option value="민감성">민감성</option>
+									</c:if>
+									<c:if test="${u.u_skintype == '민감성' }">
+									<option value="건성">건성</option>
+									<option value="지성">지성</option>
+									<option value="중성">중성</option>
+									<option value="복합성">복합성</option>
+									<option value="민감성" selected>민감성</option>
+									</c:if>
+<!-- 									<option value="건성">건성</option> -->
+<!-- 									<option value="지성">지성</option> -->
+<!-- 									<option value="중성">중성</option> -->
+<!-- 									<option value="복합성">복합성</option> -->
+<!-- 									<option value="민감성">민감성</option> -->
 								</select>
 							</div>
 							
