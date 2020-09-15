@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import wishlist.model.Wishlist;
 import wishlist.model.Wishlist1;
+import wishlist.model.WishlistDuplication;
 
 public interface WishlistService {
 	
@@ -17,5 +18,7 @@ public interface WishlistService {
 	void insert(Wishlist1 wishlist1);
 	
 	void DeleteWishList(String[] zzim_arr);
+	
+	WishlistDuplication check(String u_id, int i_no);
 	
 }

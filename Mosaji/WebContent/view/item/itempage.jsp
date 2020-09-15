@@ -142,7 +142,7 @@ h2 {
 					<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
 				</div>
 			</div>
-			<istar>${i.i_star }</istar>
+			<istar>(${reviewcount.allCount}) ${i.i_star }</istar>
 
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
@@ -182,6 +182,7 @@ h2 {
 				</tbody>
 			</table>
 			<div class="row">
+			<c:if test="${wishlistduplication.duplicationCheck == 0 }">
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
@@ -189,6 +190,14 @@ h2 {
 					onclick="alert('찜완료')" style="margin-top: 50px;">찜하기</button>
 
 			</form>
+			</c:if>
+			<c:if test="${wishlistduplication.duplicationCheck != 0 }">
+				
+				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
+				<button type="button" class="btn btn-danger"
+					onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;">찜 두번 안돼요</button>
+
+			</c:if>
 			<button type="button" class="btn btn-outline-secondary naverbtn"
 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')"
 				style="color: #08cf5f; border-color: #08cf5f; margin-top: 50px; margin-left: 5px;">네이버 쇼핑연결</button>
