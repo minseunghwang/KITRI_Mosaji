@@ -214,6 +214,12 @@
 		right: -17px !important;
 	}
 }
+.card-img, .card-img-bottom, .card-img-topp {
+	flex-shrink : 0;
+	width : 80%;
+	margin-left : 10%;
+	margin-top : 15%;
+}
 </style>
 </head>
 
@@ -594,7 +600,7 @@
 	<div class="container">
 		<div class="card-deck">
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (2).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -606,7 +612,7 @@
 
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (9).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -616,7 +622,7 @@
 			</div>
 
 			<div class="card" style="width: 10rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (6).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -626,7 +632,7 @@
 			</div>
 
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (15).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -635,7 +641,7 @@
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (12).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -649,7 +655,7 @@
 	<div class="container">
 		<div class="card-deck">
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (30).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -659,7 +665,7 @@
 
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (28).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -669,7 +675,7 @@
 			</div>
 
 			<div class="card" style="width: 10rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (29).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -679,7 +685,7 @@
 			</div>
 
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (5).png"
 					alt="Card image cap">
 				<div class="card-body">
@@ -688,7 +694,7 @@
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
+				<img class="card-img-topp"
 					src="${pageContext.request.contextPath }/resources/images/index (11).png"
 					alt="Card image cap">
 				<div class="card-body">

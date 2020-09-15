@@ -195,7 +195,7 @@ h2 {
 				
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
 				<button type="button" class="btn btn-danger"
-					onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;">찜 두번 안돼요</button>
+					onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;">찜완료</button>
 
 			</c:if>
 			<button type="button" class="btn btn-outline-secondary naverbtn"
