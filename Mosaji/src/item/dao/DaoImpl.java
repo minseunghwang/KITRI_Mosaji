@@ -55,7 +55,7 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype) {
-		System.out.println(category2 + "," + gender + "," + age + "," + skintype);
+	
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
 			gen.add("남");
@@ -95,8 +95,7 @@ public class DaoImpl implements Dao {
 			sql += "and i_category2 = '";
 			sql += category2;
 			sql += "'";
-
-
+			
 			pstmt = conn.prepareStatement(sql);
 
 			for (int i = 0; i < gen.size(); i++) {

@@ -105,7 +105,7 @@
     		var html;
     		html = "<div class='boxA' style='width:100%'>";
     		html += "<div class=' element_0'>" + (i+1) + "</div>";
-    		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='arr[i].i_img' style='width:100px;height:100px;'></div></div>";
+    		html += "<a href=${pageContext.request.contextPath }/ItemDetailController?i_no="+arr[i].i_no+"><div class='element_1'><div class='i_element i_img'><img src='"+arr[i].i_img+"' style='width:100px;height:100px;'></div></div>";
     		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
     		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
@@ -159,16 +159,11 @@
 	        	stype_arr : stype_arr
 	        },
 	        success: function(result){
-				var arr = $.parseJSON(result);
+	        	var arr = $.parseJSON(result);
+	        	alert(arr[0].i_img);
 				$(".itemList").empty();
 	        	makeTbl(arr);
 			}
-	        
-	        
-	        
-	        
-	        
-	        
 		});
 		
 		return true;
@@ -283,7 +278,7 @@
 							<legend style="text-align: left; margin-left:10px;">성별</legend>
 							<div class="row"  style=" margin-right:10px;">
 								<div class="col"><input type="radio" name="genderRadio" value="1" checked="checked"> 전체</div>
-								<div class="col"><input type="radio" cname="genderRadio" value="2"> 여자</div>
+								<div class="col"><input type="radio" name="genderRadio" value="2"> 여자</div>
 								<div class="col"><input type="radio" name="genderRadio" value="3"> 남자</div>
 							</div>
 						</fieldset>

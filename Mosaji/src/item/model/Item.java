@@ -15,6 +15,10 @@ public class Item {
 	private int i_price;
 	private float i_star;
 	private String i_img;
+	
+	
+	public Item() {}
+	
 	public Item(int i_no, String i_name, String i_volume, String i_category1, String i_category2, String i_content,
 			String i_brand, String i_gender, int i_age, String i_skintype, int i_price, float i_star, String i_img) {
 		super();

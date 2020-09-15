@@ -46,7 +46,8 @@ public class UploadController extends HttpServlet {
 
 //		String directory = request.getRealPath("/fileFolder");
 		String directory = "C:\\Users\\peduk\\git\\KITRI_Mosaji_Final\\Mosaji\\WebContent\\fileFolder";
-
+//		String directory = "C:\Users\KITRI\git\Mosaji_project\Mosaji\WebContent\fileFolder";
+		
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
 
