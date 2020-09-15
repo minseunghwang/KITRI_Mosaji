@@ -236,6 +236,7 @@
 		
 		$("#category2").change(function(){
 			category2 = $(this).val();
+			$("#orderby option:eq(0)").prop("selected",true);
 		});
 		
 		$("#orderby").change(function(){
@@ -255,7 +256,7 @@
 		        }
 		    });
 			
-			$("#filter").css('visibility','hidden');
+			$("#title").html(category2 + "&nbsp 랭킹");
 		});
 		
 	});
@@ -266,16 +267,11 @@
 
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	
 
 			<div class="title" style="text-align: center; height: 5%;">
 			<br><br><br><br>
-			<h2 style="color: #625772"> ${param.category2} &nbsp; 랭킹 </h2>
+			<h2 style="color: #625772" id="title"> ${param.category2} &nbsp; 랭킹 </h2>
 			</div>
-
-
-
-
 
 	<div id="wrapper">
 		<div id="staff" class="container">
@@ -286,7 +282,7 @@
 					<hr>
 					</div>
 					<section class="filter-body">
-						<fieldset class="fieldset" style="margin-bottom:10px;">
+						<fieldset class="fieldset" style="margin-bottom:30px;">
 							<legend style="text-align: left; margin-left:10px;">성별</legend>
 	
 						<div id="text-radio" style="margin-left:10px; float:left;">
@@ -305,7 +301,7 @@
 						
 						
 						<hr>
-						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:10px; ">
+						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:30px; ">
 						<legend style="text-align: left; margin-left:10px;">연령대</legend>			
 						<div id="text-checkbox" style="margin-left:10px; float:left;">
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "전 체", "unchecked_text": "전 체"}' 
@@ -319,12 +315,12 @@
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "20대", "unchecked_text": "20대"}'
 						type="checkbox" value="20" name="f_age" />
 						</div>
-						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left;">	
+						<div id="text-checkbox" style="margin-left:40px; margin-right:10px; float:left;">	
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "30대", "unchecked_text": "30대"}'
 						type="checkbox" value="30" name="f_age"  />	
 						</div>
 						<div id="text-checkbox" style="margin-left:10px; ">	
-						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "40대 이상", "unchecked_text": "40대 이상"}'
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "40대 ↑", "unchecked_text": "40대 ↑"}'
 						type="checkbox" value="40" name="f_age" />	
 						</div>
 						</fieldset>
@@ -361,8 +357,10 @@
 
 
 					</section>
-					<button class="btn btn-secondary" style="background:#CEC3DF; border:1px solid #CEC3DF; color:#625772;"  id="f_reset_btn">초기화</button>
-					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#625772; border:1px solid #625772;" id="filter_submit" onclick="check_data()">필터 적용</button>
+					<div style="margin-bottom:20px;">
+						<button class="btn btn-secondary" style="background:#CEC3DF; border:1px solid #CEC3DF; color:#625772;"  id="f_reset_btn">초기화</button>
+						<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#625772; border:1px solid #625772;" id="filter_submit" onclick="check_data()">필터 적용</button>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -399,7 +397,9 @@
 					</div>
 					<div class="col">
 					<select  class="form-control" name="orderby" id="orderby">
-						<option value="i_star:desc">평점 높은순</option>
+						<option value="i_no:desc">==선택하세요==</option>
+						<option value="i_no:desc">최신순</option>
+						<option value="i_star:desc" selected>평점 높은순</option>
 						<option value="i_star:asc">평점 낮은순</option>
 						<option value="i_price:desc">가격 높은순</option>
 						<option value="i_price:asc">가격 낮은순</option>

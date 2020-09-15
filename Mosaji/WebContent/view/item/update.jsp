@@ -101,7 +101,6 @@
 					  </div>
 					  <br>
 
-<!--                      <form method="post" action="test.jsp"> -->
                      <div class="form-group">
                         <input type="text" class="form-control"
                            placeholder="상품이름" id="i_name" name="i_name" value="${i.i_name }">
@@ -208,12 +207,12 @@
                            <option value="" disabled selected hidden>추천 성별</option>
                            <c:if test="${i.i_gender == '남' }">
                            
-                           <option value="남" selected>남자</option>
-                           <option value="여">여자</option>
+                           <option value="남자" selected>남자</option>
+                           <option value="여자">여자</option>
                            </c:if>
                            <c:if test="${i.i_gender == '여' }">
-                           <option value="남">남자</option>
-                           <option value="여" selected>여자</option>
+                           <option value="남자">남자</option>
+                           <option value="여자" selected>여자</option>
                            </c:if>
 <!--                            <option value="남자">남자</option> -->
 <!--                            <option value="여자">여자</option> -->
