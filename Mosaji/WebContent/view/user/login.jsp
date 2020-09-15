@@ -19,21 +19,21 @@
 	}
 </script>
 <style>
-	#copyright {
-		bottom : 0;
-		width: 100%;
-	}
+#copyright {
+	bottom: 0;
+	width: 100%;
+}
 </style>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-
+	
 	<!--  긁어옴 -->
 	<!-- 	<div class="container"> -->
 	<!-- 		<div class="row" style="position: relative; top: 100px;"> -->
 	<!-- 			<div class="col-lg-1"></div> -->
 	<!-- /.col-lg-3 -->
-	<div class="container" style="margin-top: 5%;min-height: 500px;">
+	<div class="container" style="margin-top: 5%; min-height: 500px;">
 		<div class="row">
 			<div class="col-md-8 offset-md-2" style="text-align: center;">
 
@@ -66,8 +66,8 @@
 			</div>
 		</div>
 	</div>
-
-
+	
+<div class="p-3 mb-2 bg-white text-white" style="color:white;">.</div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

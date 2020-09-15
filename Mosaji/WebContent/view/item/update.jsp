@@ -94,10 +94,13 @@
 					<br>
 					  <div class="form-group">
 					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지" value="${i.i_img }">
+					  	<img src="${i.i_img }" alt="등록된 이미지 없음" style="
+    width: 300px;
+    height: 250px;
+">
 					  </div>
 					  <br>
 
-<!--                      <form method="post" action="test.jsp"> -->
                      <div class="form-group">
                         <input type="text" class="form-control"
                            placeholder="상품이름" id="i_name" name="i_name" value="${i.i_name }">

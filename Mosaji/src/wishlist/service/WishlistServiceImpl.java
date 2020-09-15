@@ -6,6 +6,7 @@ import wishlist.dao.WishlistDao;
 import wishlist.dao.WishlistDaoImpl;
 import wishlist.model.Wishlist;
 import wishlist.model.Wishlist1;
+import wishlist.model.WishlistDuplication;
 
 public class WishlistServiceImpl implements WishlistService{
 
@@ -61,5 +62,10 @@ private WishlistDao wishlistdao;
 	public void DeleteWishList(String[] zzim_arr) {
 		wishlistdao.DeleteWishList(zzim_arr);
 	}
-
+	
+	@Override
+		public WishlistDuplication check(String u_id, int i_no) {
+			// TODO Auto-generated method stub
+			return wishlistdao.check(u_id, i_no);
+		}
 }

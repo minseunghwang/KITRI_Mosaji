@@ -18,6 +18,9 @@ import review.model.Review1;
 import review.model.ReviewCount;
 import review.service.ReviewService;
 import review.service.ReviewServiceImpl;
+import wishlist.model.WishlistDuplication;
+import wishlist.service.WishlistService;
+import wishlist.service.WishlistServiceImpl;
 
 /**
  * Servlet implementation class ItemDetailController
@@ -45,25 +48,30 @@ public class ItemDetailController extends HttpServlet {
 		
 		Service itemservice = new ServiceImpl();
 		ReviewService reviewservice = new ReviewServiceImpl();
+		WishlistService wishlistservice = new WishlistServiceImpl();
 		HttpSession session = request.getSession(false);
 		String u_id = (String) session.getAttribute("u_id");
 		
 		int i_no = Integer.parseInt(request.getParameter("i_no"));
 		
-		System.out.println(u_id);
 		
 		Item i = itemservice.detail(i_no);
 		request.setAttribute("i", i);
 		
+		WishlistDuplication wishlistduplication = wishlistservice.check(u_id, i_no);
+		request.setAttribute("wishlistduplication", wishlistduplication);
+		
 
 		ArrayList<Review1> review = reviewservice.selectByi_no1(i_no);
 		request.setAttribute("review", review);
-		System.out.println("review list" + review);
 		
 
+		
+		
 		ReviewCount reviewcount = reviewservice.count(i_no);
 		request.setAttribute("reviewcount", reviewcount);
-		System.out.println(reviewcount);
+		
+		
 //		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itemDetail.jsp");
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itempage.jsp");
 		rd.forward(request, response);
