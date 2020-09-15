@@ -13,22 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import item.model.Item;
 import item.model.Item2;
 import item.service.Service;
 import item.service.ServiceImpl;
 
-
 /**
- * Servlet implementation class UploadController
+ * Servlet implementation class ItemUpdateController
  */
-@WebServlet("/UploadController")
-public class UploadController extends HttpServlet {
+@WebServlet("/ItemUpdateController")
+public class ItemUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UploadController() {
+    public ItemUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,23 +37,22 @@ public class UploadController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=UTF-8");
 		response.setCharacterEncoding("utf-8");
 		
-		Service service = new ServiceImpl();
+		Service itemservice = new ServiceImpl();
 		
-
-//		String directory = request.getRealPath("/fileFolder");
-		String directory = "C:\\Users\\peduk\\git\\KITRI_Mosaji_Final\\Mosaji\\WebContent\\fileFolder";
-//		String directory = "C:\Users\KITRI\git\Mosaji_project\Mosaji\WebContent\fileFolder";
+		String directory = "C:\\Users\\Administrator\\github\\KITRI_Mosaji\\Mosaji\\WebContent\\fileFolder";
 
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
-
 		
 		MultipartRequest multipartRequest = new MultipartRequest(request,directory, maxSize, encoding, new DefaultFileRenamePolicy());
-
+		
+		int i_no = Integer.parseInt(multipartRequest.getParameter("i_no"));
+		
 		// String fileName = multipartRequest.getOriginalFileName("i_img");
 		String fileRealName = multipartRequest.getFilesystemName("i_img" );
 		
@@ -69,11 +68,11 @@ public class UploadController extends HttpServlet {
 		String i_brand = multipartRequest.getParameter("i_brand");
 		int i_price = Integer.parseInt(multipartRequest.getParameter("i_price"));
 				
-		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+File.separator+fileRealName);
+		Item i = new Item(i_no, i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+File.separator+fileRealName);
 		
-		service.upload(i);
+		itemservice.update(i);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/upload.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController?i_no="+i_no);
 		rd.forward(request, response);
 	}
 

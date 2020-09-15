@@ -146,16 +146,14 @@ h2 {
 
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
-					<divv style="color:#e16d33">
-					<i class="fas fa-vial"></i></divv>
+					<divv style="color:#e16d33"> <i class="fas fa-vial"></i></divv>
 					<divv style="color:#6c757d!important; margin-left:20px;">등록된
 					성분이 없습니다.</divv>
 				</section>
 			</c:if>
 			<c:if test="${i.i_content != null }">
 				<section class="card-content">
-					<divv style="color:#e16d33">
-					<i class="fas fa-vial"></i>${i.i_content }
+					<divv style="color:#e16d33"> <i class="fas fa-vial"></i>${i.i_content }
 				</section>
 			</c:if>
 
@@ -197,27 +195,41 @@ h2 {
 			<button type="button" class="btn btn-outline-info searchbtn"
 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
 				명으로 검색하기</button>
-<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
-<%-- 				<input type="hidden" value="${i.i_no }"> --%>
-<!-- 				<input type="text" name="o_qty" value="1">  -->
-<!-- 				<input type="button" value="+" onClick="javascript:this.form.o_qty.value++;"> -->
-<!-- 				<input type="button" value="-" onClick="javascript:this.form.o_qty.value--;"> -->
-<%-- 				<input type="hidden" value="${sessionScope.u_id }"> --%>
-<!-- 				<input type="submit" value="주문"> -->
-<!-- 			</form> -->
+			<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
+			<%-- 				<input type="hidden" value="${i.i_no }"> --%>
+			<!-- 				<input type="text" name="o_qty" value="1">  -->
+			<!-- 				<input type="button" value="+" onClick="javascript:this.form.o_qty.value++;"> -->
+			<!-- 				<input type="button" value="-" onClick="javascript:this.form.o_qty.value--;"> -->
+			<%-- 				<input type="hidden" value="${sessionScope.u_id }"> --%>
+			<!-- 				<input type="submit" value="주문"> -->
+			<!-- 			</form> -->
 
 		</div>
 
-		<!-- 		<div class="card-body1"> -->
-		<!-- 			<button type="button" class="btn btn-outline-secondary" -->
-		<%-- 				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC') ">네이버 --%>
-		<!-- 				쇼핑연결</button> -->
-		<!-- 			<button type="button" class="btn btn-outline-info" -->
-		<%-- 				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드 --%>
-		<!-- 				명으로 검색하기</button> -->
-		<!-- 			<button type="button" class="btn btn-outline-danger">찜하기</button> -->
-		<!-- 		</div> -->
-		<!-- 	</div> -->
+		<c:if test="${sessionScope.u_id eq 'admin' }">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1">
+					<form
+						action="${pageContext.request.contextPath }/ItemDeleteController">
+						<input type="hidden" name="i_no" value="${i.i_no }"> <input
+							class="btn btn-primary" type="submit" value="상품 삭제"
+							onclick="alert('삭제 완료')">
+					</form>
+				</div>
+				<div class="col-md-1">
+
+					<form
+						action="${pageContext.request.contextPath }/ItemUpdateGetController">
+						<input type="hidden" name="i_no" value="${i.i_no }"> <input
+							class="btn btn-primary" type="submit" value="상품 수정">
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		</c:if>
 
 		<div class="card-review">
 			<div class="container"
@@ -288,99 +300,99 @@ h2 {
 	<!-- 	</div> -->
 
 	<c:if test="${not empty review }">
-	<div class="container" style="margin-top: 50px;">
-		<div class="row">
-			<div class="col-md-3"
-				style="text-align: -webkit-center; margin-top: 15px; padding: 20px;">
-				<div class="search_option">
-					<select class="custom-select" style="text-align-last: center;">
-						<option selected="" disabled selected hidden>피부타입</option>
-						<option value="1">건성</option>
-						<option value="2">중성</option>
-						<option value="3">지성</option>
-						<option value="4">복합성</option>
-						<option value="5">민감성</option>
-					</select>
+		<div class="container" style="margin-top: 50px;">
+			<div class="row">
+				<div class="col-md-3"
+					style="text-align: -webkit-center; margin-top: 15px; padding: 20px;">
+					<div class="search_option">
+						<select class="custom-select" style="text-align-last: center;">
+							<option selected="" disabled selected hidden>피부타입</option>
+							<option value="1">건성</option>
+							<option value="2">중성</option>
+							<option value="3">지성</option>
+							<option value="4">복합성</option>
+							<option value="5">민감성</option>
+						</select>
+					</div>
+
+					<div class="search_option">
+						<select class="custom-select" style="text-align-last: center;">
+							<option selected="" disabled selected hidden>연령</option>
+							<option value="1">10대</option>
+							<option value="2">20대</option>
+							<option value="3">30대</option>
+							<option value="4">40대</option>
+						</select>
+					</div>
+
+					<div class="search_option">
+						<select class="custom-select" style="text-align-last: center;">
+							<option selected="" disabled selected hidden>성별</option>
+							<option value="1">여자</option>
+							<option value="2">남자</option>
+						</select>
+					</div>
+
+					<button type="button" class="btn btn-outline-light search_option"
+						style="background-color: #e80521;">검색</button>
+
+
 				</div>
 
-				<div class="search_option">
-					<select class="custom-select" style="text-align-last: center;">
-						<option selected="" disabled selected hidden>연령</option>
-						<option value="1">10대</option>
-						<option value="2">20대</option>
-						<option value="3">30대</option>
-						<option value="4">40대</option>
-					</select>
+				<div class="col-md-9"
+					style="border: 2px solid #f0f0f2; padding: 20px;">
+					<a>피부타입 ( 리뷰수 )</a><br> <a>건성(${reviewcount.dryCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped" role="progressbar"
+							style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
+							aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>중성(${reviewcount.normalCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-success"
+							role="progressbar" style="width: ${reviewcount.normalStar * 20}%"
+							aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>지성(${reviewcount.oilyCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-info"
+							role="progressbar" style="width: ${reviewcount.oilyStar * 20}%"
+							aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>복합성(${reviewcount.complexitiesCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-warning"
+							role="progressbar"
+							style="width: ${reviewcount.complexitiesStar * 20}%"
+							aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>민감성(${reviewcount.sensitiveCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-danger"
+							role="progressbar"
+							style="width: ${reviewcount.sensitiveStar * 20}%"
+							aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
 				</div>
+				<c:if test="${not empty review }">
+					<div class="col-md-12" style="margin-top: 50px;">
+						<ms style="font-size:30px;">리뷰</ms>
 
-				<div class="search_option">
-					<select class="custom-select" style="text-align-last: center;">
-						<option selected="" disabled selected hidden>성별</option>
-						<option value="1">여자</option>
-						<option value="2">남자</option>
-					</select>
-				</div>
+						<button type="button" class="btn btn-outline-light sel"
+							style="background-color: #e80521; float: right;">검색</button>
 
-				<button type="button" class="btn btn-outline-light search_option"
-					style="background-color: #e80521;">검색</button>
-
-
+						<div class="form-group sel"
+							style="float: right; margin-right: 10px;">
+							<select class="custom-select">
+								<option selected="" disabled selected hidden>정렬</option>
+								<option value="1">최신순</option>
+								<option value="2">오래된순</option>
+							</select>
+						</div>
+					</div>
+				</c:if>
 			</div>
-
-			<div class="col-md-9"
-				style="border: 2px solid #f0f0f2; padding: 20px;">
-				<a>피부타입 ( 리뷰수 )</a><br> <a>건성(${reviewcount.dryCount })</a>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped" role="progressbar"
-						style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
-						aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<a>중성(${reviewcount.normalCount })</a>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-success"
-						role="progressbar" style="width: ${reviewcount.normalStar * 20}%"
-						aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<a>지성(${reviewcount.oilyCount })</a>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-info"
-						role="progressbar" style="width: ${reviewcount.oilyStar * 20}%"
-						aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<a>복합성(${reviewcount.complexitiesCount })</a>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-warning"
-						role="progressbar"
-						style="width: ${reviewcount.complexitiesStar * 20}%"
-						aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-				<a>민감성(${reviewcount.sensitiveCount })</a>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped bg-danger"
-						role="progressbar"
-						style="width: ${reviewcount.sensitiveStar * 20}%"
-						aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-				</div>
-			</div>
-			<c:if test="${not empty review }">
-			<div class="col-md-12" style="margin-top: 50px;">
-				<ms style="font-size:30px;">리뷰</ms>
-
-				<button type="button" class="btn btn-outline-light sel"
-					style="background-color: #e80521; float: right;">검색</button>
-
-				<div class="form-group sel"
-					style="float: right; margin-right: 10px;">
-					<select class="custom-select">
-						<option selected="" disabled selected hidden>정렬</option>
-						<option value="1">최신순</option>
-						<option value="2">오래된순</option>
-					</select>
-				</div>
-			</div>
-			</c:if>
 		</div>
-	</div>
 	</c:if>
 
 
@@ -473,9 +485,9 @@ h2 {
 		</c:forEach>
 	</c:if>
 	<c:if test="${empty review }">
-	<div style="margin-top:200px; margin-bottom:200px;">
-		<h3 style="text-align: center;">리뷰가 없습니다</h3>
-	</div>		
+		<div style="margin-top: 200px; margin-bottom: 200px;">
+			<h3 style="text-align: center;">리뷰가 없습니다</h3>
+		</div>
 	</c:if>
 
 
