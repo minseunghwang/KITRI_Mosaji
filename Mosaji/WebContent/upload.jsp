@@ -163,7 +163,7 @@
                      </div>
                      
                      <div class="form-group">
-                        <select class="custom-select" name="u_skintype" id="u_skintype">
+                        <select class="custom-select" name="i_skintype" id="i_skintype">
                            <option value="">추천 피부타입</option>
                            <option value="건성">건성</option>
                            <option value="지성">지성</option>

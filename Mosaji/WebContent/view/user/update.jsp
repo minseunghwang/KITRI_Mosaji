@@ -30,7 +30,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="container" style="min-height: 610px; margin-top:30px;">
+	<div class="container" style="min-height: 610px; margin-top:1px;">
 		<div class="row" style="position: relative;">
 			<div class="col-lg-1"></div>
 			<!-- /.col-lg-3 -->
@@ -39,7 +39,7 @@
 				<div id="carouselExampleIndicators" class="carousel slide my-4"
 					data-ride="carousel" style="text-align: -webkit-center;">
 					<div class="card-body col-lg-5">
-						<h3 style="text-align: center;">정보 수정</h3>
+						<h3 style="text-align: center; backgroud-color : gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;"> ✨정보수정✨  </h3>
 						<form id="updateFrm"method="post"
 							action="${pageContext.request.contextPath }/UpdateController">
 							<div class="form-group">
@@ -151,6 +151,5 @@
 		<div class="col-lg-1"></div>
 	</div>
 	<%@ include file="/view/common/footer.jsp"%>
-
 </body>
 </html>
