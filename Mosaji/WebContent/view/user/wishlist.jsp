@@ -136,7 +136,7 @@
 						imageUrl : '../../resources/images/logo_5.png',
 						link : {
 							mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
-							webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
+							webUrl : 'http://localhost:8001/Mosaji/WishlistController'
 						}
 					},
 					social : {
