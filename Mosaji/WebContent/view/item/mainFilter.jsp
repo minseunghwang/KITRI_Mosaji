@@ -109,6 +109,10 @@
 	}
 	
 	var makeTbl = function(arr) {
+		if(arr.length == 0){
+			$(".itemList").html("<h1 style='margin-top:150px;'>해당 상품이 존재하지 않습니다.</h1>");
+		}
+		
     	for(i=0;i<arr.length;i++){
     		var html;
     		html = "<div class='boxA' style='width:100%'>";
@@ -117,7 +121,7 @@
     		html += "<div class='element_2'><div class='i_element i_brand'>"+arr[i].i_brand+"</div>";
     		html += "<div class='i_element i_name' num='"+arr[i].i_no+"'>"+arr[i].i_name+"</div>";
     		html += "<div class='i_element i_volume'>"+arr[i].i_volume+ " / " + "<divv class='i_price'>" + arr[i].i_price + "원</divv></div></div>"; 
-    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+" <div class='star-rating' style='text-align:left'><span style='width:" + arr[i].i_star * 20+ "%'></span></div></div></div>";
+    		html += "<div class='element_3'><div class='i_star'>"+arr[i].i_star+" <div class='star-rating' style='text-align:left'><span style='width:" + arr[i].i_star * 20+ "%'></span></div><ms style='color:#625772'>("+arr[i].review_cnt+")</ms></div></div>";
     		html += "</a>"
     		html += "</div>";
     		$(".itemList").append(html);

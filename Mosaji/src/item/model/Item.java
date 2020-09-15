@@ -15,7 +15,28 @@ public class Item {
 	private int i_price;
 	private float i_star;
 	private String i_img;
+	private int review_cnt;
 	
+	public Item(int i_no, String i_name, String i_volume, String i_category1, String i_category2, String i_content,
+			String i_brand, String i_gender, int i_age, String i_skintype, int i_price, float i_star, String i_img,
+			int review_cnt) {
+		super();
+		this.i_no = i_no;
+		this.i_name = i_name;
+		this.i_volume = i_volume;
+		this.i_category1 = i_category1;
+		this.i_category2 = i_category2;
+		this.i_content = i_content;
+		this.i_brand = i_brand;
+		this.i_gender = i_gender;
+		this.i_age = i_age;
+		this.i_skintype = i_skintype;
+		this.i_price = i_price;
+		this.i_star = i_star;
+		this.i_img = i_img;
+		this.review_cnt = review_cnt;
+	}
+
 	public Item(int i_no, String i_name, String i_volume, String i_category1, String i_category2, String i_content,
 			String i_brand, String i_gender, int i_age, String i_skintype, int i_price, String i_img) {
 		super();
@@ -128,13 +149,18 @@ public class Item {
 	public void setI_img(String i_img) {
 		this.i_img = i_img;
 	}
+	public int getReview_cnt() {
+		return review_cnt;
+	}
+	public void setReview_cnt(int review_cnt) {
+		this.review_cnt = review_cnt;
+	}
+
 	@Override
 	public String toString() {
 		return "Item [i_no=" + i_no + ", i_name=" + i_name + ", i_volume=" + i_volume + ", i_category1=" + i_category1
 				+ ", i_category2=" + i_category2 + ", i_content=" + i_content + ", i_brand=" + i_brand + ", i_gender="
 				+ i_gender + ", i_age=" + i_age + ", i_skintype=" + i_skintype + ", i_price=" + i_price + ", i_star="
-				+ i_star + ", i_img=" + i_img + "]";
+				+ i_star + ", i_img=" + i_img + ", review_cnt=" + review_cnt + "]";
 	}
-	
-	
 }
