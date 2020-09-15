@@ -9,6 +9,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+
+<link href="<%=request.getContextPath()%>/resources/jquery-nicelabel.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/resources/code.jquery.com/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/jquery.nicelabel.js"></script>
+
 <style>
 .filter {
 	float: left;
@@ -85,6 +91,8 @@
 .star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
 	
 </style>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -255,6 +263,7 @@
 	
 	
 </script>
+
 <body>
 	<%@ include file="/view/common/header.jsp"%>
 	
@@ -263,6 +272,10 @@
 			<br><br><br><br>
 			<h2 style="color: #625772"> ${param.category2} &nbsp; 랭킹 </h2>
 			</div>
+
+
+
+
 
 	<div id="wrapper">
 		<div id="staff" class="container">
@@ -275,43 +288,81 @@
 					<section class="filter-body">
 						<fieldset class="fieldset" style="margin-bottom:10px;">
 							<legend style="text-align: left; margin-left:10px;">성별</legend>
-							<div class="row"  style=" margin-right:10px;">
-								<div class="col"><input type="radio" name="genderRadio" value="1" checked="checked"> 전체</div>
-								<div class="col"><input type="radio" name="genderRadio" value="2"> 여자</div>
-								<div class="col"><input type="radio" name="genderRadio" value="3"> 남자</div>
-							</div>
+	
+						<div id="text-radio" style="margin-left:10px; float:left;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_radio", "checked_text": "전 체", "unchecked_text": "전 체"}'
+						checked="checked" type="radio"  name="genderRadio" value="1" />
+						</div>	
+						<div id="text-radio" style="margin-left:10px; margin-right:10px; float:left;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_radio", "checked_text": "여 자", "unchecked_text": "여 자"}'
+						type="radio" name="genderRadio" value="2" />	
+						</div>	
+						<div id="text-radio">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_radio", "checked_text": "남 자", "unchecked_text": "남 자"}' 
+						type="radio"  name="genderRadio" value="3" />	
+						</div>		
 						</fieldset>
+						
+						
 						<hr>
-						<fieldset class="fieldset" style="margin-bottom:10px;">
-							<legend style="text-align: left; margin-left:10px;">연령대</legend>
-							<div class="row"  style="margin-right:10px;">
-								<div class="col"><input type="checkbox"  value="0" checked="checked" id="f_age_total"> 전체</div>
-								<div class="col"><input type="checkbox"  value="10" name="f_age"> 10대</div>
-								<div class="col"><input type="checkbox"  value="20" name="f_age"> 20대</div>
-							</div>
-							<div class="row"  style=" margin-right:30px;">
-							<div class="col"><input type="checkbox"  value="30" name="f_age"> 30대</div>
-							<div class="col"><input type="checkbox" value="40"  name="f_age"> 40대 이상</div>
-							</div>
+						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:10px; ">
+						<legend style="text-align: left; margin-left:10px;">연령대</legend>			
+						<div id="text-checkbox" style="margin-left:10px; float:left;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "전 체", "unchecked_text": "전 체"}' 
+						checked="checked" type="checkbox" value="0" id="f_age_total"/>
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "10대", "unchecked_text": "10대"}'
+						type="checkbox" value="10" name="f_age"/>
+						</div>
+						<div id="text-checkbox" >	
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "20대", "unchecked_text": "20대"}'
+						type="checkbox" value="20" name="f_age" />
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left;">	
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "30대", "unchecked_text": "30대"}'
+						type="checkbox" value="30" name="f_age"  />	
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; ">	
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "40대 이상", "unchecked_text": "40대 이상"}'
+						type="checkbox" value="40" name="f_age" />	
+						</div>
 						</fieldset>
+						
+						
 						<hr>
-						<fieldset class="fieldset" style="margin-bottom:40px;">
-							<legend style="text-align: left; margin-left:10px;">피부타입</legend>
-							<div class="row"  style=" margin-right:10px;">
-								<div class="col"><input type="checkbox"  value="전체" checked="checked" id="f_skintype_total"> 전체</div>
-								<div class="col"><input type="checkbox"  value="건성" name="f_stype"> 건성</div>
-								<div class="col"><input type="checkbox"  value="지성" name="f_stype"> 지성</div>
-							</div>
-							<div class="row"  style=" margin-right:10px;">
-							<div class="col"><input type="checkbox"  value="중성" name="f_stype"> 중성</div>
-							<div class="col"><input type="checkbox" value="복합성"  name="f_stype"> 복합성</div>
-							<div class="col"><input type="checkbox" value="민감성"  name="f_stype"> 민감성</div>
-							</div>
+						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:40px; ">
+						<legend style="text-align: left; margin-left:10px;">피부타입</legend>			
+						<div id="text-checkbox" style="margin-left:10px; float:left;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "전 체", "unchecked_text": "전 체"}' 
+						checked="checked" type="checkbox" value="전체" id="f_skintype_total"/>
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "건 성", "unchecked_text": "건 성"}'
+						type="checkbox" value="건성" name="f_stype"/>
+						</div>
+						<div id="text-checkbox" style="margin-left:10px;">
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "민감성", "unchecked_text": "민감성"}'
+						type="checkbox" value="민감성" name="f_stype" />						
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; float:left;" >	
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "중 성", "unchecked_text": "중 성"}'
+						type="checkbox" value="중성" name="f_stype" />
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left;">	
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "지 성", "unchecked_text": "지 성"}'
+						type="checkbox" value="지성" name="f_stype"/>	
+						</div>
+						<div id="text-checkbox" style="margin-left:10px; ">	
+						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "복합성", "unchecked_text": "복합성"}'
+						type="checkbox" value="복합성" name="f_stype"  />	
+						</div>
 						</fieldset>
+
 
 					</section>
 					<button class="btn btn-secondary" id="f_reset_btn">초기화</button>
-					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#e80521;" id="filter_submit" onclick="check_data()">필터 적용</button>
+					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#e80521; border:1px solid #e80521;" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</div>
 			</div>
 			<div class="row">
@@ -377,7 +428,37 @@
 			</p>
 		</div>
 	</div>
+
 	
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
+
+	<script src="<%=request.getContextPath()%>/resources/jquery.nicelabel.js"></script>
+	<script>
+	$(function(){
+		$('#text-checkbox > input').nicelabel();
+		$('#text-radio > input').nicelabel();
+		$('#text-checkbox-ico > input:eq(0)').nicelabel({
+			checked_ico: './ico/checked.png',
+			unchecked_ico: './ico/unchecked.png'
+		});
+		
+	});
+	</script>
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
 </html>

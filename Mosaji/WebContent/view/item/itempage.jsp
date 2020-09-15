@@ -189,11 +189,11 @@ h2 {
 
 			</form>
 			<button type="button" class="btn btn-outline-secondary naverbtn"
-				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name }&cat_id=&frm=NVSHATC') "
+				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')"
 				style="color: #08cf5f; border-color: #08cf5f;">네이버 쇼핑연결</button>
 
 			<button type="button" class="btn btn-outline-info searchbtn"
-				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}') ">브랜드
+				onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}')">브랜드
 				명으로 검색하기</button>
 			<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
 			<%-- 				<input type="hidden" value="${i.i_no }"> --%>

@@ -45,10 +45,12 @@ public class UploadController extends HttpServlet {
 		
 
 //		String directory = request.getRealPath("/fileFolder");
-
+		//서버 path입니다...지우지마세요...
 		String directory = "/var/lib/tomcat8/webapps/Mosaji/fileFolder";
+//		C:\Users\Administrator\github\KITRI_Mosaji\Mosaji\WebContent\fileFolder
+//		String directory = "C:\\Users\\Administrator\\github\\KITRI_Mosaji\\Mosaji\\WebContent\\fileFolder";			// 각자 경로 설정하세요		
 
-
+		
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
 
@@ -70,7 +72,7 @@ public class UploadController extends HttpServlet {
 		String i_brand = multipartRequest.getParameter("i_brand");
 		int i_price = Integer.parseInt(multipartRequest.getParameter("i_price"));
 				
-		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, directory+File.separator+fileRealName);
+		Item2 i = new Item2(i_name, i_volume, i_category1, i_category2, i_content,  i_brand, i_gender, i_age, i_skintype, i_price, "/Mosaji/fileFolder"+File.separator+fileRealName);
 		
 		service.upload(i);
 		

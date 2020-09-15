@@ -63,7 +63,7 @@ public class ItemDetailController extends HttpServlet {
 
 		ReviewCount reviewcount = reviewservice.count(i_no);
 		request.setAttribute("reviewcount", reviewcount);
-		
+		System.out.println(reviewcount);
 //		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itemDetail.jsp");
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/itempage.jsp");
 		rd.forward(request, response);
