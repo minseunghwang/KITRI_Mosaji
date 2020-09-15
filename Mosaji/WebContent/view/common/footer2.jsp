@@ -20,11 +20,12 @@
 </head>
 <body>
 		<div id="copyright"
-			style="background-color: #FFBFAB;">
+			style="background-color: #CEC3DF;">
 			<p>
 				&copy; Copyright ⓒ All rights reserved. 2020 kitri | Design by <a
 					href="http://templated.co" rel="nofollow">TEMPLATED</a>.
 			</p>
 		</div>
+		
 </body>
 </html>
