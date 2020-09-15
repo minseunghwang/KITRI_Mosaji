@@ -45,7 +45,9 @@ public class UploadController extends HttpServlet {
 		
 
 //		String directory = request.getRealPath("/fileFolder");
+
 		String directory = "/var/lib/tomcat8/webapps/Mosaji/fileFolder";
+
 
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
