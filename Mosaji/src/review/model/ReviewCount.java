@@ -17,10 +17,12 @@ public class ReviewCount {
 	private float sensitiveStar;
 	private int sensitiveCount;
 	
+	private int allCount;
+	
 	
 
 	public ReviewCount(float dryStar, int dryCount, float oilyStar, int oilyCount, float normalStar, int normalCount,
-			float complexitiesStar, int complexitiesCount, float sensitiveStar, int sensitiveCount) {
+			float complexitiesStar, int complexitiesCount, float sensitiveStar, int sensitiveCount, int allCount) {
 		super();
 		this.dryStar = dryStar;
 		this.dryCount = dryCount;
@@ -32,6 +34,7 @@ public class ReviewCount {
 		this.complexitiesCount = complexitiesCount;
 		this.sensitiveStar = sensitiveStar;
 		this.sensitiveCount = sensitiveCount;
+		this.allCount = allCount;
 	}
 
 
@@ -154,6 +157,18 @@ public class ReviewCount {
 		this.sensitiveCount = sensitiveCount;
 	}
 
+	
+
+	public int getAllCount() {
+		return allCount;
+	}
+
+
+
+	public void setAllCount(int allCount) {
+		this.allCount = allCount;
+	}
+
 
 
 	@Override
@@ -161,8 +176,12 @@ public class ReviewCount {
 		return "ReviewCount [dryStar=" + dryStar + ", dryCount=" + dryCount + ", oilyStar=" + oilyStar + ", oilyCount="
 				+ oilyCount + ", normalStar=" + normalStar + ", normalCount=" + normalCount + ", complexitiesStar="
 				+ complexitiesStar + ", complexitiesCount=" + complexitiesCount + ", sensitiveStar=" + sensitiveStar
-				+ ", sensitiveCount=" + sensitiveCount + "]";
+				+ ", sensitiveCount=" + sensitiveCount + ", allCount=" + allCount + "]";
 	}
+
+
+
+	
 
 	
 	

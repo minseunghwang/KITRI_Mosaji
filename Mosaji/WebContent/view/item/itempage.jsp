@@ -341,7 +341,7 @@ h2 {
 
 				<div class="col-md-9"
 					style="border: 2px solid #f0f0f2; padding: 20px;">
-					<a>피부타입 ( 리뷰수 )</a><br> <a>건성(${reviewcount.dryCount })</a>
+					<a>피부타입 ( ${reviewcount.allCount } )</a><br> <a>건성(${reviewcount.dryCount })</a>
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped" role="progressbar"
 							style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
