@@ -13,8 +13,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<div class="container" >
-<!-- 	style="min-height: 610px; margin-top:100px; margin-bottom:70px;" -->
+	<div class="container" style="min-height: 650px;">
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 		<h3
 			style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
