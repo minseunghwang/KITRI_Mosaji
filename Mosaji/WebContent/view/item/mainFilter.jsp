@@ -160,7 +160,6 @@
 	        },
 	        success: function(result){
 	        	var arr = $.parseJSON(result);
-	        	alert(arr[0].i_img);
 				$(".itemList").empty();
 	        	makeTbl(arr);
 			}

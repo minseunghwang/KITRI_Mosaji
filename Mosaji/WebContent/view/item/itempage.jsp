@@ -121,7 +121,7 @@ h2 {
 
 	<div class="alert alert-secondary" role="alert"></div>
 
-	<div class="container" style="margin-top: 100px;">
+	<div class="container" style="margin-top: 150px;">
 		<div class="vw">
 
 			<img style="height: 300px; width: 300px; display: block;"
@@ -341,7 +341,7 @@ h2 {
 
 				<div class="col-md-9"
 					style="border: 2px solid #f0f0f2; padding: 20px;">
-					<a>피부타입 ( 리뷰수 )</a><br> <a>건성(${reviewcount.dryCount })</a>
+					<a>피부타입별 평점</a><br> <a>건성(${reviewcount.dryCount })</a>
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped" role="progressbar"
 							style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
@@ -399,7 +399,7 @@ h2 {
 	<c:if test="${not empty review }">
 
 		<c:forEach var="review" items="${review }">
-			<div class="alert alert-warning container" role="alert">
+			<div class="alert alert-warning container" role="alert" style="background-color : white; border-color : #f0f0f2;  color:black;">
 				<h4 class="alert-heading">
 					별점 :
 					<c:choose>
@@ -459,7 +459,28 @@ h2 {
 					<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
 					/ ${review.u_age }세 ${review.u_gender }
 				</p>
-				<hr>
+				
+				
+				<c:choose>
+						<c:when test="${review.u_skintype == '건성' }">
+							<hr style="border-top-color:#007bff;">
+						</c:when>
+						<c:when test="${review.u_skintype == '중성' }">
+							<hr style="border-top-color:#28a745;">
+						</c:when>
+						<c:when test="${review.u_skintype == '지성' }">
+							<hr style="border-top-color:#3ab0c3;">
+						</c:when>
+						<c:when test="${review.u_skintype == '복합성' }">
+							<hr style="border-top-color:#ffc107;">
+						</c:when>
+						<c:when test="${review.u_skintype == '민감성' }">
+							<hr style="border-top-color:#dc3545;">
+						</c:when>
+						<c:otherwise>
+							<hr style="border-top-color:black;">
+						</c:otherwise>
+					</c:choose>
 				<p class="mb-0">${review.r_content }</p>
 				<c:if test="${review.u_id == sessionScope.u_id }">
 					<form
@@ -472,8 +493,10 @@ h2 {
 					</form>
 				</c:if>
 			</div>
-
 			<div class="alert alert-light container" role="alert">
+			</div>
+		</c:forEach>
+		<div class="alert alert-light container" role="alert" style="margin:50px;">
 				<%-- 			<c:if test="${review.u_id == sessionScope.u_id }"> --%>
 				<%-- 				<form action="${pageContext.request.contextPath }/DeleteReviewController" method="post"> --%>
 				<%-- 					<input type="hidden" name="r_no" id="r_no" value="${review.r_no }"> --%>
@@ -482,7 +505,6 @@ h2 {
 				<!-- 				</form> -->
 				<%-- 			</c:if> --%>
 			</div>
-		</c:forEach>
 	</c:if>
 	<c:if test="${empty review }">
 		<div style="margin-top: 200px; margin-bottom: 200px;">
