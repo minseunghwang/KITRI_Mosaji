@@ -361,8 +361,8 @@
 
 
 					</section>
-					<button class="btn btn-secondary" id="f_reset_btn">초기화</button>
-					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#e80521; border:1px solid #e80521;" id="filter_submit" onclick="check_data()">필터 적용</button>
+					<button class="btn btn-secondary" style="background:#CEC3DF; border:1px solid #CEC3DF; color:#625772;"  id="f_reset_btn">초기화</button>
+					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#625772; border:1px solid #625772;" id="filter_submit" onclick="check_data()">필터 적용</button>
 				</div>
 			</div>
 			<div class="row">

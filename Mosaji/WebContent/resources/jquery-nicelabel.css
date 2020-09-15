@@ -144,8 +144,8 @@
 .text-nicelabel:not(:checked) + label 
 {
 	background-color: white;
-	border: 1px solid #e80521;
-	color: #e80521;;
+	border: 1px solid #625772;
+	color: #625772;
 }
 .text-nicelabel:not(:checked) + label > span.nicelabel-checked-image
 {
@@ -157,8 +157,8 @@
 }
 .text-nicelabel:checked + label 
 {
-	background-color: #e80521;
-	border: 1px solid #e80521;
+	background-color: #625772;
+	border: 1px solid #625772;
 	color: white;
 }
 .text-nicelabel:checked + label > span.nicelabel-unchecked-image
@@ -176,79 +176,6 @@
 
 
 
----------------------------------------------------------------------
-
-.text-nicelabel2 + label {
-	display: table;
-	font-size: 15px;
-	padding: 5px 20px 8px 5px;
-	background-color:rgba(0,140,186,1);
-	color: #b3b3b3;
-	border-radius:5px;
-	-webkit-border-radius:5px;
-	cursor:pointer;
-	position:relative;
-	overflow:hidden;
-	transition:all 0.2s;
-
-			
-	-moz-user-select: none;
-	-webkit-user-select: none;
-}
-
-.text-nicelabel2 + label > span.nicelabel-unchecked,
-.text-nicelabel2  + label > span.nicelabel-checked
-{
-	display: inline-block;
-	line-height: 16px;
-	margin-left:7px;
-	vertical-align: bottom;
-}
-.text-nicelabel2 + label > span.nicelabel-unchecked-image,
-.text-nicelabel2  + label > span.nicelabel-checked-image
-{
-	display: inline-block;
-	width: 10px;
-	height:10px;
-	vertical-align: bottom;
-	background-repeat: no-repeat;
-	background-position: left center;
-
-	transition: all 0.2s linear;
-	-webkit-transition: all 0.2s linear;
-}
-.text-nicelabel2:not(:checked) + label 
-{
-	background-color: white;
-	border: 1px solid #e80521;
-	color: #e80521;;
-}
-.text-nicelabel2:not(:checked) + label > span.nicelabel-checked-image
-{
-	display: none;
-}
-.text-nicelabel2:not(:checked) + label > span.nicelabel-checked
-{
-	display: none;
-}
-.text-nicelabel2:checked + label 
-{
-	background-color: #e80521;
-	border: 1px solid #e80521;
-	color: white;
-}
-.text-nicelabel2:checked + label > span.nicelabel-unchecked-image
-{
-	display: none;
-}
-.text-nicelabel2:checked + label > span.nicelabel-unchecked
-{
-	display: none;
-}
-.text-nicelabel2[disabled] + label 
-{
-	opacity:0.5;
-}
 
 
 
