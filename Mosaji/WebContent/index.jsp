@@ -282,7 +282,7 @@
 	<div id="wrapper" style="background: #FFBFAB;">
 		<div id="staff" class="container">
 			<div class="row" style="margin-left: 1%;">
-				<span style="font-size: 50px; color: #625772">당신의 고민을 해결해주는,
+				<span style="font-size: 50px; color: #625772;">당신의 고민을 해결해주는,
 					뭐사지 !</span>
 			</div>
 			<div class="row" style="margin-left: 1%; margin-bottom: 5%;">
@@ -290,7 +290,7 @@
 					피부타입에 따라 추천 받으세요 </span>
 			</div>
 
-
+			<hr>
 
 			<div style="margin-bottom: 10px;">
 				<form method="GET"
@@ -338,7 +338,8 @@
 		</div>
 	</div>
 
-	<div class="p-3 mb-2 bg-secondary text-white"></div>
+
+
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="container">
 		<div class="container"

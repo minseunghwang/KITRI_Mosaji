@@ -148,7 +148,6 @@
 			});
 		}
 		
-		
 		$.ajax({
 	        url: '${pageContext.request.contextPath }/FilteringListController',
 	        type: 'POST',
