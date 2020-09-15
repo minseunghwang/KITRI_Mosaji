@@ -479,7 +479,7 @@
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=이니스프리')">제품보기</button>
+								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=이니스프리'">제품보기</button>
 						</div>
 					</div>
 
@@ -503,7 +503,7 @@
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=메이크업포에버')">제품보기</button>
+								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=메이크업포에버'">제품보기</button>
 						</div>
 					</div>
 
@@ -526,7 +526,7 @@
 								<p></p>
 								<button type="button"
 									class="btn btn-outline-secondary btn-lg btn-block"
-									onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드')">제품보기</button>
+									onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드'">제품보기</button>
 							</div>
 						</div>
 					</div>
@@ -551,7 +551,7 @@
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=스킨푸드')">제품보기</button>
+								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=스킨푸드'">제품보기</button>
 						</div>
 					</div>
 
@@ -575,7 +575,7 @@
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=로라메르시에')">제품보기</button>
+								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=로라메르시에'">제품보기</button>
 						</div>
 					</div>
 
@@ -598,8 +598,10 @@
 					src="${pageContext.request.contextPath }/resources/images/index (2).png"
 					alt="Card image cap">
 				<div class="card-body">
+<!-- 					<button type="button" class="btn btn-secondary btn-lg btn-block" -->
+<!-- 						onclick="location.href='http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션'">파운데이션</button> -->
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션')">파운데이션</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션'">파운데이션</button>
 				</div>
 
 			</div>
@@ -609,7 +611,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=피니시파우더')">파우더</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=피니시파우더'">파우더</button>
 				</div>
 			</div>
 
@@ -619,7 +621,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우'">섀도우</button>
 				</div>
 			</div>
 
@@ -629,7 +631,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라'">마스카라</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
@@ -638,7 +640,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱'">립스틱</button>
 				</div>
 			</div>
 		</div>
@@ -652,7 +654,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너')">스킨/토너</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너'">스킨/토너</button>
 				</div>
 
 			</div>
@@ -662,7 +664,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=로션/에센스')">로션/에센스</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=로션/에센스'">로션/에센스</button>
 				</div>
 			</div>
 
@@ -672,7 +674,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림'">크림</button>
 				</div>
 			</div>
 
@@ -682,7 +684,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러'">컨실러</button>
 				</div>
 			</div>
 			<div class="card" style="width: 18rem;">
@@ -691,7 +693,7 @@
 					alt="Card image cap">
 				<div class="card-body">
 					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
+						onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트'">틴트</button>
 				</div>
 			</div>
 		</div>
