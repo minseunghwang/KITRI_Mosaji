@@ -95,9 +95,6 @@
 						</tbody>
 					</table>
 
-					<!-- 					<button id="del_btn" type="button" class="btn btn-outline-secondary" -->
-					<!-- 						style="float: right; margin-top: 10px; margin-right: 10px">삭제</button> -->
-
 				</div>
 			</div>
 			<div class="row">
