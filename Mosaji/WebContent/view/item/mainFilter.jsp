@@ -80,8 +80,6 @@
 	color : black;
 	font-family : 'Jua', sans-serif;
 }
-
-
 .star-rating {width:80px; }
 .star-rating,.star-rating span {display:inline-block; height:14px; overflow:hidden; background:url(${pageContext.request.contextPath}/resources/images/star80.png)no-repeat; }
 .star-rating span{background-position:left bottom; line-height:0; vertical-align:top; }
@@ -150,6 +148,7 @@
 			});
 		}
 		
+		
 		$.ajax({
 	        url: '${pageContext.request.contextPath }/FilteringListController',
 	        type: 'POST',
@@ -165,6 +164,12 @@
 				$(".itemList").empty();
 	        	makeTbl(arr);
 			}
+	        
+	        
+	        
+	        
+	        
+	        
 		});
 		
 		return true;
@@ -270,79 +275,47 @@
 		<div id="staff" class="container">
 			<div class="filter">
 				<div class="filters__filed filters__is-sorted" id="filter" style="background: #fafafc; border:2px solid #e6e6e6;">
-					<div class="filter-header" style="text-align: left; font-size: 20px; margin-bottom:10px; margin-top:10px;">
-						<span>  &nbsp; ✔  &nbsp;필터</span>
+					<div class="filter-header" style="font-size: 20px; margin-bottom:30px; margin-top:15px; margin-left:10px;">
+						<img src="${pageContext.request.contextPath }/resources/images/filter.png"> 필터
+					<hr>
 					</div>
 					<section class="filter-body">
 						<fieldset class="fieldset" style="margin-bottom:10px;">
-							<legend itemprop="valueName" content="genderFilter"
-								class="fieldset__legend"> 성별 </legend>
-							<div class="row"  style="margin-top:10px;">
-								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="1" checked="checked">전체 </div>
-								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="2" checked="checked">여자 </div>
-								<div class="col"><input type="radio" class="fieldset__item-input" name="genderRadio" value="3" checked="checked">남자 </div>
+							<legend style="text-align: left; margin-left:10px;">성별</legend>
+							<div class="row"  style=" margin-right:10px;">
+								<div class="col"><input type="radio" name="genderRadio" value="1" checked="checked"> 전체</div>
+								<div class="col"><input type="radio" cname="genderRadio" value="2"> 여자</div>
+								<div class="col"><input type="radio" name="genderRadio" value="3"> 남자</div>
+							</div>
+						</fieldset>
+						<hr>
+						<fieldset class="fieldset" style="margin-bottom:10px;">
+							<legend style="text-align: left; margin-left:10px;">연령대</legend>
+							<div class="row"  style="margin-right:10px;">
+								<div class="col"><input type="checkbox"  value="0" checked="checked" id="f_age_total"> 전체</div>
+								<div class="col"><input type="checkbox"  value="10" name="f_age"> 10대</div>
+								<div class="col"><input type="checkbox"  value="20" name="f_age"> 20대</div>
+							</div>
+							<div class="row"  style=" margin-right:30px;">
+							<div class="col"><input type="checkbox"  value="30" name="f_age"> 30대</div>
+							<div class="col"><input type="checkbox" value="40"  name="f_age"> 40대 이상</div>
+							</div>
+						</fieldset>
+						<hr>
+						<fieldset class="fieldset" style="margin-bottom:40px;">
+							<legend style="text-align: left; margin-left:10px;">피부타입</legend>
+							<div class="row"  style=" margin-right:10px;">
+								<div class="col"><input type="checkbox"  value="전체" checked="checked" id="f_skintype_total"> 전체</div>
+								<div class="col"><input type="checkbox"  value="건성" name="f_stype"> 건성</div>
+								<div class="col"><input type="checkbox"  value="지성" name="f_stype"> 지성</div>
+							</div>
+							<div class="row"  style=" margin-right:10px;">
+							<div class="col"><input type="checkbox"  value="중성" name="f_stype"> 중성</div>
+							<div class="col"><input type="checkbox" value="복합성"  name="f_stype"> 복합성</div>
+							<div class="col"><input type="checkbox" value="민감성"  name="f_stype"> 민감성</div>
 							</div>
 						</fieldset>
 
-						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2 style="margin-bottom:10px;  ">
-							<legend itemprop="valueName" content="genderFilter"
-								class="fieldset__legend" data-v-7e828efe> 연령대 </legend>
-							<ul class="fieldset__list" data-v-7e828efe style="margin-top:10px;">
-								<li class="fieldset__list-item fieldset__list-item--selected"
-									data-v-7e828efe><label class="fieldset__item-label"
-									data-v-7e828efe><input type="checkbox"
-										class="fieldset__item-input" data-v-7e828efe value="0" checked="checked" id="f_age_total">전체 <!---->
-										<!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="10" name="f_age">10대
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="20" name="f_age">20대
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="30" name="f_age">30대
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="40" name="f_age">40대 이상
-										<!----> <!----></label></li>
-							</ul>
-						</fieldset>
-
-						<fieldset class="fieldset" data-v-7e828efe data-v-684826a2 style="margin-bottom:10px;">
-							<legend itemprop="valueName" content="genderFilter"
-								class="fieldset__legend" data-v-7e828efe> 피부타입 </legend>
-							<ul class="fieldset__list" data-v-7e828efe style="margin-top:10px;">
-								<li class="fieldset__list-item fieldset__list-item--selected"
-									data-v-7e828efe><label class="fieldset__item-label"
-									data-v-7e828efe><input type="checkbox"
-										class="fieldset__item-input" data-v-7e828efe value="전체" checked="checked" id="f_skintype_total">전체 <!---->
-										<!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="건성" name="f_stype">건성
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="지성" name="f_stype">지성
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="중성" name="f_stype">중성
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="복합성" name="f_stype">복합성
-										<!----> <!----></label></li>
-								<li class="fieldset__list-item" data-v-7e828efe><label
-									class="fieldset__item-label" data-v-7e828efe><input
-										type="checkbox" class="fieldset__item-input" data-v-7e828efe value="민감성" name="f_stype">민감성
-										<!----> <!----></label></li>
-							</ul>
-						</fieldset>
 					</section>
 					<button class="btn btn-secondary" id="f_reset_btn">초기화</button>
 					<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background:#e80521;" id="filter_submit" onclick="check_data()">필터 적용</button>
@@ -411,6 +384,7 @@
 			</p>
 		</div>
 	</div>
+	
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
