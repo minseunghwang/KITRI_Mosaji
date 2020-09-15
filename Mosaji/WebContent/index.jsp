@@ -44,7 +44,7 @@
 
 <style>
 .blog_section {
-	padding-top: 5rem;
+	padding-top: 1rem;
 	padding-bottom: 3rem;
 }
 
@@ -83,7 +83,7 @@
 	top: 0;
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 79%, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 79%, 0 100%);
-	background-color: #FFBFAB;
+	background-color: #B290A3;
 }
 
 .blog_section .blog_content .blog_item .blog_details {
@@ -103,7 +103,7 @@
 
 .blog_section .blog_content .blog_item .blog_details .blog_title h5 a:hover
 	{
-	color: #FFBFAB;
+	color: #A091B7;
 }
 
 .blog_section .blog_content .blog_item .blog_details ul {
@@ -131,7 +131,7 @@
 .blog_section .blog_content .blog_item .blog_details a {
 	font-size: 16px;
 	display: inline-block;
-	color: #FFBFAB;
+	color: #A091B7;
 	font-weight: 600;
 	text-decoration: none;
 	transition: all 0.3s;
@@ -161,7 +161,7 @@
 	height: 40px;
 	border-radius: 50%;
 	outline: 0;
-	background: #FFBFAB;
+	background: #CEC3DF;
 	transition: all 0.3s;
 	color: #fff;
 }
@@ -174,8 +174,8 @@
 
 .blog_section .blog_content .owl-nav .owl-prev:hover {
 	background: #fff;
-	border-color: #FFBFAB;
-	color: #FFBFAB;
+	border-color: #A091B7;
+	color: #CEC3DF;
 }
 
 .blog_section .blog_content .owl-nav .owl-next {
@@ -189,7 +189,7 @@
 	height: 40px;
 	border-radius: 50%;
 	outline: 0;
-	background: #FFBFAB;
+	background: #CEC3DF;
 	color: #fff;
 	transition: all 0.3s;
 }
@@ -202,8 +202,8 @@
 
 .blog_section .blog_content .owl-nav .owl-next:hover {
 	background: #fff;
-	border-color: #FFBFAB;
-	color: #FFBFAB;
+	border-color: #A091B7;
+	color: #A091B7;
 }
 
 @media only screen and (max-width: 577px) {
@@ -279,7 +279,7 @@
 
 <body style="overflow: scroll;">
 
-	<div id="wrapper" style="background: #FFBFAB;">
+	<div id="wrapper" style="background: #DED9E3;">
 		<div id="staff" class="container">
 			<div class="row" style="margin-left: 1%;">
 				<span style="font-size: 50px; color: #625772;">당신의 고민을 해결해주는,
@@ -289,6 +289,16 @@
 				<span style="font-size: 20px; color: #7F7F7F;"> 연령대, 성별,
 					피부타입에 따라 추천 받으세요 </span>
 			</div>
+
+			<!-- 			<button type="button" class="btn btn-secondary btn-lg btn-block">버튼후보 1번</button> -->
+			<!-- 			<button type="button" class="btn btn-outline-secondary btn-lg btn-block">버튼후보 2번</button> -->
+
+			<!-- 			<button type="button" class="btn btn-secondary btn-lg">버튼후보 1번</button> -->
+			<!-- 			<button type="button" class="btn btn-outline-secondary btn-lg">버튼후보 2번</button> -->
+
+			<!-- 			<button type="button" class="btn btn-secondary btn-lg">버튼후보 1번</button> -->
+			<!-- 			<button type="button" class="btn btn-outline-secondary btn-lg">버튼후보 2번</button> -->
+
 
 			<hr>
 
@@ -340,117 +350,6 @@
 
 
 
-	<div class="p-3 mb-2 bg-white text-dark"></div>
-	<div class="container">
-		<div class="container"
-			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
-	</div>
-
-	<div class="container">
-		<div class="card-deck">
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (2).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션')">파운데이션</button>
-				</div>
-
-			</div>
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (9).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=피니시파우더')">파우더</button>
-				</div>
-			</div>
-
-			<div class="card" style="width: 10rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (6).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="location.href('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
-				</div>
-			</div>
-
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (15).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
-				</div>
-			</div>
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (12).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="card-deck">
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (30).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너')">스킨/토너</button>
-				</div>
-
-			</div>
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (28).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=로션/에센스')">로션/에센스</button>
-				</div>
-			</div>
-
-			<div class="card" style="width: 10rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (29).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
-				</div>
-			</div>
-
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (5).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
-				</div>
-			</div>
-			<div class="card" style="width: 18rem;">
-				<img class="card-img-top"
-					src="${pageContext.request.contextPath }/resources/images/index (11).png"
-					alt="Card image cap">
-				<div class="card-body">
-					<button type="button" class="btn btn-secondary btn-lg btn-block"
-						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- 	<div class="container"> -->
 	<!-- 		<div class="card-deck"> -->
@@ -540,12 +439,11 @@
 
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="p-3 mb-2 bg-white text-dark"></div>
-	<div class="p-3 mb-2 bg-white text-dark"></div>
 
 	<!-- <div class="p-3 mb-2 bg-secondary text-white"></div> -->
 
 	<section>
-		<!-- 		<h1 style="text-align: center;"></h1> -->
+		<!-- 				<h1 style="text-align: center;"></h1> -->
 		<div class="container"
 			style="text-align: center; font-size: 50px; color: #625772">인기
 			브랜드</div>
@@ -561,8 +459,8 @@
 			<div class="blog_content">
 				<div class="owl-carousel owl-theme">
 					<div class="blog_item">
-					
-					
+
+
 						<div class="blog_image">
 							<img class="img-fluid"
 								src="${pageContext.request.contextPath }/resources/images/이니스프리_로고_(1).png"
@@ -571,19 +469,21 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="color: black; font-size: 30px;" href="https://www.innisfree.com/kr/ko/Main.do">이니스프리</a>
+								<a style="color: black; font-size: 30px;"
+									href="https://www.innisfree.com/kr/ko/Main.do">이니스프리</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>이니스프리</li>
 								<li><i class="icon ion-md-calendar"></i>자연주의</li>
 							</ul>
 							<p></p>
-							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+							<button type="button"
+								class="btn btn-outline-secondary btn-lg btn-block"
 								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=이니스프리')">제품보기</button>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
@@ -593,19 +493,21 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="color: black; font-size: 30px;" href="https://www.makeupforever.com/">메이크업포에버</a>
+								<a style="color: black; font-size: 30px;"
+									href="https://www.makeupforever.com/">메이크업포에버</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>절대팩트</li>
 								<li><i class="icon ion-md-calendar"></i>메포</li>
 							</ul>
 							<p></p>
-							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+							<button type="button"
+								class="btn btn-outline-secondary btn-lg btn-block"
 								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=메이크업포에버')">제품보기</button>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
@@ -615,19 +517,21 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-								<a style="color: black; font-size: 30px;" href="https://www.etude.com">에뛰드</a>
+								<a style="color: black; font-size: 30px;"
+									href="https://www.etude.com">에뛰드</a>
 								<ul>
 									<li><i class="icon ion-md-person"></i>에뛰드</li>
 									<li><i class="icon ion-md-calendar"></i>에뛰드 틴트 맛있어</li>
 								</ul>
 								<p></p>
-							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드')">제품보기</button>
+								<button type="button"
+									class="btn btn-outline-secondary btn-lg btn-block"
+									onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드')">제품보기</button>
 							</div>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
@@ -637,19 +541,21 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="color: black; font-size: 30px;" href="https://www.theskinfood.com">스킨푸드</a>
+								<a style="color: black; font-size: 30px;"
+									href="https://www.theskinfood.com">스킨푸드</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>스킨푸드</li>
 								<li><i class="icon ion-md-calendar"></i>피부에 양보하세요</li>
 							</ul>
 							<p></p>
-							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+							<button type="button"
+								class="btn btn-outline-secondary btn-lg btn-block"
 								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=스킨푸드')">제품보기</button>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="blog_item">
 						<div class="blog_image">
 							<img class="img-fluid"
@@ -659,26 +565,145 @@
 						</div>
 						<div class="blog_details">
 							<div class="blog_title">
-									<a style="color: black; font-size: 30px;" href="https://www.lauramercier.co.kr/">로라메르시에</a>
+								<a style="color: black; font-size: 30px;"
+									href="https://www.lauramercier.co.kr/">로라메르시에</a>
 							</div>
 							<ul>
 								<li><i class="icon ion-md-person"></i>비싸다</li>
 								<li><i class="icon ion-md-calendar"></i>좋다</li>
 							</ul>
 							<p></p>
-							<button type="button" class="btn btn-outline-secondary btn-lg btn-block"
+							<button type="button"
+								class="btn btn-outline-secondary btn-lg btn-block"
 								onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?keyword=로라메르시에')">제품보기</button>
 						</div>
 					</div>
-					
-					
+
+
 				</div>
 			</div>
 	</section>
 
 
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div class="container">
+		<div class="container"
+			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
+	</div>
+
+	<div class="container">
+		<div class="card-deck">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (2).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=파운데이션')">파운데이션</button>
+				</div>
+
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (9).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=피니시파우더')">파우더</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 10rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (6).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=섀도우')">섀도우</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (15).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=아이메이크업&category2=마스카라')">마스카라</button>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (12).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=립스틱')">립스틱</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="card-deck">
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (30).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=스킨/토너')">스킨/토너</button>
+				</div>
+
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (28).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=로션/에센스')">로션/에센스</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 10rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (29).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=스킨케어&category2=크림')">크림</button>
+				</div>
+			</div>
+
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (5).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=페이스메이크업&category2=컨실러')">컨실러</button>
+				</div>
+			</div>
+			<div class="card" style="width: 18rem;">
+				<img class="card-img-top"
+					src="${pageContext.request.contextPath }/resources/images/index (11).png"
+					alt="Card image cap">
+				<div class="card-body">
+					<button type="button" class="btn btn-secondary btn-lg btn-block"
+						onclick="window.open('http://localhost:8001/Mosaji/view/item/mainFilter.jsp?category1=립메이크업&category2=틴트')">틴트</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
+
 	<section>
-		<h1 style="text-align: center;">Contact us</h1>
+		<!-- 		<h1 style="text-align: center;"></h1> -->
+		<div class="container"
+			style="text-align: center; font-size: 50px; color: #625772">위치</div>
 		<br> <br>
 		<div class="col-md-8 offset-md-2">
 			<iframe
