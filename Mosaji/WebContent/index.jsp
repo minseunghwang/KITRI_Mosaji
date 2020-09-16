@@ -263,7 +263,8 @@
 
 				category1 = 스킨케어;
 
-			}
+			} 
+			
 
 			$('#category2').empty();
 
@@ -279,8 +280,24 @@
 			}
 		});
 	});
+	
+	
+
 </script>
 
+<script>
+function selectnull(){
+		
+    var category1 = $("#category1").val();
+    if(category1 == null){
+        alert("카테고리를 입력해 주세요.");
+        $("#category1").focus();
+		return false;
+   	}
+    return true;
+}
+    
+</script>
 
 
 <body style="overflow: scroll;">
@@ -309,12 +326,11 @@
 			<hr>
 
 			<div style="margin-bottom: 10px;">
-				<form method="GET"
-					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
+				<form onsubmit="return selectnull()" method="GET" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
 							<select class="form-control" name="category1" id="category1">
-								<option value="" disabled selected hidden>뷰티 카테고리</option>
+								<option value ="" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
 								<option value="립메이크업">립메이크업</option>
@@ -324,12 +340,13 @@
 
 						<div class="col">
 							<select class="form-control" name="category2" id="category2">
-								<option value="" disabled selected hidden>소분류</option>
+								<option disabled selected hidden>소분류</option>
 							</select>
 						</div>
 						<div class="col">
-							<button type="submit" class="btn btn-secondary"
-								onclick="select()" style="width: 50%;">랭킹 보기</button>
+							<input type="submit" class="btn btn-secondary" value="랭킹 검색"
+								style="width: 50%;">
+						
 						</div>
 					</div>
 				</form>
@@ -345,8 +362,8 @@
 							style="text-align: center; width: 135%; font-size: 16px;">
 					</div>
 					<div class="col">
-						<button class="btn btn-secondary" type="submit"
-							style="width: 32%; margin-left: 35%;">화장품 검색</button>
+						<input class="btn btn-secondary" type="submit" value="화장품 검색"
+							style="width: 32%; margin-left: 35%;">
 					</div>
 				</div>
 			</form>
@@ -594,7 +611,7 @@
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="container">
 		<div class="container"
-			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
+			style="text-align: center; font-size: 50px; color: #625772">랭킹 바로보기</div>
 	</div>
 
 	<div class="container">

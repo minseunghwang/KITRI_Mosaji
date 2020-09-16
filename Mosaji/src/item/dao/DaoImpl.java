@@ -54,8 +54,11 @@ public class DaoImpl implements Dao {
 	}
 
 	@Override
-	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype) {
-	
+	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype,
+			String keyword) {
+		System.out.println(category2);
+		System.out.println(gender);
+		System.out.println(keyword);
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
 			gen.add("남");
@@ -69,34 +72,54 @@ public class DaoImpl implements Dao {
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
 		int index = 1;
-		String sql = "select * from mosaji_item where ";
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) revice_cnt from mosaji_review a, mosaji_item b where ";
 		try {
-			sql += "i_gender in (";
+
+			sql += "b.i_gender in (";
 			for (int i = 0; i < gen.size(); i++) {
 				sql += "?,";
 			}
 			sql = sql.substring(0, sql.length() - 1);
 			sql += ") ";
 
-			sql += "and i_skintype in (";
+			sql += "and b.i_skintype in (";
 			for (int i = 0; i < skintype.length; i++) {
 				sql += "?,";
 			}
 			sql = sql.substring(0, sql.length() - 1);
 			sql += ") ";
 
-			sql += "and i_age in (";
+			sql += "and b.i_age in (";
 			for (int i = 0; i < age.length; i++) {
 				sql += "?,";
 			}
 			sql = sql.substring(0, sql.length() - 1);
 			sql += ") ";
 
-			sql += "and i_category2 = '";
-			sql += category2;
-			sql += "'";
+			sql += " and a.i_no = b.i_no ";
 			
+			if(keyword == null) {
+				sql += "and b.i_category2 = '";
+				sql += category2;
+				sql += "'";
+			}
+
+			if (keyword != null) {
+					
+				sql += "and ( b.i_name LIKE '%";
+				sql += keyword;
+				sql += "%' OR b.i_brand LIKE '%";
+				sql += keyword;
+				sql += "%') ";
+				sql += " group by b.i_no ";
+				sql += " ORDER BY b.i_no";
+			} else {
+				sql += " group by b.i_no ";
+			}
+
 			pstmt = conn.prepareStatement(sql);
+
+			System.out.println(sql);
 
 			for (int i = 0; i < gen.size(); i++) {
 				pstmt.setString(index, gen.get(i));
@@ -117,7 +140,8 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12) * 100)) / 100.0), rs.getString(13),
+						rs.getInt(14)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -141,10 +165,13 @@ public class DaoImpl implements Dao {
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
 //		String sql = "select * from mosaji_item where i_category2 = ? order by";
-		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) revice_cnt "
-				+ "from mosaji_review a, mosaji_item b where a.i_no = b.i_no and b.i_category2 = ? group by b.i_no order by b.";
-		
-		sql += " " + v1;
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) review_cnt "
+				+ "from mosaji_review a, mosaji_item b where a.i_no = b.i_no and b.i_category2 = ? group by b.i_no order by";
+		if (("review_cnt").equals(v1)) {
+			sql += " " + v1;
+		} else {
+			sql += " b." + v1;
+		}
 		sql += " " + v2;
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -362,7 +389,7 @@ public class DaoImpl implements Dao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
-		String sql = "SELECT * FROM mosaji_item WHERE i_name LIKE concat('%', ?, '%') OR i_brand LIKE concat('%', ?, '%') ORDER BY i_no";
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) review_cnt from mosaji_review a, mosaji_item b where a.i_no = b.i_no and(b.i_name LIKE concat('%', ?, '%') OR b.i_brand LIKE concat('%', ?, '%')) group by b.i_no ORDER BY b.i_no";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, keyword);
@@ -371,7 +398,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13), rs.getInt(14)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -42,8 +42,9 @@ public class FilteringListController extends HttpServlet {
 		int gender = Integer.parseInt(request.getParameter("gval"));
 		String[] age = request.getParameterValues("age_arr[]");
 		String[] skintype =request.getParameterValues("stype_arr[]");
+		String keyword = request.getParameter("keyword");
 		
-		ArrayList<Item> item = service.AfterFilter(category2, gender, age, skintype);
+		ArrayList<Item> item = service.AfterFilter(category2, gender, age, skintype, keyword);
 		
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");

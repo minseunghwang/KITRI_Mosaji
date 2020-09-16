@@ -180,7 +180,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-
+	<div class="alert alert-secondary" role="alert"></div>
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div id="body">
 		<!-- 	style="min-height: 570px; margin-top:100px; margin-bottom:100px;" -->
