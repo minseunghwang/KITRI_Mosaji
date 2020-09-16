@@ -67,7 +67,7 @@
 
 td {
 	padding-top: 20px;
-	padding-right: 10px;
+	padding-right: 40px;
 }
 
 istar {
@@ -113,6 +113,11 @@ h2 {
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	
+</script>
+
 </head>
 
 <body>
@@ -125,7 +130,7 @@ h2 {
 		<div class="vw">
 
 			<img style="height: 300px; width: 300px; display: block;"
-				src="${i.i_img }" alt="Card image">
+				src="${i.i_img}" alt="Card image">
 		</div>
 
 
@@ -147,14 +152,14 @@ h2 {
 
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
-					<divv style="color:#e16d33"> <i class="fas fa-vial"></i></divv>
-					<divv style="color:#6c757d!important; margin-left:20px;">등록된
-					성분이 없습니다.</divv>
+					<div style="color:#e16d33"> <i class="fas fa-vial"></i></div>
+					<div style="color:#6c757d!important; margin-left:20px;">등록된 성분이 없습니다.</div>
 				</section>
 			</c:if>
 			<c:if test="${i.i_content != null }">
 				<section class="card-content">
-					<divv style="color:#e16d33"> <i class="fas fa-vial"></i>${i.i_content }
+
+					<div style="color:#e16d33"> <i class="fas fa-vial"></i> 성분 - ${i.i_content } </div>
 				</section>
 			</c:if>
 
@@ -162,51 +167,57 @@ h2 {
 				<tbody>
 					<tr>
 						<td class="title">카테고리
-						</th>
-						<td>${i.i_category1}/${i.i_category2}</td>
+						</td>
+						<td>${i.i_category1} - ${i.i_category2}</td>
 					</tr>
 					<tr>
-						<td class="title">제품설명
-						</th>
-						<td>${i.i_brand}의${i.i_category2}</td>
+						<td class="title">제품 설명
+						</td>
+						<td>${i.i_brand}의  ${i.i_category2}</td>
 					</tr>
 					<tr>
-						<td class="title">추천연령/성별
-						</th>
-						<td>${i.i_age }대/${i.i_gender }</td>
+						<td class="title">추천 연령/성별
+						</td>
+						<td>${i.i_age }대 / ${i.i_gender }성</td>
 					</tr>
 					<tr>
-						<td class="title">추천피부타입
-						</th>
+						<td class="title">추천 피부타입
+						</td>
 						<td>${i.i_skintype }</td>
 					</tr>
 				</tbody>
 			</table>
+			
+			<c:if test="${sessionScope.u_id != 'admin' }">
 			<div class="row">
 			<c:if test="${wishlistduplication.duplicationCheck == 0 }">
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
 				<button type="submit" class="btn btn-outline-danger"
-					onclick="alert('찜완료')" style="margin-top: 50px;">찜하기</button>
+					onclick="alert('찜완료')" style="margin-top: 50px;margin-left: 17px;">찜하기</button>
 
 			</form>
 			</c:if>
+			
 			<c:if test="${wishlistduplication.duplicationCheck != 0 }">
 				
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
 				<button type="button" class="btn btn-danger"
 					onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;">찜완료</button>
-
 			</c:if>
-			<button type="button" class="btn btn-outline-secondary naverbtn"
-				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')"
-				style="color: #08cf5f; border-color: #08cf5f; margin-top: 50px; margin-left: 5px;">네이버 쇼핑연결</button>
-
+			
+			
+			
 			<button type="button" class="btn btn-outline-info searchbtn"
-				style="margin-top: 50px;" onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_brand}')">브랜드
-				명으로 검색하기</button>
+				style="margin-top: 50px; margin-left: 10px" 
+				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')">쇼핑하기</button>
+				
+			<button type="button" class="btn btn-outline-success"
+			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_name}')"
+			style="margin-top: 50px; margin-left: 10px;">네이버 검색하기</button>
 				</div>
+				</c:if>
 			<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
 			<%-- 				<input type="hidden" value="${i.i_no }"> --%>
 			<!-- 				<input type="text" name="o_qty" value="1">  -->
@@ -217,28 +228,28 @@ h2 {
 			<!-- 			</form> -->
 		
 		</div>
+		
+					
 
-		<c:if test="${sessionScope.u_id eq 'admin' }">
-		<div class="container">
+		<c:if test="${sessionScope.u_id == 'admin' }">
+
 			<div class="row">
-				<div class="col-md-1">
-					<form
-						action="${pageContext.request.contextPath }/ItemDeleteController">
-						<input type="hidden" name="i_no" value="${i.i_no }"> <input
-							class="btn btn-primary" type="submit" value="상품 삭제"
-							onclick="alert('삭제 완료')">
-					</form>
-				</div>
-				<div class="col-md-1">
 
 					<form
 						action="${pageContext.request.contextPath }/ItemUpdateGetController">
 						<input type="hidden" name="i_no" value="${i.i_no }"> <input
-							class="btn btn-primary" type="submit" value="상품 수정">
+							class="btn btn-primary" type="submit" value="상품 수정" 
+							style="background: #6B66FF; border:1px solid #6B66FF; margin-left: 80px; margin-right:10px;"  >
+					</form>
+					
+					<form
+						action="${pageContext.request.contextPath }/ItemDeleteController">
+						<input type="hidden" name="i_no" value="${i.i_no }" > <input
+							class="btn btn-secondary"  type="submit" value="상품 삭제" s
+							onclick="alert('삭제 완료')">
 					</form>
 
-				</div>
-			</div>
+
 		</div>
 
 		</c:if>
@@ -269,23 +280,24 @@ h2 {
 							<div class="col-md-8">
 								<div class="form-group">
 									<select class="custom-select" id="r_star" name="r_star">
-										<option selected="">별점</option>
-										<option value="1">❤
-										<option value="2">❤❤</option>
-										<option value="3">❤❤❤</option>
-										<option value="4">❤❤❤❤</option>
-										<option value="5">❤❤❤❤❤</option>
+										<option selected="">--- 별점 선택하기 ---</option>
+										<option value="1">⭐</option>
+										<option value="2">⭐⭐</option>
+										<option value="3">⭐⭐⭐</option>
+										<option value="4">⭐⭐⭐⭐</option>
+										<option value="5">⭐⭐⭐⭐⭐</option>
 									</select>
 								</div>
 							</div>
 
 							<div class="col-md-4">
 								<c:if test="${not empty sessionScope.u_id }">
-								<input type="submit" class="btn btn-primary" value="등록"
-									style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" />
+								<input type="submit" class="btn btn-secondary" value="등록"
+									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"
+									onclick="alert('리뷰 등록완료')" />
 								</c:if>
 								<c:if test="${empty sessionScope.u_id }">
-									<input type="button" class="btn btn-primary" value="로그인 해주세요"
+									<input type="button" class="btn btn-secondary" value="로그인 후 작성해 주세요"
 									style="width: 100%; float: right;" onclick="location.href='/Mosaji/view/user/login.jsp'"/>
 								</c:if>
 							</div>
@@ -352,14 +364,15 @@ h2 {
 					</div>
 
 					<button type="button" class="btn btn-outline-light search_option"
-						style="background-color: #e80521;">검색</button>
+						style="background: #6B66FF; border:1px solid #6B66FF;">검색</button>
 
 
 				</div>
 
 				<div class="col-md-9"
 					style="border: 2px solid #f0f0f2; padding: 20px;">
-					<a>피부타입별 평점</a><br> <a>건성(${reviewcount.dryCount })</a>
+					<a style="font-size:20px;">피부타입별 평점</a><br>
+					<a>건성(${reviewcount.dryCount })</a>
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped" role="progressbar"
 							style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
@@ -397,7 +410,7 @@ h2 {
 						<ms style="font-size:30px;">리뷰</ms>
 
 						<button type="button" class="btn btn-outline-light sel"
-							style="background-color: #e80521; float: right;">검색</button>
+							style="background: #6B66FF; border:1px solid #6B66FF; float: right;">검색</button>
 
 						<div class="form-group sel"
 							style="float: right; margin-right: 10px;">
