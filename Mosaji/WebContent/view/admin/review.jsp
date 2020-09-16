@@ -51,12 +51,12 @@ $(document).ready(function() {
 					<c:forEach var="review" items="${review }" varStatus="status">
 						<tr>
 <%-- 							<td>${myreview.rownum }</td> --%>
-							<td>${status.count }</td>
+							<td style="vertical-align: middle; text-align: center;">${status.count }</td>
 <%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}"><img src="${review.i_img }"></a></td> --%>
-							<td style="text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></td>
-							<td style="text-overflow:ellipsis; overflow:hidden; white-space: pre; text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></td>
+							<td style="vertical-align: middle; text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></td>
+							<td style="vertical-align: middle; text-overflow:ellipsis; overflow:hidden; white-space: pre; text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></td>
 <%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
-							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">
+							<td style="vertical-align: middle; text-align: center;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">
 				<c:choose>
 					<c:when test="${review.r_star == 5 }">
 						<img
@@ -85,8 +85,8 @@ $(document).ready(function() {
 					</c:when>
 				</c:choose>
 							</a></td>
-							<td>${review.r_date }</td>
-							<td style="text-align:center"><input type="checkBox" name="del" value="${review.r_no }"></td>							
+							<td style="text-align:center; vertical-align:middle;">${review.r_date }</td>
+							<td style="text-align:center; vertical-align:middle;"><input type="checkBox" name="del" value="${review.r_no }"></td>							
 						</tr>
 					</c:forEach>
 				</tbody>

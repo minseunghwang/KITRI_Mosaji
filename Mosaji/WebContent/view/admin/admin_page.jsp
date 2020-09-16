@@ -57,15 +57,15 @@
 				<tbody>
 					<c:forEach var="user" items="${user }" varStatus="status">
 						<tr>
-							<th scope="row">${status.count }</th>
-							<td>${user.u_id }</td>
-							<td>${user.u_name }</td>
-							<td><form action="${pageContext.request.contextPath }/GetUserController" method="post">
+							<th scope="row" style="text-align:center; vertical-align:middle;">${status.count }</th>
+							<td style="text-align:center; vertical-align:middle;" >${user.u_id }</td>
+							<td style="text-align:center; vertical-align:middle;" >${user.u_name }</td>
+							<td style="text-align:center; vertical-align:middle;" ><form action="${pageContext.request.contextPath }/GetUserController" method="post">
 								<input type="submit" class="btn btn-secondary btn-lg" value="수정">
 									<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
 									</form></td>
 									
-							<td><form name="delFrm" id="delFrm" action="${pageContext.request.contextPath }/AdminDelUserController" method="post">
+							<td style="text-align:center; vertical-align:middle;" ><form name="delFrm" id="delFrm" action="${pageContext.request.contextPath }/AdminDelUserController" method="post">
 							<input type="submit" name="delBtn"id="delBtn" class="btn btn-secondary btn-lg" value="삭제" onclick="confirm('정말 삭제하시겠습니까?')" >
 							<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
 							</form></td>
