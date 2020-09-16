@@ -113,10 +113,28 @@ h2 {
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
 	crossorigin="anonymous">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
-	
+	function check_review(){
+		
+		var r_content = document.getElementById("r_content").value;
+		var r_star = document.getElementById("r_star").value;
+		
+		if (r_content == ""){
+			alert("리뷰 내용을 작성해 주세요.");
+			return false
+		}
+		else if (r_star == ""){
+			alert("리뷰 별점을 입력해 주세요.");
+			return false
+		}
+		alert("리뷰 등록완료");
+		
+		return true;
+	}
 </script>
+
+
 
 </head>
 
@@ -152,13 +170,12 @@ h2 {
 
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
-					<div style="color:#e16d33"> <i class="fas fa-vial"></i></div>
+					<i class="fas fa-vial" style="color:#e16d33; float:left"></i>
 					<div style="color:#6c757d!important; margin-left:20px;">등록된 성분이 없습니다.</div>
 				</section>
 			</c:if>
 			<c:if test="${i.i_content != null }">
 				<section class="card-content">
-
 					<div style="color:#e16d33"> <i class="fas fa-vial"></i> 성분 - ${i.i_content } </div>
 				</section>
 			</c:if>
@@ -268,7 +285,7 @@ h2 {
 			<div class="container">
 				<div class="rww" role="document">
 					<form method="post"
-						action="${pageContext.request.contextPath }/AddReviewController">
+						action="${pageContext.request.contextPath }/AddReviewController" onsubmit="return check_review()">
 						<div class="row">
 							<div class="col-md-12">
 								<textarea rows="10" cols="115%" name="r_content" id="r_content"
@@ -280,7 +297,7 @@ h2 {
 							<div class="col-md-8">
 								<div class="form-group">
 									<select class="custom-select" id="r_star" name="r_star">
-										<option selected="">--- 별점 선택하기 ---</option>
+										<option selected="" value="">--- 별점 선택하기 ---</option>
 										<option value="1">⭐</option>
 										<option value="2">⭐⭐</option>
 										<option value="3">⭐⭐⭐</option>
@@ -293,8 +310,7 @@ h2 {
 							<div class="col-md-4">
 								<c:if test="${not empty sessionScope.u_id }">
 								<input type="submit" class="btn btn-secondary" value="등록"
-									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"
-									onclick="alert('리뷰 등록완료')" />
+									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"/>
 								</c:if>
 								<c:if test="${empty sessionScope.u_id }">
 									<input type="button" class="btn btn-secondary" value="로그인 후 작성해 주세요"
