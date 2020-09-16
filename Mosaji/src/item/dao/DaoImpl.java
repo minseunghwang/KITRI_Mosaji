@@ -69,7 +69,7 @@ public class DaoImpl implements Dao {
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
 		int index = 1;
-		String sql = "select * from mosaji_item where ";
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) revice_cnt from mosaji_review a, mosaji_item b where ";
 		try {
 			
 		if (keyword == null) {
@@ -99,6 +99,7 @@ public class DaoImpl implements Dao {
 			sql += category2;
 			sql += "'";
 			
+			sql += "and a.i_no = b.i_no group by b.i_no";
 		}else {	
 					sql += "i_gender in (";
 					for (int i = 0; i < gen.size(); i++) {
@@ -153,7 +154,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13), rs.getInt(14)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -177,13 +178,10 @@ public class DaoImpl implements Dao {
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
 //		String sql = "select * from mosaji_item where i_category2 = ? order by";
-		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) review_cnt "
-				+ "from mosaji_review a, mosaji_item b where a.i_no = b.i_no and b.i_category2 = ? group by b.i_no order by";
-		if (("review_cnt").equals(v1)) {
-			sql += " " + v1;
-		} else {
-			sql += " b." + v1;
-		}
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) revice_cnt "
+				+ "from mosaji_review a, mosaji_item b where a.i_no = b.i_no and b.i_category2 = ? group by b.i_no order by b.";
+		
+		sql += " " + v1;
 		sql += " " + v2;
 		try {
 			pstmt = conn.prepareStatement(sql);
