@@ -96,7 +96,14 @@ public class DaoImpl implements Dao {
 			sql += category2;
 			sql += "'";
 			
-			
+			if (keyword != null) {
+			sql += " and ( i_name LIKE concat('%',";
+			sql += keyword;
+			sql += " ,'%') OR i_brand LIKE concat('%',";
+			sql += keyword;
+			sql += " ,'%') ORDER BY i_no";
+			}
+	
 			pstmt = conn.prepareStatement(sql);
 			
 			System.out.println(sql);
