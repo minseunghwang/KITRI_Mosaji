@@ -45,7 +45,7 @@ public class WishlistGetController extends HttpServlet {
 		ArrayList<Wishlist1> wishlist1 = (ArrayList<Wishlist1>) wishlistservice.getItem1(u_id);
 		request.setAttribute("wishlist", wishlist1);
 		System.out.println("controller : " + wishlist1);
-		RequestDispatcher rd = request.getRequestDispatcher("/view/user/wishlist.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/view/user/share.jsp");
 		rd.forward(request, response);
 		
 		
