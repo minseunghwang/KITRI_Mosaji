@@ -253,59 +253,8 @@ h2 {
 		</div>
 
 		</c:if>
-
-		<div class="card-review">
-			<div class="container"
-				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
-				<h3 class="card-header"
-					style="text-align: center; background-color: white;">
-					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
-					리뷰 작성
-				</h3>
-			</div>
-
-
-			<div class="container">
-				<div class="rww" role="document">
-					<form method="post"
-						action="${pageContext.request.contextPath }/AddReviewController">
-						<div class="row">
-							<div class="col-md-12">
-								<textarea rows="10" cols="115%" name="r_content" id="r_content"
-									style="width: 100%; padding: 15px;"
-									placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
-								<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
-							</div>
-
-							<div class="col-md-8">
-								<div class="form-group">
-									<select class="custom-select" id="r_star" name="r_star">
-										<option selected="">--- 별점 선택하기 ---</option>
-										<option value="1">⭐</option>
-										<option value="2">⭐⭐</option>
-										<option value="3">⭐⭐⭐</option>
-										<option value="4">⭐⭐⭐⭐</option>
-										<option value="5">⭐⭐⭐⭐⭐</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<c:if test="${not empty sessionScope.u_id }">
-								<input type="submit" class="btn btn-secondary" value="등록"
-									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"
-									onclick="alert('리뷰 등록완료')" />
-								</c:if>
-								<c:if test="${empty sessionScope.u_id }">
-									<input type="button" class="btn btn-secondary" value="로그인 후 작성해 주세요"
-									style="width: 100%; float: right;" onclick="location.href='/Mosaji/view/user/login.jsp'"/>
-								</c:if>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+		
+		
 		<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
 	</div>
 
@@ -329,8 +278,10 @@ h2 {
 	<!-- 		</ul> -->
 	<!-- 	</div> -->
 
+
 	<c:if test="${not empty review }">
 		<div class="container" style="margin-top: 50px;">
+			<!-- 
 			<div class="row">
 				<div class="col-md-3"
 					style="text-align: -webkit-center; margin-top: 15px; padding: 20px;">
@@ -368,10 +319,10 @@ h2 {
 
 
 				</div>
-
-				<div class="col-md-9"
-					style="border: 2px solid #f0f0f2; padding: 20px;">
-					<a style="font-size:20px;">피부타입별 평점</a><br>
+	 -->
+	 
+	 			<p style="font-size:30px; text-align:center;">피부타입별 평점</p>
+				<div class="col-md-9" style="border: 2px solid #f0f0f2; padding: 20px;">
 					<a>건성(${reviewcount.dryCount })</a>
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped" role="progressbar"
@@ -405,26 +356,86 @@ h2 {
 							aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 					</div>
 				</div>
+				
+						<div class="card-review">
+			<div class="container"
+				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
+				<h3 class="card-header"
+					style="text-align: center; background-color: white; margin-top:5%;">
+					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
+					리뷰 작성
+				</h3>
+			</div>
+
+
+			<div class="container">
+				<div class="rww" role="document">
+					<form method="post"
+						action="${pageContext.request.contextPath }/AddReviewController">
+						<div class="row">
+							<div class="col-md-12">
+								<textarea rows="5" cols="115%" name="r_content" id="r_content"
+									style="width: 100%; padding: 15px;"
+									placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
+								<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
+							</div>
+
+							<div class="col-md-8">
+								<div class="form-group">
+									<select class="custom-select" id="r_star" name="r_star">
+										<option selected="">--- 별점 선택하기 ---</option>
+										<option value="1">⭐</option>
+										<option value="2">⭐⭐</option>
+										<option value="3">⭐⭐⭐</option>
+										<option value="4">⭐⭐⭐⭐</option>
+										<option value="5">⭐⭐⭐⭐⭐</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<c:if test="${not empty sessionScope.u_id }">
+								<input type="submit" class="btn btn-secondary" value="등    록"
+									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"
+									onclick="alert('리뷰 등록완료')" />
+								</c:if>
+								<c:if test="${empty sessionScope.u_id }">
+									<input type="button" class="btn btn-secondary" value="로그인 후 작성해 주세요"
+									style="width: 100%; float: right;" onclick="location.href='/Mosaji/view/user/login.jsp'"/>
+								</c:if>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+				
+				
+				
+				
 				<c:if test="${not empty review }">
-					<div class="col-md-12" style="margin-top: 50px;">
-						<ms style="font-size:30px;">리뷰</ms>
-
-						<button type="button" class="btn btn-outline-light sel"
-							style="background: #6B66FF; border:1px solid #6B66FF; float: right;">검색</button>
-
-						<div class="form-group sel"
-							style="float: right; margin-right: 10px;">
+					<div class=row style="margin-top:5%;">
+						<div class=col><p style="font-size:30px; ">리뷰 보기</p></div>
+						<div class=col>
 							<select class="custom-select">
-								<option selected="" disabled selected hidden>정렬</option>
-								<option value="1">최신순</option>
-								<option value="2">오래된순</option>
+								<option value="1">최신 순</option>
+								<option value="2">오래된 순</option>
 							</select>
 						</div>
+						<div class=col>
+						<button type="button" class="btn btn-outline-light sel"
+						style="background: #6B66FF; border:1px solid #6B66FF; float: right;">정렬</button>
+						</div>
+						</div>
+						
 					</div>
 				</c:if>
 			</div>
 		</div>
 	</c:if>
+	
+
+
 
 
 	<c:if test="${not empty review }">
