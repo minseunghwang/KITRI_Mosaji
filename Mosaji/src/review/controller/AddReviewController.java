@@ -66,8 +66,9 @@ public class AddReviewController extends HttpServlet {
 		
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController");
-		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController");
+//		rd.forward(request, response);
+		response.sendRedirect("/Mosaji/ItemDetailController?i_no=" + review.getI_no());
 		
 	}
 
