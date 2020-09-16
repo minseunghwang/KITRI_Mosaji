@@ -207,6 +207,7 @@
 	   	        	makeTbl(arr);
 	   	        }
 	       	});
+	       	$("#title").html("검색결과 '" + keyword + "'");
 		}
 		
 		$("#f_age_total").click(function(){
@@ -251,7 +252,8 @@
 		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
 		        data: {
 		        	category2 : category2,
-		        	orderby : orderby
+		        	orderby : orderby,
+		        	keyword : keyword
 		        },
 		        success: function(result){
 		        	arr = $.parseJSON(result);
@@ -259,8 +261,17 @@
 		        	makeTbl(arr);
 		        }
 		    });
+			$("#title").empty();
 			
-			$("#title").html(category2 + "&nbsp 랭킹");
+			if(keyword == ""){
+				$("#title").append(" " + category2 + " 랭킹");
+			}
+			
+			if(keyword != ""){
+				$("#title").html("검색결과 '" + keyword + "'");
+				$("#title").append(" 랭킹");
+			}
+			
 		});
 		
 	});
