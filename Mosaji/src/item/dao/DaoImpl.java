@@ -389,7 +389,7 @@ public class DaoImpl implements Dao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
-		String sql = "SELECT * FROM mosaji_item WHERE i_name LIKE concat('%', ?, '%') OR i_brand LIKE concat('%', ?, '%') ORDER BY i_no";
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) review_cnt from mosaji_review a, mosaji_item b where a.i_no = b.i_no and(b.i_name LIKE concat('%', ?, '%') OR b.i_brand LIKE concat('%', ?, '%')) group by b.i_no ORDER BY b.i_no";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, keyword);
@@ -398,7 +398,7 @@ public class DaoImpl implements Dao {
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10),
-						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13)));
+						rs.getInt(11), (float) (Math.round((rs.getFloat(12)*100))/100.0), rs.getString(13), rs.getInt(14)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
