@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import item.service.Service;
+import item.service.ServiceImpl;
 import review.service.ReviewService;
 import review.service.ReviewServiceImpl;
 
@@ -36,10 +38,12 @@ public class DeleteReviewController extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		ReviewService reviewservice = new ReviewServiceImpl();
-		
+		Service itemservice = new ServiceImpl();
 		int r_no = Integer.parseInt(request.getParameter("r_no"));
 		int i_no = Integer.parseInt(request.getParameter("i_no"));
 		reviewservice.delete(r_no);
+		itemservice.avg(i_no);
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController");
 		rd.forward(request, response);

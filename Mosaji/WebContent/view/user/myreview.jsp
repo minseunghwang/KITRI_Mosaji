@@ -10,6 +10,7 @@
 <!-- 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" -->
 <!-- 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" -->
 <!-- 	crossorigin="anonymous"> -->
+
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
@@ -90,17 +91,22 @@
 				<div class="col-6">
 					<a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
 						style="color: #625772;">
-						<div class="card">
+						<div class="card" style="margin-bottom:10%;">
 							<div class="row no-gutters">
 								<div class="col-4">
-									<img src="${myreview.i_img }" alt="" class="card-img" />
+									<img src="${myreview.i_img }" alt="" style="margin-top: 8%;"
+										class="card-img" />
 								</div>
 								<div class="col-8">
 									<div class="card-body">
-										<p class="card-text">상품 이름 : ${myreview.i_name }</p>
+										<p class="card-text"style="
+    width: 330px;
+    overflow: hidden;
+    white-space: pre;
+    text-overflow: ellipsis;
+">상품 이름 : ${myreview.i_name }</p>
 										<p class="card-text"
-											style="text-overflow: ellipsis; max-width: 300px; overflow: hidden; white-space: pre;">내용
-											: ${myreview.r_content }</p>
+											style="text-overflow: ellipsis; max-width: 300px; overflow: hidden; white-space: pre;">내용 : ${myreview.r_content }</p>
 										<c:choose>
 											<c:when test="${myreview.r_star == 5 }">
 												<p>

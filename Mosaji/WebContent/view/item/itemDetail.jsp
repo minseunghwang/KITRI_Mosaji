@@ -288,8 +288,7 @@
 									<th data-v-3b7c2262="" class="info__th"><span
 										data-v-3b7c2262="" class="title">설명</span></th>
 									<td data-v-3b7c2262="" class="info__td"><div
-											data-v-3b7c2262="" class="info__description">
-											${i.i_content }</div></td>
+											data-v-3b7c2262="" class="info__description">${i.i_content}</div></td>
 								</tr>
 								<tr data-v-3b7c2262="" class="info__description-box info__tr">
 									<th data-v-3b7c2262="" class="info__th"><span

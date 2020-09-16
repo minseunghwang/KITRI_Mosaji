@@ -62,49 +62,43 @@
 				<tbody style="text-align: center;">
 					<c:forEach var="review" items="${review }" varStatus="status">
 						<tr>
-							<%-- 							<td>${myreview.rownum }</td> --%>
-							<td>${status.count }</td>
-							<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}"><img src="${review.i_img }"></a></td> --%>
-							<td style="text-align: left;"><a
-								href="/Mosaji/ItemDetailController?i_no=${review.i_no}"
-								style="color: #625772;">${review.i_name }</a></td>
-							<td
-								style="text-overflow: ellipsis; overflow: hidden; white-space: pre; text-align: left;"><a
-								href="/Mosaji/ItemDetailController?i_no=${review.i_no}"
-								style="color: #625772;">${review.r_content }</a></td>
-							<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
-							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${review.i_no}"> <c:choose>
-										<c:when test="${review.r_star == 5 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star5.png"
-												style="width: 140px;">
-										</c:when>
-										<c:when test="${review.r_star == 4 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star4.png"
-												style="width: 140px;">
-										</c:when>
-										<c:when test="${review.r_star == 3 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star3.png"
-												style="width: 140px;">
-										</c:when>
-										<c:when test="${review.r_star == 2 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star2.png"
-												style="width: 140px;">
-										</c:when>
-										<c:when test="${review.r_star == 1 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star1.png"
-												style="width: 140px;">
-										</c:when>
-									</c:choose>
+<%-- 							<td>${myreview.rownum }</td> --%>
+							<td style="vertical-align: middle; text-align: center; color: #625772;">${status.count }</td>
+<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}"><img src="${review.i_img }"></a></td> --%>
+							<td style="vertical-align: middle; text-align:left; color: #625772;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}" style="color: #625772;">${review.i_name }</a></td>
+							<td style="vertical-align: middle; text-overflow:ellipsis; overflow:hidden; white-space: pre; text-align:left; color: #625772;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}" style="color: #625772;">${review.r_content }</a></td>
+<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
+							<td style="vertical-align: middle; text-align: center;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">
+				<c:choose>
+					<c:when test="${review.r_star == 5 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star5.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${review.r_star == 4 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star4.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${review.r_star == 3 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star3.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${review.r_star == 2 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star2.png"
+							style="width: 140px;">
+					</c:when>
+					<c:when test="${review.r_star == 1 }">
+						<img
+							src="${pageContext.request.contextPath }/resources/images/star1.png"
+							style="width: 140px;">
+					</c:when>
+				</c:choose>
 							</a></td>
-							<td>${review.r_date }</td>
-							<td style="text-align: center"><input type="checkBox"
-								name="del" value="${review.r_no }"></td>
+							<td style="text-align:center; vertical-align:middle; color: #625772;">${review.r_date }</td>
+							<td style="text-align:center; vertical-align:middle;"><input type="checkBox" name="del" value="${review.r_no }"></td>							
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -144,8 +144,8 @@
 .text-nicelabel:not(:checked) + label 
 {
 	background-color: white;
-	border: 1px solid #625772;
-	color: #625772;
+	border: 1px solid #6B66FF;
+	color: #6B66FF;
 }
 .text-nicelabel:not(:checked) + label > span.nicelabel-checked-image
 {
@@ -157,8 +157,8 @@
 }
 .text-nicelabel:checked + label 
 {
-	background-color: #625772;
-	border: 1px solid #625772;
+	background-color: #6B66FF;
+	border: 1px solid #6B66FF;
 	color: white;
 }
 .text-nicelabel:checked + label > span.nicelabel-unchecked-image

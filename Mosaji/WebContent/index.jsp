@@ -281,17 +281,24 @@
 		});
 	});
 	
-	
-
-</script>
-
-<script>
 function selectnull(){
 		
     var category1 = $("#category1").val();
     if(category1 == null){
         alert("카테고리를 입력해 주세요.");
         $("#category1").focus();
+		return false;
+   	}
+    return true;
+}
+
+function keywordnull(){
+	
+    var keyword = $("#keyword").val();
+    
+    if(keyword.length == 0){
+        alert("검색어를 입력해 주세요.");
+        $("#keyword").focus();
 		return false;
    	}
     return true;
@@ -353,8 +360,7 @@ function selectnull(){
 			</div>
 
 
-			<form method="get"
-				action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}">
+			<form onsubmit="return keywordnull()" method="get" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=${param.keyword}">
 				<div class="row">
 					<div class="col">
 						<input class="form-control" type="text" name="keyword"
