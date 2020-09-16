@@ -519,8 +519,8 @@ h2 {
 						method="post">
 						<input type="hidden" name="r_no" id="r_no" value="${review.r_no }">
 						<input type="hidden" name="i_no" id="i_no" value="${review.i_no }">
-						<input type="submit" class="btn btn-primary" value="내 리뷰삭제"
-							style="float: right;">
+						<input type="submit" class="btn btn-primary" style="background: #6B66FF; border:1px solid #6B66FF; float: right;" value="내 리뷰삭제">
+							
 					</form>
 				</c:if>
 			</div>
