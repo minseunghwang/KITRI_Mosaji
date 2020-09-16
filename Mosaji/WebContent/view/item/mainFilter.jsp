@@ -271,6 +271,7 @@
 
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div class="alert alert-secondary" role="alert"></div>
 
 			<div class="title" style="text-align: center; height: 5%;">
 			<br><br><br><br>

@@ -13,6 +13,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div class="alert alert-secondary" role="alert"></div>
 	<div class="container" style="min-height: 650px;">
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 		<h3
