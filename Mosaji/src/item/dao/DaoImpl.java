@@ -54,7 +54,7 @@ public class DaoImpl implements Dao {
 	}
 
 	@Override
-	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype) {
+	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype, String keyword) {
 	
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
@@ -96,8 +96,11 @@ public class DaoImpl implements Dao {
 			sql += category2;
 			sql += "'";
 			
+			
 			pstmt = conn.prepareStatement(sql);
-
+			
+			System.out.println(sql);
+			
 			for (int i = 0; i < gen.size(); i++) {
 				pstmt.setString(index, gen.get(i));
 				index++;
@@ -112,7 +115,9 @@ public class DaoImpl implements Dao {
 				pstmt.setString(index, age[i]);
 				index++;
 			}
-
+			
+			
+			
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
