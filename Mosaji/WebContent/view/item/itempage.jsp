@@ -140,6 +140,7 @@ h2 {
 			<div class="wrap-star">
 				<div class='star-rating'>
 					<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
+					(${reviewcount.allCount})
 				</div>
 			</div>
 			<istar>(${reviewcount.allCount}) ${i.i_star }</istar>
