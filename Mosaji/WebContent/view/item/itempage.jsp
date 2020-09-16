@@ -292,7 +292,6 @@ h2 {
 
 							<div class="col-md-4">
 								<c:if test="${not empty sessionScope.u_id }">
-
 								<input type="submit" class="btn btn-secondary" value="등록"
 									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"
 									onclick="alert('리뷰 등록완료')" />
