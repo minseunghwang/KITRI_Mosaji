@@ -159,43 +159,24 @@
 				stype_arr.push($(this).val());
 			});
 		}
-		if(keyword == ""){
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/FilteringListController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	category2 : category2,
-		        	gval : gval,
-		        	age_arr : age_arr,
-		        	stype_arr : stype_arr
-		        },
-		        success: function(result){
-		        	var arr = $.parseJSON(result);
-					$(".itemList").empty();
-		        	makeTbl(arr);
-				}
-			});
-		}
-		else{
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/FilteringListController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	category2 : category2,
-		        	gval : gval,
-		        	age_arr : age_arr,
-		        	stype_arr : stype_arr,
-		        	keyword : keyword
-		        },
-		        success: function(result){
-		        	var arr = $.parseJSON(result);
-					$(".itemList").empty();
-		        	makeTbl(arr);
-				}
-			});
-		}
+		
+		$.ajax({
+	        url: '${pageContext.request.contextPath }/FilteringListController',
+	        type: 'POST',
+	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+	        data: {
+	        	category2 : category2,
+	        	gval : gval,
+	        	age_arr : age_arr,
+	        	stype_arr : stype_arr,
+	        	keyword : keyword
+	        },
+	        success: function(result){
+	        	var arr = $.parseJSON(result);
+				$(".itemList").empty();
+	        	makeTbl(arr);
+			}
+		});
 		
 		
 		return true;
@@ -392,37 +373,37 @@
 				<div class="col" >
 					<select class="form-control" name="category2" id="category2">
 						<option value="" disabled selected hidden>${param.category2}</option>
-						<option disabled>====페이스메이크업====</option>
+						<option disabled>---- 페이스메이크업 ----</option>
 						<option value="피니시파우더">피니시파우더 </option>
 						<option value="파운데이션">파운데이션 </option>
 						<option value="컨실러">컨실러</option>
-						<option disabled>====아이메이크업====</option>
+						<option disabled>---- 아이메이크업 ----</option>
 						<option value="마스카라">마스카라 </option>
 						<option value="섀도우">섀도우</option>
-						<option disabled>====립메이크업====</option>
+						<option disabled>---- 립메이크업 ----</option>
 						<option value="틴트">틴트 </option>
 						<option value="립스틱">립스틱</option>
-						<option disabled>====스킨케어====</option>
+						<option disabled>---- 스킨케어 ----</option>
 						<option value="스킨/토너">스킨/토너</option>
 						<option value="로션/에센스">로션/에센스</option>
 						<option value="크림">크림</option>
-						<option disabled>====페이셜클렌저====</option>
+						<option disabled>---- 페이셜클렌저 ----</option>
 						<option value="클렌징폼">클렌징폼</option>
 						<option value="비누">비누</option>
-						<option disabled>====메이크업클렌저====</option>
+						<option disabled>---- 메이크업클렌저 ----</option>
 						<option value="클렌징워터">클렌징워터</option>
 						<option value="클렌징오일">핸드크림</option>
-						<option disabled>====바디워시====</option>
+						<option disabled>---- 바디워시 ----</option>
 						<option value="샤워젤">샤워젤</option>
 						<option value="천연비누">천연비누</option>
-						<option disabled>====바디로션====</option>
+						<option disabled>---- 바디로션 ----</option>
 						<option value="바디오일">바디오일</option>
 						<option value="바디로션">바디로션</option>						
 					</select>
 					</div>
 					<div class="col">
 					<select  class="form-control" name="orderby" id="orderby">
-						<option value="i_no:desc">==선택하세요==</option>
+						<option value="i_no:desc">--- 정렬을 선택해 주세요 ---</option>
 						<option value="i_no:desc">최신순</option>
 						<option value="i_star:desc" selected>평점 높은순</option>
 						<option value="i_star:asc">평점 낮은순</option>
@@ -435,24 +416,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<div id="welcome" class="container">
-			<div class="title">
-				<h2>Welcome to our website</h2>
-			</div>
-			<p>
-				This is <strong>RedMarket</strong>, a free, fully
-				standards-compliant CSS template designed by <a
-					href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos
-				in this template are from <a href="http://fotogrph.com/">
-					Fotogrph</a>. This free template is released under the <a
-					href="http://templated.co/license">Creative Commons Attribution</a>
-				license, so you're pretty much free to do whatever you want with it
-				(even use it commercially) provided you give us credit for it. Have
-				fun :)
-			</p>
-		</div>
-	</div>
 
 	
 	<%@ include file="/view/common/footer.jsp"%>
