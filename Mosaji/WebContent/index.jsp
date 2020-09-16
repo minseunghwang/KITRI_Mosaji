@@ -263,7 +263,12 @@
 
 				category1 = 스킨케어;
 
+			} else if (this.value == "선택없음") {
+
+				 alert('카테고리를 입력해 주세요.'')
+
 			}
+			
 
 			$('#category2').empty();
 
@@ -279,6 +284,7 @@
 			}
 		});
 	});
+
 </script>
 
 
@@ -309,12 +315,11 @@
 			<hr>
 
 			<div style="margin-bottom: 10px;">
-				<form method="GET"
-					action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
+				<form name="selectform" method="GET" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
 							<select class="form-control" name="category1" id="category1">
-								<option disabled selected hidden>뷰티 카테고리</option>
+								<option value ="선택없음" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
 								<option value="립메이크업">립메이크업</option>
@@ -324,12 +329,13 @@
 
 						<div class="col">
 							<select class="form-control" name="category2" id="category2">
-								<option value="" disabled selected hidden>소분류</option>
+								<option disabled selected hidden>소분류</option>
 							</select>
 						</div>
 						<div class="col">
-							<button type="submit" class="btn btn-secondary"
-								onclick="select()" style="width: 50%;">랭킹 검색</button>
+							<input type="submit" class="btn btn-secondary" value="랭킹 검색"
+								onclick="selectnull()" style="width: 50%;">
+						
 						</div>
 					</div>
 				</form>
@@ -345,8 +351,8 @@
 							style="text-align: center; width: 135%; font-size: 16px;">
 					</div>
 					<div class="col">
-						<button class="btn btn-secondary" type="submit"
-							style="width: 32%; margin-left: 35%;">화장품 검색</button>
+						<input class="btn btn-secondary" type="submit" value="화장품 검색"
+							style="width: 32%; margin-left: 35%;">
 					</div>
 				</div>
 			</form>
