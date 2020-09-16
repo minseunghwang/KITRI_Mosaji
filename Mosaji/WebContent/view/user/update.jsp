@@ -60,16 +60,16 @@
 								<div class="btn-group" data-toggle="buttons">
 								<c:if test="${u.u_gender == '남자' }">
 									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="남자" checked="checked">남자
+										name="u_gender" autocomplete="off" value="남자" checked="checked"> 남자
 									</label> <label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="여자">여자
+										name="u_gender" autocomplete="off" value="여자"> 여자
 									</label>
 								</c:if>
 								<c:if test="${u.u_gender == '여자' }">
 									<label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="남자">남자
+										name="u_gender" autocomplete="off" value="남자"> 남자
 									</label> <label class="btn btn-secondary"> <input type="radio"
-										name="u_gender" autocomplete="off" value="여자" checked="checked">여자
+										name="u_gender" autocomplete="off" value="여자" checked="checked"> 여자
 									</label>
 								</c:if>
 								

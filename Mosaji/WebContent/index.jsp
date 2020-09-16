@@ -284,9 +284,17 @@
 function selectnull(){
 		
     var category1 = $("#category1").val();
+    var category2 = $("#category1").val();
+    
     if(category1 == null){
-        alert("카테고리를 입력해 주세요.");
+        alert("카테고리를 선택해 주세요.");
         $("#category1").focus();
+		return false;
+   	}
+    
+    if(category2 == null){
+        alert("소분류를 선택해 주세요.");
+        $("#category2").focus();
 		return false;
    	}
     return true;
@@ -337,7 +345,7 @@ function keywordnull(){
 					<div class="row">
 						<div class="col">
 							<select class="form-control" style="height: 100%;" name="category1" id="category1">
-								<option value ="" disabled selected hidden>뷰티 카테고리</option>
+								<option value ="" disabled selected hidden>--뷰티 카테고리--</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
 								<option value="립메이크업">립메이크업</option>
@@ -347,13 +355,12 @@ function keywordnull(){
 
 						<div class="col">
 							<select class="form-control" style="height: 100%;" name="category2" id="category2">
-								<option disabled selected hidden>소분류</option>
+								<option disabled selected hidden>--소분류--</option>
 							</select>
 						</div>
 						<div class="col">
 							<input type="submit" class="btn btn-secondary" value="랭킹 검색"
 								style="font-size: 18px; width: 50%; background: #9d85c3; border:1px solid #9d85c3;">
-						
 						</div>
 					</div>
 				</form>
