@@ -137,7 +137,7 @@ function cAll() {
 
 		</c:if>
 		<c:if test="${empty wishlist}">
-			<h3 style="text-align: center; margin-top: 10%;">찜 목록이 비어있습니다.</h3>
+			<h3 style="text-align: center; margin-top: 10%;margin-bottom:16.5%;">찜 목록이 비어있습니다.</h3>
 		</c:if>
 	</div>
 
