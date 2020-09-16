@@ -54,8 +54,10 @@ public class AddWishlistController extends HttpServlet {
 		System.out.println("=========================");
 		System.out.println("i_no" + i_no);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController?i_no="+i_no);
-		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("/ItemDetailController?i_no="+i_no);
+//		rd.forward(request, response);
+		
+		response.sendRedirect("/Mosaji/ItemDetailController?i_no="+i_no);
 		
 		
 	}
