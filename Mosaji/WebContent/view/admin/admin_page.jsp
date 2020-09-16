@@ -62,7 +62,7 @@
 				<tbody>
 					<c:forEach var="user" items="${user }" varStatus="status">
 						<tr>
-							<th scope="row">${status.count }</th>
+							<th scope="row">${status.count}</th>
 							<td>${user.u_id }</td>
 							<td>${user.u_name }</td>
 							<td><form action="${pageContext.request.contextPath }/GetUserController" method="post">
