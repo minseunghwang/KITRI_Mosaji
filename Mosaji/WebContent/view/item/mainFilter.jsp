@@ -299,7 +299,7 @@
 					</div>
 					<section class="filter-body">
 						<fieldset class="fieldset" style="margin-bottom:30px;">
-							<legend style="text-align: left; margin-left:10px;">성별</legend>
+							<legend style="text-align: left; margin-left:10px; color:#4d3a6b;">성별</legend>
 	
 						<div id="text-radio" style="margin-left:10px; float:left;">
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_radio", "checked_text": "전 체", "unchecked_text": "전 체"}'
@@ -315,15 +315,14 @@
 						</div>		
 						</fieldset>
 						
-						
 						<hr>
 						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:30px; ">
-						<legend style="text-align: left; margin-left:10px;">연령대</legend>			
+						<legend style="text-align: left; margin-left:10px; color:#4d3a6b;">연령대</legend>			
 						<div id="text-checkbox" style="margin-left:10px; float:left;">
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "전 체", "unchecked_text": "전 체"}' 
 						checked="checked" type="checkbox" value="0" id="f_age_total"/>
 						</div>
-						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left;">
+						<div id="text-checkbox" style="margin-left:10px; margin-right:10px; float:left; color:#61458c;">
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "10대", "unchecked_text": "10대"}'
 						type="checkbox" value="10" name="f_age"/>
 						</div>
@@ -341,10 +340,9 @@
 						</div>
 						</fieldset>
 						
-						
 						<hr>
 						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:40px; ">
-						<legend style="text-align: left; margin-left:10px;">피부타입</legend>			
+						<legend style="text-align: left; margin-left:10px; color:#4d3a6b;">피부타입</legend>			
 						<div id="text-checkbox" style="margin-left:10px; float:left;">
 						<input class="text-nicelabel" data-nicelabel='{"position_class": "text_checkbox", "checked_text": "전 체", "unchecked_text": "전 체"}' 
 						checked="checked" type="checkbox" value="전체" id="f_skintype_total"/>
@@ -375,7 +373,7 @@
 					</section>
 					<div style="margin-bottom:20px;">
 						<button class="btn btn-secondary"   id="f_reset_btn">초기화</button>
-						<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background: #6B66FF; border:1px solid #6B66FF;" id="filter_submit" onclick="check_data()">필터 적용</button>
+						<button class="btn btn-secondary" style="margin-top:10px; margin-bottom:10px; background: #9d85c3; border:1px solid #9d85c3;" id="filter_submit" onclick="check_data()">필터 적용</button>
 					</div>
 				</div>
 			</div>
