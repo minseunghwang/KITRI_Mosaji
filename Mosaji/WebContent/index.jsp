@@ -314,7 +314,7 @@
 					<div class="row">
 						<div class="col">
 							<select class="form-control" name="category1" id="category1">
-								<option value="" disabled selected hidden>뷰티 카테고리</option>
+								<option disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
 								<option value="립메이크업">립메이크업</option>
@@ -329,7 +329,7 @@
 						</div>
 						<div class="col">
 							<button type="submit" class="btn btn-secondary"
-								onclick="select()" style="width: 50%;">랭킹 보기</button>
+								onclick="select()" style="width: 50%;">랭킹 검색</button>
 						</div>
 					</div>
 				</form>
@@ -594,7 +594,7 @@
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="container">
 		<div class="container"
-			style="text-align: center; font-size: 50px; color: #625772">랭킹보기</div>
+			style="text-align: center; font-size: 50px; color: #625772">랭킹 바로보기</div>
 	</div>
 
 	<div class="container">

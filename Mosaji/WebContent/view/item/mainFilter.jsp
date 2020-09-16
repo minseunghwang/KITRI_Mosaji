@@ -159,44 +159,24 @@
 				stype_arr.push($(this).val());
 			});
 		}
-		if(keyword == ""){
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/FilteringListController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	category2 : category2,
-		        	gval : gval,
-		        	age_arr : age_arr,
-		        	stype_arr : stype_arr
-		        },
-		        success: function(result){
-		        	var arr = $.parseJSON(result);
-					$(".itemList").empty();
-		        	makeTbl(arr);
-				}
-			});
-		}
-		else{
-			$.ajax({
-		        url: '${pageContext.request.contextPath }/FilteringListController',
-		        type: 'POST',
-		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-		        data: {
-		        	category2 : category2,
-		        	gval : gval,
-		        	age_arr : age_arr,
-		        	stype_arr : stype_arr,
-		        	keyword : keyword
-		        },
-		        success: function(result){
-		        	var arr = $.parseJSON(result);
-					$(".itemList").empty();
-		        	makeTbl(arr);
-				}
-			});
-		}
-		
+
+		$.ajax({
+	        url: '${pageContext.request.contextPath }/FilteringListController',
+	        type: 'POST',
+	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+	        data: {
+	        	category2 : category2,
+	        	gval : gval,
+	        	age_arr : age_arr,
+	        	stype_arr : stype_arr,
+	        	keyword : keyword
+	        },
+	        success: function(result){
+	        	var arr = $.parseJSON(result);
+				$(".itemList").empty();
+	        	makeTbl(arr);
+			}
+		});
 		
 		return true;
 	}
@@ -428,6 +408,7 @@
 						<option value="i_star:asc">평점 낮은순</option>
 						<option value="i_price:desc">가격 높은순</option>
 						<option value="i_price:asc">가격 낮은순</option>
+						<option value="review_cnt:desc">리뷰 많은순</option>
 					</select>
 					</div>
 				</div>
