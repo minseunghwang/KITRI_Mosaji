@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,46 +8,58 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	
 </script>
 <script>
-$(document).ready(function() {
+	$(document)
+			.ready(
+					function() {
 
-	var review_str = "";
-	$("#del_btn").click(function() {
-		var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
-		if(confirmflag){
-			$("input[name=del]:checked").each(function() {
-				
-				review_str += ($(this).val());
-				review_str += ",";
-			});
-			
-			location.href = "/Mosaji/AllDeleteReviewController?review_str="+review_str;
-		}
-	});
-	
-	
-});
+						var review_str = "";
+						$("#del_btn")
+								.click(
+										function() {
+											var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
+											if (confirmflag) {
+												$("input[name=del]:checked")
+														.each(
+																function() {
+
+																	review_str += ($(this)
+																			.val());
+																	review_str += ",";
+																});
+
+												location.href = "/Mosaji/AllDeleteReviewController?review_str="
+														+ review_str;
+											}
+										});
+
+					});
 </script>
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div class="alert alert-secondary" role="alert"></div>
 	<div class="container">
-		<h3 style="text-align: center; margin-top: 5%">리뷰 관리</h3>
+		<h3
+			style="text-align: center; backgroud-color: gainsboro; height: 110px; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
+			리뷰관리</h3>
+		<!-- 		<h3 style="text-align: center; margin-top: 5%">리뷰 관리</h3> -->
 		<div class="row">
 			<table class="table" style="table-layout: fixed">
 				<thead>
-					<tr style="text-align:center;">
+					<tr style="text-align: center;">
 						<th scope="col">번호</th>
-<!-- 						<th scope="col">상품 이미지</th> -->
+						<!-- 						<th scope="col">상품 이미지</th> -->
 						<th scope="col">상품 이름</th>
-						<th scope="col">리뷰 내용</th> 
+						<th scope="col">리뷰 내용</th>
 						<th scope="col">평점</th>
 						<th scope="col">등록일</th>
-						<th scope="col" >삭제</th>
+						<th scope="col">삭제</th>
 					</tr>
 				</thead>
-				<tbody style="text-align:center;">
+				<tbody style="text-align: center;">
 					<c:forEach var="review" items="${review }" varStatus="status">
 						<tr>
 <%-- 							<td>${myreview.rownum }</td> --%>
@@ -93,11 +105,12 @@ $(document).ready(function() {
 
 
 			</table>
-			
+
 		</div>
-		<button id="del_btn"
-				class="btn btn-primary"	style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10%;">삭제</button>
+		<button id="del_btn" class="btn btn-secondary"
+			style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10%;">삭제</button>
 	</div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

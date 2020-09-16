@@ -639,7 +639,7 @@ h2 {
 	<!-- 	</div> -->
 
 
-
+<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 
 </body>

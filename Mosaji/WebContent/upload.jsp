@@ -74,6 +74,8 @@
 <body>
 <%@ include file="/view/common/header.jsp"%>
 
+<div class="alert alert-secondary" role="alert"></div>
+
 	
 	<!--  긁어옴 -->
 	<div class="container">
@@ -90,7 +92,9 @@
 
 
                  <form method="post" action="${pageContext.request.contextPath }/UploadController" enctype="multipart/form-data"> 
-                  <h3 style="text-align: center;">상품 업로드</h3>
+<!--                   <h3 style="text-align: center;">상품 업로드</h3> -->
+	<h3 style="text-align: center; backgroud-color: gainsboro; margin-top: -6%; line-height: 2; font-size: 3rem; color: #625772;">
+				상품 업로드</h3>
 					<br>
 					  <div class="form-group">
 					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지">
@@ -186,7 +190,7 @@
       <div class="col-lg-1"></div>
    </div>
    <!-- /.row -->
-	
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
