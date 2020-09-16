@@ -71,6 +71,9 @@ public class DaoImpl implements Dao {
 		int index = 1;
 		String sql = "select * from mosaji_item where ";
 		try {
+			
+		if (keyword == null) {
+			
 			sql += "i_gender in (";
 			for (int i = 0; i < gen.size(); i++) {
 				sql += "?,";
@@ -96,13 +99,34 @@ public class DaoImpl implements Dao {
 			sql += category2;
 			sql += "'";
 			
-			if (keyword != null) {
-			sql += " and ( i_name LIKE concat('%',";
-			sql += keyword;
-			sql += " ,'%') OR i_brand LIKE concat('%',";
-			sql += keyword;
-			sql += " ,'%') ORDER BY i_no";
-			}
+		}else {	
+					sql += "i_gender in (";
+					for (int i = 0; i < gen.size(); i++) {
+						sql += "?,";
+					}
+					sql = sql.substring(0, sql.length() - 1);
+					sql += ") ";
+		
+					sql += "and i_skintype in (";
+					for (int i = 0; i < skintype.length; i++) {
+						sql += "?,";
+					}
+					sql = sql.substring(0, sql.length() - 1);
+					sql += ") ";
+		
+					sql += "and i_age in (";
+					for (int i = 0; i < age.length; i++) {
+						sql += "?,";
+					}
+					sql = sql.substring(0, sql.length() - 1);
+					sql += ") ";
+
+					sql += "and ( i_name LIKE '%";
+					sql += keyword;
+					sql += "%' OR i_brand LIKE '%";
+					sql += keyword;
+					sql += "%') ORDER BY i_no";
+				}
 	
 			pstmt = conn.prepareStatement(sql);
 			
