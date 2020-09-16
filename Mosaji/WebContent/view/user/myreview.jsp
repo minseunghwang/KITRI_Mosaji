@@ -14,75 +14,137 @@
 <body>
 	<%@ include file="/view/common/header.jsp"%>
 	<div class="container" style="min-height: 650px;">
-	<div class="p-3 mb-2 bg-white text-dark"></div>
+		<div class="p-3 mb-2 bg-white text-dark"></div>
 		<h3
 			style="text-align: center; backgroud-color: gainsboro; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
 			내가 쓴 리뷰</h3>
 		<!-- 		<h3 style="text-align: center; margin-top: 5%">내가쓴 리뷰</h3> -->
-		<div class="row" style="margin-top:40px;">
-			<table class="table" style="table-layout: fixed; table-layout: fixed;">
-				<thead>
-					<tr>
-						<th scope="col" style="color: gray;">번호</th>
-						<th scope="col" style="color: gray;">상품 이미지</th>
-						<th scope="col" style="color: gray;">상품 이름</th>
-						<th scope="col" style="color: gray;">리뷰 내용</th>
-						<th scope="col" style="color: gray;">내가준 평점</th>
-						<th scope="col" style="color: gray;">등록일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="myreview" items="${myreview }" varStatus="status">
-						<tr>
-							<%-- 							<td>${myreview.rownum }</td> --%>
-							<td style="color: gray;">${status.count}</td>
-							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
-								style="color: gray; "><img
-									src="${myreview.i_img }" style="width:80px; height:70px;"></a></td>
-							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
-								style="color: #625772;">${myreview.i_name }</a></td>
-							<td
-								style="text-overflow: ellipsis; overflow: hidden; white-space: pre;"><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
-								style="color: #625772;">${myreview.r_content }</a></td>
-							<%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
-							<td><a
-								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
-								style="color: #625772;"> <c:choose>
+		<div class="row" style="margin-top: 40px;">
+<!-- 			<table class="table" -->
+<!-- 				style="table-layout: fixed; table-layout: fixed;"> -->
+<!-- 				<thead> -->
+<!-- 					<tr> -->
+<!-- 						<th scope="col" style="color: gray;">번호</th> -->
+<!-- 						<th scope="col" style="color: gray;">상품 이미지</th> -->
+<!-- 						<th scope="col" style="color: gray;">상품 이름</th> -->
+<!-- 						<th scope="col" style="color: gray;">리뷰 내용</th> -->
+<!-- 						<th scope="col" style="color: gray;">내가준 평점</th> -->
+<!-- 						<th scope="col" style="color: gray;">등록일</th> -->
+<!-- 					</tr> -->
+<!-- 				</thead> -->
+<!-- 				<tbody> -->
+<%-- 					<c:forEach var="myreview" items="${myreview }" varStatus="status"> --%>
+<!-- 						<tr> -->
+<%-- 														<td>${myreview.rownum }</td> --%>
+<%-- 							<td style="color: gray;">${status.count}</td> --%>
+<!-- 							<td><a -->
+<%-- 								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}" --%>
+<%-- 								style="color: gray;"><img src="${myreview.i_img }" --%>
+<!-- 									style="width: 80px; height: 70px;"></a></td> -->
+<!-- 							<td><a -->
+<%-- 								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}" --%>
+<%-- 								style="color: #625772;">${myreview.i_name }</a></td> --%>
+<!-- 							<td -->
+<!-- 								style="text-overflow: ellipsis; overflow: hidden; white-space: pre;"><a -->
+<%-- 								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}" --%>
+<%-- 								style="color: #625772;">${myreview.r_content }</a></td> --%>
+<%-- 														<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
+<!-- 							<td><a -->
+<%-- 								href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}" --%>
+<%-- 								style="color: #625772;"> <c:choose> --%>
+<%-- 										<c:when test="${myreview.r_star == 5 }"> --%>
+<!-- 											<img -->
+<%-- 												src="${pageContext.request.contextPath }/resources/images/star5.png" --%>
+<!-- 												style="width: 140px;"> -->
+<%-- 										</c:when> --%>
+<%-- 										<c:when test="${myreview.r_star == 4 }"> --%>
+<!-- 											<img -->
+<%-- 												src="${pageContext.request.contextPath }/resources/images/star4.png" --%>
+<!-- 												style="width: 140px;"> -->
+<%-- 										</c:when> --%>
+<%-- 										<c:when test="${myreview.r_star == 3 }"> --%>
+<!-- 											<img -->
+<%-- 												src="${pageContext.request.contextPath }/resources/images/star3.png" --%>
+<!-- 												style="width: 140px;"> -->
+<%-- 										</c:when> --%>
+<%-- 										<c:when test="${myreview.r_star == 2 }"> --%>
+<!-- 											<img -->
+<%-- 												src="${pageContext.request.contextPath }/resources/images/star2.png" --%>
+<!-- 												style="width: 140px;"> -->
+<%-- 										</c:when> --%>
+<%-- 										<c:when test="${myreview.r_star == 1 }"> --%>
+<!-- 											<img -->
+<%-- 												src="${pageContext.request.contextPath }/resources/images/star1.png" --%>
+<!-- 												style="width: 140px;"> -->
+<%-- 										</c:when> --%>
+<%-- 									</c:choose> --%>
+<!-- 							</a></td> -->
+<%-- 							<td style="color: #625772;">${myreview.r_date}</td> --%>
+<!-- 						</tr> -->
+<%-- 					</c:forEach> --%>
+<!-- 				</tbody> -->
+<!-- 			</table> -->
+			<c:forEach var="myreview" items="${myreview }" varStatus="status">
+
+				<div class="col-6">
+								<a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}"
+								style="color: #625772;">
+					<div class="card">
+						<div class="row no-gutters">
+							<div class="col-4">
+								<img src="${myreview.i_img }" alt="" class="card-img" />
+							</div>
+							<div class="col-8">
+								<div class="card-body">
+									<p class="card-text">상품 이름 : ${myreview.i_name }</p>
+									<p class="card-text"
+										style="text-overflow: ellipsis; max-width: 300px; overflow: hidden; white-space: pre;">내용 : ${myreview.r_content }</p>
+									<c:choose>
 										<c:when test="${myreview.r_star == 5 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star5.png"
-												style="width: 140px;">
+											<p>
+												평점 :<img
+													src="${pageContext.request.contextPath }/resources/images/star5.png"
+													style="width: 140px;">
+											</p>
 										</c:when>
 										<c:when test="${myreview.r_star == 4 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star4.png"
-												style="width: 140px;">
+											<p>
+												평점 :<img
+													src="${pageContext.request.contextPath }/resources/images/star4.png"
+													style="width: 140px;">
+											</p>
 										</c:when>
 										<c:when test="${myreview.r_star == 3 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star3.png"
-												style="width: 140px;">
+											<p>
+												평점 :<img
+													src="${pageContext.request.contextPath }/resources/images/star3.png"
+													style="width: 140px;">
+											</p>
 										</c:when>
 										<c:when test="${myreview.r_star == 2 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star2.png"
-												style="width: 140px;">
+											<p>
+												평점 :<img
+													src="${pageContext.request.contextPath }/resources/images/star2.png"
+													style="width: 140px;">
+											</p>
 										</c:when>
 										<c:when test="${myreview.r_star == 1 }">
-											<img
-												src="${pageContext.request.contextPath }/resources/images/star1.png"
-												style="width: 140px;">
+											<p>
+												평점 :<img
+													src="${pageContext.request.contextPath }/resources/images/star1.png"
+													style="width: 140px;">
+											</p>
 										</c:when>
 									</c:choose>
-							</a></td>
-							<td style="color: #625772;">${myreview.r_date}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+									<p class="card-text">작성 날자 : ${myreview.r_date }</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					</a>
+				</div>
+				
+			</c:forEach>
 			<c:if test="${empty myreview}">
 				<div style="width: 100%; text-align: center;">작성한 리뷰가 없습니다.</div>
 			</c:if>
