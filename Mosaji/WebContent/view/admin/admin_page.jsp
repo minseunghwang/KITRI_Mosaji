@@ -66,12 +66,12 @@
 							<td>${user.u_id }</td>
 							<td>${user.u_name }</td>
 							<td><form action="${pageContext.request.contextPath }/GetUserController" method="post">
-								<input type="submit" class="btn btn-secondary btn-lg" value="수정">
+								<input type="submit" class="btn btn-secondary" value="수정">
 									<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
 									</form></td>
 									
 							<td><form name="delFrm" id="delFrm" action="${pageContext.request.contextPath }/AdminDelUserController" method="post">
-							<input type="submit" name="delBtn"id="delBtn" class="btn btn-secondary btn-lg" value="삭제" onclick="confirm('정말 삭제하시겠습니까?')" >
+							<input type="submit" name="delBtn"id="delBtn" class="btn btn-outline-secondary" value="삭제" onclick="confirm('정말 삭제하시겠습니까?')" >
 							<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
 							</form></td>
 							
