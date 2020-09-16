@@ -201,7 +201,6 @@ function cAll() {
 					content : {
 						title : '모사지 - 선물추천 웹사이트',
 						description : '#모사지 #선물추천 #선물 #내놔 ',
-						// 						imageUrl : 'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
 						imageUrl : 'http://3.34.243.62:8080/Mosaji//resources/images/logo_5.png',
 						link : {
 							mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
