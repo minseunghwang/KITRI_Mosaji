@@ -280,6 +280,8 @@
 			}
 		});
 	});
+	
+	
 
 </script>
 
@@ -287,12 +289,10 @@
 function selectnull(){
 		
     var category1 = $("#category1").val();
-    
-    if(category1.length == 0){
-    	
-        alert("카테고리를 입력해 주세요.")
-        $("#category1").focus()
-		return false
+    if(category1 == null){
+        alert("카테고리를 입력해 주세요.");
+        $("#category1").focus();
+		return false;
    	}
     return true;
 }
