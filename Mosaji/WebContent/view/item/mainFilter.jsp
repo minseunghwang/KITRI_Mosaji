@@ -159,23 +159,44 @@
 				stype_arr.push($(this).val());
 			});
 		}
+		if(keyword == ""){
+			$.ajax({
+		        url: '${pageContext.request.contextPath }/FilteringListController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data: {
+		        	category2 : category2,
+		        	gval : gval,
+		        	age_arr : age_arr,
+		        	stype_arr : stype_arr
+		        },
+		        success: function(result){
+		        	var arr = $.parseJSON(result);
+					$(".itemList").empty();
+		        	makeTbl(arr);
+				}
+			});
+		}
+		else{
+			$.ajax({
+		        url: '${pageContext.request.contextPath }/FilteringListController',
+		        type: 'POST',
+		        contentType:"application/x-www-form-urlencoded;charset=utf-8",
+		        data: {
+		        	category2 : category2,
+		        	gval : gval,
+		        	age_arr : age_arr,
+		        	stype_arr : stype_arr,
+		        	keyword : keyword
+		        },
+		        success: function(result){
+		        	var arr = $.parseJSON(result);
+					$(".itemList").empty();
+		        	makeTbl(arr);
+				}
+			});
+		}
 		
-		$.ajax({
-	        url: '${pageContext.request.contextPath }/FilteringListController',
-	        type: 'POST',
-	        contentType:"application/x-www-form-urlencoded;charset=utf-8",
-	        data: {
-	        	category2 : category2,
-	        	gval : gval,
-	        	age_arr : age_arr,
-	        	stype_arr : stype_arr
-	        },
-	        success: function(result){
-	        	var arr = $.parseJSON(result);
-				$(".itemList").empty();
-	        	makeTbl(arr);
-			}
-		});
 		
 		return true;
 	}
@@ -415,7 +436,22 @@
 			</div>
 		</div>
 		
-
+		<div id="welcome" class="container">
+			<div class="title">
+				<h2>Welcome to our website</h2>
+			</div>
+			<p>
+				This is <strong>RedMarket</strong>, a free, fully
+				standards-compliant CSS template designed by <a
+					href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos
+				in this template are from <a href="http://fotogrph.com/">
+					Fotogrph</a>. This free template is released under the <a
+					href="http://templated.co/license">Creative Commons Attribution</a>
+				license, so you're pretty much free to do whatever you want with it
+				(even use it commercially) provided you give us credit for it. Have
+				fun :)
+			</p>
+		</div>
 	</div>
 
 	
