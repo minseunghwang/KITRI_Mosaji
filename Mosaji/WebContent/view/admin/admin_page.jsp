@@ -41,7 +41,12 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
-	<h3 style="text-align: center; margin-top: 5%;">회원 관리</h3>
+	<div class="alert alert-secondary" role="alert"></div>
+	
+	<h3 style="text-align: center; backgroud-color: gainsboro; height: 110px; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
+				회원관리</h3>
+	
+<!-- 	<h3 style="text-align: center; margin-top: 5%;">회원 관리</h3> -->
 	<div class="container">
 		<div class="row">
 			<table class="table table-hover" style="text-align:center;">
@@ -57,7 +62,7 @@
 				<tbody>
 					<c:forEach var="user" items="${user }" varStatus="status">
 						<tr>
-							<th scope="row">${status.count }</th>
+							<th scope="row">${status.count}</th>
 							<td>${user.u_id }</td>
 							<td>${user.u_name }</td>
 							<td><form action="${pageContext.request.contextPath }/GetUserController" method="post">
@@ -77,7 +82,7 @@
 			</table>
 		</div>
 	</div>
-
+<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

@@ -50,7 +50,7 @@ public class UploadController extends HttpServlet {
 //		C:\Users\Administrator\github\KITRI_Mosaji\Mosaji\WebContent\fileFolder
 //		String directory = "C:\\Users\\Administrator\\github\\KITRI_Mosaji\\Mosaji\\WebContent\\fileFolder";			// 각자 경로 설정하세요		
 
-		
+	
 		int maxSize = 1024 * 1024 * 10; 
 		String encoding= "UTF-8";
 

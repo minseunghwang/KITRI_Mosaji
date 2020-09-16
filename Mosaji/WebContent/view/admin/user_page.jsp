@@ -19,6 +19,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div class="alert alert-secondary" role="alert"></div>
 	<div class="container" style="min-height: 610px; margin-top: 30px;">
 		<div class="row" style="position: relative;">
 			<div class="col-lg-1"></div>
@@ -127,6 +128,7 @@
 
 		<div class="col-lg-1"></div>
 	</div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>

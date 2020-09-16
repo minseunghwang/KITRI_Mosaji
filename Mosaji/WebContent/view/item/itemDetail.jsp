@@ -75,6 +75,7 @@
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div class="alert alert-secondary" role="alert"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
