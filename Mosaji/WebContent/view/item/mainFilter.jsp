@@ -159,7 +159,6 @@
 				stype_arr.push($(this).val());
 			});
 		}
-		
 		$.ajax({
 	        url: '${pageContext.request.contextPath }/FilteringListController',
 	        type: 'POST',
@@ -177,7 +176,6 @@
 	        	makeTbl(arr);
 			}
 		});
-		
 		
 		return true;
 	}
@@ -409,6 +407,7 @@
 						<option value="i_star:asc">평점 낮은순</option>
 						<option value="i_price:desc">가격 높은순</option>
 						<option value="i_price:asc">가격 낮은순</option>
+						<option value="review_cnt:desc">리뷰 많은순</option>
 					</select>
 					</div>
 				</div>
