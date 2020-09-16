@@ -32,8 +32,11 @@ $(document).ready(function() {
 </head>
 <body>
 	<%@ include file="/view/common/header.jsp"%>
+	<div class="alert alert-secondary" role="alert"></div>
 	<div class="container">
-		<h3 style="text-align: center; margin-top: 5%">리뷰 관리</h3>
+			<h3 style="text-align: center; backgroud-color: gainsboro; height: 110px; margin-top: 1.5%; line-height: 2; font-size: 3rem; color: #625772;">
+				리뷰관리</h3>
+<!-- 		<h3 style="text-align: center; margin-top: 5%">리뷰 관리</h3> -->
 		<div class="row">
 			<table class="table" style="table-layout: fixed">
 				<thead>
@@ -98,6 +101,7 @@ $(document).ready(function() {
 		<button id="del_btn"
 				class="btn btn-primary"	style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10%;">삭제</button>
 	</div>
+	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 </body>
 </html>
