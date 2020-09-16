@@ -21,6 +21,17 @@ public class Wishlist1 {
 	
 	
 	
+	
+	public Wishlist1(int w_no, String u_id, int i_no, String i_name, int i_price, String i_img) {
+		super();
+		this.w_no = w_no;
+		this.u_id = u_id;
+		this.i_no = i_no;
+		this.i_name = i_name;
+		this.i_price = i_price;
+		this.i_img = i_img;
+	}
+
 	public Wishlist1(int w_no, String u_id, int i_no, int i_no2, String i_name, String i_volume, String i_category1,
 			String i_category2, String i_content, String i_brand, String i_gender, int i_age, String i_skintype,
 			int i_price, int i_star, String i_img, int rownum) {

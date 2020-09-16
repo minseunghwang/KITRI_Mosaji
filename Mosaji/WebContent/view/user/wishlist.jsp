@@ -190,10 +190,12 @@ function cAll() {
 
 
 	<script type='text/javascript'>
-		//<![CDATA[
+	id : '${sessionScope.u_id}';
+	//<![CDATA[
 		// // 사용할 앱의 JavaScript 키를 설정해 주세요.
 		Kakao.init('ce52c7a0ebcfa92bf69fe804015add9f');
 		// // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+		
 		Kakao.Link
 				.createDefaultButton({
 					container : '#kakao-link-btn',
@@ -210,21 +212,22 @@ function cAll() {
 					social : {
 						likeCount : 286,
 						commentCount : 45,
-						sharedCount : 845
+						sharedCount : 845,
 					},
 					buttons : [
 							{
 								title : '웹으로 보기',
 								link : {
-									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
-									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
+									
+									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}',
+									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}'
 								}
 							},
 							{
 								title : '앱으로 보기',
 								link : {
-									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
-									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
+									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}',
+									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController?u_id=${sessionScope.u_id}'
 								}
 							} ]
 				});

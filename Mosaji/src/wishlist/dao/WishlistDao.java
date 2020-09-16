@@ -20,4 +20,5 @@ public interface WishlistDao {
 	
 	WishlistDuplication check(String u_id, int i_no);
 //	void duplicationCheck(String u_id, int i_no);
+	ArrayList<Wishlist1> kakaoselect(String u_id);
 }

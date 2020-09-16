@@ -68,4 +68,10 @@ private WishlistDao wishlistdao;
 			// TODO Auto-generated method stub
 			return wishlistdao.check(u_id, i_no);
 		}
+	
+	@Override
+		public ArrayList<Wishlist1> kakaoselect(String u_id) {
+			// TODO Auto-generated method stub
+			return wishlistdao.kakaoselect(u_id);
+		}
 }

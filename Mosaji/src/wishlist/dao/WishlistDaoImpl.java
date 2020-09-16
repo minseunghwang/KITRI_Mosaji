@@ -266,22 +266,40 @@ public class WishlistDaoImpl implements WishlistDao {
 		return wishlistduplication;
 	}
 
-//	@Override
-//		public void duplicationCheck(String u_id, int i_no) {
-//			Connection conn = null;
-//			PreparedStatement pstmt = null;
-//			WishlistDuplication wishlistduplication = null;
-//			
-//			String sql = "select count(*) from mosaji_item i, mosaji_wishlist w WHERE i.i_no = w.i_no and w.u_id = ? and i.i_no = ?";
-//			
-//			try {
-//				conn = db.getConnection();
-//				pstmt = conn.prepareStatement(sql);
-//				pstmt.setString(1, u_id);
-//				pstmt.setInt(2, i_no);
-//			}
-//			
-//			
-//			
-//		}
+	@Override
+		public ArrayList<Wishlist1> kakaoselect(String u_id) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Wishlist1> wishlist = new ArrayList<Wishlist1>();
+		String sql = "SELECT w.w_no, w.u_id, i.i_no, i.i_name, i.i_price, i.i_img FROM mosaji_wishlist w, mosaji_item i WHERE w.i_no = i.i_no AND u_id = ?";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, u_id);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					wishlist.add(new Wishlist1(rs.getInt("w_no"), rs.getString("u_id"), rs.getInt("i_no"), rs.getString("i_name"), rs.getInt("i_price"), rs.getString("i_img")));
+				}
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					pstmt.close();
+					rs.close();
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			return wishlist;
+		}
+	
+//	this.w_no = w_no;
+//	this.u_id = u_id;
+//	this.i_no = i_no;
+//	this.i_name = i_name;
+//	this.i_price = i_price;
+//	this.i_img = i_img;
+	
 }
