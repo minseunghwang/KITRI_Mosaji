@@ -53,7 +53,7 @@
 <!-- 								카드 헤더 -->
 								<div class="card-header">
 									<img src="${wishlist.i_img }"
-										style="width: 400px; height: 400px;">
+										style="width: 350px; height: 350px;">
 
 								</div>
 <!-- 								카드 바디 -->

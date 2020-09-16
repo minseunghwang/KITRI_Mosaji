@@ -205,8 +205,8 @@ function cAll() {
 						description : '#모사지 #선물추천 #선물 #내놔 ',
 						imageUrl : 'http://3.34.243.62:8080/Mosaji//resources/images/logo_5.png',
 						link : {
-							mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController',
-							webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController'
+							mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}',
+							webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}'
 						}
 					},
 					social : {
@@ -227,7 +227,7 @@ function cAll() {
 								title : '앱으로 보기',
 								link : {
 									mobileWebUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}',
-									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistController?u_id=${sessionScope.u_id}'
+									webUrl : 'http://3.34.243.62:8080/Mosaji/WishlistGetController?u_id=${sessionScope.u_id}'
 								}
 							} ]
 				});
