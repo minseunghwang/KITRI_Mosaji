@@ -39,8 +39,9 @@ public class RankedController extends HttpServlet {
 		
 		String category2 = request.getParameter("category2");
 		String[] orderby = request.getParameter("orderby").split(":");
+		String keyword = request.getParameter("keyword");
 		Service service = new ServiceImpl();
-		ArrayList<Item> item = service.getRank(category2, orderby[0], orderby[1]);
+		ArrayList<Item> item = service.getRank(category2, orderby[0], orderby[1], keyword);
 		request.setAttribute("item", item);
 		RequestDispatcher rd = request.getRequestDispatcher("/view/item/ItemList.jsp");
 		rd.forward(request, response);

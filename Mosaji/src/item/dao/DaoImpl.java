@@ -54,8 +54,7 @@ public class DaoImpl implements Dao {
 	}
 
 	@Override
-	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype,
-			String keyword) {
+	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype, String keyword) {
 		System.out.println(category2);
 		System.out.println(gender);
 		System.out.println(keyword);
@@ -158,15 +157,14 @@ public class DaoImpl implements Dao {
 	}
 
 	@Override
-	public ArrayList<Item> selectRank_product(String category2, String v1, String v2) {
+	public ArrayList<Item> selectRank_product(String category2, String v1, String v2, String keyword) {
 //		Connection conn = db.getConnection();
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<Item> data = new ArrayList<Item>();
 //		String sql = "select * from mosaji_item where i_category2 = ? order by";
-		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) review_cnt "
-				+ "from mosaji_review a, mosaji_item b where a.i_no = b.i_no and b.i_category2 = ? group by b.i_no order by";
+		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) review_cnt from mosaji_review a, mosaji_item b where a.i_no = b.i_no and (b.i_name LIKE concat('%', ?, '%') or b.i_brand LIKE concat('%', ?, '%')) and b.i_category2 = ? group by b.i_no order by";
 		if (("review_cnt").equals(v1)) {
 			sql += " " + v1;
 		} else {
@@ -175,7 +173,9 @@ public class DaoImpl implements Dao {
 		sql += " " + v2;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, category2);
+			pstmt.setString(1, keyword);
+			pstmt.setString(2, keyword);
+			pstmt.setString(3, category2);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),

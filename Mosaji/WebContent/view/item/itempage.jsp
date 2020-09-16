@@ -141,14 +141,14 @@ h2 {
 				/
 				<price style="color:black">${i.i_price}원</price>
 			</h6>
-
+			<istar style="float:right; color:gray;">   &nbsp;&nbsp;(${reviewcount.allCount}) </istar>
 			<div class="wrap-star">
 				<div class='star-rating'>
 					<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
-					(${reviewcount.allCount})
+					
 				</div>
 			</div>
-			<istar>(${reviewcount.allCount}) ${i.i_star }</istar>
+			<istar>${i.i_star }</istar>
 
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
@@ -652,7 +652,7 @@ h2 {
 	<!-- 	</div> -->
 
 
-
+<div class="p-3 mb-2 bg-white text-dark"></div>
 	<%@ include file="/view/common/footer.jsp"%>
 
 </body>
