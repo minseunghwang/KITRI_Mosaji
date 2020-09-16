@@ -28,7 +28,16 @@
 	
 </script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
 <script>
+function cAll() {
+    if ($("#checkAll").is(':checked')) {
+        $("input[type=checkbox]").prop("checked", true);
+    } else {
+        $("input[type=checkbox]").prop("checked", false);
+    }
+}
+
 	$(document)
 			.ready(
 					function() {
@@ -199,7 +208,7 @@
 								<th scope="col" style="color: gray;">상품 이미지</th>
 								<th scope="col" style="color: gray;">상품 정보</th>
 								<th scope="col" style="color: gray;">상품 가격</th>
-								<th scope="col" style="color: gray;">삭제</th>
+								<th scope="col" style="color: gray;"><input type="checkbox" id="checkAll" onclick="cAll();"></th>
 							</tr>
 						</thead>
 						<tbody id="zzim">
