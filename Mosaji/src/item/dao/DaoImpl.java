@@ -55,7 +55,9 @@ public class DaoImpl implements Dao {
 
 	@Override
 	public ArrayList<Item> selectAfter_filter(String category2, int gender, String[] age, String[] skintype, String keyword) {
-	
+		System.out.println(category2);
+		System.out.println(gender);
+		System.out.println(keyword);
 		ArrayList<String> gen = new ArrayList<String>();
 		if (gender == 3 || gender == 1) {
 			gen.add("남");
@@ -71,8 +73,6 @@ public class DaoImpl implements Dao {
 		int index = 1;
 		String sql = "select b.i_no, b.i_name, b.i_volume, b.i_category1, b.i_category2, b.i_content, b.i_brand, b.i_gender, b.i_age, b.i_skintype, b.i_price, b.i_star, b.i_img, count(*) revice_cnt from mosaji_review a, mosaji_item b where ";
 		try {
-			
-		if (keyword == null) {
 			
 			sql += "i_gender in (";
 			for (int i = 0; i < gen.size(); i++) {
@@ -98,30 +98,9 @@ public class DaoImpl implements Dao {
 			sql += "and i_category2 = '";
 			sql += category2;
 			sql += "'";
-			
-			sql += "and a.i_no = b.i_no group by b.i_no";
-		}else {	
-					sql += "i_gender in (";
-					for (int i = 0; i < gen.size(); i++) {
-						sql += "?,";
-					}
-					sql = sql.substring(0, sql.length() - 1);
-					sql += ") ";
-		
-					sql += "and i_skintype in (";
-					for (int i = 0; i < skintype.length; i++) {
-						sql += "?,";
-					}
-					sql = sql.substring(0, sql.length() - 1);
-					sql += ") ";
-		
-					sql += "and i_age in (";
-					for (int i = 0; i < age.length; i++) {
-						sql += "?,";
-					}
-					sql = sql.substring(0, sql.length() - 1);
-					sql += ") ";
 
+		if (keyword != null) {
+				
 					sql += "and ( i_name LIKE '%";
 					sql += keyword;
 					sql += "%' OR i_brand LIKE '%";
@@ -148,8 +127,7 @@ public class DaoImpl implements Dao {
 				index++;
 			}
 			
-			
-			
+		
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				data.add(new Item(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
