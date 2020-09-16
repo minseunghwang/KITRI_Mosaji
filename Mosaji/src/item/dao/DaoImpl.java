@@ -96,14 +96,16 @@ public class DaoImpl implements Dao {
 			sql = sql.substring(0, sql.length() - 1);
 			sql += ") ";
 
-			sql += "and b.i_category2 = '";
-			sql += category2;
-			sql += "'";
-
 			sql += " and a.i_no = b.i_no ";
+			
+			if(keyword == null) {
+				sql += "and b.i_category2 = '";
+				sql += category2;
+				sql += "'";
+			}
 
 			if (keyword != null) {
-
+					
 				sql += "and ( b.i_name LIKE '%";
 				sql += keyword;
 				sql += "%' OR b.i_brand LIKE '%";

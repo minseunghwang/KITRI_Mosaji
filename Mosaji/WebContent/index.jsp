@@ -263,11 +263,7 @@
 
 				category1 = 스킨케어;
 
-			} else if (this.value == "선택없음") {
-
-				 alert('카테고리를 입력해 주세요.'')
-
-			}
+			} 
 			
 
 			$('#category2').empty();
@@ -287,6 +283,21 @@
 
 </script>
 
+<script>
+function selectnull(){
+		
+    var category1 = $("#category1").val();
+    
+    if(category1.length == 0){
+    	
+        alert("카테고리를 입력해 주세요.")
+        $("#category1").focus()
+		return false
+   	}
+    return true;
+}
+    
+</script>
 
 
 <body style="overflow: scroll;">
@@ -315,11 +326,11 @@
 			<hr>
 
 			<div style="margin-bottom: 10px;">
-				<form name="selectform" method="GET" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
+				<form onsubmit="return selectnull()" method="GET" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
 							<select class="form-control" name="category1" id="category1">
-								<option value ="선택없음" disabled selected hidden>뷰티 카테고리</option>
+								<option value ="" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
 								<option value="립메이크업">립메이크업</option>
@@ -334,7 +345,7 @@
 						</div>
 						<div class="col">
 							<input type="submit" class="btn btn-secondary" value="랭킹 검색"
-								onclick="selectnull()" style="width: 50%;">
+								style="width: 50%;">
 						
 						</div>
 					</div>
