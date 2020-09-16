@@ -63,10 +63,10 @@
 					<c:forEach var="review" items="${review }" varStatus="status">
 						<tr>
 <%-- 							<td>${myreview.rownum }</td> --%>
-							<td style="vertical-align: middle; text-align: center;">${status.count }</td>
+							<td style="vertical-align: middle; text-align: center; color: #625772;">${status.count }</td>
 <%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}"><img src="${review.i_img }"></a></td> --%>
-							<td style="vertical-align: middle; text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.i_name }</a></td>
-							<td style="vertical-align: middle; text-overflow:ellipsis; overflow:hidden; white-space: pre; text-align:left;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">${review.r_content }</a></td>
+							<td style="vertical-align: middle; text-align:left; color: #625772;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}" style="color: #625772;">${review.i_name }</a></td>
+							<td style="vertical-align: middle; text-overflow:ellipsis; overflow:hidden; white-space: pre; text-align:left; color: #625772;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}" style="color: #625772;">${review.r_content }</a></td>
 <%-- 							<td><a href="/Mosaji/ItemDetailController?i_no=${myreview.i_no}">${myreview.r_star }</a></td> --%>
 							<td style="vertical-align: middle; text-align: center;"><a href="/Mosaji/ItemDetailController?i_no=${review.i_no}">
 				<c:choose>
@@ -97,7 +97,7 @@
 					</c:when>
 				</c:choose>
 							</a></td>
-							<td style="text-align:center; vertical-align:middle;">${review.r_date }</td>
+							<td style="text-align:center; vertical-align:middle; color: #625772;">${review.r_date }</td>
 							<td style="text-align:center; vertical-align:middle;"><input type="checkBox" name="del" value="${review.r_no }"></td>							
 						</tr>
 					</c:forEach>
