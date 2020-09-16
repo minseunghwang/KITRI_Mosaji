@@ -281,8 +281,8 @@ h2 {
 
 							<div class="col-md-4">
 								<c:if test="${not empty sessionScope.u_id }">
-								<input type="submit" class="btn btn-primary" value="등록"
-									style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" />
+									<input type="submit" class="btn btn-primary" value="등록"
+										style="width: 100%; float: right;" onclick="alert('리뷰 등록완료')" id="review_upload_btn"/>
 								</c:if>
 								<c:if test="${empty sessionScope.u_id }">
 									<input type="button" class="btn btn-primary" value="로그인 해주세요"

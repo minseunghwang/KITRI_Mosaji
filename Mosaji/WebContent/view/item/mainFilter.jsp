@@ -341,7 +341,6 @@
 						</div>
 						</fieldset>
 						
-						
 						<hr>
 						<fieldset  id="text-checkbox" class="fieldset" style="margin-bottom:40px; ">
 						<legend style="text-align: left; margin-left:10px;">피부타입</legend>			
