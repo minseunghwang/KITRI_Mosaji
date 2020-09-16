@@ -336,7 +336,7 @@ function keywordnull(){
 				<form onsubmit="return selectnull()" method="GET" action="${pageContext.request.contextPath }/view/item/mainFilter.jsp?category2=${param.category2}">
 					<div class="row">
 						<div class="col">
-							<select class="form-control" name="category1" id="category1">
+							<select class="form-control" style="height: 100%;" name="category1" id="category1">
 								<option value ="" disabled selected hidden>뷰티 카테고리</option>
 								<option value="페이스메이크업">페이스메이크업</option>
 								<option value="아이메이크업">아이메이크업</option>
@@ -346,13 +346,13 @@ function keywordnull(){
 						</div>
 
 						<div class="col">
-							<select class="form-control" name="category2" id="category2">
+							<select class="form-control" style="height: 100%;" name="category2" id="category2">
 								<option disabled selected hidden>소분류</option>
 							</select>
 						</div>
 						<div class="col">
 							<input type="submit" class="btn btn-secondary" value="랭킹 검색"
-								style="width: 50%;">
+								style="font-size: 18px; width: 50%; background: #9d85c3; border:1px solid #9d85c3;">
 						
 						</div>
 					</div>
@@ -365,11 +365,11 @@ function keywordnull(){
 					<div class="col">
 						<input class="form-control" type="text" name="keyword"
 							id="keyword" placeholder="제품 명, 브랜드 명으로 검색해보세요"
-							style="text-align: center; width: 135%; font-size: 16px;">
+							style="text-align: center; width: 135%; height: 100%; font-size: 16px;">
 					</div>
 					<div class="col">
 						<input class="btn btn-secondary" type="submit" value="화장품 검색"
-							style="width: 32%; margin-left: 35%;">
+							style="font-size: 18px; width: 32%; margin-left: 35%; background: #9d85c3; border:1px solid #9d85c3;">
 					</div>
 				</div>
 			</form>
