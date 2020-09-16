@@ -19,7 +19,7 @@
 						$("#del_btn")
 								.click(
 										function() {
-											var confirmflag = confirm("ㄹㅇ 삭제 할껴?");
+											var confirmflag = confirm("정말 삭제하시겠습니까?");
 											if (confirmflag) {
 												$("input[name=del]:checked")
 														.each(

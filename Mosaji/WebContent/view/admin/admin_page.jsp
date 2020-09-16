@@ -24,7 +24,6 @@
 	
 	window.onload = function() {
 		document.getElementById('delBtn').onclick = function() {
-			confirm("삭제 하시겠습니까?");
 			var result = confirm("삭제 하시겠습니까?");
 			if(result == true) {
 			document.getElementById('delFrm').submit();
@@ -33,8 +32,6 @@
 			else if(result == false) {
 				return true;
 			}
-			
-			
 		}
 	}
 </script>
@@ -61,6 +58,7 @@
 				</thead>
 				<tbody>
 					<c:forEach var="user" items="${user }" varStatus="status">
+						<c:if test="${user.u_id ne 'admin'}">
 						<tr>
 							<th scope="row" style="text-align:center; vertical-align:middle;">${status.count }</th>
 							<td style="text-align:center; vertical-align:middle;" >${user.u_id }</td>
@@ -70,13 +68,14 @@
 									<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
 									</form></td>
 									
-							<td style="text-align:center; vertical-align:middle;" ><form name="delFrm" id="delFrm" action="${pageContext.request.contextPath }/AdminDelUserController" method="post">
-							<input type="submit" name="delBtn"id="delBtn" class="btn btn-secondary btn-lg" value="삭제" onclick="confirm('정말 삭제하시겠습니까?')" >
-							<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
-							</form></td>
-							
+							<td style="text-align:center; vertical-align:middle;" >
+								<form name="delFrm" id="delFrm" action="${pageContext.request.contextPath }/AdminDelUserController" method="post">
+									<input type="submit" name="delBtn"id="delBtn" class="btn btn-secondary btn-lg" value="삭제" onclick="confirm('정말 삭제하시겠습니까?')" >
+									<input type="hidden" value="${user.u_id }" id="u_id" name="u_id">
+								</form>
+							</td>
 						</tr>
-						
+						</c:if>
 					</c:forEach>
 				</tbody>
 			</table>
