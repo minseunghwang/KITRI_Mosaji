@@ -90,16 +90,14 @@
 
 
                  <form method="post" action="${pageContext.request.contextPath }/ItemUpdateController" enctype="multipart/form-data"> 
-                  <h3 style="text-align: center;">상품 업데이트</h3>
+	<h3 style="text-align: center; backgroud-color: gainsboro; margin-top: -6%; line-height: 2; font-size: 2rem; color: #625772;">
+				상품 수정</h3>
 					<br>
 					  <div class="form-group">
-					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지" value="${i.i_img }">
-					  	<img src="${i.i_img }" alt="등록된 이미지 없음" style="
-    width: 300px;
-    height: 250px;
-">
+					  <img src="${i.i_img }" alt="등록된 이미지 없음" style=" width: 180px;height: 180px; margin-bottom: 20px;">
+					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지" value="${i.i_img }" style="float:center;">
+					  	<hr>
 					  </div>
-					  <br>
 
                      <div class="form-group">
                         <input type="text" class="form-control"
@@ -318,7 +316,7 @@
                         </select>
                      </div>
 					<input type="hidden" name="i_no" id="i_no" value="${i.i_no }" >
-                     <input type="submit" class="btn btn-secondary" style="width:50%;"value="등록">
+                     <input type="submit" class="btn btn-secondary" style="width:50%;"value="수정">
                     
                   </form>
                </div>

@@ -270,166 +270,11 @@ h2 {
 		</div>
 
 		</c:if>
-<<<<<<< HEAD
 		
 		
-=======
-
+		
+		<c:if test="${not empty review }">
 		<div class="card-review">
-			<div class="container"
-				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
-				<h3 class="card-header"
-					style="text-align: center; background-color: white;">
-					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
-					리뷰 작성
-				</h3>
-			</div>
-
-
-			<div class="container">
-				<div class="rww" role="document">
-					<form method="post"
-						action="${pageContext.request.contextPath }/AddReviewController" onsubmit="return check_review()">
-						<div class="row">
-							<div class="col-md-12">
-								<textarea rows="10" cols="115%" name="r_content" id="r_content"
-									style="width: 100%; padding: 15px;"
-									placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
-								<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
-							</div>
-
-							<div class="col-md-8">
-								<div class="form-group">
-									<select class="custom-select" id="r_star" name="r_star">
-										<option selected="" value="">--- 별점 선택하기 ---</option>
-										<option value="1">⭐</option>
-										<option value="2">⭐⭐</option>
-										<option value="3">⭐⭐⭐</option>
-										<option value="4">⭐⭐⭐⭐</option>
-										<option value="5">⭐⭐⭐⭐⭐</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<c:if test="${not empty sessionScope.u_id }">
-								<input type="submit" class="btn btn-secondary" value="등록"
-									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"/>
-								</c:if>
-								<c:if test="${empty sessionScope.u_id }">
-									<input type="button" class="btn btn-secondary" value="로그인 후 작성해 주세요"
-									style="width: 100%; float: right;" onclick="location.href='/Mosaji/view/user/login.jsp'"/>
-								</c:if>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
->>>>>>> branch 'master' of https://github.com/minseunghwang/KITRI_Mosaji
-		<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
-	</div>
-
-	<!-- 	<div class="container"> -->
-	<!-- 		<ul class="nav nav-pills"> -->
-	<!-- 			<li class="nav-item"><a class="nav-link active" href="#">Active</a> -->
-	<!-- 			</li> -->
-	<!-- 			<li class="nav-item dropdown"><a -->
-	<!-- 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" -->
-	<!-- 				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a> -->
-	<!-- 				<div class="dropdown-menu"> -->
-	<!-- 					<a class="dropdown-item" href="#">Actㅋㅋion</a> <a -->
-	<!-- 						class="dropdown-item" href="#">Anㅋother action</a> <a -->
-	<!-- 						class="dropdown-item" href="#">Sometㄹㅊhing else here</a> -->
-	<!-- 					<div class="dropdown-divider"></div> -->
-	<!-- 					<a class="dropdown-item" href="#">Separateㅇㅎd link</a> -->
-	<!-- 				</div></li> -->
-	<!-- 			<li class="nav-item"><a class="nav-link" href="#">Link</a></li> -->
-	<!-- 			<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a> -->
-	<!-- 			</li> -->
-	<!-- 		</ul> -->
-	<!-- 	</div> -->
-
-
-	<c:if test="${not empty review }">
-		<div class="container" style="margin-top: 50px;">
-			<!-- 
-			<div class="row">
-				<div class="col-md-3"
-					style="text-align: -webkit-center; margin-top: 15px; padding: 20px;">
-					<div class="search_option">
-						<select class="custom-select" style="text-align-last: center;">
-							<option selected="" disabled selected hidden>피부타입</option>
-							<option value="1">건성</option>
-							<option value="2">중성</option>
-							<option value="3">지성</option>
-							<option value="4">복합성</option>
-							<option value="5">민감성</option>
-						</select>
-					</div>
-
-					<div class="search_option">
-						<select class="custom-select" style="text-align-last: center;">
-							<option selected="" disabled selected hidden>연령</option>
-							<option value="1">10대</option>
-							<option value="2">20대</option>
-							<option value="3">30대</option>
-							<option value="4">40대</option>
-						</select>
-					</div>
-
-					<div class="search_option">
-						<select class="custom-select" style="text-align-last: center;">
-							<option selected="" disabled selected hidden>성별</option>
-							<option value="1">여자</option>
-							<option value="2">남자</option>
-						</select>
-					</div>
-
-					<button type="button" class="btn btn-outline-light search_option"
-						style="background: #6B66FF; border:1px solid #6B66FF;">검색</button>
-
-
-				</div>
-	 -->
-	 
-	 			<p style="font-size:30px; text-align:center;">피부타입별 평점</p>
-				<div class="col-md-9" style="border: 2px solid #f0f0f2; padding: 20px;">
-					<a>건성(${reviewcount.dryCount })</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped" role="progressbar"
-							style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
-							aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-					<a>중성(${reviewcount.normalCount })</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped bg-success"
-							role="progressbar" style="width: ${reviewcount.normalStar * 20}%"
-							aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-					<a>지성(${reviewcount.oilyCount })</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped bg-info"
-							role="progressbar" style="width: ${reviewcount.oilyStar * 20}%"
-							aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-					<a>복합성(${reviewcount.complexitiesCount })</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped bg-warning"
-							role="progressbar"
-							style="width: ${reviewcount.complexitiesStar * 20}%"
-							aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-					<a>민감성(${reviewcount.sensitiveCount })</a>
-					<div class="progress">
-						<div class="progress-bar progress-bar-striped bg-danger"
-							role="progressbar"
-							style="width: ${reviewcount.sensitiveStar * 20}%"
-							aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-				
-						<div class="card-review">
 			<div class="container"
 				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
 				<h3 class="card-header"
@@ -481,30 +326,139 @@ h2 {
 				</div>
 			</div>
 		</div>
+
+
+		<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
+	</div>
+
+	<!-- 	<div class="container"> -->
+	<!-- 		<ul class="nav nav-pills"> -->
+	<!-- 			<li class="nav-item"><a class="nav-link active" href="#">Active</a> -->
+	<!-- 			</li> -->
+	<!-- 			<li class="nav-item dropdown"><a -->
+	<!-- 				class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" -->
+	<!-- 				role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a> -->
+	<!-- 				<div class="dropdown-menu"> -->
+	<!-- 					<a class="dropdown-item" href="#">Actㅋㅋion</a> <a -->
+	<!-- 						class="dropdown-item" href="#">Anㅋother action</a> <a -->
+	<!-- 						class="dropdown-item" href="#">Sometㄹㅊhing else here</a> -->
+	<!-- 					<div class="dropdown-divider"></div> -->
+	<!-- 					<a class="dropdown-item" href="#">Separateㅇㅎd link</a> -->
+	<!-- 				</div></li> -->
+	<!-- 			<li class="nav-item"><a class="nav-link" href="#">Link</a></li> -->
+	<!-- 			<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a> -->
+	<!-- 			</li> -->
+	<!-- 		</ul> -->
+	<!-- 	</div> -->
+
+
+		
+			<!-- 
+			<div class="row">
+				<div class="col-md-3"
+					style="text-align: -webkit-center; margin-top: 15px; padding: 20px;">
+					<div class="search_option">
+						<select class="custom-select" style="text-align-last: center;">
+							<option selected="" disabled selected hidden>피부타입</option>
+							<option value="1">건성</option>
+							<option value="2">중성</option>
+							<option value="3">지성</option>
+							<option value="4">복합성</option>
+							<option value="5">민감성</option>
+						</select>
+					</div>
+
+					<div class="search_option">
+						<select class="custom-select" style="text-align-last: center;">
+							<option selected="" disabled selected hidden>연령</option>
+							<option value="1">10대</option>
+							<option value="2">20대</option>
+							<option value="3">30대</option>
+							<option value="4">40대</option>
+						</select>
+					</div>
+
+					<div class="search_option">
+						<select class="custom-select" style="text-align-last: center;">
+							<option selected="" disabled selected hidden>성별</option>
+							<option value="1">여자</option>
+							<option value="2">남자</option>
+						</select>
+					</div>
+
+					<button type="button" class="btn btn-outline-light search_option"
+						style="background: #6B66FF; border:1px solid #6B66FF;">검색</button>
+
+
+				</div> 	 -->
+
+				<hr>
+	
+				
+				<p style="font-size:30px; text-align:center; margin-top:2.5%;">피부타입별 평점</p>
+				<div  class="container" style="margin-top: 10px; margin-left:30%; ">
+	 			
+				<div class="col-md-9" style="border: 2px solid #f0f0f2; padding: 20px;">
+					<a>건성(${reviewcount.dryCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped" role="progressbar"
+							style="width: ${reviewcount.dryStar * 20}%" aria-valuenow="10"
+							aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>중성(${reviewcount.normalCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-success"
+							role="progressbar" style="width: ${reviewcount.normalStar * 20}%"
+							aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>지성(${reviewcount.oilyCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-info"
+							role="progressbar" style="width: ${reviewcount.oilyStar * 20}%"
+							aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>복합성(${reviewcount.complexitiesCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-warning"
+							role="progressbar"
+							style="width: ${reviewcount.complexitiesStar * 20}%"
+							aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<a>민감성(${reviewcount.sensitiveCount })</a>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped bg-danger"
+							role="progressbar"
+							style="width: ${reviewcount.sensitiveStar * 20}%"
+							aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+				</div>
+				
+						
 				
 				
 				
-				
-				<c:if test="${not empty review }">
-					<div class=row style="margin-top:5%;">
-						<div class=col><p style="font-size:30px; ">리뷰 보기</p></div>
-						<div class=col>
-							<select class="custom-select">
+				<hr>
+				<div  class="container" style="margin-top: 50px; ">
+					<div>
+						<p style="font-size:30px; margin-top:5%; margin-left:45%; float:left;">리뷰 보기</p>
+						
+
+							<select class="custom-select" style="width:10%;  margin-left:84%; float:left;">
 								<option value="1">최신 순</option>
 								<option value="2">오래된 순</option>
 							</select>
-						</div>
-						<div class=col>
+						
 						<button type="button" class="btn btn-outline-light sel"
-						style="background: #6B66FF; border:1px solid #6B66FF; float: right;">정렬</button>
-						</div>
-						</div>
+						style="background: #6B66FF; border:1px solid #6B66FF; float:right; onclick="">정렬</button>
 						
 					</div>
+			
+					</div>
+
 				</c:if>
-			</div>
-		</div>
-	</c:if>
+
+
 	
 
 
@@ -513,7 +467,7 @@ h2 {
 	<c:if test="${not empty review }">
 
 		<c:forEach var="review" items="${review }">
-			<div class="alert alert-warning container" role="alert" style="background-color : white; border-color : #f0f0f2;  color:black;">
+			<div class="alert alert-warning container" role="alert" style=" margin-top: 20px; background-color : white; border-color : #f0f0f2;  color:black;">
 				<h4 class="alert-heading">
 					별점 :
 					<c:choose>
@@ -619,6 +573,8 @@ h2 {
 				<%-- 			</c:if> --%>
 			</div>
 	</c:if>
+	
+	
 	<c:if test="${empty review }">
 		<div style="margin-top: 200px; margin-bottom: 200px;">
 			<h3 style="text-align: center;">리뷰가 없습니다</h3>

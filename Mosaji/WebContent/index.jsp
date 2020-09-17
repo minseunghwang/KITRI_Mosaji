@@ -481,8 +481,7 @@ function keywordnull(){
 	<section>
 		<!-- 				<h1 style="text-align: center;"></h1> -->
 		<div class="container"
-			style="text-align: center; font-size: 50px; color: #625772">인기
-			브랜드</div>
+			style="text-align: center; font-size: 50px; color: #625772">브랜드 바로가기</div>
 	</section>
 
 	<!-- 	<div class="container"> -->
@@ -515,7 +514,7 @@ function keywordnull(){
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=이니스프리'">제품보기</button>
+								onclick="location.href='${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=이니스프리'">제품보기</button>
 						</div>
 					</div>
 
@@ -539,7 +538,7 @@ function keywordnull(){
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=메이크업포에버'">제품보기</button>
+								onclick="location.href='${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=메이크업포에버'">제품보기</button>
 						</div>
 					</div>
 
@@ -562,7 +561,7 @@ function keywordnull(){
 								<p></p>
 								<button type="button"
 									class="btn btn-outline-secondary btn-lg btn-block"
-									onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=에뛰드'">제품보기</button>
+									onclick="location.href='${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=에뛰드'">제품보기</button>
 							</div>
 						</div>
 					</div>
@@ -587,7 +586,7 @@ function keywordnull(){
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=스킨푸드'">제품보기</button>
+								onclick="location.href='${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=스킨푸드'">제품보기</button>
 						</div>
 					</div>
 
@@ -611,7 +610,7 @@ function keywordnull(){
 							<p></p>
 							<button type="button"
 								class="btn btn-outline-secondary btn-lg btn-block"
-								onclick="location.href='http://3.34.243.62:8080/Mosaji/view/item/mainFilter.jsp?keyword=로라메르시에'">제품보기</button>
+								onclick="location.href='${pageContext.request.contextPath }/view/item/mainFilter.jsp?keyword=로라메르시에'">제품보기</button>
 						</div>
 					</div>
 
@@ -624,7 +623,7 @@ function keywordnull(){
 	<div class="p-3 mb-2 bg-white text-dark"></div>
 	<div class="container">
 		<div class="container"
-			style="text-align: center; font-size: 50px; color: #625772">랭킹 바로보기</div>
+			style="text-align: center; font-size: 50px; color: #625772">랭킹 바로가기</div>
 	</div>
 
 	<div class="container">

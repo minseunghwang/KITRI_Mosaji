@@ -92,9 +92,9 @@
 
 
                  <form method="post" action="${pageContext.request.contextPath }/UploadController" enctype="multipart/form-data"> 
-<!--                   <h3 style="text-align: center;">상품 업로드</h3> -->
-	<h3 style="text-align: center; backgroud-color: gainsboro; margin-top: -6%; line-height: 2; font-size: 3rem; color: #625772;">
-				상품 업로드</h3>
+<!--                   <h3 style="text-align: center;">상품 등록</h3> -->
+				<h3 style="text-align: center; backgroud-color: gainsboro; margin-top: -6%; line-height: 2; font-size: 2rem; color: #625772;">
+				상품 등록</h3>
 					<br>
 					  <div class="form-group">
 					  	<input type="file"  id="i_img" name="i_img" placeholder="이미지">
