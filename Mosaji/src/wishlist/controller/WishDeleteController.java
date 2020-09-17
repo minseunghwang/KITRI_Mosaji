@@ -43,11 +43,6 @@ public class WishDeleteController extends HttpServlet {
 		
 		String[] zzim_str = request.getParameter("zzim_str").split(",");
 		
-		System.out.println(zzim_str);
-		for(String arr:zzim_str) {
-			System.out.println(arr);
-		}
-		
 		service.DeleteWishList(zzim_str);
 		
 		HttpSession session = request.getSession(false);

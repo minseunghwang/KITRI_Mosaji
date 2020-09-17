@@ -135,7 +135,6 @@ h2 {
 </script>
 
 
-
 </head>
 
 <body>
@@ -211,17 +210,18 @@ h2 {
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<button type="submit" class="btn btn-outline-danger"
-					onclick="alert('찜완료')" style="margin-top: 50px;margin-left: 17px;">찜하기</button>
-
+				<c:if test="${not empty sessionScope.u_id }">
+					<button type="submit" class="btn btn-outline-danger"
+						onclick="alert('찜완료')" style="margin-top: 50px;margin-left: 17px;">찜하기</button>
+				</c:if>
+				
 			</form>
 			</c:if>
 			
 			<c:if test="${wishlistduplication.duplicationCheck != 0 }">
 				
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<button type="button" class="btn btn-danger"
-					onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;">찜완료</button>
+				<button type="button" class="btn btn-danger" onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;" value="${i.i_no }">찜완료</button>
 			</c:if>
 			
 			
@@ -270,10 +270,7 @@ h2 {
 		</div>
 
 		</c:if>
-		
-		
-		
-		<c:if test="${not empty review }">
+
 		<div class="card-review">
 			<div class="container"
 				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
@@ -441,8 +438,7 @@ h2 {
 				<hr>
 				<div  class="container" style="margin-top: 50px; ">
 					<div>
-						<p style="font-size:30px; margin-top:5%; margin-left:45%; float:left;">리뷰 보기</p>
-						
+						<p style="font-size:30px; margin-top:2%; margin-left:45%; float:left;">리뷰 보기</p>
 
 							<select class="custom-select" style="width:10%;  margin-left:84%; float:left;">
 								<option value="1">최신 순</option>
@@ -455,11 +451,6 @@ h2 {
 					</div>
 			
 					</div>
-
-				</c:if>
-
-
-	
 
 
 
