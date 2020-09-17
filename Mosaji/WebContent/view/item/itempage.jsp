@@ -272,8 +272,7 @@ h2 {
 		</c:if>
 
 		<div class="card-review">
-			<div class="container"
-				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
+			<div class="container" style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
 				<h3 class="card-header"
 					style="text-align: center; background-color: white; margin-top:5%;">
 					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
@@ -393,7 +392,8 @@ h2 {
 	
 				
 				<p style="font-size:30px; text-align:center; margin-top:2.5%;">피부타입별 평점</p>
-				<div  class="container" style="margin-top: 10px; margin-left:30%; ">
+			
+				<div  class="container" style="margin-top: 10px; "> 
 	 			
 				<div class="col-md-9" style="border: 2px solid #f0f0f2; padding: 20px;">
 					<a>건성(${reviewcount.dryCount })</a>
@@ -431,14 +431,17 @@ h2 {
 				</div>
 				</div>
 				
+				
 						
 				
 				
 				
 				<hr>
-				<div  class="container" style="margin-top: 50px; ">
+				<div class=container>
 					<div>
-						<p style="font-size:30px; margin-top:2%; margin-left:45%; float:left;">리뷰 보기</p>
+					
+					<p style="font-size:30px; margin-top:2%; text-align:center;" >리뷰보기</p>
+<!-- 				<p style="font-size:30px; margin-top:2%; margin-left:45%; float:left;">리뷰 보기</p>
 
 							<select class="custom-select" style="width:10%;  margin-left:84%; float:left;">
 								<option value="1">최신 순</option>
@@ -447,7 +450,7 @@ h2 {
 						
 						<button type="button" class="btn btn-outline-light sel"
 						style="background: #6B66FF; border:1px solid #6B66FF; float:right; onclick="">정렬</button>
-						
+ -->						
 					</div>
 			
 					</div>
