@@ -135,7 +135,6 @@ h2 {
 </script>
 
 
-
 </head>
 
 <body>
@@ -222,8 +221,7 @@ h2 {
 			<c:if test="${wishlistduplication.duplicationCheck != 0 }">
 				
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<button type="button" class="btn btn-danger"
-					onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;">찜완료</button>
+				<button type="button" class="btn btn-danger" onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;" value="${i.i_no }">찜완료</button>
 			</c:if>
 			
 			

@@ -60,13 +60,11 @@
 	
 
 					<c:if test="${not empty sessionScope.u_id && sessionScope.u_id != 'admin'}">
-
-
+					
 					<li class="active"><a href="${pageContext.request.contextPath }/LogoutController"
 							accesskey="5" style="background-color: #CEC3DF; font-size: 20px; color: #625772"
 							title="">로그아웃</a></li>
-
-
+					
 					<li class="active"><a
 							href="${pageContext.request.contextPath }/UpdateGetController"	
 							accesskey="5" style="background-color: #CEC3DF; font-size: 20px; color: #625772"
