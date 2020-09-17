@@ -56,10 +56,7 @@ public class LoginController extends HttpServlet {
 		User u = userservice.login(u_id, u_pw);
 		if(u != null && u_pw.equals(u.getU_pw())) {
 			session.setAttribute("u_id", u_id);
-			System.out.println(" u_id = " + u_id);
-			System.out.println(" u_pw = " + u_pw);
 			flag = true;
-			
 			System.out.println("세션 담긴" + u_id);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");

@@ -211,9 +211,11 @@ h2 {
 			<form
 				action="${pageContext.request.contextPath }/AddWishlistController">
 				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<button type="submit" class="btn btn-outline-danger"
-					onclick="alert('찜완료')" style="margin-top: 50px;margin-left: 17px;">찜하기</button>
-
+				<c:if test="${not empty sessionScope.u_id }">
+					<button type="submit" class="btn btn-outline-danger"
+						onclick="alert('찜완료')" style="margin-top: 50px;margin-left: 17px;">찜하기</button>
+				</c:if>
+				
 			</form>
 			</c:if>
 			
@@ -270,10 +272,6 @@ h2 {
 		</div>
 
 		</c:if>
-<<<<<<< HEAD
-		
-		
-=======
 
 		<div class="card-review">
 			<div class="container"
@@ -326,7 +324,6 @@ h2 {
 				</div>
 			</div>
 		</div>
->>>>>>> branch 'master' of https://github.com/minseunghwang/KITRI_Mosaji
 		<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
 	</div>
 
