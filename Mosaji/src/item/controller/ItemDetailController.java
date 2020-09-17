@@ -51,6 +51,7 @@ public class ItemDetailController extends HttpServlet {
 		WishlistService wishlistservice = new WishlistServiceImpl();
 		HttpSession session = request.getSession(false);
 		String u_id = (String) session.getAttribute("u_id");
+		System.out.println("? : " + u_id);
 		
 		int i_no = Integer.parseInt(request.getParameter("i_no"));
 		

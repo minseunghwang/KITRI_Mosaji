@@ -281,7 +281,6 @@ h2 {
 				</h3>
 			</div>
 
-
 			<div class="container">
 				<div class="rww" role="document">
 					<form method="post"
@@ -456,7 +455,6 @@ h2 {
 
 
 	<c:if test="${not empty review }">
-
 		<c:forEach var="review" items="${review }">
 			<div class="alert alert-warning container" role="alert" style=" margin-top: 20px; background-color : white; border-color : #f0f0f2;  color:black;">
 				<h4 class="alert-heading">
@@ -511,11 +509,6 @@ h2 {
 							<span class="badge badge-pill badge-primary">선택 안함</span>
 						</c:otherwise>
 					</c:choose>
-					<!-- 				<span class="badge badge-pill badge-primary">건성</span>  -->
-					<!-- 				<span class="badge badge-pill badge-success">중성</span>  -->
-					<!-- 				<span class="badge badge-pill badge-info">지성</span>  -->
-					<!-- 				<span class="badge badge-pill badge-warning">복합성</span>  -->
-					<!-- 				<span class="badge badge-pill badge-danger">민감성</span> -->
 					/ ${review.u_age }세 ${review.u_gender }
 				</p>
 				
@@ -555,14 +548,7 @@ h2 {
 			</div>
 		</c:forEach>
 		<div class="alert alert-light container" role="alert" style="margin:50px;">
-				<%-- 			<c:if test="${review.u_id == sessionScope.u_id }"> --%>
-				<%-- 				<form action="${pageContext.request.contextPath }/DeleteReviewController" method="post"> --%>
-				<%-- 					<input type="hidden" name="r_no" id="r_no" value="${review.r_no }"> --%>
-				<%-- 					<input type="hidden" name="i_no" id="i_no" value="${review.i_no }"> --%>
-				<!-- 					<input type="submit" class="btn btn-primary" value="내 리뷰삭제"> -->
-				<!-- 				</form> -->
-				<%-- 			</c:if> --%>
-			</div>
+		</div>
 	</c:if>
 	
 	
