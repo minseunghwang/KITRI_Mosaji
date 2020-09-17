@@ -158,174 +158,172 @@ h2 {
 				/
 				<price style="color:black">${i.i_price}원</price>
 			</h6>
-			<istar style="float:right; color:gray;">   &nbsp;&nbsp;(${reviewcount.allCount}) </istar>
+			<istar style="float:right; color:gray;">
+			&nbsp;&nbsp;(${reviewcount.allCount}) </istar>
 			<div class="wrap-star">
 				<div class='star-rating'>
 					<span style="width: ${i.i_star * 100 div 100 * 20}%"></span>
-					
+
 				</div>
 			</div>
 			<istar>${i.i_star }</istar>
 
 			<c:if test="${i.i_content == null }">
 				<section class="card-content">
-					<i class="fas fa-vial" style="color:#e16d33; float:left"></i>
-					<div style="color:#6c757d!important; margin-left:20px;">등록된 성분이 없습니다.</div>
+					<i class="fas fa-vial" style="color: #e16d33; float: left"></i>
+					<div style="color: #6c757d !important; margin-left: 20px;">등록된
+						성분이 없습니다.</div>
 				</section>
 			</c:if>
 			<c:if test="${i.i_content != null }">
 				<section class="card-content">
-					<div style="color:#e16d33"> <i class="fas fa-vial"></i> 성분 - ${i.i_content } </div>
+					<div style="color: #e16d33">
+						<i class="fas fa-vial"></i> 성분 - ${i.i_content }
+					</div>
 				</section>
 			</c:if>
 
 			<table>
 				<tbody>
 					<tr>
-						<td class="title">카테고리
-						</td>
-						<td>${i.i_category1} - ${i.i_category2}</td>
+						<td class="title">카테고리</td>
+						<td>${i.i_category1}-${i.i_category2}</td>
 					</tr>
 					<tr>
-						<td class="title">제품 설명
-						</td>
-						<td>${i.i_brand}의  ${i.i_category2}</td>
+						<td class="title">제품 설명</td>
+						<td>${i.i_brand}의${i.i_category2}</td>
 					</tr>
 					<tr>
-						<td class="title">추천 연령/성별
-						</td>
-						<td>${i.i_age }대 / ${i.i_gender }성</td>
+						<td class="title">추천 연령/성별</td>
+						<td>${i.i_age }대/${i.i_gender }성</td>
 					</tr>
 					<tr>
-						<td class="title">추천 피부타입
-						</td>
+						<td class="title">추천 피부타입</td>
 						<td>${i.i_skintype }</td>
 					</tr>
 				</tbody>
 			</table>
-			
+
 			<c:if test="${sessionScope.u_id != 'admin' }">
-			<div class="row">
-			<c:if test="${wishlistduplication.duplicationCheck == 0 }">
-			<form
-				action="${pageContext.request.contextPath }/AddWishlistController">
-				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<c:if test="${not empty sessionScope.u_id }">
-					<button type="submit" class="btn btn-outline-danger"
-						onclick="alert('찜완료')" style="margin-top: 50px;margin-left: 17px;">찜하기</button>
-				</c:if>
-				
-			</form>
-			</c:if>
-			
-			<c:if test="${wishlistduplication.duplicationCheck != 0 }">
-				
-				<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
-				<button type="button" class="btn btn-danger" onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;" value="${i.i_no }">찜완료</button>
-			</c:if>
-			
-			
-			
-			<button type="button" class="btn btn-outline-info searchbtn"
-				style="margin-top: 50px; margin-left: 10px" 
-				onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')">쇼핑하기</button>
-				
-			<button type="button" class="btn btn-outline-success"
-			onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_name}')"
-			style="margin-top: 50px; margin-left: 10px;">네이버 검색하기</button>
+				<div class="row">
+					<c:if test="${wishlistduplication.duplicationCheck == 0 }">
+						<form
+							action="${pageContext.request.contextPath }/AddWishlistController">
+							<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
+							<c:if test="${not empty sessionScope.u_id }">
+								<button type="submit" class="btn btn-outline-danger"
+									onclick="alert('찜완료')"
+									style="margin-top: 50px; margin-left: 17px;">찜하기</button>
+							</c:if>
+
+						</form>
+					</c:if>
+
+					<c:if test="${wishlistduplication.duplicationCheck != 0 }">
+
+						<input type="hidden" name="i_no" id="i_no" value="${i.i_no }">
+						<button type="button" class="btn btn-danger"
+							onclick="alert('찜 두번 안돼요')" style="margin-top: 50px;"
+							value="${i.i_no }">찜완료</button>
+					</c:if>
+
+
+
+					<button type="button" class="btn btn-outline-info searchbtn"
+						style="margin-top: 50px; margin-left: 10px"
+						onclick="window.open('https://search.shopping.naver.com/search/all?query=${i.i_name}&cat_id=&frm=NVSHATC')">쇼핑하기</button>
+
+					<button type="button" class="btn btn-outline-success"
+						onclick="window.open('https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=${i.i_name}')"
+						style="margin-top: 50px; margin-left: 10px;">네이버 검색하기</button>
 				</div>
-				</c:if>
-			<%-- 			<form action="${pageContext.request.contextPath }/OrderController"> --%>
-			<%-- 				<input type="hidden" value="${i.i_no }"> --%>
-			<!-- 				<input type="text" name="o_qty" value="1">  -->
-			<!-- 				<input type="button" value="+" onClick="javascript:this.form.o_qty.value++;"> -->
-			<!-- 				<input type="button" value="-" onClick="javascript:this.form.o_qty.value--;"> -->
-			<%-- 				<input type="hidden" value="${sessionScope.u_id }"> --%>
-			<!-- 				<input type="submit" value="주문"> -->
-			<!-- 			</form> -->
-		
+			</c:if>
 		</div>
-		
-					
+
+
 
 		<c:if test="${sessionScope.u_id == 'admin' }">
 
 			<div class="row">
 
-					<form
-						action="${pageContext.request.contextPath }/ItemUpdateGetController">
-						<input type="hidden" name="i_no" value="${i.i_no }"> <input
-							class="btn btn-primary" type="submit" value="상품 수정" 
-							style="background: #6B66FF; border:1px solid #6B66FF; margin-left: 80px; margin-right:10px;"  >
-					</form>
-					
-					<form
-						action="${pageContext.request.contextPath }/ItemDeleteController">
-						<input type="hidden" name="i_no" value="${i.i_no }" > <input
-							class="btn btn-secondary"  type="submit" value="상품 삭제" s
-							onclick="alert('삭제 완료')">
-					</form>
+				<form
+					action="${pageContext.request.contextPath }/ItemUpdateGetController">
+					<input type="hidden" name="i_no" value="${i.i_no }"> <input
+						class="btn btn-primary" type="submit" value="상품 수정"
+						style="background: #6B66FF; border: 1px solid #6B66FF; margin-left: 80px; margin-right: 10px;">
+				</form>
+
+				<form
+					action="${pageContext.request.contextPath }/ItemDeleteController">
+					<input type="hidden" name="i_no" value="${i.i_no }"> <input
+						class="btn btn-secondary" type="submit" value="상품 삭제" s
+						onclick="alert('삭제 완료')">
+				</form>
 
 
-		</div>
+			</div>
 
 		</c:if>
 
-		<div class="card-review">
-			<div class="container"
-				style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
-				<h3 class="card-header"
-					style="text-align: center; background-color: white; margin-top:5%;">
-					<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
-					리뷰 작성
-				</h3>
-			</div>
 
-			<div class="container">
-				<div class="rww" role="document">
-					<form method="post"
-						action="${pageContext.request.contextPath }/AddReviewController">
-						<div class="row">
-							<div class="col-md-12">
-								<textarea rows="5" cols="115%" name="r_content" id="r_content"
-									style="width: 100%; padding: 15px;"
-									placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
-								<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
-							</div>
+		<div>
+				<div class="container"
+					style="border-top: 2px solid #f0f0f2; margin-top: 50px;">
+					<h3 class="card-header"
+						style="text-align: center; background-color: white; margin-top: 5%;">
+						<!-- <a href="/Mosaji/ItemDetailController?i_no=${wishlist.i_no }" style="color: #625772;" >${wishlist.i_name }</a> -->
+						리뷰 작성
+					</h3>
+				</div>
 
-							<div class="col-md-8">
-								<div class="form-group">
-									<select class="custom-select" id="r_star" name="r_star">
-										<option selected="">--- 별점 선택하기 ---</option>
-										<option value="1">⭐</option>
-										<option value="2">⭐⭐</option>
-										<option value="3">⭐⭐⭐</option>
-										<option value="4">⭐⭐⭐⭐</option>
-										<option value="5">⭐⭐⭐⭐⭐</option>
-									</select>
+				<div class="container">
+					<div class="rww" role="document">
+						<form method="post"
+							action="${pageContext.request.contextPath }/AddReviewController">
+							<div class="row">
+								<div class="col-md-12">
+									<textarea rows="5" cols="115%" name="r_content" id="r_content"
+										style="width: 100%; padding: 15px;"
+										placeholder="여러분의 솔직한 리뷰를 남겨주세요."></textarea>
+									<input type="hidden" value="${i.i_no }" name="i_no" id="i_no" />
+								</div>
+
+								<div class="col-md-8">
+									<div class="form-group">
+										<select class="custom-select" id="r_star" name="r_star">
+											<option selected="">--- 별점 선택하기 ---</option>
+											<option value="1">⭐</option>
+											<option value="2">⭐⭐</option>
+											<option value="3">⭐⭐⭐</option>
+											<option value="4">⭐⭐⭐⭐</option>
+											<option value="5">⭐⭐⭐⭐⭐</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-md-4">
+									<c:if test="${not empty sessionScope.u_id }">
+										<input type="submit" class="btn btn-secondary" value="등    록"
+											style="width: 100%; float: right; background: #6B66FF; border: 1px solid #6B66FF;"
+											onclick="alert('리뷰 등록완료')" />
+									</c:if>
+									<c:if test="${empty sessionScope.u_id }">
+										<input type="button" class="btn btn-secondary"
+											value="로그인 후 작성해 주세요" style="width: 100%; float: right;"
+											onclick="location.href='/Mosaji/view/user/login.jsp'" />
+									</c:if>
 								</div>
 							</div>
-
-							<div class="col-md-4">
-								<c:if test="${not empty sessionScope.u_id }">
-								<input type="submit" class="btn btn-secondary" value="등    록"
-									style="width: 100%; float: right; background: #6B66FF; border:1px solid #6B66FF;"
-									onclick="alert('리뷰 등록완료')" />
-								</c:if>
-								<c:if test="${empty sessionScope.u_id }">
-									<input type="button" class="btn btn-secondary" value="로그인 후 작성해 주세요"
-									style="width: 100%; float: right;" onclick="location.href='/Mosaji/view/user/login.jsp'"/>
-								</c:if>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
 
 
-		<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
+
 	</div>
+	<!-- 		<div class="card-footer text-muted vw">이건 뭘로하지</div> -->
+	
 
 	<!-- 	<div class="container"> -->
 	<!-- 		<ul class="nav nav-pills"> -->
@@ -390,11 +388,12 @@ h2 {
 
 				<hr>
 	
-				
+				<div>
 				<p style="font-size:30px; text-align:center; margin-top:2.5%;">피부타입별 평점</p>
-				<div  class="container" style="margin-top: 10px; margin-left:30%; ">
+			
+				<div  class="container" style="margin-top: 10px; "> 
 	 			
-				<div class="col-md-9" style="border: 2px solid #f0f0f2; padding: 20px;">
+				<div style="border: 2px solid #f0f0f2; padding: 20px;">
 					<a>건성(${reviewcount.dryCount })</a>
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped" role="progressbar"
@@ -429,15 +428,19 @@ h2 {
 					</div>
 				</div>
 				</div>
+				</div>
+				
 				
 						
 				
 				
 				
 				<hr>
-				<div  class="container" style="margin-top: 50px; ">
+				<div class=container>
 					<div>
-						<p style="font-size:30px; margin-top:2%; margin-left:45%; float:left;">리뷰 보기</p>
+					
+					<p style="font-size:30px; margin-top:2%; text-align:center;" >리뷰보기</p>
+<!-- 				<p style="font-size:30px; margin-top:2%; margin-left:45%; float:left;">리뷰 보기</p>
 
 							<select class="custom-select" style="width:10%;  margin-left:84%; float:left;">
 								<option value="1">최신 순</option>
@@ -446,7 +449,7 @@ h2 {
 						
 						<button type="button" class="btn btn-outline-light sel"
 						style="background: #6B66FF; border:1px solid #6B66FF; float:right; onclick="">정렬</button>
-						
+ -->						
 					</div>
 			
 					</div>
